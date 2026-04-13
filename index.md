@@ -25,10 +25,7 @@ layout: default
     <h2>Vertica는 무엇인가?</h2>
     <p>Vertica는 대규모 데이터 분석에 최적화된 SQL 데이터 웨어하우스 플랫폼입니다. 빠른 쿼리 처리, 고급 분석 기능, 클라우드 및 온프레미스 확장성을 모두 제공하여 기업용 데이터 분석 환경을 단순화합니다.</p>
   </div>
-</section>
-
-<section class="architecture-section" style="padding: 28px 20px; margin-top: 24px;">
-  <h2 style="margin-bottom: 18px;">Vertica 아키텍처 - Enterprise | Eon Mode</h2>
+  
   <div class="architecture-grid" style="display: flex; gap: 20px; flex-wrap: wrap;">
     
     <article class="mode-card" style="flex: 1; min-width: 300px; border: 1px solid #eee; padding: 25px; border-radius: 12px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); display: flex; flex-direction: column;">
@@ -61,6 +58,11 @@ layout: default
   <h2>Vertica Playbook</h2>
   <div class="cards">
     <article class="card">
+      <h3>Vertica Playbook</h3>
+      <p>Vertica 핵심 페이지를 한 곳에서 확인합니다.</p>
+      <a href="{{ '/playbook' | relative_url }}">이동 →</a>
+    </article>
+    <article class="card">
       <h3>Vertica란 무엇인가</h3>
       <p>Vertica의 개념과 강점을 한 번에 확인할 수 있습니다.</p>
       <a href="{{ '/what-is-vertica' | relative_url }}">이동 →</a>
@@ -74,11 +76,6 @@ layout: default
       <h3>Vertica 포트폴리오</h3>
       <p>온프레미스, 클라우드, Eon 구조까지 Vertica 제품군을 소개합니다.</p>
       <a href="{{ '/portfolio' | relative_url }}">이동 →</a>
-    </article>
-    <article class="card">
-      <h3>Vertica Administration</h3>
-      <p>Vertica 운영자 중심의 객체 생성, 권한 관리, 리소스 설정 가이드를 확인하세요.</p>
-      <a href="{{ '/administration' | relative_url }}">이동 →</a>
     </article>
     <article class="card">
       <h3>아키텍처 장점</h3>
