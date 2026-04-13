@@ -5,6 +5,11 @@ layout: default
 
 # What is VERTICA?
 
+<figure class="page-hero">
+  <img class="page-banner" src="{{ '/assets/images/what-is-vertica.svg' | relative_url }}" alt="What is Vertica" />
+  <figcaption>Vertica는 SQL 기반 대용량 분석을 위한 데이터 웨어하우스 플랫폼입니다.</figcaption>
+</figure>
+
 Vertica는 대용량 데이터 분석을 위해 설계된 SQL 데이터 웨어하우스입니다. Vertica의 주요 특징은 다음과 같습니다.
 
 ## 핵심 요소

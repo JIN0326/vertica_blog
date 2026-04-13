@@ -12,6 +12,11 @@ layout: default
       <a class="button primary" href="{{ '/what-is-vertica' | relative_url }}">Vertica 소개</a>
       <a class="button secondary" href="{{ '/technology' | relative_url }}">핵심 기술 보기</a>
     </div>
+
+    <figure class="page-hero">
+      <img class="page-banner" src="{{ '/assets/images/hero-vertica.svg' | relative_url }}" alt="Vertica platform overview" />
+      <figcaption>Vertica 플랫폼의 핵심 특성과 구조를 비주얼로 표현한 이미지입니다.</figcaption>
+    </figure>
   </div>
 </section>
 

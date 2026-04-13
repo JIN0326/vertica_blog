@@ -5,6 +5,11 @@ layout: default
 
 # 운영과 개발 편의성
 
+<figure class="page-hero">
+  <img class="page-banner" src="{{ '/assets/images/operation.svg' | relative_url }}" alt="Vertica operations" />
+  <figcaption>Vertica 운영과 개발 편의성을 시각적으로 나타내는 이미지입니다.</figcaption>
+</figure>
+
 Vertica는 운영 안정성과 개발 편의성을 모두 고려한 플랫폼입니다.
 
 ## 운영 편의성

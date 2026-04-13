@@ -5,6 +5,11 @@ layout: default
 
 # Vertica 포트폴리오
 
+<figure class="page-hero">
+  <img class="page-banner" src="{{ '/assets/images/portfolio.svg' | relative_url }}" alt="Vertica portfolio" />
+  <figcaption>Vertica 제품군은 온프레미스와 클라우드를 아우르는 다양한 옵션을 제공합니다.</figcaption>
+</figure>
+
 Vertica 제품군은 다양한 환경과 요구에 맞춰 구성됩니다.
 
 ## Vertica Enterprise On-Premise
