@@ -129,6 +129,92 @@ img {
   gap: 14px;
 }
 
+.hero-banner {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  align-items: center;
+  gap: 44px;
+  padding: 56px;
+  margin-top: 12px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(234, 244, 255, 0.95) 100%);
+  border: 1px solid rgba(45, 105, 255, 0.14);
+  border-radius: 36px;
+  box-shadow: 0 30px 80px rgba(45, 105, 255, 0.08);
+}
+
+.hero-copy {
+  max-width: 640px;
+}
+
+.hero-copy h1 {
+  margin-bottom: 18px;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+
+.hero-copy p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.85;
+}
+
+.hero-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.hero-badges span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  background: rgba(45, 105, 255, 0.10);
+  color: var(--accent-dark);
+  border: 1px solid rgba(45, 105, 255, 0.16);
+}
+
+.hero-media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 360px;
+}
+
+.hero-media img {
+  width: 100%;
+  max-width: 540px;
+  border-radius: 28px;
+  box-shadow: 0 28px 80px rgba(45, 105, 255, 0.16);
+}
+
+.overview-section {
+  margin-top: 48px;
+  padding: 34px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(45, 105, 255, 0.12);
+  border-radius: 28px;
+  box-shadow: 0 18px 45px rgba(45, 105, 255, 0.08);
+}
+
+.overview-section .feature-list {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.mode-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 24px 70px rgba(45, 105, 255, 0.12);
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 22px 60px rgba(45, 105, 255, 0.09);
+}
+
 .button {
   display: inline-flex;
   align-items: center;
@@ -323,6 +409,19 @@ img {
 
   .hero {
     padding: 48px 20px 56px;
+  }
+
+  .hero-banner {
+    grid-template-columns: 1fr;
+    padding: 36px;
+  }
+
+  .hero-media {
+    min-height: auto;
+  }
+
+  .hero-media img {
+    max-width: 100%;
   }
 
   .site-nav {
