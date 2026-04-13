@@ -10,6 +10,15 @@ layout: default
   <figcaption>Vertica의 핵심 기술 요소가 어떻게 데이터 분석 성능을 높이는지 시각적으로 보여줍니다.</figcaption>
 </figure>
 
+<figure class="image-gallery">
+  <img src="{{ '/image/Vertica5tech_1.png' | relative_url }}" alt="Vertica 5 tech slide 1" />
+  <img src="{{ '/image/Vertica5tech_2.png' | relative_url }}" alt="Vertica 5 tech slide 2" />
+  <img src="{{ '/image/Vertica5tech_3.png' | relative_url }}" alt="Vertica 5 tech slide 3" />
+  <img src="{{ '/image/Vertica5tech_4.png' | relative_url }}" alt="Vertica 5 tech slide 4" />
+  <img src="{{ '/image/Vertica5tech_5.png' | relative_url }}" alt="Vertica 5 tech slide 5" />
+  <figcaption>Vertica의 5대 기술 요소를 시각적으로 확인할 수 있는 슬라이드 이미지들입니다.</figcaption>
+</figure>
+
 Vertica는 다음 5가지 기술 요소를 중심으로 고성능 분석을 지원합니다.
 
 ## 1. Native Columnar Storage

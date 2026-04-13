@@ -469,6 +469,29 @@ img {
   line-height: 1.75;
 }
 
+.image-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin: 40px auto 32px;
+}
+
+.image-gallery img {
+  width: 100%;
+  display: block;
+  border-radius: 22px;
+  border: 1px solid rgba(45, 105, 255, 0.12);
+  box-shadow: 0 18px 45px rgba(45, 105, 255, 0.08);
+}
+
+.image-gallery figcaption {
+  grid-column: 1 / -1;
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 0.98rem;
+  text-align: center;
+}
+
 .slide-banner {
   margin: 40px auto 56px;
   padding: 34px;
