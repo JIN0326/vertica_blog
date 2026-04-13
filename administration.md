@@ -156,12 +156,12 @@ layout: default
 
 <section class="button-grid-section">
   <div class="button-grid">
-    <a class="button secondary" href="#table-projection">Table · Projection</a>
-    <a class="button secondary" href="#schema">Schema</a>
-    <a class="button secondary" href="#user">User</a>
-    <a class="button secondary" href="#profile">Profile</a>
-    <a class="button secondary" href="#resource-pool">Resource Pool</a>
-    <a class="button secondary" href="#privilege">Privilege</a>
+    <a class="button secondary" href="{{ '/administration-table-projection' | relative_url }}">Table · Projection</a>
+    <a class="button secondary" href="{{ '/administration-schema' | relative_url }}">Schema</a>
+    <a class="button secondary" href="{{ '/administration-user' | relative_url }}">User</a>
+    <a class="button secondary" href="{{ '/administration-profile' | relative_url }}">Profile</a>
+    <a class="button secondary" href="{{ '/administration-resource-pool' | relative_url }}">Resource Pool</a>
+    <a class="button secondary" href="{{ '/administration-privilege' | relative_url }}">Privilege</a>
   </div>
 </section>
 

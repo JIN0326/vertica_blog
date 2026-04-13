@@ -99,6 +99,7 @@ layout: default
   }
   .content-section h2 {
     margin-top: 0;
+    color: var(--accent-2);
   }
 
   .page-sidebar {
