@@ -32,9 +32,9 @@ layout: default
   <div class="architecture-grid" style="display: flex; gap: 20px; flex-wrap: wrap;">
     
     <article class="mode-card" style="flex: 1; min-width: 300px; border: 1px solid #eee; padding: 25px; border-radius: 12px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); display: flex; flex-direction: column;">
-      <div style="width: 100%; height: 200px; display: flex; align-items: center; justify-content: center; margin-bottom: 15px; overflow: hidden;">
+      <div style="width: 100%; height: 280px; display: flex; align-items: center; justify-content: center; margin-bottom: 15px; overflow: hidden;">
         <img src="{{ '/image/EnteroriseMode.png' | relative_url }}" alt="Vertica Enterprise Mode" 
-             style="max-width: 100%; max-height: 100%; object-fit: contain;" />
+             style="width: 100%; height: 100%; object-fit: contain;" />
       </div>
       <div>
         <h3>Enterprise Mode</h3>
@@ -43,9 +43,9 @@ layout: default
     </article>
 
     <article class="mode-card" style="flex: 1; min-width: 300px; border: 1px solid #eee; padding: 25px; border-radius: 12px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); display: flex; flex-direction: column;">
-      <div style="width: 100%; height: 200px; display: flex; align-items: center; justify-content: center; margin-bottom: 15px; overflow: hidden;">
+      <div style="width: 100%; height: 280px; display: flex; align-items: center; justify-content: center; margin-bottom: 15px; overflow: hidden;">
         <img src="{{ '/image/EonMode.png' | relative_url }}" alt="Vertica Eon Mode" 
-             style="max-width: 100%; max-height: 100%; object-fit: contain;" />
+             style="width: 100%; height: 100%; object-fit: contain;" />
       </div>
       <div>
         <h3>Eon Mode</h3>
@@ -88,12 +88,48 @@ layout: default
   </div>
 </section>
 
-<section style="margin-top: 32px; padding: 28px; background-color: #f0f4f8; border-radius: 10px;">
-  <h2 class="section-title">이 블로그에서 확인할 수 있는 내용</h2>
-  <ul class="feature-list" style="line-height: 1.8;">
-    <li>Vertica의 데이터 분석 플랫폼 개요</li>
-    <li>대용량 분석에 최적화된 아키텍처 설명</li>
-    <li>클라우드와 온프레미스 환경 지원 전략</li>
-    <li>데이터 무중단 운영, 백업/복구, 확장성 사례</li>
-  </ul>
+<section id="Administration" class="administration-section" style="margin-top: 28px;">
+  <h2>Vertica Administration</h2>
+  <div class="cards">
+    <article class="card">
+      <h3>Table · Projection</h3>
+      <p> xx </p>
+      <a href="{{ '/administration-table-projection' | relative_url }}">이동 →</a>
+    </article>
+    <article class="card">
+      <h3>Schema</h3>
+      <p> xx </p>
+      <a href="{{ '/administration-schema' | relative_url }}">이동 →</a>
+    </article>
+    <article class="card">
+      <h3>User</h3>
+      <p> xx </p>
+      <a href="{{ '/administration-user' | relative_url }}">이동 →</a>
+    </article>
+    <article class="card">
+      <h3>Profile</h3>
+      <p>xx </p>
+      <a href="{{ '/administration-profile' | relative_url }}">이동 →</a>
+    </article>
+    <article class="card">
+      <h3>Resource Pools</h3>
+      <p>xx </p>
+      <a href="{{ '/administration-resource-pool' | relative_url }}">이동 →</a>
+    </article>
+    <article class="card">
+      <h3>Privilege</h3>
+      <p>xx </p>
+      <a href="{{ '/administration-privilege' | relative_url }}">이동 →</a>
+    </article>
+  </div>
+</section>
+
+<section id="Fundamentals" class="fundamentals-section" style="margin-top: 28px;">
+  <h2>Vertica Fundamentals</h2>
+  <div class="cards">
+    <article class="card">
+      <h3>Vertica 학습하기</h3>
+      <p> xx </p>
+      <a href="{{ '/what-is-vertica' | relative_url }}">이동 →</a>
+    </article>
 </section>

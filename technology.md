@@ -5,11 +5,6 @@ layout: default
 
 # Vertica 핵심 기술
 
-<figure class="page-hero">
-  <img class="page-banner" src="{{ '/assets/images/technology.svg' | relative_url }}" alt="Vertica technology" />
-  <figcaption>Vertica의 핵심 기술 요소가 어떻게 데이터 분석 성능을 높이는지 시각적으로 보여줍니다.</figcaption>
-</figure>
-
 <figure class="image-gallery">
   <img src="{{ '/image/Vertica5tech_1.png' | relative_url }}" alt="Vertica 5 tech slide 1" />
   <img src="{{ '/image/Vertica5tech_2.png' | relative_url }}" alt="Vertica 5 tech slide 2" />
