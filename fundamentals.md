@@ -5,12 +5,20 @@ layout: default
 
 <div class="page-hero">
   <span class="chip">Vertica Study Program</span>
-  <h1>버티카 기초 교육</h1>
-  <p>Vertica, 대용량 데이터 분석을 위한 컬럼 기반 DB의 시작입니다. 핵심 개념부터 운영, 쿼리, 백업, 적재까지 기초를 빠르게 정리하세요.</p>
+    <h1>버티카 기초 교육</h1>
+    <p>
+      Vertica, 대용량 데이터 분석을 위한 컬럼 기반 DB의 시작.<br>
+      핵심 개념부터 차근차근 데이터 분석의 탄탄한 기본기를 완성해보세요.
+    </p>
   <div class="actions">
     <a class="button primary" href="{{ '/what-is-vertica' | relative_url }}">학습하기</a>
     <a class="button secondary" href="{{ '/technology' | relative_url }}">학습가이드</a>
+    <a class="button secondary" href="file:///C:/Users/SOO/MyProject/vertica_study/index.html">로컬 Study 프로젝트 열기</a>
   </div>
+</div>
+
+<div style="margin-top: 18px; padding: 18px 24px; border-radius: 20px; background: rgba(45, 105, 255, 0.08); color: #0f1f3d; border: 1px solid rgba(45, 105, 255, 0.16);">
+  <strong>연결된 프로젝트:</strong> `C:\Users\SOO\MyProject\vertica_study`의 학습 페이지를 로컬에서 직접 열 수 있습니다.
 </div>
 
 <p class="copyright">© 2026 Vertica Basic Study. All rights reserved.</p>

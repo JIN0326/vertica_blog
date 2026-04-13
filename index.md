@@ -76,6 +76,11 @@ layout: default
       <a href="{{ '/portfolio' | relative_url }}">이동 →</a>
     </article>
     <article class="card">
+      <h3>Vertica Administration</h3>
+      <p>Vertica 운영자 중심의 객체 생성, 권한 관리, 리소스 설정 가이드를 확인하세요.</p>
+      <a href="{{ '/administration' | relative_url }}">이동 →</a>
+    </article>
+    <article class="card">
       <h3>아키텍처 장점</h3>
       <p>Pure-MPP, Columnar Storage, 압축, 무중단 운영 등 핵심 장점을 정리했습니다.</p>
       <a href="{{ '/architecture' | relative_url }}">이동 →</a>
