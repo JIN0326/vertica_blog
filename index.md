@@ -7,7 +7,7 @@ layout: default
   <div class="hero-content">
     <span class="eyebrow">Vertica Blog</span>
     <h1>데이터 분석의 미래, Vertica로 시작하세요</h1>
-    <p>이 블로그는 `Vertica_소개자료_202509.pptx`를 기반으로 Vertica의 핵심 개념과 기술, 아키텍처, 운영 전략을 멋지게 정리한 기술 블로그입니다.</p>
+    <p>Vertica의 핵심 개념과 기술, 아키텍처, 운영 전략을 확인할 수 있습니다.</p>
     <div class="hero-actions">
       <a class="button primary" href="{{ '/what-is-vertica' | relative_url }}">Vertica 소개</a>
       <a class="button secondary" href="{{ '/technology' | relative_url }}">핵심 기술 보기</a>
