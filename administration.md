@@ -81,22 +81,19 @@ layout: default
     color: white;
   }
 
-  .content-card {
-    margin-top: 28px;
-    padding: 32px;
+  .content-section {
+    scroll-margin-top: 100px; /* Offset for sticky header */
+    margin-bottom: 2rem;
+    padding: 2rem;
     background: var(--card-bg);
     border-radius: 24px;
     border: 1px solid var(--border-color);
     box-shadow: var(--shadow);
   }
 
-  .content-card h2 {
+  .content-section h2 {
     margin-top: 0;
     color: var(--accent-2);
-  }
-
-  .content-article {
-    margin-top: 24px;
   }
 
   .page-layout {
