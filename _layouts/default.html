@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="{{ page.excerpt | default: site.description }}" />
+    <title>{{ page.title }} | {{ site.title }}</title>
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <div class="header-inner">
+          <a class="brand" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+          <nav class="site-nav">
+            <a href="{{ '/' | relative_url }}">Home</a>
+            <a href="{{ '/what-is-vertica' | relative_url }}">Intro</a>
+            <a href="{{ '/technology' | relative_url }}">Technology</a>
+            <a href="{{ '/portfolio' | relative_url }}">Portfolio</a>
+            <a href="{{ '/architecture' | relative_url }}">Architecture</a>
+          </nav>
+        </div>
+      </header>
+
+      <main class="site-content">
+        {{ content }}
+      </main>
+
+      <footer class="site-footer">
+        <div class="footer-inner">
+          <p>Vertica Blog · 발표 자료 기반 기술 블로그</p>
+          <p>GitHub Pages로 배포하면 이 페이지를 바로 공유할 수 있습니다.</p>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
