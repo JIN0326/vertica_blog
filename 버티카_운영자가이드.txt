@@ -1,1058 +1,0 @@
-
-
-
-
-
-Vertica Analaytics Platform
-운영 가이드
-
-
-
-
-
-
-
-
-
-
-
-대상버전24.x작성GTG 버티카 기술 지원팀
-
-
-Contents
-1.	Vertica 아키텍처	3
-1.1.	논리 구성도	3
-2.	Vertica Database 운영	4
-2.1.	Database 기동 및 중지	4
-2.2.	Node 기동 및 중지	4
-2.3.	Vertica License	5
-3.	Vertica Objects 생성 및 관리	6
-3.1.	USER	6
-3.2.	PROFILE	7
-3.3.	SCHEMA	9
-3.4.	RESOURCE POOL	11
-3.5.	TABLE	13
-3.6.	PROJECTION	17
-3.7.	PRIVILEGE	20
-4.	데이터베이스 관리	22
-4.1.	ANALYZE	22
-4.2.	SESSION 관리	22
-4.3.	PURGE	23
-4.4.	BACKUP	23
-4.5.	DBD	24
-5.	데이터베이스 모니터링	26
-5.1.	SYSTEM	26
-5.2.	REALTIME DB STATUS	27
-5.3.	DATABASE PERFORMANCE	29
-5.4.	DB GENERAL	30
-5.5.	DATA DISTRIBUTION	30
-6.	USER DATA BACKUP	33
-6.1.	일반적인 export	33
-6.2.	Export to S3	33
-6.3.	Export with Parquet format	34
-7.	장애 처리	35
-7.1.	NODE DOWN	35
-7.2.	Database Down	38
-7.3.	SYSTEM 장애시 로그 수집 절차	39
-1. Vertica 아키텍처
-1.1. 논리 구성도
-
-
-2. 
-Vertica Database 운영
-2.1. Database 기동 및 중지
-2.1.1. 데이터베이스 기동 
-Text GUI 기반의 admintools인터페이스를 사용할 수 있지만 관리자 작업의 편리성과 일관성을 위하여 command line 인터페이스를 사용한다.
-
-OS 계정Verticacommandadmintools -t start_db -d <DB이름> -i -p <DB암호> 
-2.1.2. 데이터베이스 상태 확인
-Admintools 명령어로 조회 시 전체 노드가 UP 상태가 아닌 경우 개별 노드별로 상태를 표시한다. 
-참고) 전체 데이터베이스 시작 단계에서 노드간 통신 상의 지연이 있는 노드의 경우 자동적으로 node recovery 단계를 거치고 시작되는데 이것은 정상적인 절차이므로 데이터베이스 기동에 문제는 없다.
-
-OS 계정verticacommandadminTools -t view_cluster -d <DB이름>SQL 조회select * from nodes ;
-
-2.1.3. 데이터베이스 중지 
-OS 계정verticacommandadmintools -t stop_db -d <DB이름> -i -F -p <DB암호> 
-혹은
-
-dbadmin 계정verticaSQL명령select shutdown(true);
-
-2.2. Node 기동 및 중지
-2.2.1. 노드 기동
-OS 계정verticacommandadmintools -t restart_node -d <DB명> -i -p <DB암호> -s <노드IP>
-2.2.2. 노드 중지
-OS 계정verticacommandadmintools -t stop_node -s <노드IP>
-
-2.3. Vertica License
-Vertica의 라이센스는 raw 데이터 기준의 산정법을 사용하며 node수의 제한은 없다.
-Vertica는 통계학적 샘플링 기법으로 데이터베이스의 Raw data를 계산한다. Raw data의 크기는 데이터베이스에 저장된 데이터가 압축되지 않은 상태의 크기를 의미한다. 즉, 텍스트 형태로 익스포트된 데이터의 크기로 산정하게 된다. 
-Vertica가 raw data의 크기를 계산할 때 통계학적인 샘플링기법을 사용하게 되는 이유는 정확도보다는 데이터베이스 성능에 영향을 주지 않기 위함이다. 따라서 raw data 용량 계산에서의 오차 부분은 라이센스 측정에 감안되어 있다
-.  
-2.3.1. Vertica 라이센스 조회
-
-조회 함수SELECT GET_COMPLIACNE_STATUS();조회 시스템 테이블 SELECT * FROM licenses;
-2.3.2. Vertica 라이센스 초과 사용시 상황
-
-vsql과 같은 Query 툴에서 SQL사용시 warning 메세지가 출력되고 ODBC나 JDBC로 연결된 프로그램에서는 정상적인 쿼리의 수행 결과에 대해 SUCCESS대신 SUCCESS_WITH_INFO에 상태가 기록된다. 이 경우실제 raw data를 허용할 수 있는 용량의 라이센스로 업그레이드하거나 현재 라이센스 용량에 맞도록 데이터 삭제하여야 한다. 임시 테이블의 경우 라이센스 산정 용량에 포함되지 않으므로 배치 스크립트의 작업용 테이블을 임시 테이블로 전환할 수 있다면 라이센스 사용량이 줄어 들 수 있게 된다.
-
-
-3. 
-Vertica Objects 생성 및 관리
-3.1. USER
-3.1.1. 관리자 계정 
-데이터베이스의 Administrator user는 vertica로 데이터베이스 설치 및 생성 과정에서 OS 계정과 함께 자동으로 생성된다. 
-
-3.1.2. 일반 User  생성
-Database 사용자를 생성한다.
-구문CREATE USER user-name [ account-parameter value[,...] ]account-parameterACCOUNT
-GRACEPERIOD
-IDENTIFIED BY '[password]'
-IDLESESSIONTIMEOUT
-MAXCONNECTIONS
-MEMORYCAP
-PASSWORD EXPIRE
-PROFILE
-RESOURCE POOL
-RUNTIMECAP
-SEARCH_PATH
-TEMPSPACECAP
-3.1.3. User  정보 수정
-생성된 사용자의 암호, 리소스풀 등의 정보를 수정한다.
-구문ALTER USER user-name {
-   account-parameter setting[,...]
-   | SET [PARAMETER] cfg-parameter=value[,...]
-   | CLEAR [PARAMETER] cfg-parameter[,...]
-}account-parameterACCOUNT
-GRACEPERIOD
-IDENTIFIED BY '[password]'
-IDLESESSIONTIMEOUT
-MAXCONNECTIONS
-MEMORYCAP
-PASSWORD EXPIRE
-PROFILE
-RESOURCE POOL
-RUNTIMECAP
-SEARCH_PATH
-TEMPSPACECAP시스템의 보안 점검상 암호를 10회 이상 틀리게 되면 사용자 LOCK이 발생한다.
-이 경우 데이터베이스 관리자 (vertica) 가 ACCOUNT UNLOCK 작업을 수행해야 한다.
-
-3.1.4. User  삭제
-
-구문DROP USER [ IF EXISTS ] user-name[,...] [ CASCADE ]ParametersIF EXISTS
-해당 사용자가 존재할 경우 DROP 수행
-
-CASCADE
-해당 사용자가 생성한 모든 객체를 함께 DROP 수행
-3.1.5. 데이터베이스 User 정보 조회
-
-조회SQLSELECT * FROM USERS ;
-3.2. PROFILE
-사용자 별로 보안 관리에 따라 프로파일을 생성하고 설정한다. 
-기본 프로파일이 제공되며 default 값으로 설정되어 있다.
-3.2.1. Profile 생성 
-
-구문CREATE PROFILE profile-name LIMIT [ password-parameter setting ]...password-parameterPASSWORD_LIFE_TIME
-PASSWORD_GRACE_TIME
-FAILED_LOGIN_ATTEMPTS
-PASSWORD_LOCK_TIME
-PASSWORD_REUSE_MAX
-PASSWORD_REUSE_TIME
-PASSWORD_MAX_LENGTH
-PASSWORD_MIN_LENGTH
-PASSWORD_MIN_LETTERS
-PASSWORD_MIN_UPPERCASE_LETTERS
-PASSWORD_MIN_LOWERCASE_LETTERS
-PASSWORD_MIN_DIGITS
-PASSWORD_MIN_SYMBOLS
-3.2.2. Profile 수정 
-
-구문ALTER PROFILE name LIMIT [ password-parameter setting ]...password-parameterPASSWORD_LIFE_TIME
-PASSWORD_GRACE_TIME
-FAILED_LOGIN_ATTEMPTS
-PASSWORD_LOCK_TIME
-PASSWORD_REUSE_MAX
-PASSWORD_REUSE_TIME
-PASSWORD_MAX_LENGTH
-PASSWORD_MIN_LENGTH
-PASSWORD_MIN_LETTERS
-PASSWORD_MIN_UPPERCASE_LETTERS
-PASSWORD_MIN_LOWERCASE_LETTERS
-PASSWORD_MIN_DIGITS
-PASSWORD_MIN_SYMBOLS
-3.2.3. Profile 삭제
-
-구문DROP PROFILE [ IF EXISTS ] profile-name[,...] [ CASCADE ]ParametersIF EXISTS
-해당 profile이 존재할 경우 DROP 수행
-
-CASCADE
-해당 profile을 사용중인 모든 유저들의 profile 삭제
-3.2.4. Profile 확인
-
-구문SELECT * FROM PROFILES ;
-3.3. 
-SCHEMA
-버티카의 스키마는 객체들의 논리적인 그룹이며 별도의 물리적인 특징을 가지지 않는다.
-버티카에서 구현가능한 멀티태넌시 전략의 일부가 될 수 있다.
-3.3.1. 기본 SCHEMA 
-데이터베이스를 생성하면 다음과 같은 기본 스키마가 자동으로 생성된다.
-
-v_internalDatabase internal Table Schemav_catalogObject 정보 Table Schemav_monitorDatabase Monitoring Table Schemapublic일반 사용자를 위한 기본 Schema
-3.3.2. SCHEMA 생성 
-스키마는 dbadmin 계정으로만 생성 가능하다.
-
-구문CREATE SCHEMA [ IF NOT EXISTS ] [database.]schema 
-   [ AUTHORIZATION username] 
-   [ DEFAULT { INCLUDE | EXCLUDE } [ SCHEMA ] PRIVILEGES ]ParametersIF NOT EXISTS해당 스키마가 없을 경우 생성하며 동일명이 존재할 경우 오류없이 NOTICE 메시지가 노출된다.AUTHORIZATION username해당 유저에게 스키마 소유권을 부여한다.DEFAULT {INCLUDE | EXCLUDE} [SCHEMA] PRIVILEGESEXCLUDE SCHEMA PRIVILEGES (default): 스키마 권한을 상속하지 않는다.
-
-INCLUDE SCHEMA PRIVILEGES: 스키마 권한을 자동으로 상속하며, 이미 생성된 테이블은 영향을 받지 않으며 해당 스키마에 신규 생성되는 테이블은 자동으로 권한이 유저에게 상속된다.
-* GRANT 참고
-3.3.3. SCHEMA 수정 
-
-구문-- 스키마 권한 상속 설정
-ALTER SCHEMA [database.]schema DEFAULT {INCLUDE | EXCLUDE} SCHEMA PRIVILEGES
-
-- 스키마 소유자 변경
-ALTER SCHEMA [database.]schema OWNER TO user-name [CASCADE]
-
-- 스키마 이름 변경
-ALTER SCHEMA [database.]schema[,...] RENAME TO new-schema-name[,...]ParametersCREATE SCHEMA 참고
-3.3.4. SCHEMA 삭제 
-구문DROP SCHEMA [ IF EXISTS ] [database.]schema[,...] [ CASCADE | RESTRICT ]
-ParametersCASCADE해당 스키마에 포함된 객체까지 모두 삭제IF EXISTS	해당 스키마가 있을 경우 생성하며 존재하지 않을 경우 오류없이 NOTICE 메시지가 노출된다.RESTRICT객체가 존재하지 않는 스키마만 삭제(default)
-Public과 같은 기본 스키마는 삭제할 수 없다.
-
-
-3.3.5. SCHEMA 조회 
-
-SQL조회SELECT * FROM SCHEMATA ;
-3.4. 
-RESOURCE POOL
-3.4.1. 기본 RESOURCE POOL
-버티카 데이터베이스에서 사용하는 메모리 공간이다.
-추가적으로 생성 가능하며 resource pool 단위로 workload를 관리할 수 있다
-다음은 데이터베이스 생성 시 자동적으로 생성(Built-In Resource Pool)되는 resource pool에 대한 정보이다.
-
-Resource Poolmemory
-sizemax
-memorysizequeue
-timeoutPlanned
-concurrencyMax
-concurrencygeneralSpecial: 95%00:05:00AUTOsysquery5%00:05:00AUTOtm200M00:05:00AUTO7refresh0%00:05:00AUTOrecovery0%00:05:00AUTO5dbd0%00:00:00AUTOjvm0%10%00:05:00AUTOblobdata0%10%AUTOmetadata0%.
-3.4.2. RESOURCE POOL  추가
-각각의 application에서 효율적으로 자원을 사용하고 관리하기 위해 resource pool을 추가한다
-구문CREATE RESOURCE POOL pool-name [ parameter-name setting ]...parametersCASCADE TOsecondary resouce pool 을 지정EXECUTIONPARALLELISM쿼리 수행 시 사용되는 스레드 수MAXCONCURRENCY동시에 실행되는 Appl의 개수MAXMEMORYSIZE사용 가능한 최대 메모리 크기MAXQUERYMEMORYSIZE쿼리별로 사용가능한 최대 메모리.
-쿼리가 이 설정값을 초과할 경우 해당 쿼리를 취소 시킨다.MEMORYSIZEResource Pool의 초기 메모리 크기PLANNEDCONCURRENCY하나의 appl이 사용할 수 있는 Resource Pool 내의 메모리 크기 (1/n)QUEUETIMEOUTQueue에 대기할 경우 대기하는 시간(s)RUNTIMECAP쿼리가 수행될 수 있는 최대 시간
-3.4.3. RESOURCE POOL  수정
-구문ALTER RESOURCE POOL pool-name  [ parameter-name setting ]...parameterscreate resource pool  참고
-3.4.4. RESOURCE POOL  삭제
-구문DROP RESOURCE POOL pool-name
-3.4.5. RESOURCE POOL  조회
-구문SELECT * FROM RESOURCE_POOLS ;
-3.4.6. RESOURCE POOL  적용 및 할당
-1) Resource pool 사용 권한 부여
-구문GRANT USAGE 
-   ON RESOURCE POOL resource-pool[,...]
-   TO grantee[,...] 
-   [ WITH GRANT OPTION ]
-데이터베이스 사용자가 생성된 Resource Pool을 사용할 수 있도록 권한을 부여한다
-
-2) Resource pool 할당
-구문ALTER USER user RESOUCE POOL resource-pool
-데이터베이스 사용자에게 사용할 Resource Pool을 할당한다. 
-하나의 resource pool은 여러 사용자가 공유할 수 있으나 한 사용자는 동시에 두 개 이상의 resource pool을 사용할 수는 없다(복수의 resource pool을 할당받을 수 있으나 동시에 사용가능한 resource pool은 하나). 
-3.4.7. RESOURCE POOL 기본 정책
-- 모든 작업이 동시에 빠르게 처리될 수는 없다.
-- 리소스는 우선순위에 따라 차등 할당한다.
-- 업무의 중요도가 클수록 보다 많은 리소스를 할당하고 반대의 경우 리소스 할당을 최소화한다.
-- 각 리소스풀의PLANNEDCONCURRECNY는MAXCONCURRENCY 보다 커야 한다.
-
-3.4.8. 배치작업 시간대 및 사용자 접속 시간대의 리소스 풀 차별화
-배치 작업이 수행되는 시점의 리소스 풀과 사용자 접속 시간대의 리소스 풀의 구성을 달리하여 시스템 사용을 극대화 한다. 
-- 배치 시점 : 사용자의 리소스 풀을 최소화하고 배치 작업의 리소스풀을 최대로 조정한다.
-- 사용자 접속 시점 : 사용자의 리소스풀을 최대로 조정하고 배치 작업의 리소스풀을 최소화한다.
-
-3.5. 
-TABLE
-RDBMS에서 컬럼과 로우로 이루어진 데이터를 저장하기 위해 정의하는 논리적인 개념의 object이다. 
-Vertica는 다른 DBMS와는 달리 TABLE이 물리적으로 데이터가 저장되는 구조가 아니지만 업무 모델링에서 사용되는 테이블 정의를 적용하는데에는 특별한 제약사항이 없다. 데이터가 저장되는 물리적인 구조는 projection이 생성될 때 만들어진다. 
-특히 Vertica의 특성상 테이블이 저장되는 테이블스페이스와 같은 구조가 불필요하므로 테이블 구조 정의가 매우 간편하다. 
-
-3.5.1. TABLE 생성 
-일반적인 SQL 문에서 사용하는 방식과 동일하다. 컬럼명과 컬럼타입을 직접 지정하거나 기존 테이블의 정의를 이용하여 테이블을 생성할 수 있다. 테이블의 스키마이름을 지정하지 않을 경우 접속한 사용자의search_path 정보로 생성된다. 추후 테이블 오브젝트 관리의 모호성을 제거하기 위하여 명시적으로 스키마 이름을 지정하는 것을 원칙으로 한다.
-
-1) Create with column definitions
-구 문CREATE TABLE [ IF NOT EXISTS ] [[database.]schema.]table
-   ( column-definition[,...] [, table-constraint ][,...] )
-   [ ORDER BY column[,...] ] 
-   [ segmentation-spec ] 
-   [ KSAFE [k-num] ]
-   [ partition-clause]
-   [ {INCLUDE | EXCLUDE} [SCHEMA] PRIVILEGES ]parametersIF NOT EXISTS해당 테이블이 없을 경우 생성하며 존재할 경우 오류없이 NOTICE 메시지가 노출된다.ORDER BY테이블 생성시 프로젝션 구문을 적용할 수 있으며, 프로젝션 구문이 적용되면 데이터가 없더라도 프로젝션이 생성된다.segmentation-spec테이블 생성시 프로젝션 구문을 적용할 수 있으며, 프로젝션 구문이 적용되면 데이터가 없더라도 프로젝션이 생성된다.partition-clausePARTITION BY partition-expression
-GROUP BY group-expression
-ActivePartitionCountExpr{INCLUDE | EXCLUDE} [SCHEMA] PRIVILEGES스키마의 권한 상속여부를 정의
-2) Create from another table
-구 문CREATE TABLE [ IF NOT EXISTS ] [[database.]schema.]table { AS-clause | LIKE-clause }
-
-AS-clause
-[ ( column-name-list ) ]
-[ {INCLUDE | EXCLUDE} [SCHEMA] PRIVILEGES ]  
-AS  query [ ENCODED BY column-ref-list ]
-
-LIKE-clause
-LIKE [[database.]schema.]existing-table 
-  [ {INCLUDING | EXCLUDING} PROJECTIONS ]
-  [ {INCLUDE | EXCLUDE} [SCHEMA] PRIVILEGES ]LIKE-clause{INCLUDING | EXCLUDING} PROJECTIONSINCLUDING 이 적용되면
-existing-table 의 constraint / projection 구조까지 동일하게 생성한다.(데이터는 복제되지 않음)AS-clause
-3.5.2. TABLE 수정 
-구 문ALTER TABLE [[database.]schema.]table {
-    ADD COLUMN [ IF NOT EXISTS ] column datatype
-       [ column-constraint ]
-       [ ENCODING encoding-type ]
-       [ PROJECTIONS (projections-list) | ALL PROJECTIONS ]
-    | ADD table-constraint
-    | ALTER COLUMN column { 
-        ENCODING encoding-type PROJECTIONS (projection-list)
-        | { SET | DROP } expression }
-    | ALTER CONSTRAINT constraint-name { ENABLED | DISABLED }
-    | DROP CONSTRAINT constraint-name [ CASCADE | RESTRICT ]
-    | DROP [ COLUMN ] [ IF EXISTS ] column [ CASCADE | RESTRICT ]
-    | FORCE OUTER integer
-    | { INCLUDE | EXCLUDE | MATERIALIZE } [ SCHEMA ] PRIVILEGES
-    | OWNER TO owner 
-    | partition-clause [ REORGANIZE ]
-    | REMOVE PARTITIONING
-    | RENAME [ COLUMN ] name TO new-name
-    | REORGANIZE
-    | SET ActivePartitionCount expression
-    | SET SCHEMA schemaparametersALTER COLUMNENCODING encoding-type PROJECTIONS
-프로젝션의 enocoding 을 변경
-(10.0 버전이상)
-
-{ SET | DROP } expression
-데이터 타입 등을 생성/삭제
-
-SET { DEFAULT expression
-    | USING expression
-    | DEFAULT USING expression
-    | NOT NULL
-    | DATA TYPE datatype
-}
-DROP { DEFAULT
-     | SET USING
-     | DEFAULT USING
-     | NOT NULL
-}SET SCHEMA테이블의 스키마를 변경OWNER TO테이블의 소유자를 변경RENAME [ COLUMN ] name TO new-name
-컬럼명 변경REMOVE PARTITIONING테이블에 생성된 파티션을 제거REORGANIZE파티션 구문이 적용된 경우 즉시 파티셔닝을 수행한다.
-(PARTITION_TABLE함수와 동일)
-컬럼 변경의 경우 데이터가 저장되는 프로젝션이 생성된 후에는 제약이 따를 수 있다. 가령 프로젝션의 세그먼트키로 정의된 컬럼은 ALTER가 되지 않으므로 이럴 경우 테이블을 재생성해야 한다. 
-
-3.5.3. TABLE 삭제 
-구 문DROP TABLE [ IF EXISTS ] [ [database.]schema.]table[,...] [ CASCADE ]parametersIF EXISTS해당 테이블이 존재할 경우 삭제하며 존재하지 경우 오류없이 NOTICE 메시지가 노출된다.CASCADE대상 테이블에 자동으로 생성된 프로젝션외 추가로 프로젝션이 생성된 경우 CASCADE 옵션으로만 테이블 삭제할 수 있음
-3.5.4. TABLE 조회 
-
-구 문SELECT * FROM TABLES;VSQL 옵션\dt 또는 \d 테이블명
-TABLES 를 조회하면 해당 테이블의 소유자(OWNER), 생성시간, 파티션 여부 등을 확인 할 수 있으므로 테이블 오브젝트 관리를 위한 정보를 추출할 때 유용하게 사용할 수 있다.
-
-3.5.5. PARTITION TABLE 사용 
-DW 데이터의 경우 데이터들이 시계열을 기준으로 생성되며 시계열 기준으로 조회되고 삭제되는 경우가 많다. 
-이런 성격의 테이블에 대해 조회 및 삭제 성능을 향상 시키기 위해  테이블을 파티셔닝을 강력히 권장함.
-버티카의 파티션은 value 기준의 파티션으로 명시적인 partition key 를 생성할 필요가 없어 관리 포인트가 현저히 줄어듬.
-1) 파티션 생성
-파티션 생성을 위한 별도의 구문이 아닌 CREATE TABLE / ALTER TABLE 구문의 하위 구문을 통해 파티션을 관리한다.
-구 문CREATE or ALTER TABLE ...
-
-PARTITION BY partition-expression [ GROUP BY group-expression ] [ ActivePartitionCountExpr ]parametersGROUP BYPARTITION BY에 기술된 표현식을 grouping 하도록 추가적인 expression을 적용한다.(e.g. case )
-
-CALENDAR_HIERARCHY_DAY 함수와 같이 기술되면 시계열 데이터들을 효율적으로 관리할 수 있는 계층화된 파티션 구문을 사용할 수 있다.PARTITION BY order_date::DATE
-      GROUP BY CALENDAR_HIERARCHY_DAY(order_date::DATE, 2, 2) REORGANIZE;
-파티션은 최대 1024개까지 지원하지만 대략 700-800개 이내의 파티션을 유지하도록 설계한다. 다시 말해 월 파티션의 경우에는 제약사항이 없다고 할 수 있지만 일 파티션의 경우 약 2년간의 파티션만 생성가능하다. 
-이러한 제약을 회피하고 효율적인 Partition Prunning 을 지원하기 위해 v9.0 부터 계층화된 파티션 구문을 지원한다.
-
-2) 파티션 키 제거
-파티션을 정의할 때부터 특별한 파티션 identifier가 없기 때문에 해당 파티션을 삭제할 때는 drop_partitions 함수의 인자로 삭제를 원하는 파티션값을 지정하면 해당 파티션 영역이 삭제된다.
-구 문DROP_PARTITIONS (
-    '[[database.]schema.]table-name',
-    'min-range-value',
-    'max-range-value' 
-)
-
-3) 파티션 정의 제거
-별도의 파티션 관리 구문이 아닌 ALTER TABLE 구문의 하위 파라미터를 사용하여 제거한다.
-구 문ALTER TABLE ...
-REMOVE PARTITIONING
-4) 파티션 확인
-파티션 정보 확인은 TABLES, PARTITIONS 테이블을 조회한다
-구 문-- partition 정의 확인
-SELECT PARTITION_EXPRESSION, PARTITION_GROUP_EXPRESSION, ACTIVE_PARTITION_COUNT FROM TABLES;
-
--- partition key(value) 확인
-SELECT * FROM PARTITONS ;
-
-
-3.6. PROJECTION
-3.6.1. PROJECTION 생성
-프로젝션은 데이터가 저장되는 물리적인 구조이다. 프로젝션이 생성되는 시점은 다음과 같은데 가능하다면 신규로 생성된 테이블의 경우 Database Designer를 활용하여 튜닝할 것을 권장한다.
-
-* 테이블 구조 선언 중 프로젝션과 관련된 구문이 포함된 경우 
-구문CREATE TABLE 기본 구문 [options]Option  ORDER BY 구문정렬하여 저장할 컬럼명 나열ENCODED BY 구문인코딩 룰 정의SEGMENTED BY 구문세그먼트 정의
-* CREATE PROJECTION 구문을 명시적으로 사용한 경우
-구문CREATE PROJECTION [ IF NOT EXISTS ] [schema_name].[projection_name]정의  프로젝션 컬럼 정의컬럼명과 인코딩 룰 정의AS QUERY 구문테이블 조회 구문 ORDER BY 구문정렬하여 저장할 컬럼명 나열SEGMENTED BY 구문세그먼트 정의
-* 테이블 생성 후 데이터가 저장되는 순간
-
-3.6.2. PROJECTION 종류
-
-* SUPER PROJECTION
-모든 테이블이 기본적으로 최소 하나는 가지고 있어야 하는 프로젝션으로 테이블의 모든 컬럼을 다 포함하고 있어야 한다
-* BUDDY PROJECTION
-Vertica에서 제공하는 HA(KSAFE) 구성상에 필요한 프로젝션으로 인접 노드(OFFSET에 따라)에 이중화된 프로젝션을 일컫는다.
-* Query specific PROJECTION 
-일반적인 프로젝션이며 수퍼 프로젝션 외에 추가 가능하다
-* Live Aggregation Projection(LAP)
-집계함수를 포함한 프로젝션으로 데이터가 저장되는 순간 집계가 완료되어, 매우 빠른 조회 효율성을 보장한다. 주로 실시간 dash-board 등에 활용가능하다.
-
-3.6.3. PROJECTION 고려사항
-* ENCODING
-테이블에 정의된 컬럼에 대한 압축 방식으로 RLE (Run Length Encoding), DELTAVAL, BLOCK_DICT, BLOCKDICT_COMMP, DELTARANGE_COMP, COMMONDELTA_COMP 등이 있다. 
-Projection생성시 압축 방식을 지정하지 않으면 Database가 자동으로 AUTO로 지정한다.
-
-날짜 컬럼 또는 동일한 값이 반복되어 저장되고 조건 조회에 자주 사용되는 컬럼을 위주로 RLE ENCODING 방식으로 정의하는 것이 성능과 저장공간 압축에 유리하다.
-
-* ORDER BY
-물리적으로 데이터를 저장할 때 ORDER BY 문장에 나열된 순서대로 미리 데이터들이 정렬되어 저장된다. ORDER BY에 정의할 컬럼 나열시 다음 사항을 고려한다.
-- 조회 문장의 ORDER  BY 및 GROUP BY 대상 컬럼
-- WHERE 문장의 JOIN PREDICATE 및 CONDITION 대상 컬럼
-나열되는 컬럼 순서는 Cardinality수가 적은 컬럼을 우선으로 나열한다 (데이터 종류가 적은 컬럼)
-ENCODING 방식에서 RLE로 정의된 컬럼들은 ORDER BY 에 나열하는 것이 성능 향상에 유리하다
-
-* SEGMENTED BY 
-다중 노드 환경에서는 테이블의 데이터를 모든 노드에 분산시키거나 모든 노드에 동일하게 복제해서 사용할 수 있다. Segmented 는 각각의 노드에 데이터를 골고루 분산시키는 것이며 Unsegmented 는 모든 노드에 동일하게 복제하는 것이다
-Segmented key는 테이블 생성시 정의할 수도 있고 Projection 생성시 정의할 수도 있다. 
-Segmented key는 일단 정의되면 변경할 수 없기 때문에 Segmented Key를 변경하기 위해서는 테이블을 다시 생성해야 한다.
-다중 노드 환경에서 테이블에 segmente key를 지정하지 않으면, 데이터 타입 길이가 적은 8개 컬럼 조합으로 segment key가 자동 정의된다. 
-테이블 성격이 코드성이거나 건수 작은 테이블은 여러 노드에 분산하지 않는 Unsegmented를 사용하는 것이 성능 향상에 유리하다.
-Segment key를 설정하기 위해서는 다음과 같은 사항을 고려한다.
-- 데이터의 분산을 가장 많이 시킬 수 있는 컬럼이 유리하다
-- Unique 값이 많을수록 좋다
-- SQL문장에서join에 많은 사용되는 컬럼이 유리하다
-- 정의되는 컬럼의 수는 적을수록 유리하다
-
-3.6.4. PROJECTION  수정
-
-구문ALTER PROJECTION [schema_name].[projection_name]사용 예ALTER PROJECTION REAL.WORD_SVC_CHG_HST_H_b1 
-   RENAME TO REAL.WORD_SVC_CHG_HST_H_b3 ;
-프로젝션의 경우 rename만 가능하다. 
-기존 프로젝션의 정의를 수정하려면 새 프로젝션을 생성한 후 기존 프로젝션을 삭제한다
-
-
-3.6.5. PROJECTION  삭제
-
-구문DROP PROJECTION [schema_name].[projection_name]사용 예DROP PROJECTION REAL.WORD_SVC_CHG_HST_H_b1, REAL.WORD_SVC_CHG_HST_H_b2 ;버디 프로젝션이 남아 있는 경우 프로젝션 drop이 수행되지 않는 경우가 있기 때문에 동일 테이블에 대한 버디 프로젝션은 동시에 drop한다.
-
-3.6.6. PROJECTION  확인
-
-구문SELECT * FROM PROJECTIONS ;VSQL 옵션\dj
-3.6.7. 추가된 PROJECTION의 데이터 동기화
-
-구문REFRESH('[schema].[table_name]')사용 예SELECT REFRESH('REAL.WORD_SVC_CHG_HST') ;
-프로젝션을 추가로 생성하게 되면 추가로 생성된 프로젝션 정의대로 데이터들이 새로 복사되고 기존 프로젝션의 데이터와 동기화 되어야 사용할 수 있게 된다.
-따라서 추가로 프로젝션을 생성할 경우 반드시 REFRESH를 실행해야 한다.
-
-
-
-3.7. PRIVILEGE
-데이터베이스를 사용하기 위해서는 적절한 권한이 부여되어야 한다.
-권한은 사용자별로 부여 되며 부여되는 대상은 SCHEMA, TABLE, RESOURCE POOL 등이 있다
-(기타 GRANT 정보는 버티카 매뉴얼 참고)
-
-3.7.1. 스키마 권한 상속(Schema Inheritance)
-객체를 생성할때마다 권한을 부여하지 않고, 스키마에 상속할 권한을 지정하면 해당 스키마에 생성되는 테이블/뷰들에 대한 권한은 해당 스키마의 권한이 부여된 사용자에게 자동으로 상속된다.
-구 문1) Enabling Schema Inheritance
-CREATE SCHEMA schema DEFAULT INCLUDE PRIVILEGES;
-or
-ALTER SCHEMA schema DEFAULT INCLUDE PRIVILEGES
-
-2) Setting Privilege Inheritance on Tables and Views
-GRANT privilege ON SCHEMA schema TO grantee
-
-3.7.2. SCHEMA
-구 문GRANT { privilege[,...] | ALL [ PRIVILEGES ] [ EXTEND ] }
-   ON SCHEMA [database.]schema[,...]
-   TO grantee[,...] 
-   [ WITH GRANT OPTION ]  parametersprivilege기본적인 부여 권한(스키마에 대한 권한)은 하기와 같으며,
-USAGE : 해당 스키마에 포함된 객체 조회 가능
-CREATE : 해당 스키마에 객체 생성 가능
-
-권한 상속 기능을 사용(DEFAULT INCLUDE PRIVILEGES 옵션으로 스키마 생성) 한다면 하기와 같은 권한(테이블에 대한 권한)을 부여할 수 있다.
-SELECT / UPDATE / DELETE / REFERENCES / TRUNCATE / ALTER / DROPALL [PRIVILEGES][EXTEND]ALL 은 USAGE / CREATE 권한을 부여하며 테이블에 대한 권한상속을 위해서는 privilege 에서 명시한 권한을 명시적으로 부여해야 한다.
-
-ALTER / DROP 권한을 상속시키기 위해서는EXTEND 를 추가로 적용한다.
-3.7.3. TABLE
-구 문GRANT { privilege[,...] | ALL [ PRIVILEGES ] [ EXTEND ] }
-   ON { 
-     [ TABLE ] [[database.]schema.]table[,...] 
-     | ALL TABLES IN SCHEMA [database.]schema[,...] }
-   TO grantee[,...] 
-   [ WITH GRANT OPTION ] parametersprivilegeSELECT / UPDATE / DELETE / REFERENCES / TRUNCATE / ALTER / DROPON ALL TABLES IN SCHEMA schemaschema 에 포함된 전체 테이블에 대해 권한을 부여할 수 있다
-3.7.4. RESOURCE POOL
-구 문GRANT USAGE 
-   ON RESOURCE POOL resource-pool[,...]
-   TO grantee[,...] 
-   [ WITH GRANT OPTION ]parameters4. 
-데이터베이스 관리
-4.1. ANALYZE
-4.1.1. 개요
-
-Vertica의 쿼리 플랜은 DW에 최적화된 access plan만을 가지고 있어 통계 정보 갱신의 영향은 다른 DBMS에 비해 상대적으로 적은 편이다. 또한 자동적으로 row count에 대한 정보를 수집하고 있어서 통계 정보 갱신 작업은 우선 순위가 낮게 설정해도 무방한 작업이라 할 수 있다. 하지만 몇가지 best practice를 기반으로 운영 전략을 세우도록 한다.
-
-4.1.2. 실행 구문
-
-전체 테이블 대상SELECT ANALYZE_STATISTICS ('')특정 테이블 지정SELECT ANALYZE_STATISTICS ('[schema.]table [.column-name ]' [, percent ])
-
-- percent default는 10%
-4.1.3. 통계정보 갱신이 필요한 시점
-* 초기 데이터 적재 후
-* 신규 프로젝션이 생성되고 refresh 완료된 후
-* 테이블의 데이터량이 50% 이상 변경되었을 경우
-* 최소, 최대값 분포가 50% 이상 변경되었을 경우
-* 신규 PK 값이 대량 입력되었을 경우
-* 컬럼 추가 및 변경이 발생되었을 경우 (해당 테이블의 컬럼에 대해서만 수행)
-
-4.2. SESSION 관리
-세션을 강제로 종료할 필요가 있을 경우 하기와 같은 명령을 수행한다.
-
-* 전체 세션 종료
-dbadmin 계정으로 수행되면 전체 세션을 종료하며, 일반 유저가 수행할 경우 해당 유저명으로 접속한 전체 세션을 종료한다.(단 해당 명령을 수행한 세션은 종료되지 않음)
-구 문SELECT CLOSE_ALL_SESSIONS()
-* 특정 사용자의 모든 세션 종료
-구 문SELECT CLOSE_USER_SESSIONS ( 'user-name' )parametersuser-name종료할 사용자명PrivilegesDbadmin only
-* 특정 세션 종료
-구 문SELECT CLOSE_SESSION ( 'sessionid' )parameterssessionid종료할 세션 아이디PrivilegesNone
-
-4.3. PURGE
-4.3.1. 개요
-버티카의 delete 동작은 즉시 데이터를 삭제하는 것이 아니라 삭제를 위한 표시를 하고 mergeout/purge란 프로세스를 통해 삭제하는 아키텍처이며 update 동작은 물리적으로 delete와 insert 동작으로 내부적으로 수행된다.
-이러한 삭제 데이터는 Tuple Mover 에 의해서 자동으로 정리되나, 명시적으로 delete vector를 제거할 경우 수행한다.
-PURGE 작업은 적지 않은 시스템 자원을 활용하므로, 운영환경에서는 관리된 workload 상황에서 수행되어야 한다.
-4.3.2. 사용 구문
-구 문-- 전체 PUREG
-SELECT PURGE()
-
--- 특정 테이블만 PURGE
-SELECT PURGE_TABLE('schema.table')
-
--- 특정 프로젝션만 PURGE
-SELECT PURGE_PROJECTION('schema.projection')
-RemarkSELECT MAKE_AHM_NOW() 구문을 사전 수행하면 ahm을 최신으로 이동시켜 대부분의 delete vector 를 제거할 수 있다.
-MAKE_AHM_NOW는 Vertica 트랜잭션 관리 기법에 사용되는 epoch을 가장 최근의 시점으로 갱신시키는 동작인데 PURGE를 하거나 신규 프로젝션을 생성하고 기존 프로젝션을 삭제하기 전 보통 수행한다.
-
-4.4. BACKUP
-4.4.1. 개요
-Vertica 데이터베이스 백업은 OS의 rsync를 활용하는 snapshot 방식의 로컬 백업을 수행한다. Vertica에서 제공하는vbr스크립트를 이용하여 백업 구성, 백업 및 복구를 수행한다. 각 노드의 /data/BACKUP 디렉토리가 데이터베이스 백업본이 저장되는 위치다. 첫번째 백업 이후에 다시 같은 위치에 백업을 수행하면 자동적으로 변경분만 백업 받는 incremental 백업이 되고, 기존 백업 디렉토리를 지우고 새로 백업을 수행하면 full 백업이 된다. 
-
-
-
-4.4.2. Backup 구성 정보
-설정 파일1번노드
-/home/vertica/DBA/BACKUP/btc_backup.ini백업 실행 파일1번노드
-/home/vertica/DBA/BACKUP/btc_backup.sh수행 주기 및 시간매일 05:00 에 수행
-4.5. DBD
-4.5.1. 개요
-DBD(Database Designer)는 버티카의 물리적 객체인 projection을 손쉽게 튜닝할 수 있도록 제공되는 자동화된 툴이다. 
-
-4.5.2. DBDLite 사용
-V9.3에 소개된 기능으로 경량화된 DBD 이며, 사용법이 단순하여 손쉽게 DBD 기능을 수행할 수 있는 장점이 있다.
-
---Enable DBD Lite
-select set_config_parameter('UseNewDBD',1);
-
-
---Execute Single API to ouput design for the queries ran in last
-select designer_single_run('interval');
-
-e.g.
-5분전부터 현재까지 수행된 쿼리들을 대상으로 DBD 수행
-select designer_single_run('5 minute');
-
-4.5.3. admintools 사용
-4.5.4. SQL Function 사용
-
-SELECT DESIGNER_CREATE_DESIGN('${DSN_NAME}') ;
-
-SELECT DESIGNER_ADD_DESIGN_TABLES('${DSN_NAME}','${TBL_NAME}') ;
-
-SELECT DESIGNER_SET_DESIGN_TYPE('${DSN_NAME}','COMPREHENSIVE') ;
-
-SELECT DESIGNER_SET_OPTIMIZATION_OBJECTIVE('${DSN_NAME}','BALANCED') ;
-
-SELECT DESIGNER_RUN_POPULATE_DESIGN_AND_DEPLOY(
-       '${DSN_NAME}'
-      ,'${WORK_DIR}/${TBL_NAME}_DESIGN.DDL'
-      ,'${WORK_DIR}/${TBL_NAME}_DEPLOYMENT.DDL'
-      ,'FALSE'
-      ,'FALSE'
-      ,'FALSE'
-      ,'TRUE'
-) ;
-
-SELECT DESIGNER_WAIT_FOR_DESIGN('${DSN_NAME}') ;
-
-SELECT DESIGNER_DROP_DESIGN('${DSN_NAME}') ;
-
-위 스크립트는 하나의 테이블에 대해 DBD를 수행하여 최적의 프로젝션 구조를 추출한다
-${TBL_NAME}_deployment.ddl에 추출된 정보가 기록된다. 
-하나의 추출 작업(DESIGNER_RUN_POPULATE_DESIGN_AND_DEPLOY)은 내부적으로 백그라운드로 실행되는데, 추출작업이 완료될 때까지 기다리기 위해서는DESIGNER_WAIT_FOR_DESIGN을 호출해야 한다.
-추출 중인 작업을 중단하기 위해서는 다음과 같은 함수를 호출한다.
-
-SELECT DESIGNER_CANCEL_POPULATE_DESIGN('${DSN_NAME}') ;
-SELECT DESIGNER_DROP_DESIGN('${DSN_NAME}') ;
-SELECT DESIGNER_DROP_ALL_DESIGNS() ;
-4.5.5. 적용 방법
-DBD로 추출한 ddl을 확인하면 신규 프로젝션을 생성하는 CREATE PROJECTION 구문, 프로젝션의 데이터를 동기화하는 REFRESH 구문, MAKE_AHM_NOW, 기존 프로젝션을 삭제하는 DROP PROJECTION 구문이 한 세트로 들어있다. 각 테이블로 생성된 deployment.ddl 파일을 vsql에서 실행하면 된다.
-
-5. 
-데이터베이스 모니터링
-5.1. SYSTEM
-5.1.1. System resource 전체
-SELECT *
-  FROM SYSTEM_RESOURCE_USAGE
- WHERE 1=1
-   AND (AVERAGE_MEMORY_USAGE_PERCENT >= 80 OR AVERAGE_CPU_USAGE_PERCENT >= 80)
-   AND DATE(END_TIME) >= CURRENT_DATE - 1
- ORDER BY END_TIME DESC, NODE_NAME  ;
-
-5.1.2. System resource skew
-* 노드간 편차가 발생하면 안된다
-SELECT NODE_NAME
-      ,ROUND(MAX(AVERAGE_MEMORY_USAGE_PERCENT),0) MEM_MAX
-      ,ROUND(MAX(AVERAGE_CPU_USAGE_PERCENT),0)    CPU_MAX
-      ,ROUND(MAX(NET_RX_KBYTES_PER_SECOND),0)     RX_MAX
-      ,ROUND(MAX(NET_TX_KBYTES_PER_SECOND),0)     TX_MAX
-      ,ROUND(MAX(IO_READ_KBYTES_PER_SECOND),0)    RD_MAX
-      ,ROUND(MAX(IO_WRITTEN_KBYTES_PER_SECOND),0) WR_MAX
-  FROM SYSTEM_RESOURCE_USAGE
- WHERE 1=1
-   AND DATE(END_TIME) >= CURRENT_DATE-1
- GROUP BY NODE_NAME
- ORDER BY 1  ;
-
-5.1.3. Resource pool 
-* 각 resource pool 안에서 현재 수행 중인 세션과 대기 중인 세션 상태를 확인한다
-SELECT * FROM ( 
-    SELECT RPS.POOL_NAME                                         AS POOL_NM
-          ,SUBSTR(RPS.NODE_NAME,3,3)||SUBSTR(RPS.NODE_NAME,16,2) AS NODE
-         ,CAST((MEMORY_SIZE_ACTUAL_KB)/1024 AS DEC(10,2))       AS 'ACT(M)'
-         ,CAST((MEMORY_INUSE_KB)/1024 AS DEC(10,2))             AS 'USE(M)'
-         ,CAST((GENERAL_MEMORY_BORROWED_KB)/1024 AS DEC(10,2))  AS 'BORR(M)'
-         ,MAX_CONCURRENCY                                       AS MAXCON
-         ,PLANNED_CONCURRENCY                                   AS PL_CON
-         ,RUNNING_QUERY_COUNT                                   AS NUM_RUN
-         ,MAX(RQ.POSITION_IN_QUEUE)                             AS QUE
-    FROM RESOURCE_POOL_STATUS RPS
-         LEFT OUTER JOIN RESOURCE_QUEUES RQ
-                 ON RPS.POOL_NAME = RQ.POOL_NAME
-                AND RPS.NODE_NAME = RQ.NODE_NAME
-   WHERE RPS.POOL_NAME NOT 
-         IN ('DBD','RECOVERY','REFRESH','SYSDATA','SYSQUERY','WOSDATA')
-   GROUP BY 1,RPS.NODE_NAME,3,4,5,6,7,8 ) X
- WHERE NUM_RUN <> 0		
- ORDER BY 1,2    ;
-
-5.2. REALTIME DB STATUS
-5.2.1. Active session
-* 현재 수행 중인 세션의 정보를 확인한다
-SELECT  SUBSTR(NODE_NAME,3,3)||SUBSTR(NODE_NAME,16,2)   AS NODE
-       ,USER_NAME                                       AS USER
-       ,CLIENT_HOSTNAME                                 AS CLIENT_H
-       ,SESSION_ID                                      AS SESSION
-       ,TRANSACTION_ID                                  AS TRANS_ID
-       ,SUBSTR(CLIENT_TYPE,1,5)                         AS APP
-       ,TO_CHAR(STATEMENT_START,'YYYY-MM-DD-HH:MI:SS')  AS STMT_STRT
-       ,SUBSTR(CURRENT_STATEMENT,1,42)                  AS CUR_STMT
-  FROM  SESSIONS
- WHERE  CURRENT_STATEMENT IS NOT NULL AND CURRENT_STATEMENT <> ''
-   AND  CURRENT_STATEMENT NOT ILIKE '%NODE_NAME SUBST%'
- ORDER  BY 7, 6 ;
-5.2.2. Table Lock
-* Lock 상태를 확인한다
-SELECT  MAX(SUBSTR(OBJECT_NAME,7))                   AS OBJECT
-       ,TRANSACTION_ID                               AS TRANS_ID
-       ,CASE WHEN LOCK_MODE = 'S' THEN 'SHARE'
-             WHEN LOCK_MODE = 'I' THEN 'INSERT'
-             WHEN LOCK_MODE = 'X' THEN 'EXCLUSIVE'
-             WHEN LOCK_MODE = 'T' THEN 'TUPLE MOVER'
-             WHEN LOCK_MODE = 'U' THEN 'USAGE'
-             WHEN LOCK_MODE = 'O' THEN 'OWNER'
-        END                                                  AS MODE
-       ,TO_CHAR(REQUEST_TIMESTAMP,'YYYY-MM-DD-HH:MI:SS.MS')  AS REQ_TIME
-       ,TO_CHAR(GRANT_TIMESTAMP,'YYYY-MM-DD-HH:MI:SS.MS')    AS GRN_TIME 
-       ,SUBSTR(TRANSACTION_DESCRIPTION,22,50)                AS STMT
-  FROM  V_MONITOR.LOCKS
- GROUP BY OBJECT_NAME
-         ,NODE_NAMES
-         ,TRANSACTION_ID
-         ,LOCK_SCOPE
-         ,LOCK_MODE
-         ,REQUEST_TIMESTAMP
-         ,GRANT_TIMESTAMP
-         ,TRANSACTION_DESCRIPTION 
- ORDER BY OBJECT_NAME
- ;
-* 세션별 Lock의 상세 정보를 확인한다
-SELECT  DISTINCT LU.SESSION_ID                                AS SESSION
-       ,L.TRANSACTION_ID                                      AS TRANS_ID
-       ,SUBSTR(LU.NODE_NAME,3,1)||SUBSTR(LU.NODE_NAME,14,2)   AS NODE
-       ,L.NODE_NAMES                                          AS NODE_NAMES
-       ,LU.OBJECT_NAME                                        AS OBJECT
-       ,CASE WHEN LU.MODE = 'S' THEN 'SHARE'
-             WHEN LU.MODE = 'I' THEN 'INSERT'
-             WHEN LU.MODE = 'X' THEN 'EXCLUSIVE'
-             WHEN LU.MODE = 'T' THEN 'TUPLE MOVER'
-             WHEN LU.MODE = 'U' THEN 'USAGE'
-             WHEN LU.MODE = 'O' THEN 'OWNER'
-        END                                                   AS MODE
-       ,HOLD_COUNT                                            AS H_CNT
-       ,WAIT_COUNT                                            AS W_CNT
-       ,L.LOCK_SCOPE
-       ,SUBSTR(L.TRANSACTION_DESCRIPTION,1,20) AS STMT
-  FROM  V_MONITOR.LOCK_USAGE LU ,  V_MONITOR.LOCKS L
- WHERE  LU.OBJECT_NAME = L.OBJECT_NAME
-   AND  WAIT_COUNT <> 0
-   AND  HOLD_COUNT <> 0
-   AND  LU.OBJECT_NAME ILIKE 'TABLE%'
- ORDER  BY LU.SESSION_ID
-       ,LU.OBJECT_NAME
-    ;
-5.2.3. 노드 당 connection 수 현황
-* 노드간 connection 수가 유사해야 한다
-SELECT NODE_NAME, COUNT(*) FROM SESSIONS GROUP BY 1 ORDER BY 1;	
-
-
-5.3. DATABASE PERFORMANCE
-5.3.1. TOP 10 Query - Memory
-SELECT COUNT(*),
-       AVG(B.MEMORY_INUSE_KB/1024) AS AVG_MEMORY_INUSE_MB,
-       SUBSTR(A.REQUEST,0,1000) AS SUBSTR_QUERY
-  FROM DC_REQUESTS_ISSUED A, RESOURCE_ACQUISITIONS B
- WHERE 1=1
-   AND A.TRANSACTION_ID=B.TRANSACTION_ID
-   AND A.STATEMENT_ID=B.STATEMENT_ID
-   AND TIME >= SYSDATE- INTERVAL'1 DAYS'
- GROUP BY 3
- ORDER BY 2 DESC
- LIMIT 10 ;
-5.3.2. TOP 10 Query - Storage
-SELECT ANCHOR_TABLE_SCHEMA
-      ,ANCHOR_TABLE_NAME
-      ,SUM(ROS_USED_BYTES)
-      ,SUM(ROS_COUNT)
-  FROM PROJECTION_STORAGE
- GROUP BY 1,2
- ORDER BY 3 DESC ,4 DESC
-LIMIT 10 ;
-5.3.3. TOP 10 Query - 수행시간
-SELECT TIME, NODE_NAME, USER_NAME, 
-       REQUESTS.SESSION_ID, REQUESTS.TRANSACTION_ID, REQUEST_TYPE, 
-       LABEL, REQUEST
-  FROM DM_SDS.DC_REQUESTS_ISSUED REQUESTS
-       , ( 
-          SELECT SESSION_ID,
-                 TRANSACTION_ID, 
-                 STATEMENT_ID 
-            FROM (
-                  SELECT  *
-                         ,ROW_NUMBER() OVER(ORDER BY SEQ DESC) AS ROWNUM
-                    FROM (
-                           SELECT SESSION_ID
-                                  ,TRANSACTION_ID
-                                  ,STATEMENT_ID
-                                  ,SUM(COUNTER_VALUE) AS SEQ
-                             FROM DM_SDS.DC_EXECUTION_ENGINE_PROFILES
-                            WHERE 1=1
-                              AND COUNTER_NAME ILIKE '%CLOCK TIME (US)%'
-                            GROUP BY 1,2,3
-                          ) X
-                 )Y
-           WHERE ROWNUM<=10
-          )TRANS
- WHERE REQUESTS.SESSION_ID = TRANS.SESSION_ID
-   AND REQUESTS.TRANSACTION_ID = TRANS.TRANSACTION_ID
-   AND REQUESTS.STATEMENT_ID = TRANS.STATEMENT_ID
-;5.4. DB GENERAL
-5.4.1. License Utilization
-select get_compliance_status() ;
-5.4.2. parameter 변경 값
-* Default 값이 아닌 파라미터를 추출한다.
-SELECT DISTINCT PARAMETER_NAME 
-               ,CURRENT_VALUE
-               ,DEFAULT_VALUE
-  FROM CONFIGURATION_PARAMETERS 
- WHERE CURRENT_VALUE <> DEFAULT_VALUE ;
-5.4.3. 노드의 전반적인 상태 체크
-* up상태가 아닌 노드와 critical node는 없어야 한다 (return값 : 0)
-* st_good_epoch과 ahm_epoch은 current_epoch과 차이가 크게 벌어지면 안된다
-SELECT * FROM NODES WHERE NODE_STATE NOT ILIKE '%UP%';
-SELECT * FROM CRITICAL_NODES;
-SELECT GET_CURRENT_EPOCH(), GET_AHM_EPOCH(), GET_LAST_GOOD_EPOCH();
-5.4.4. 주요 에러 확인
-* 결과값이 없어야 하며, 추출된 값이 있다면 에러 원인 파악이 필요하다
-SELECT *
-  FROM DC_ERRORS 
- WHERE ERROR_LEVEL_NAME IN ('FATAL' , 'PANIC')
-   AND MESSAGE NOT ILIKE '%CANCEL%'
-   AND VERTICA_CODE <> 5785
-   AND VERTICA_CODE <> 4060
-   AND VERTICA_CODE <> 3781
-   AND DATE(TIME) >= CURRENT_DATE - 1
- ORDER BY TIME DESC 
-;
-
-5.5. DATA DISTRIBUTION
-5.5.1. DB 데이터 분산 확인 
-* 노드간 데이터 저장량의 편차가 없어야 한다
-SELECT NODE_NAME 
-      ,SUM(USED_BYTES) 
-  FROM PROJECTION_STORAGE
- GROUP BY 1
- ORDER BY 1
-;
-5.5.2. SCHEMA 별 데이터 분산 확인
-* SKEW_RATIO가 OK이어야 하며 그렇지 않은 경우에는 상세 모니터링이 필요하다
-SELECT PROJECTION_SCHEMA
-      ,MAX(USED_BYTES)
-      ,MIN(USED_BYTES)
-      ,CASE
-       WHEN ROUND((MAX(USED_BYTES)-MIN(USED_BYTES))/MAX(USED_BYTES)*100,0)>10 
-       THEN CASE WHEN MIN(USED_BYTES) = 0 
-                 THEN 'N/A'
-                 ELSE ROUND((MAX(USED_BYTES)-MIN(USED_BYTES))/MAX(USED_BYTES) *100,1)::DECIMAL(4,1)::VARCHAR
-             END 
-       ELSE 'OK'
-        END AS SKEW_RATIO
-  FROM (
-        SELECT PROJECTION_SCHEMA
-              ,NODE_NAME
-              ,SUM(USED_BYTES) USED_BYTES
-          FROM PROJECTION_STORAGE
-         WHERE PROJECTION_SCHEMA IN ( <업무용 스키마 리스트> )
-         GROUP BY 1,2
-       ) SUM_USED_BYTES
- GROUP BY 1
- ORDER BY 1
-;
-5.5.3. 테이블별 데이터 분산 확인
-* 특정 스키마에 포함된 테이블별 데이터 분산 정보를 확인한다
-* projection_schema에 조회대상 스키마 명을 명시해야 한다.
-* SKEW_RATIO가 OK 혹은 N/A이어야 한다. 아닐 경우 큰 숫자부터 상세 모니터링이 필요하다. 다만 건수가 크지 않을 경우에는 무시할 수 있다.
-SELECT PROJECTION_SCHEMA
-      ,ANCHOR_TABLE_NAME
-      ,MAX(USED_BYTES)
-      ,MIN(USED_BYTES)
-      ,CASE 
-       WHEN ROUND((MAX(USED_BYTES)-MIN(USED_BYTES))/MAX(USED_BYTES) *100,0)>10 
-       THEN CASE WHEN MIN(USED_BYTES) = 0 
-                 THEN 'N/A'
-                 ELSE ROUND((MAX(USED_BYTES) - MIN(USED_BYTES)) / MAX(USED_BYTES) *100,1)::DECIMAL(4,1)::VARCHAR
-                 END 
-       ELSE 'OK'
-        END AS SKEW_RATIO
-  FROM (
-        SELECT PROJECTION_SCHEMA
-              ,ANCHOR_TABLE_NAME
-              ,NODE_NAME
-              ,SUM(USED_BYTES) USED_BYTES
-          FROM PROJECTION_STORAGE
-         WHERE PROJECTION_SCHEMA  = :PROJECTION_SCHEMA
-         GROUP BY 1,2,3
-       ) SUM_USED_BYTES
- GROUP BY 1,2
- ORDER BY 5 DESC
-;
-5.5.4. 테이블 상세 확인
-* projection_schema, anchor_table_name에 해당 테이블명을 입력한 후 수행한다.
-* 노드간 데이터 편차가 없어야 한다. 편차가 발견될 경우 DBD를 수행한다.
-SELECT PROJECTION_SCHEMA
-      ,ANCHOR_TABLE_NAME
-      ,NODE_NAME
-      ,SUM(USED_BYTES)
-  FROM PROJECTION_STORAGE
- WHERE PROJECTION_SCHEMA = :PROJECTION_SCHEMA
-   AND ANCHOR_TABLE_NAME = :TABLE_NAME
- GROUP BY 1,2,3
- ORDER BY 4
-;
-
-5.5.5. 비정상적인 프로젝션 저장 상태 확인
-* 결과값이 0이어야 한다. 비정상 프로젝션 목록이 검출된 경우 해당 프로젝션을 drop 하거나 refresh 해야 한다.
-* drop projection <schema.projection_name> 또는 select refresh('<schema.table_name>') ;
-SELECT PROJECTION_NAME AS SCHEMA
-      ,ANCHOR_TABLE_NAME AS TABLE_NAME
-      ,PROJECTION_NAME 
-  FROM PROJECTIONS
- WHERE IS_UP_TO_DATE='F'
-;
-
-
-6. 
-USER DATA BACKUP
-6.1. 일반적인 export 
-사용자 데이터를 텍스트 형태로 unload 하여 사용자의 과실 또는 업무상의 오류에 의해 손실된 데이터를 복원하는데 사용할 수 있도록 한다. Vertica에서는 별도의 unload 툴을 제공하지 않고 vsql에서 테이블 조회 결과를 파일로 저장하는 옵션을 사용한다. 월별로 데이터를 구분할 수 있는 테이블에 대해서는 월별로 병렬 백업 받는 것이 unload 처리 속도면에서도 좋고, 향후 데이터 복구 요청시 필요한 월별 데이터만 선별할 수 있어 복구 속도면에서도 장점이 있다.
-6.1.1. 스크립트 작성
-* UNLOAD/LOAD의 delimiter는 업무 개발팀의 표준을 따른다.  e.g. '^_' (Ctrl,v,Shift,Ctrl, -)
-* UNLOAD를 위한 vsql 옵션
-o -tA : delimiter와 데이터만 출력
-o -o <unload file> : unload 파일
-o -F"^_" : delimiter 지정
-
-vsql -h [hosts] -C -U vertica -e -o [unload file] -tA -F"^_" < + > ${LOG} 2>&1
-\!date
-\timing
-select * from ${SCH}.${TBL} 
- where ${KEY} = '${KEYVALUE}'
-+
-* 병렬 처리를 위하여 query문의 where절에서 데이터 영역별로 unload를 별도로 수행할 수 있도록 만들고, 동시에 수행할 프로세스 수를 지정하여 병렬 수행한다
-o 병렬 추출 테스트 결과 :
-단일 프로세스 unload 시 19시간,  49개 월별 데이터로 11개 프로세스 동시 수행 시 4시간 반 소요 (총 27억건, 900 GB 파일)
-
-
-6.2. Export to S3
-버티카는 S3(혹은 S3 Compatible Object Storage) 로 데이터를 export 하는 기능을 탑재하고 있다
-6.2.1. S3EXPORT
-버티카 클러스터내 데이터를 S3로 export
-구 문SELECT S3EXPORT( source-data USING PARAMETERS parameter=setting[,...])ExamplesSELECT s3export(column1 USING PARAMETERS 
-    url='s3://exampleBucket/object', 
-    delimiter=',',
-    chunksize='10485760',
-    record_terminator='\n', 
-    from_charset='ASCII',
-    to_charset='UTF-8', 
-    prepend_hash='true') 
-OVER () FROM exampleTable
-WHERE column2 = 99;
-6.2.2. S3EXPORT_PARTITION
-특정 파티션을 S3로 export 하는 기능이며, Amazon Elastic MapReduce (EMR) 에서 사용가능한 형태로 export 한다.
-구 문SELECT S3EXPORT_PARTITION ( expression USING PARAMETERS { parameter=setting} [,...] )ExamplesSELECT s3EXPORT_PARTITION(* USING PARAMETERS url='s3://db001/bystate.date')
-   OVER (PARTITION by st, yr) from T;
- rows   | url
---------+------------------------------------------------------------------------------
- 184647 | s3://db001/st=MA/yr=2005/bystate.77fcab9836b93a04.dat
- 282633 | s3://db001/st=VA/yr=2007/bystate.77fcab9836b93a05.dat
- 282633 | s3://db001/st=VA/yr=2009/bystate.77fcab9836b93a05.dat
-
-6.3. Export with Parquet format
-6.3.1. EXPORT TO PARQUET
-버티카 클러스터 데이터를 Parquet 포맷으로 저장한다.
-구 문EXPORT TO PARQUET ( directory = 'path'
-		    [, param=value [,...] ] )
-	[ OVER (over-clause ) ] 
-	AS SELECT query-expression;ExamplesEXPORT TO PARQUET(directory = '/mnt/shared_nfs/accounts/rm') 
-   OVER(PARTITION BY hash) 
-   AS
-   SELECT 1 as account_id, '{}' as json, 0 hash
-   UNION ALL
-   SELECT 2 as account_id, '{}' as json, 1 hash;7. 
-장애 처리
-7.1. NODE DOWN
-버티카의 데이터 이중화 기법(ksafety)를 활용하여 특정 노드가 다운되어도 서비스를 지속적으로 제공한다. 문제가 발생했던 노드를 재기동하여 정상화시키는 작업을 Recovery라 하며 이는 다음과 같은 절차를 통해 수행된다.
-
-
-
-7.1.1. 노드 다운 시 Check Process
-
-
-
-
-
-
-
-
-7.1.2. 리커버리 동작 단계
-
-1) Down 단계
-* /opt/vertica/config/admintools.conf 이 정상적인지 확인. 만약 이 파일이 최신의 파일이 아니면 node restart 실패
-* DOWN 노드의 모든 구성 파일을 UP노드와 매치
-- admintools.conf
-- spread.conf
-- vertica.conf
-* admintools를 이용하여 노드 재시작
-* admintools는 /opt/vertica/bin/vertica 커맨드를 fork
-
-이 단계에 있는 로그는 /opt/vertica/log/adminTools-dbadmin.log 파일에 기록되며, 만약 노드가 기동되지 못하면 vertica.log파일에 기록되지 못한다. 이 경우 dbLog 파일을 확인.
-
-2) Initialize 단계
-* Catalog 체크
-* Local node에서 catalog 로드
-* Spread와 연결
-* Spread.conf 파일의 정보를 기반으로 포트 체크
-* Spread를 이용하여 옆 노드에서 catalog 수집
-* Storage location, license, storage access layer (SAL)과 같은 catalog object를 점검하여 문제가 있을 경우 PANIC에러 발생 후 DOWN 상태로 되돌아감
-* 데이터베이스 라이브러리를 로드
-* 노드의 Last good epoch (LGE)과 프로젝션의 check point epoch (CPE)를 읽어서 다른 노드의 카타로그에 있는 정보와 비교
-* 차이가 발견된 경우 recovery clerk이 RECOVERY 단계로 진입하도록 지시
-* 
-3) Recovery 단계
-* 옆 노드로부터 최신 카타로그 정보를 가져온다
-* RECOVERY 단계 이전에 시작하여 Rcovery Epoch (RE) 이후에 commit된 트랜잭션 정보를 tracking하기 시작
-* 누락된 alter partition, restore table 이벤트를 검사
-* 각 프로젝션의 CPE (check point epoch)를 체크
-* Recovery Epoch (RE)을 UP노드의 LGE로 설정
-* 각 프로젝션별로 복구 시작
-- Historical data를 CPE에서 RE까지 복구
-- RE 이후 commit된 데이터를 복구
-- Replay delete
-* 모든 프로젝션이 current LGE까지 도달하면 노드는 UP 단계로 진입
-
-7.1.3. 노드 Recovery 절차
-순서처리 내용1Down된 노드의 IP검출2세션 접근 차단3해당 IP의 버티카 노드 재시작4세션 접근 허용
-
-7.1.4. 수행 전략
-원할한 노드 recovery를 위해 배치 및 사용자 session 차단 후 수행을 권장
-
-7.2. Database Down
-7.2.1. DB 다운 시 Check Process
-
-
-
-
-
-
-
-
-7.3. SYSTEM 장애시 로그 수집 절차
-7.3.1. 버티카 노드 다운 상황
-- 1차적으로 기본적인 로그를 수집하는 명령으로 전체 노드의 데이터를 수집하여 하나의 zip파일로 생성한다. 따라서 이 명령의 결과 파일을 HP에 송부하여 로그 분석을 의뢰한다. 이 명령은 버티카 DB가 운영중이지 않아도 수행 가능하다.
-
-scrutinize/opt/vertica/bin/scrutinize --by-minute -d <DB이름> -P <DB비번> -o <분석파일생성full-path> -z n|ALL (날짜수)-z 옵션이 n일 경우 지나간 n일 동안의 로그를 수집(기본 값은 -z 3 이며 최근 3일 로그를 수집)
-7.3.2. System Hang
-
-서버에는 접속이 되며 데이터 베이스가 모두 UP인 상태인데 접속을 시도했을때 응답이 없는 경우 다음의 파일을 각각의 서버에서 실행하여 수집한 후, 버티카에 해당 데이터를 송부한다. 이 명령은 현재 사용중인 버티카의 메모리를 디스크로 덤프하기 때문에 Hang 상황에서 아래 명령들을 수행한 후 수행이 완료되면 버티카를 재구동한다. 
-
-1) Collect vstack information
-버티카 프로세스의 stack 정보를 dump
-OS 계정verticacommandfor i in {1..3};
-do
-  echo " Get $i vstack"
-  for host in `grep -P "^v_" /opt/vertica/config/admintools.conf|awk '{print $3}'|awk -F, '{print $1}'`
-  do
-    echo " Get vstack of node $host"
-    echo " ************************" >> /tmp/vstack_$host.log
-    echo " $i vstack Node $host " >> /tmp/vstack_$host.log
-    echo " ************************" >> /tmp/vstack_$host.log
-    ssh $host "/opt/vertica/bin/vstack" >> /tmp/vstack_$host.log
-  done
-  sleep 300
-done
-
-2) Collect Execution Engine Profile information
-hang을 유발하는 세션의 execution_engine_profiles 정보 추출
-
-OS 계정verticacommandfor i in {1..3};
-do
-  echo " Get $i execution engine profile"
-  /opt/vertica/bin/vsql -At -w <password> -o /tmp/eep_$i.log -c 'SELECT node_name,user_id,user_name,session_id,transaction_id,statement_id,plan_id,operator_name,operator_id,baseplan_id,path_id,localplan_id,activity_id,resource_id,counter_name,counter_tag,counter_value,is_executing FROM execution_engine_profiles WHERE transaction_id = <trx id> AND statement_id = <stmt id>'
-  sleep 300
-done
-
-
-3
-
-

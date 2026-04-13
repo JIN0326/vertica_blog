@@ -8,20 +8,19 @@ layout: default
     --bg-1: #f8fbff;
     --bg-2: #eef4ff;
     --bg-3: #dfe9ff;
-    --card: rgba(255, 255, 255, 0.95);
+    --card-bg: rgba(255, 255, 255, 0.95);
     --text: #0f1f3d;
     --sub: #556b8a;
     --accent: #2d69ff;
     --accent-2: #1c44d9;
-    --bg-card: #eff4ff;
-    --bg-panel: rgba(45, 105, 255, 0.08);
+    --shadow: 0 20px 50px rgba(45,105,255,0.08);
+    --border-color: rgba(45, 105, 255, 0.14);
   }
 
   * { box-sizing: border-box; }
 
   .fundamentals-wrap {
     min-height: 100vh;
-    background: linear-gradient(180deg, var(--bg-1), var(--bg-2), var(--bg-3));
     color: var(--text);
     font-family: "Malgun Gothic", "Pretendard", "Noto Sans KR", sans-serif;
     padding: 2.5rem 1rem 3rem;
@@ -32,8 +31,8 @@ layout: default
     margin: 0 auto;
     padding: 3.2rem 2.4rem;
     border-radius: 24px;
-    background: var(--card);
-    border: 1px solid rgba(45, 105, 255, 0.14);
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
     backdrop-filter: blur(12px);
     box-shadow: var(--shadow);
     position: relative;
@@ -125,8 +124,8 @@ layout: default
     margin: 2rem auto 0;
     padding: 2.2rem 2rem;
     border-radius: 24px;
-    background: var(--card);
-    border: 1px solid rgba(45, 105, 255, 0.14);
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
     box-shadow: var(--shadow);
   }
 
@@ -146,10 +145,11 @@ layout: default
   .study-card {
     padding: 1.25rem;
     border-radius: 18px;
-    background: rgba(255, 255, 255, 0.98);
-    border: 1px solid rgba(45, 105, 255, 0.12);
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
     min-height: 180px;
     display: flex;
+    box-shadow: var(--shadow);
     flex-direction: column;
     justify-content: space-between;
   }
@@ -161,6 +161,7 @@ layout: default
   }
 
   .study-card p {
+    font-size: 0.9rem;
     margin: 0;
     color: var(--sub);
     line-height: 1.6;
@@ -169,7 +170,7 @@ layout: default
 
   .study-card a {
     margin-top: 1rem;
-    color: var(--accent-2);
+    color: var(--accent);
     font-weight: 700;
     text-decoration: none;
   }
@@ -209,7 +210,7 @@ layout: default
     <div class="fundamentals-glow two"></div>
     <div class="fundamentals-inner">
       <span class="fundamentals-chip">Vertica Study Program</span>
-      <h1 class="fundamentals-title">버티카 기초 교육</h1>
+      <h1 class="fundamentals-title">Vertica 기초 교육</h1>
       <p class="fundamentals-description">Vertica, 대용량 데이터 분석을 위한 컬럼 기반 DB의 시작입니다. 핵심 개념부터 운영, 쿼리, 백업, 적재까지 기초를 빠르게 정리하세요.</p>
       <div class="fundamentals-actions">
         <a class="fundamentals-primary" href="file:///C:/Users/SOO/MyProject/vertica_study/start.html">학습하기</a>
