@@ -1,0 +1,12 @@
+title: Vertica Blog
+description: Vertica Analytics Platform 소개 블로그
+baseurl: ""
+url: ""
+markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-feed
+exclude:
+  - .venv
+  - extract_pptx_text.py
+  - Vertica_소개자료_202509.pptx
