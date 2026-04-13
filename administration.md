@@ -76,10 +76,9 @@ layout: default
     transform: translateY(-2px);
   }
 
-  .button.secondary {
-    background-color: #eef4ff;
-    color: var(--accent-2);
-    border: 1px solid var(--border-color);
+  .button.primary {
+    background-color: var(--accent);
+    color: white;
   }
 
   .content-card {
@@ -162,12 +161,12 @@ layout: default
   <main>
     <section class="button-grid-section">
       <div class="button-grid">
-        <a class="button secondary" href="{{ '/administration-user' | relative_url }}">User</a>
-        <a class="button secondary" href="{{ '/administration-profile' | relative_url }}">Profile</a>
-        <a class="button secondary" href="{{ '/administration-schema' | relative_url }}">Schema</a>
-        <a class="button secondary" href="{{ '/administration-resource-pool' | relative_url }}">Resource Pool</a>
-        <a class="button secondary" href="{{ '/administration-table-projection' | relative_url }}">Table · Projection</a>
-        <a class="button secondary" href="{{ '/administration-privilege' | relative_url }}">Privilege</a>
+        <a class="button primary" href="{{ '/administration-user' | relative_url }}">User</a>
+        <a class="button primary" href="{{ '/administration-profile' | relative_url }}">Profile</a>
+        <a class="button primary" href="{{ '/administration-schema' | relative_url }}">Schema</a>
+        <a class="button primary" href="{{ '/administration-resource-pool' | relative_url }}">Resource Pool</a>
+        <a class="button primary" href="{{ '/administration-table-projection' | relative_url }}">Table · Projection</a>
+        <a class="button primary" href="{{ '/administration-privilege' | relative_url }}">Privilege</a>
       </div>
     </section>
 
