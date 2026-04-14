@@ -143,7 +143,8 @@ layout: default
 <div class="page-hero">
   <span class="chip">Vertica Study Program</span>
   <h1>Vertica 기초 교육</h1>
-  <p>Vertica, 대용량 데이터 분석을 위한 컬럼 기반 DB의 시작입니다. 핵심 개념부터 운영, 쿼리, 백업, 적재까지 기초를 빠르게 정리하세요.</p>
+  <p>Vertica, 대용량 데이터 분석을 위한 컬럼 기반 DB의 시작입니다. <br>
+   핵심 개념부터 운영, 쿼리, 백업, 적재까지 기초를 빠르게 정리하세요.</p>
   <a class="button primary" href="#">학습 시작하기 (링크 수정 필요)</a>
 </div>
 

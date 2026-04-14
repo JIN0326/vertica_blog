@@ -4,16 +4,17 @@ layout: default
 ---
 <style>
   :root {
-    --bg-1: #f8fbff;
-    --bg-2: #eef4ff;
-    --bg-3: #dfe9ff;
-    --card-bg: rgba(255, 255, 255, 0.95);
+    --bg-1: #f4f8ff;
+    --bg-2: #eef3ff;
+    --bg-3: #e6edff;
+    --card-bg: #ffffff;
     --text: #0f1f3d;
-    --sub: #556b8a;
+    --sub: #2f3340;
     --accent: #2d69ff;
-    --accent-2: #1c44d9;
-    --shadow: 0 20px 50px rgba(45,105,255,0.08);
-    --border-color: rgba(45, 105, 255, 0.14);
+    --accent-2: #0f1f3d;
+    --shadow: 0 14px 34px rgba(45, 105, 255, 0.08);
+    --border-color: rgba(45, 105, 255, 0.16);
+    --mode-border: #1f5f9c;
   }
 
   body {
@@ -26,12 +27,18 @@ layout: default
     text-decoration: none;
   }
 
+  .site-content {
+    width: min(980px, calc(100% - 42px));
+    padding: 44px 0 64px;
+  }
+
   h1 {
     margin: 0;
-    font-size: clamp(2rem, 4.2vw, 3.4rem);
-    line-height: 1.2;
+    font-size: clamp(2.2rem, 5vw, 3.7rem);
+    line-height: 1.14;
     font-weight: 800;
     color: var(--text);
+    letter-spacing: -0.02em;
   }
 
   h2 {
@@ -41,87 +48,113 @@ layout: default
   }
 
   p {
-    margin: 1rem auto 2rem;
-    max-width: 680px;
+    margin: 1rem 0 2rem;
+    max-width: 760px;
     color: var(--sub);
-    font-size: clamp(1rem, 2vw, 1.15rem);
-    line-height: 1.7;
+    font-size: clamp(1rem, 1.8vw, 1.15rem);
+    line-height: 1.6;
   }
 
   .eyebrow {
-    display: inline-block;
-    padding: 0.4rem 0.85rem;
-    border-radius: 999px;
-    background: rgba(45, 105, 255, 0.08);
+    display: flex;
+    width: min(100%, 760px);
+    min-height: 30px;
+    align-items: center;
+    padding: 0 12px;
+    border-radius: 10px;
+    background: #e5ecff;
     color: var(--accent);
-    font-size: 0.84rem;
-    letter-spacing: 0.02em;
-    margin-bottom: 1rem;
+    font-size: 0.76rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    margin-bottom: 16px;
   }
 
   .hero-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 40px;
-    align-items: flex-start;
-    justify-content: space-between;
-    padding: 20px;
+    padding: 8px 0 4px;
   }
 
   .hero-content {
-    flex: 1;
-    min-width: 300px;
+    width: 100%;
   }
 
   .link-container {
     display: flex;
-    gap: 15px;
-    margin-top: 25px;
+    gap: 10px;
+    margin-top: 20px;
+    flex-wrap: wrap;
   }
 
   .link-container a {
-    padding: 12px 24px;
+    padding: 8px 14px;
     background-color: var(--accent);
     color: white;
-    border-radius: 6px;
+    border-radius: 4px;
     font-weight: bold;
-    font-size: 0.9rem;
+    font-size: 0.72rem;
+    border: 1px solid rgba(15, 31, 61, 0.06);
   }
 
   .summary-section {
-    padding: 26px 20px;
+    padding: 26px 18px 8px;
     background-color: var(--card-bg);
-    border-radius: 8px;
-    margin-top: 24px;
-    border: 1px solid var(--border-color);
-    box-shadow: var(--shadow);
+    border-radius: 2px;
+    margin-top: 28px;
+    border: 1px solid rgba(18, 48, 95, 0.07);
+  }
+
+  .summary-inner {
+    margin-bottom: 18px;
+  }
+
+  .summary-inner h2 {
+    margin: 0;
+    color: #111111;
+    font-size: clamp(2rem, 3.8vw, 3rem);
+    line-height: 1.2;
+  }
+
+  .summary-inner p {
+    margin-top: 14px;
+    color: #202429;
+    max-width: 900px;
+  }
+
+  .headline-mark {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 3px;
+  }
+
+  .inline-mark {
+    text-decoration: underline;
+    text-underline-offset: 2px;
   }
 
   .architecture-grid {
     display: flex;
-    gap: 20px;
+    gap: 16px;
     flex-wrap: wrap;
   }
   
   .mode-card {
     flex: 1;
     min-width: 300px;
-    border: 1px solid var(--border-color);
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: var(--shadow);
+    border: 3px solid var(--mode-border);
+    padding: 20px 20px 24px;
+    border-radius: 48px;
     display: flex;
     flex-direction: column;
-    background: var(--card-bg);
+    background: #ffffff;
   }
 
-  .mode-card > div:first-child { /* Targeting the image wrapper div */
+  .mode-card > div:first-child {
     width: 100%;
-    height: 280px;
+    height: 180px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 15px;
+    margin-bottom: 8px;
     overflow: hidden;
   }
 
@@ -129,6 +162,19 @@ layout: default
     width: 100%;
     height: 100%;
     object-fit: contain;
+  }
+
+  .mode-card h3 {
+    margin: 6px 0 8px;
+    color: #111111;
+  }
+
+  .mode-card p {
+    margin: 0;
+    max-width: none;
+    color: #202429;
+    font-size: 1rem;
+    line-height: 1.45;
   }
 
   .playbook-section,
@@ -173,6 +219,21 @@ layout: default
     color: var(--accent);
     font-weight: 600;
   }
+
+  @media (max-width: 768px) {
+    .site-content {
+      width: calc(100% - 28px);
+      padding-top: 28px;
+    }
+
+    .summary-section {
+      padding: 20px 12px 4px;
+    }
+
+    .mode-card {
+      border-radius: 30px;
+    }
+  }
 </style>
 
 <div class="hero-container">
@@ -194,8 +255,8 @@ layout: default
 
 <section class="summary-section">
   <div class="summary-inner">
-    <h2>Vertica는 무엇인가?</h2>
-    <p>Vertica는 대규모 데이터 분석에 최적화된 SQL 데이터 웨어하우스 플랫폼입니다. 빠른 쿼리 처리, 고급 분석 기능, 클라우드 및 온프레미스 확장성을 모두 제공하여 기업용 데이터 분석 환경을 단순화합니다.</p>
+    <h2><span class="headline-mark">Vertica</span>는 무엇인가?</h2>
+    <p><span class="inline-mark">Vertica</span>는 대규모 데이터 분석에 최적화된 SQL 데이터 웨어하우스 플랫폼입니다. 빠른 쿼리 처리, 고급 분석 기능, <span class="inline-mark">클라우드 및 온프레미스 확장성</span>을 모두 제공하여 기업용 데이터 분석 환경을 단순화합니다.</p>
   </div>
   
   <div class="architecture-grid">
