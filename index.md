@@ -9,10 +9,10 @@ layout: default
     <h1>데이터의 한계를 넘어서, <br> Vertica로 실현하는 초고속 분석</h1>
     <p>Vertica의 차세대 레이크하우스 아키텍처와 고성능 분석 노하우를 집약한 기술 블로그입니다.</p>
     <div class="link-container">
-      <a href="https://docs.vertica.com/26.1.x/en/" target="_blank">
+      <a href="https://docs.vertica.com/26.1.x/en/">
           Vertica 공식 문서 (Documentation)
       </a>
-      <a href="http://www.gtgsc.com/gtg/sub/bigdata/vertica.php" target="_blank">
+      <a href="http://www.gtgsc.com/gtg/sub/bigdata/vertica.php" >
           Vertica 공식 파트너사 (GTG)
       </a>
     </div>
