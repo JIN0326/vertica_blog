@@ -1,26 +1,25 @@
 /* ==========================================================================
    1. Root Variables & Reset
    ========================================================================== */
+/* Consolidated Root Variables */
 :root {
   color-scheme: light;
-  --bg: #f5f8ff;
-  --bg-1: #f4f8ff;
-  --bg-2: #eef3ff;
-  --bg-3: #e6edff;
-  --surface: #ffffff;
-  --surface-alt: #eff4ff;
-  --surface-strong: #dfe9ff;
-  --card-bg: #ffffff;
-  --text: #0f1f3d;
-  --sub: #2f3340;
-  --muted: #556b8a;
-  --accent: #2d69ff;
-  --accent-2: #0f1f3d;
-  --accent-dark: #1c44d9;
-  --border-color: rgba(45, 105, 255, 0.16);
-  --shadow: 0 14px 34px rgba(45, 105, 255, 0.08);
+  --bg-1: #f4f8ff; /* Used for body background gradient */
+  --bg-2: #eef3ff; /* Used for body background gradient */
+  --bg-3: #e6edff; /* Used for body background gradient */
+  --surface: #ffffff; /* General surface background */
+  --card-bg: #ffffff; /* Card background, often same as surface */
+  --text: #0f1f3d; /* Primary text color */
+  --sub: #2f3340; /* Secondary text color */
+  --muted: #556b8a; /* Muted text color */
+  --accent: #2d69ff; /* Primary accent color */
+  --accent-2: #0f1f3d; /* Secondary accent color (darker) */
+  --accent-dark: #1c44d9; /* Darker accent for buttons */
+  --border-color: rgba(45, 105, 255, 0.16); /* General border color */
+  --shadow: 0 14px 34px rgba(45, 105, 255, 0.08); /* General shadow effect */
 }
 
+/* Global Reset & Base Styles */
 * { box-sizing: border-box; }
 
 html, body {
@@ -31,7 +30,7 @@ html, body {
   color: var(--text);
   line-height: 1.6;
   font-size: 17px;
-}
+} /* Base font size for body */
 
 img { max-width: 100%; display: block; }
 a { text-decoration: none; transition: 0.2s ease; }
@@ -43,7 +42,7 @@ a { text-decoration: none; transition: 0.2s ease; }
 
 .site-content {
   width: min(1120px, calc(100% - 40px));
-  margin: 0 auto;
+  margin: 0 auto; /* Centered content */
   padding: 44px 0 64px;
 }
 
@@ -58,7 +57,7 @@ a { text-decoration: none; transition: 0.2s ease; }
   display: flex;
   gap: 30px;
   flex-wrap: wrap;
-}
+} /* Specific grid for architecture cards */
 
 /* ==========================================================================
    3. Navigation & Header (Dropdown 포함)
@@ -81,8 +80,8 @@ a { text-decoration: none; transition: 0.2s ease; }
   padding: 15px 0;
 }
 
-.site-nav { display: flex; align-items: center; gap: 24px; }
-.site-nav a { color: var(--muted); font-weight: 600; }
+.site-nav { display: flex; align-items: center; gap: 24px; font-size: 1.1rem; } /* Increased font size */
+.site-nav a { color: var(--muted); font-weight: 600; } /* Default nav link color */
 .site-nav a:hover { color: var(--accent); }
 
 /* Dropdown */
@@ -96,13 +95,14 @@ a { text-decoration: none; transition: 0.2s ease; }
   min-width: 220px;
   border-radius: 12px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-  border: 1px solid var(--border-color);
+  border: 1px solid rgba(45, 105, 255, 0.1); /* Lighter border for dropdown */
   overflow: hidden;
+  margin-top: -5px; /* Slight overlap for smooth transition */
 }
-.dropdown:hover .dropdown-content { display: block; }
+.dropdown:hover .dropdown-content { display: block; } /* Show on hover */
 .dropdown-content a {
   padding: 12px 18px;
-  display: block;
+  display: block; /* Each item as a block link */
   font-weight: normal;
   border-bottom: 1px solid var(--bg-1);
 }
@@ -113,7 +113,7 @@ a { text-decoration: none; transition: 0.2s ease; }
 /* Eyebrow & Badge */
 .eyebrow, .chip {
   display: inline-flex;
-  align-items: center;
+  align-items: center; /* Vertically center content */
   padding: 8px 16px;
   background: #e5ecff;
   color: var(--accent);
@@ -121,7 +121,7 @@ a { text-decoration: none; transition: 0.2s ease; }
   font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  margin-bottom: 20px;
+  margin-bottom: 20px; /* Spacing below */
 }
 
 /* Hero Section */
@@ -132,7 +132,7 @@ a { text-decoration: none; transition: 0.2s ease; }
   border-radius: 36px;
   box-shadow: var(--shadow);
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-columns: 1.1fr 0.9fr; /* Two-column layout */
   gap: 40px;
   align-items: center;
 }
@@ -141,7 +141,7 @@ h1 {
   font-size: clamp(2.2rem, 5vw, 3.8rem);
   line-height: 1.1;
   font-weight: 800;
-  margin: 0 0 1rem;
+  margin: 0 0 1rem; /* Spacing below heading */
 }
 
 /* General Cards */
@@ -150,12 +150,12 @@ h1 {
   border: 1px solid var(--border-color);
   border-radius: 26px;
   padding: 30px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth hover effects */
 }
 
 .card:hover, .mode-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 20px 40px rgba(45, 105, 255, 0.1);
+  box-shadow: 0 20px 40px rgba(45, 105, 255, 0.1); /* Enhanced shadow on hover */
 }
 
 /* Buttons */
@@ -164,7 +164,7 @@ h1 {
   padding: 14px 28px;
   border-radius: 999px;
   font-weight: 700;
-  justify-content: center;
+  justify-content: center; /* Center text in button */
 }
 
 .button.primary {
@@ -175,7 +175,7 @@ h1 {
 
 .button.secondary {
   background: rgba(45, 105, 255, 0.08);
-  color: var(--accent-dark);
+  color: var(--accent-dark); /* Darker accent for secondary */
   border: 1px solid var(--border-color);
 }
 
@@ -185,12 +185,13 @@ h1 {
 @media (max-width: 900px) {
   .hero-banner, .architecture-grid {
     grid-template-columns: 1fr;
-  }
+  } /* Stack columns on smaller screens */
   .page-layout {
     grid-template-columns: 1fr;
-  }
+  } /* Stack layout on smaller screens */
 }
 
+/* Further adjustments for very small screens */
 @media (max-width: 600px) {
   .header-inner { flex-direction: column; gap: 10px; }
   .site-nav { font-size: 0.9rem; gap: 12px; }
