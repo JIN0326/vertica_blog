@@ -79,9 +79,9 @@ layout: default
   }
 
   .hero-content p {
-    font-size: 1.15rem;
-    font-weight: 500;
-    margin: 1.5rem 0 1.5rem;
+    font-size: 1.0rem;
+    font-weight: 100%;
+    margin: 1.0rem 0 1.0rem;
   }
 
   .link-container {
@@ -103,18 +103,15 @@ layout: default
   }
 
   .summary-section {
-    padding: 0;
-    background-color: transparent;
-    border-radius: 0;
     margin-top: 10px;
-    border: none;
+    padding: 40px;
+    background: #fff;
+    border-radius: 30px;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow);
   }
 
-  .summary-inner {
-    margin-bottom: 0;
-  }
-
-  .summary-inner h2 {
+  .summary-section h2 {
     margin: 0;
     color: #111111;
     font-size: clamp(2.2rem, 4.2vw, 3.1rem);
@@ -122,7 +119,7 @@ layout: default
     margin-bottom: 20px;
   }
 
-  .summary-inner p {
+  .summary-section p {
     margin-top: 0;
     margin-bottom: 40px;
     color: #202429;
@@ -258,12 +255,10 @@ layout: default
 </div>
 
 <section class="summary-section">
-  <div class="summary-inner">
-    <h2>Vertica는 무엇인가?</h2>
-    <p>Vertica는 대규모 데이터 분석에 최적화된 SQL 데이터 웨어하우스 플랫폼입니다. <br>
-    빠른 쿼리 처리, 고급 분석 기능, 클라우드 및 온프레미스 확장성을 모두 제공하여 기업용 데이터 분석 환경을 단순화합니다.</p>
-  </div>
-  
+  <h2>Vertica는 무엇인가?</h2>
+  <p>Vertica는 대규모 데이터 분석에 최적화된 SQL 데이터 웨어하우스 플랫폼입니다. <br>
+  빠른 쿼리 처리, 고급 분석 기능, 클라우드 및 온프레미스 확장성을 모두 제공하여 기업용 데이터 분석 환경을 단순화합니다.</p>
+
   <div class="architecture-grid">
     <article class="mode-card">
       <div>
