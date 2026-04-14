@@ -54,19 +54,52 @@ section { margin-top: 50px; }
   margin-bottom: 24px;
 }
 
+/* 메인 타이틀 (Hero 영역) */
 h1 {
-  font-size: clamp(2rem, 5vw, 3.4rem);
+  /* 기존 3.4rem -> 2.6rem 수준으로 축소 */
+  font-size: clamp(1.8rem, 4vw, 2.6rem); 
   font-weight: 800;
   line-height: 1.2;
   margin: 0 0 1rem;
   letter-spacing: -0.02em;
 }
 
+/* 섹션 제목 (Vertica는 무엇인가?, Playbook 등) */
+h2 {
+  /* 기존 2rem 내외 -> 1.6rem 수준으로 축소 */
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 1.2rem;
+}
+
+/* 카드 제목 (Enterprise Mode, 핵심 기술 등) */
+h3 {
+  /* 기존 1.4~1.5rem -> 1.2rem 수준으로 축소 */
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+/* 본문 텍스트 (p 태그) */
+p {
+  /* 기존 1.15rem -> 1rem (기본)으로 축소 */
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--muted);
+  margin-bottom: 1rem;
+}
+
+/* 히로 섹션 설명글만 약간 더 크게 유지 */
 .hero-content p {
-  font-size: 1.15rem;
-  color: var(--sub);
-  margin-bottom: 30px;
-  max-width: 760px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* 눈썹 태그 (Eyebrow) */
+.eyebrow {
+  font-size: 0.8rem; /* 0.9 -> 0.8 */
+  padding: 6px 12px;
 }
 
 /* 링크 버튼 컨테이너 */
