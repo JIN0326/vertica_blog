@@ -28,7 +28,7 @@ layout: default
   }
 
   .site-content {
-    width: min(1000px, calc(100% - 42px)); /* 전체 콘텐츠 폭을 약간 넓혔습니다. (980px -> 1000px) */
+    width: min(1000px, calc(100% - 42px));
     padding: 44px 0 64px;
   }
 
@@ -55,20 +55,19 @@ layout: default
     line-height: 1.6;
   }
 
-  /* 1. 상단 ANALYTICS PLATFORM 크기 좀 더 크게 */
   .eyebrow {
     display: flex;
     width: min(100%, 760px);
-    min-height: 40px; /* (변경) 높이 증가 30px -> 40px */
+    min-height: 40px;
     align-items: center;
-    padding: 0 16px; /* (변경) 패딩 조정 12px -> 16px */
-    border-radius: 12px; /* (변경) 곡률 조정 10px -> 12px */
+    padding: 0 16px;
+    border-radius: 12px;
     background: #e5ecff;
     color: var(--accent);
-    font-size: 1rem; /* (변경) 글씨 크기 크게 0.76rem -> 1rem */
+    font-size: 1rem;
     text-transform: uppercase;
     letter-spacing: 0.03em;
-    margin-bottom: 24px; /* (변경) 여백 증가 16px -> 24px */
+    margin-bottom: 24px;
   }
 
   .hero-container {
@@ -79,130 +78,115 @@ layout: default
     width: 100%;
   }
 
-  /* 2. Vertica의 차세대 ~ 문구 글씨 조금 더 크게 */
   .hero-content p {
-    font-size: 1.25rem; /* (변경) 글씨 크기 증가 1.15rem -> 1.25rem */
-    font-weight: 500;   /* (변경) 가독성을 위해 굵기 약간 추가 */
-    margin: 1.5rem 0 1.5rem; /* (변경) 위아래 여백 조정 */
-    /* text-align: left; /* (추가) 왼쪽 정렬 - p태그 기본값이 왼쪽 정렬이라 명시하지 않아도 됩니다. */
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin: 1.5rem 0 1.5rem;
   }
 
-  /* 3. Vertica 공식 문서 및 파트너사 링크 굵게 + 위로 이동 */
   .link-container {
     display: flex;
-    gap: 12px; /* (변경) 간격 조정 10px -> 12px */
-    margin-top: -10px; /* (변경) 위치 위로 이동 (양수에서 음수로 변경) */
-    margin-bottom: 30px; /* (추가) 아래 summary-section과의 간격 확보 */
+    gap: 12px;
+    margin-top: -10px;
+    margin-bottom: 30px;
     flex-wrap: wrap;
   }
 
   .link-container a {
-    padding: 10px 18px; /* (변경) 패딩 조정 8px 14px -> 10px 18px */
+    padding: 10px 18px;
     background-color: var(--accent);
     color: white;
-    border-radius: 6px; /* (변경) 곡률 조정 4px -> 6px */
-    font-weight: 800; /* (변경) 더 굵게 bold -> 800 */
-    font-size: 0.9rem; /* (변경) 글씨 크기 크게 0.72rem -> 0.9rem */
+    border-radius: 6px;
+    font-weight: 800;
+    font-size: 0.9rem;
     border: 1px solid rgba(15, 31, 61, 0.06);
   }
 
-  /* 4. Vertica는 무엇인가? ~ 글씨 크게 및 그림과 공간 구분 없애기 */
   .summary-section {
-    padding: 0px 0px 8px; /* (변경) 패딩 최소화 - 테두리와 배경색을 없애기 위해 0으로 */
-    background-color: transparent; /* (변경) 배경색 투명화 */
-    border-radius: 0px; /* (변경) 곡률 제거 */
-    margin-top: 10px; /* (변경) 여백 조정 */
-    border: none; /* (변경) 테두리 제거 */
+    padding: 0;
+    background-color: transparent;
+    border-radius: 0;
+    margin-top: 10px;
+    border: none;
   }
 
   .summary-inner {
-    margin-bottom: 0px; /* (변경) 아래 architecture-grid와의 간격 제거 */
+    margin-bottom: 0;
   }
 
-  /* Vertica는 무엇인가? 제목 크기 */
   .summary-inner h2 {
     margin: 0;
     color: #111111;
-    font-size: clamp(2.4rem, 4.2vw, 3.4rem); /* (변경) 글씨 크기 증가 - clamp값 조정 */
+    font-size: clamp(2.4rem, 4.2vw, 3.4rem);
     line-height: 1.2;
-    margin-bottom: 20px; /* (추가) 본문과의 간격 */
+    margin-bottom: 20px;
   }
 
-  /* Vertica는 무엇인가? 본문 크기 */
   .summary-inner p {
-    margin-top: 0px;
-    margin-bottom: 40px; /* (변경) 아래 그림과의 간격 */
+    margin-top: 0;
+    margin-bottom: 40px;
     color: #202429;
-    max-width: none; /* (변경) 최대 폭 제한 제거 */
-    font-size: 1.25rem; /* (변경) 글씨 크기 크게 1.15rem -> 1.25rem */
-    line-height: 1.7; /* (변경) 줄 간격 조정 */
-  }
-
-  .headline-mark {
-    text-decoration: underline;
-    text-underline-offset: 4px;
-    text-decoration-thickness: 3px;
-  }
-
-  .inline-mark {
-    text-decoration: underline;
-    text-underline-offset: 2px;
+    max-width: none;
+    font-size: 1.25rem;
+    line-height: 1.7;
   }
 
   .architecture-grid {
     display: flex;
-    gap: 30px; /* (변경) 그림 사이 간격 증가 16px -> 30px */
+    gap: 30px;
     flex-wrap: wrap;
-    margin-top: 0px; /* (추가) summary-inner와의 간격 제거 */
+    margin-top: 0;
   }
   
-  /* 5. Enterprise/Eon Mode 그림 크게 및 테두리 변경 */
   .mode-card {
     flex: 1;
     min-width: 300px;
-    border: 6px solid #e0e0e0; /* (변경) 테두리 색상 및 두께 변경 var(--mode-border) -> #e0e0e0, 3px -> 6px */
-    padding: 30px 30px 34px; /* (변경) 패딩 증가 20px -> 30px */
-    border-radius: 60px; /* (변경) 곡률 증가 48px -> 60px */
+    border: 6px solid #e0e0e0;
+    padding: 30px 30px 34px;
+    border-radius: 60px;
     display: flex;
     flex-direction: column;
     background: #ffffff;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05); /* (추가) 약한 그림자 효과 */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
   }
 
   .mode-card > div:first-child {
     width: 100%;
-    height: 250px; /* (변경) 그림 영역 높이 증가 180px -> 250px */
+    height: 280px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 15px; /* (변경) 간격 증가 8px -> 15px */
+    margin-bottom: 20px;
     overflow: hidden;
+    background-color: #ffffff;
+    border-radius: 24px;
   }
 
   .mode-card img {
     width: 100%;
     height: 100%;
     object-fit: contain;
+    transform: scale(1.15);
   }
 
   .mode-card h3 {
-    margin: 10px 0 12px; /* (변경) 간격 조정 */
+    margin: 10px 0 12px;
     color: #111111;
-    font-size: 1.6rem; /* (추가) 제목 크기 증가 */
+    font-size: 1.6rem;
   }
 
   .mode-card p {
     margin: 0;
     max-width: none;
     color: #202429;
-    font-size: 1.1rem; /* (변경) 글씨 크기 증가 1rem -> 1.1rem */
-    line-height: 1.6; /* (변경) 줄 간격 조정 1.45 -> 1.6 */
+    font-size: 1.1rem;
+    line-height: 1.6;
   }
 
   .playbook-section,
   .administration-section,
   .fundamentals-section {
-    margin-top: 40px; /* (변경) 간격 증가 28px -> 40px */
+    margin-top: 40px;
   }
 
   .cards {
@@ -247,31 +231,28 @@ layout: default
       width: calc(100% - 28px);
       padding-top: 28px;
     }
-
     .summary-section {
-      padding: 0px 0px 4px; /* (변경) 모바일 패딩 조정 */
+      padding: 0 0 4px;
     }
-
     .mode-card {
-      border-radius: 40px; /* (변경) 모바일 곡률 조정 */
-      border-width: 4px; /* (변경) 모바일 테두리 두께 조정 */
+      border-radius: 40px;
+      border-width: 4px;
     }
   }
 </style>
 
 <div class="hero-container">
-  
   <div class="hero-content">
     <span class="eyebrow" style="font-weight: bold;">Analytics Platform</span>
     <h1>데이터의 한계를 넘어서, <br> Vertica로 실현하는 초고속 분석</h1>
     <p>Vertica의 차세대 레이크하우스 아키텍처와 고성능 분석 노하우를 집약한 기술 블로그입니다.</p>
     <div class="link-container">
-    <a href="https://docs.vertica.com/26.1.x/en/" target="_blank">
-        Vertica 공식 문서 (Documentation)
-    </a>
-    <a href="http://www.gtgsc.com/gtg/sub/bigdata/vertica.php" target="_blank">
-        Vertica 공식 파트너사 (GTG)
-    </a>
+      <a href="https://docs.vertica.com/26.1.x/en/" target="_blank">
+          Vertica 공식 문서 (Documentation)
+      </a>
+      <a href="http://www.gtgsc.com/gtg/sub/bigdata/vertica.php" target="_blank">
+          Vertica 공식 파트너사 (GTG)
+      </a>
     </div>
   </div>
 </div>
@@ -284,7 +265,6 @@ layout: default
   </div>
   
   <div class="architecture-grid">
-    
     <article class="mode-card">
       <div>
         <img src="{{ '/image/EnteroriseMode.png' | relative_url }}" alt="Vertica Enterprise Mode" />
@@ -304,10 +284,8 @@ layout: default
         <p>스토리지와 컴퓨팅을 분리하여 비용 효율성과 확장성을 강화한 아키텍처입니다. Object Storage 기반으로 데이터를 중앙에 저장하고, 필요에 따라 컴퓨팅 리소스를 유연하게 확장할 수 있습니다.</p>
       </div>
     </article>
-    
   </div>
 </section>
-
 
 <section id="playbook" class="playbook-section">
   <h2>Vertica Playbook</h2>
