@@ -186,17 +186,17 @@ h1 {
 }
 
 .mode-image {
-  background: #f8fbff;
-  padding: 30px;
+  background: #ffffff; 
+  padding: 0; 
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden; 
 }
-
 .mode-image img {
   max-width: 100%;
   height: 100%;
-  border-radius: 10px;
+  border-radius: 0;
 }
 
 .mode-body { padding: 25px; text-align: left; } /* 여백 축소 */
