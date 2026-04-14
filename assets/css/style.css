@@ -26,6 +26,50 @@ body {
   margin: 0 auto;
   padding: 40px 0 80px;
 }
+/* 헤더 내부 정렬 보완 */
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--accent);
+  letter-spacing: -0.05em;
+}
+
+/* 드롭다운 스타일 보완 */
+.dropdown { position: relative; }
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%); /* 중앙 정렬 */
+  background: white;
+  min-width: 200px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  border-radius: 12px;
+  padding: 10px 0;
+  z-index: 100;
+  border: 1px solid var(--border-color);
+}
+
+.dropdown:hover .dropdown-content { display: block; }
+.dropdown-content a {
+  padding: 10px 20px;
+  display: block;
+  color: var(--text);
+  font-size: 0.9rem;
+  transition: 0.2s;
+}
+
+.dropdown-content a:hover {
+  background: #f4f8ff;
+  color: var(--accent);
+}
 
 /* ==========================================================================
    2. Hero Section (이미지처럼 좌측 정렬)
