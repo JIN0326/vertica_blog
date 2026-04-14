@@ -34,7 +34,7 @@ layout: default
 
   h1 {
     margin: 0;
-    font-size: clamp(2.2rem, 5vw, 3.7rem);
+    font-size: clamp(2.0rem, 5vw, 3.4rem);
     line-height: 1.14;
     font-weight: 800;
     color: var(--text);
@@ -64,7 +64,7 @@ layout: default
     border-radius: 12px;
     background: #e5ecff;
     color: var(--accent);
-    font-size: 1rem;
+    font-size: 0.95rem;
     text-transform: uppercase;
     letter-spacing: 0.03em;
     margin-bottom: 24px;
@@ -79,7 +79,7 @@ layout: default
   }
 
   .hero-content p {
-    font-size: 1.25rem;
+    font-size: 1.15rem;
     font-weight: 500;
     margin: 1.5rem 0 1.5rem;
   }
@@ -98,7 +98,7 @@ layout: default
     color: white;
     border-radius: 6px;
     font-weight: 800;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     border: 1px solid rgba(15, 31, 61, 0.06);
   }
 
@@ -117,7 +117,7 @@ layout: default
   .summary-inner h2 {
     margin: 0;
     color: #111111;
-    font-size: clamp(2.4rem, 4.2vw, 3.4rem);
+    font-size: clamp(2.2rem, 4.2vw, 3.1rem);
     line-height: 1.2;
     margin-bottom: 20px;
   }
@@ -127,7 +127,7 @@ layout: default
     margin-bottom: 40px;
     color: #202429;
     max-width: none;
-    font-size: 1.25rem;
+    font-size: 1.15rem;
     line-height: 1.7;
   }
 
@@ -172,14 +172,14 @@ layout: default
   .mode-card h3 {
     margin: 10px 0 12px;
     color: #111111;
-    font-size: 1.6rem;
+    font-size: 1.5rem;
   }
 
   .mode-card p {
     margin: 0;
     max-width: none;
     color: #202429;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     line-height: 1.6;
   }
 
