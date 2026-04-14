@@ -24,7 +24,7 @@ body {
 .site-content {
   width: min(1100px, calc(100% - 40px));
   margin: 0 auto;
-  padding: 40px 0 80px;
+  padding: 20px 0 80px; /* 상단 여백 축소 */
 }
 
 .site-header {
@@ -68,6 +68,7 @@ body {
   padding: 10px 0;
   display: block;
   transition: color 0.2s ease;
+  text-decoration: none;
 }
 
 .site-nav > .dropdown > a:hover {
@@ -98,6 +99,7 @@ body {
   color: var(--text);
   font-size: 0.9rem;
   transition: 0.2s;
+  text-decoration: none;
 }
 
 .dropdown-content a:hover {
