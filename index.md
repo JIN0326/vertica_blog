@@ -27,7 +27,7 @@ layout: default
   <div class="architecture-grid">
     <article class="mode-card">
       <div>
-        <img src="{{ '/image/EnteroriseMode.png' | relative_url }}" alt="Vertica Enterprise Mode" />
+        <img src="{{ '/assets/images/EnteroriseMode.png' | relative_url }}" alt="Vertica Enterprise Mode" />
       </div>
       <div>
         <h3>Enterprise Mode</h3>
@@ -37,7 +37,7 @@ layout: default
 
     <article class="mode-card">
       <div>
-        <img src="{{ '/image/EonMode.png' | relative_url }}" alt="Vertica Eon Mode" />
+        <img src="{{ '/assets/images/EonMode.png' | relative_url }}" alt="Vertica Eon Mode" />
       </div>
       <div>
         <h3>Eon Mode</h3>

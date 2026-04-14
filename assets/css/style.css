@@ -111,6 +111,7 @@ p {
   border-radius: 8px;
   font-weight: 700;
   font-size: 0.9rem;
+  border: 1px solid rgba(15, 31, 61, 0.06);
 }
 .link-container a:hover { background: var(--accent-dark); transform: translateY(-2px); }
 
