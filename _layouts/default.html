@@ -6,17 +6,6 @@
     <meta name="description" content="{{ page.excerpt | default: site.description }}" />
     <title>{{ page.title }} | {{ site.title }}</title>
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}" />
-    <style>
-      body { font-size: 17px; } /* 전체 글씨 크기를 약간 확대 */
-      .site-nav { display: flex; align-items: center; gap: 24px; font-size: 1.1rem; }
-      .dropdown { position: relative; display: inline-block; padding: 10px 0; }
-      .dropdown > a { font-weight: 600; }
-      .dropdown-content { display: none; position: absolute; top: 100%; left: 0; background-color: #ffffff; min-width: 220px; box-shadow: 0 10px 30px rgba(45, 105, 255, 0.15); z-index: 1000; border-radius: 10px; overflow: hidden; border: 1px solid rgba(45, 105, 255, 0.1); margin-top: -5px; }
-      .dropdown-content a { color: #2f3340; padding: 12px 18px; text-decoration: none; display: block; font-size: 1rem; border-bottom: 1px solid #f4f8ff; font-weight: normal; }
-      .dropdown-content a:last-child { border-bottom: none; }
-      .dropdown-content a:hover { background-color: #eef3ff; color: #2d69ff; font-weight: 500; }
-      .dropdown:hover .dropdown-content { display: block; }
-    </style>
   </head>
   <body>
     <div class="page-shell">

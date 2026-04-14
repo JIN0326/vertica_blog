@@ -4,7 +4,6 @@ layout: default
 ---
 
 # Vertica Analytics Platform Architecture
-
 <div class="slide-banner">
   <div class="slide-banner__intro">
     <p class="eyebrow">Architecture Overview</p>

@@ -4,12 +4,6 @@ layout: default
 ---
 
 # Vertica 아키텍처 장점
-
-<figure class="page-hero">
-  <img class="page-banner" src="{{ '/assets/images/architecture.svg' | relative_url }}" alt="Vertica architecture" />
-  <figcaption>Vertica 아키텍처의 핵심 특징을 단순하고 이해하기 쉽게 정리했습니다.</figcaption>
-</figure>
-
 Vertica는 단순하고 효율적인 아키텍처로 대규모 데이터 분석을 지원합니다.
 
 ## Pure-MPP 구조

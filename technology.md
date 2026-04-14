@@ -4,7 +4,6 @@ layout: default
 ---
 
 # Vertica 핵심 기술
-
 <figure class="image-gallery">
   <img src="{{ '/image/Vertica5tech_1.png' | relative_url }}" alt="Vertica 5 tech slide 1" />
   <img src="{{ '/image/Vertica5tech_2.png' | relative_url }}" alt="Vertica 5 tech slide 2" />

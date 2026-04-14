@@ -4,7 +4,6 @@ layout: default
 ---
 
 # Vertica 포트폴리오
-
 Vertica 제품군은 다양한 환경과 요구에 맞춰 구성됩니다.
 
 ## Vertica Enterprise On-Premise
