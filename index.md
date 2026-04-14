@@ -138,13 +138,13 @@ layout: default
   .mode-card {
     flex: 1;
     min-width: 300px;
-    border: 6px solid #e0e0e0;
+    border: 6px solid transparent; /* 카드 테두리를 투명하게 변경 */
     padding: 30px 30px 34px;
     border-radius: 60px;
     display: flex;
     flex-direction: column;
     background: #ffffff;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    box-shadow: none; /* 카드 그림자 효과 제거 */
   }
 
   .mode-card > div:first-child {
