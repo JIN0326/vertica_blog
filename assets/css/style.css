@@ -1,5 +1,5 @@
 /* ==========================================================================
-   1. 초기화 및 공용 변수 (이미지 톤에 맞춰 조정)
+   1. 초기화 및 공용 변수 
    ========================================================================== */
 :root {
   --bg-gradient: linear-gradient(180deg, #f8fbff 0%, #f0f5ff 100%);
@@ -24,7 +24,7 @@ body {
 .site-content {
   width: min(1100px, calc(100% - 40px));
   margin: 0 auto;
-  padding: 20px 0 80px; /* 상단 여백 축소 */
+  padding: 20px 0 80px; 
 }
 
 .site-header {
@@ -38,7 +38,6 @@ body {
   padding: 15px 0;
 }
 
-/* 헤더 내부 정렬 보완 */
 .header-inner {
   width: min(1100px, calc(100% - 40px));
   margin: 0 auto;
@@ -52,9 +51,9 @@ body {
   font-weight: 800;
   color: var(--accent);
   letter-spacing: -0.05em;
+  text-decoration: none;
 }
 
-/* 내비게이션 메뉴 가로 정렬 및 스타일 */
 .site-nav {
   display: flex;
   align-items: center;
@@ -75,7 +74,6 @@ body {
   color: var(--accent);
 }
 
-/* 드롭다운 스타일 보완 */
 .dropdown { position: relative; }
 .dropdown-content {
   display: none;
@@ -108,11 +106,11 @@ body {
 }
 
 /* ==========================================================================
-   2. Hero Section (이미지처럼 좌측 정렬)
+   2. Hero Section 
    ========================================================================== */
 .hero-container {
-  padding: 30px 0; /* 상하 여백 축소 */
-  text-align: left; /* 좌측 정렬 */
+  padding: 30px 0; 
+  text-align: left; 
 }
 
 .eyebrow {
@@ -121,25 +119,24 @@ body {
   background: #e5ecff;
   color: var(--accent);
   border-radius: 8px;
-  font-size: 0.8rem; /* 폰트 크기 축소 */
+  font-size: 0.8rem; 
   font-weight: 700;
   text-transform: uppercase;
-  margin-bottom: 20px; /* 하단 여백 축소 */
+  margin-bottom: 20px; 
 }
 
 h1 {
-  font-size: clamp(1.8rem, 5vw, 3rem); /* 폰트 크기 축소 */
+  font-size: clamp(1.8rem, 5vw, 3rem); 
   font-weight: 800;
   line-height: 1.25;
-  margin: 0 0 1rem; /* 하단 여백 축소 */
+  margin: 0 0 1rem; 
   letter-spacing: -0.03em;
 }
 
 .hero-content p {
-  font-size: 1.1rem; /* 폰트 크기 축소 */
+  font-size: 1.1rem; 
   color: var(--sub);
-  max-width: 800px;
-  margin-bottom: 24px; /* 하단 여백 축소 */
+  max-width: 800px;/* 하단 여백 축소 */
 }
 
 .link-container { display: flex; gap: 12px; flex-wrap: wrap; }
@@ -149,26 +146,26 @@ h1 {
   color: white;
   border-radius: 6px;
   font-weight: 600;
-  font-size: 0.85rem; /* 폰트 크기 축소 */
+  font-size: 0.85rem; 
   transition: 0.2s;
 }
 .link-container a:hover { background: var(--accent-dark); transform: translateY(-2px); }
 
 /* ==========================================================================
-   3. Summary Section (흰색 배경 카드)
+   3. Summary Section 
    ========================================================================== */
 .summary-section {
-  padding: 50px 40px; /* 상하 여백 축소 */
+  padding: 50px 40px;
   background: #ffffff;
   border-radius: 20px;
   border: 1px solid var(--border-color);
   box-shadow: var(--shadow);
-  margin-top: 30px; /* 상단 여백 축소 */
+  margin-top: 30px; 
 }
 
 .summary-header { text-align: left; margin-bottom: 40px; }
-.summary-header h2 { font-size: 2rem; font-weight: 800; margin-bottom: 16px; } /* 폰트 크기 및 여백 축소 */
-.summary-header p { font-size: 1.05rem; color: var(--sub); } /* 폰트 크기 축소 */
+.summary-header h2 { font-size: 2rem; font-weight: 800; margin-bottom: 16px; } 
+.summary-header p { font-size: 1.05rem; color: var(--sub); } 
 
 .architecture-grid {
   display: grid;
@@ -199,9 +196,9 @@ h1 {
   border-radius: 0;
 }
 
-.mode-body { padding: 25px; text-align: left; } /* 여백 축소 */
-.mode-body h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 10px; } /* 폰트 크기 및 여백 축소 */
-.mode-body p { font-size: 0.95rem; color: var(--muted); margin: 0; line-height: 1.6; } /* 폰트 크기 및 줄간격 축소 */
+.mode-body { padding: 25px; text-align: left; } 
+.mode-body h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 10px; } 
+.mode-body p { font-size: 0.95rem; color: var(--muted); margin: 0; line-height: 1.6; }
 
 /* ==========================================================================
    4. 일반 카드 섹션 (Playbook 등)
@@ -236,9 +233,9 @@ h1 {
   transition: 0.2s;
 }
 .card:hover { transform: translateY(-5px); border-color: var(--accent); }
-.card h3 { font-size: 1.1rem; margin-bottom: 8px; } /* 폰트 크기 및 여백 축소 */
-.card p { font-size: 0.9rem; color: var(--muted); margin-bottom: 12px; } /* 폰트 크기 및 여백 축소 */
-.card a { color: var(--accent); font-weight: 700; font-size: 0.85rem; } /* 폰트 크기 축소 */
+.card h3 { font-size: 1.1rem; margin-bottom: 8px; } 
+.card p { font-size: 0.9rem; color: var(--muted); margin-bottom: 12px; } 
+.card a { color: var(--accent); font-weight: 700; font-size: 0.85rem; } 
 
 /* ==========================================================================
    5. 반응형
@@ -249,8 +246,7 @@ h1 {
   .architecture-grid { grid-template-columns: 1fr; }
 }
 
-/* 앵커 링크 스크롤 오프셋 */
 section[id],
 article[id] {
-  scroll-margin-top: 80px; /* 고정 헤더의 높이만큼 조정 */
+  scroll-margin-top: 80px; 
 }
