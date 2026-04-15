@@ -25,7 +25,7 @@ body {
   width: min(1300px, calc(100% - 40px));
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 220px minmax(0, 1fr); /* 왼쪽 공통 사이드바 너비 축소 */
+  grid-template-columns: 1.5fr 8.5fr; /* 사이드바와 메인 콘텐츠 비율 조정 (1.5:8.5) */
   gap: 28px;
   align-items: start;
   padding: 20px 0 80px;
