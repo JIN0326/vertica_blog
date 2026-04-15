@@ -3,7 +3,7 @@ title: Vertica Architecture & Ecosystem
 layout: default
 ---
 
-# Vertica Analytics Platform Architecture
+# Vertica란 무엇인가 
 <div class="slide-banner">
   <div class="slide-banner__intro">
     <p class="eyebrow">Architecture Overview</p>
@@ -12,7 +12,7 @@ layout: default
 
   <div class="slide-panels">
     <article class="slide-panel">
-    <img src="{{ '/images/WhatisVertica_1.png' | relative_url }}" alt="What is Vertica slide 1" />
+    <img src="{{ '/assets/images/WhatisVertica_1.png' | relative_url }}" alt="What is Vertica slide 1" />
       <h3>Data Sources</h3>
       <ul>
         <li><b>Files:</b> CSV, JSON, Parquet, ORC, Avro</li>
@@ -22,7 +22,7 @@ layout: default
     </article>
 
     <article class="slide-panel">
-    <img src="{{ '/images/WhatisVertica_2.png' | relative_url }}" alt="What is Vertica slide 2" />
+    <img src="{{ '/assets/images/WhatisVertica_2.png' | relative_url }}" alt="What is Vertica slide 2" />
       <h3>Analytics Platform</h3>
       <ul>
         <li><b>Unified Engine:</b> Native 및 External 데이터 통합 처리</li>
@@ -32,7 +32,7 @@ layout: default
     </article>
 
     <article class="slide-panel">
-    <img src="{{ '/images/WhatisVertica_3.png' | relative_url }}" alt="What is Vertica slide 3" />
+    <img src="{{ '/assets/images/WhatisVertica_3.png' | relative_url }}" alt="What is Vertica slide 3" />
       <h3>Consumption Layer</h3>
       <ul>
         <li><b>BI Tools:</b> Tableau, Looker, Power BI 연동</li>
