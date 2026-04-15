@@ -139,7 +139,8 @@ h1 {
 .hero-content p {
   font-size: 1.1rem; 
   color: var(--sub);
-  max-width: 800px;/* 하단 여백 축소 */
+  max-width: 800px;
+  margin-bottom: 24px;
 }
 
 .link-container { display: flex; gap: 12px; flex-wrap: wrap; }
@@ -253,4 +254,191 @@ h1 {
 section[id],
 article[id] {
   scroll-margin-top: 80px; 
+}
+
+/* ==========================================================================
+   6. 서브 페이지 레이아웃 (Playbook, Administration 등)
+   ========================================================================== */
+
+/* 6.1 Page Hero (페이지 상단 제목 영역) */
+.page-hero {
+  text-align: center;
+  padding: 2rem 1rem 2.5rem;
+}
+
+.page-hero .chip {
+  display: inline-block;
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+  background: rgba(45, 105, 255, 0.08);
+  color: var(--accent);
+  font-size: 0.84rem;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.page-hero h1 {
+  margin: 0 auto;
+  font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+  line-height: 1.2;
+  font-weight: 800;
+  color: var(--text);
+}
+
+.page-hero p {
+  margin: 1rem auto 0;
+  max-width: 680px;
+  color: var(--sub);
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+/* 6.2 Buttons (버튼 스타일) */
+.button-grid-section {
+  margin-top: 28px;
+  padding: 26px;
+  background: var(--surface);
+  border-radius: 24px;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow);
+}
+
+.button-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 18px;
+}
+
+.button {
+  text-decoration: none;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  display: block;
+  padding: 14px 20px;
+  border-radius: 12px;
+  text-align: center;
+  font-weight: 600;
+}
+.button:hover {
+  transform: translateY(-2px);
+}
+
+.button.primary {
+  background-color: var(--accent);
+  color: white;
+}
+.button.primary:hover {
+  background-color: var(--accent-dark);
+}
+
+.button.secondary {
+  background-color: rgba(45, 105, 255, 0.08);
+  color: var(--accent-dark);
+}
+.button.secondary:hover {
+  background-color: rgba(45, 105, 255, 0.12);
+}
+
+/* 6.3 Two-Column Layout (2단 레이아웃) */
+.page-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 280px;
+  gap: 28px;
+  margin-top: 32px;
+}
+
+.content-section {
+  scroll-margin-top: 100px; /* 고정 헤더 높이만큼 오프셋 */
+  margin-bottom: 2rem;
+  padding: 2rem;
+  background: var(--surface);
+  border-radius: 24px;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow);
+}
+.content-section h2 {
+  margin-top: 0;
+  font-size: 1.6rem;
+  color: var(--accent-dark);
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+/* 6.4 Sidebar (사이드바) */
+.page-sidebar {
+  position: sticky;
+  top: 104px; /* 헤더 높이(67px) + 여백 */
+  align-self: start;
+}
+
+.sidebar-panel {
+  padding: 24px;
+  border-radius: 24px;
+  background: var(--surface);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow);
+}
+
+.sidebar-panel h3 {
+  margin-top: 0;
+  font-size: 1.05rem;
+  color: var(--text);
+  margin-bottom: 1rem;
+}
+
+.sidebar-panel ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.sidebar-panel a {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+.sidebar-panel a:hover {
+  text-decoration: underline;
+}
+
+/* 6.5 Card Section (Fundamentals 페이지 카드) */
+.card-section {
+  margin-top: 32px;
+}
+.card-section h2 {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin-bottom: 24px;
+}
+
+/* 6.6 Responsive for Sub-pages */
+@media (max-width: 900px) {
+  .page-layout {
+    grid-template-columns: 1fr;
+  }
+  .page-sidebar {
+    position: static;
+    top: auto;
+  }
+}
+
+/* ==========================================================================
+   7. Footer
+   ========================================================================== */
+.site-footer {
+  text-align: center;
+  padding: 40px 20px;
+  margin-top: 60px;
+  border-top: 1px solid var(--border-color);
+}
+
+.site-footer p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--muted);
 }
