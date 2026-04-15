@@ -3,12 +3,12 @@ title: Vertica Reference
 layout: default
 ---
 
-<div class="hero-container">
-  <div class="hero-content">
-    <h1>Vertica 레퍼런스</h1>
-    <p>금융, 기업, 병원 분야에서 검증된 Vertica 구축 사례를 정리했습니다. <br>
-    대용량 분석, DW 전환, EON Mode 도입 등 실제 레퍼런스를 통해 Vertica 적용 포인트를 확인해보세요.</p>
-  </div>
+
+<div class="page-hero">
+  <span class="chip">Vertica Reference</span>
+  <h1> Vertica 구축 사례</h1>
+  <p>금융, 기업, 병원 분야에서 검증된 Vertica 구축 사례를 정리했습니다. <br>
+  대용량 분석, DW 전환, EON Mode 도입 등 실제 레퍼런스를 통해 Vertica 적용 포인트를 확인해보세요.</p>
 </div>
 
 <section class="reference-section">
