@@ -541,45 +541,63 @@ article[id] {
   }
 }
 
-/* 6.7 Slide Banner (What is Vertica) */
-.slide-banner {
-  margin-bottom: 2rem;
-}
-
-.slide-banner__intro p {
-  font-size: 1.05rem;
-  color: var(--sub);
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto 2rem;
-}
-
-.slide-panels {
+/* 6.8 Tech Features Grid */
+.tech-features-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Similar to slide-panels for responsiveness */
   gap: 20px;
+  margin-top: 1.5rem; /* Maintain original margin */
 }
 
-.slide-panel {
-  background: #fdfdff;
+.tech-feature-card {
+  background: #fdfdff; /* Light background, similar to slide-panel */
   border: 1px solid var(--border-color);
   border-radius: 16px;
   padding: 20px;
-  text-align: left;
+  text-align: center; /* Center content for icons */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center items vertically in column */
 }
 
-.slide-panel img {
-  width: 100%;
-  border-radius: 8px;
+.tech-feature-card img {
+  max-width: 100px; /* Adjust icon size */
+  height: auto;
   margin-bottom: 1rem;
-  aspect-ratio: 16/9;
-  object-fit: contain;
-  background: #f0f5ff;
+  background: #f0f5ff; /* Light background for icons */
+  border-radius: 8px;
+  padding: 10px; /* Padding around the icon */
 }
 
-.slide-panel h3 {
+.tech-feature-card h3 {
   font-size: 1.2rem;
   margin-bottom: 0.75rem;
+  color: var(--text);
+}
+
+.tech-feature-card ul {
+  list-style: none; /* Remove default bullet points */
+  padding: 0;
+  margin: 0;
+  text-align: left; /* Align list items to the left */
+  width: 100%; /* Take full width for list items */
+}
+
+.tech-feature-card ul li {
+  margin-bottom: 0.5rem;
+  color: var(--sub);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  position: relative;
+  padding-left: 1.2em; /* Space for custom bullet */
+}
+
+.tech-feature-card ul li::before {
+  content: "•"; /* Custom bullet point */
+  color: var(--accent); /* Accent color for bullet */
+  position: absolute;
+  left: 0;
+  top: 0;
 }
 
 /* ==========================================================================
