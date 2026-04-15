@@ -47,7 +47,7 @@ layout: default
 
     <article id="operation" class="content-section">
       <h2>Vertica 편의성</h2>
-      <p> xxx </p>
+      <p> 운영 안정성과 개발 편의성을 모두 고려한 플랫폼의 특징을 알아봅니다. </p>
     </article>
   </div>
 
