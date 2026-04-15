@@ -3,6 +3,9 @@ title: Table · Projection
 layout: default
 ---
 
+<div class="page-layout">
+  <div class="content-section" markdown="1">
+
 # Table · Projection
 
 Vertica에서 가장 중요한 객체는 `Table`과 `Projection`입니다. Table은 데이터 구조를 정의하고 저장을 담당하며, Projection은 데이터를 빠르게 조회하도록 최적화하는 물리 계층입니다.
@@ -57,3 +60,8 @@ ORDER BY sale_date, product_id;
 - `SELECT * FROM projections WHERE anchor_table_name = 'sales';`로 테이블에 연결된 projection을 조회합니다.
 - `SELECT REFRESH_PROJECTIONS()`로 projection 상태를 재생성/재정비할 수 있습니다.
 - `ANALYZE_STATISTICS`로 통계 정보를 갱신하면 최적화에 도움이 됩니다.
+
+  </div>
+
+  {% include administration_sidebar.html %}
+</div>
