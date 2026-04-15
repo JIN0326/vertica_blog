@@ -11,12 +11,12 @@ layout: default
 
 <section class="button-grid-section">
   <div class="button-grid">
-    <a class="button secondary" href="{{ '/administration-table-projection' | relative_url }}">Table · Projection</a>
-    <a class="button secondary" href="{{ '/administration-schema' | relative_url }}">Schema</a>
-    <a class="button secondary" href="{{ '/administration-user' | relative_url }}">User</a>
-    <a class="button secondary" href="{{ '/administration-profile' | relative_url }}">Profile</a>
-    <a class="button secondary" href="{{ '/administration-resource-pool' | relative_url }}">Resource Pool</a>
-    <a class="button secondary" href="{{ '/administration-privilege' | relative_url }}">Privilege</a>
+    <a class="button secondary" href="{{ '/02_1tableprojection' | relative_url }}">Table · Projection</a>
+    <a class="button secondary" href="{{ '/02_2schema' | relative_url }}">Schema</a>
+    <a class="button secondary" href="{{ '/02_3user' | relative_url }}">User</a>
+    <a class="button secondary" href="{{ '/02_4profile' | relative_url }}">Profile</a>
+    <a class="button secondary" href="{{ '/02_5resourcepool' | relative_url }}">Resource Pool</a>
+    <a class="button secondary" href="{{ '/02_6privilege' | relative_url }}">Privilege</a>
   </div>
 </section>
 

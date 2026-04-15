@@ -1,5 +1,5 @@
 ---
-title: 운영과 개발 편의성
+title: Vertica 편의성
 layout: default
 ---
 

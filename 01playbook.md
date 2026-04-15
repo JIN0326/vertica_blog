@@ -11,10 +11,10 @@ layout: default
 
 <section class="button-grid-section">
   <div class="button-grid">
-    <a class="button secondary" href="{{ '/what-is-vertica' | relative_url }}">Vertica란 무엇인가</a>
-    <a class="button secondary" href="{{ '/technology' | relative_url }}">Vertica 핵심 기술</a>
-    <a class="button secondary" href="{{ '/portfolio' | relative_url }}">Vertica 포트폴리오</a>
-    <a class="button secondary" href="{{ '/architecture' | relative_url }}">Vertica 아키텍처</a>
+    <a class="button secondary" href="{{ '/01_1whatisvertica' | relative_url }}">Vertica란 무엇인가</a>
+    <a class="button secondary" href="{{ '/01_2technology' | relative_url }}">Vertica 핵심 기술</a>
+    <a class="button secondary" href="{{ '/01_3portfolio' | relative_url }}">Vertica 포트폴리오</a>
+    <a class="button secondary" href="{{ '/01_4architecture' | relative_url }}">Vertica 아키텍처</a>
   </div>
 </section>
 

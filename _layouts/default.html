@@ -16,39 +16,38 @@
           </a>
           <nav class="site-nav">
             <div class="dropdown">
-              <a href="{{ '/playbook' | relative_url }}">Vertica Playbook</a>
+              <a href="{{ '/01playbook' | relative_url }}">Vertica Playbook</a>
               <div class="dropdown-content">
-                <a href="{{ '/what-is-vertica' | relative_url }}">Vertica란 무엇인가</a>
-                <a href="{{ '/technology' | relative_url }}">Vertica 핵심 기술</a>
-                <a href="{{ '/portfolio' | relative_url }}">Vertica 포트폴리오</a>
-                <a href="{{ '/architecture' | relative_url }}">Vertica 아키텍처</a>
-                <a href="{{ '/reference' | relative_url }}">Vertica 레퍼런스</a>
+                <a href="{{ '/01_1whatisvertica' | relative_url }}">Vertica란 무엇인가</a>
+                <a href="{{ '/01_2technology' | relative_url }}">Vertica 핵심 기술</a>
+                <a href="{{ '/01_3portfolio' | relative_url }}">Vertica 포트폴리오</a>
+                <a href="{{ '/01_4architecture' | relative_url }}">Vertica 아키텍처</a>
               </div>
             </div>
 
             <div class="dropdown">
-              <a href="{{ '/administration' | relative_url }}">Vertica Administration</a>
+              <a href="{{ '/02administration' | relative_url }}">Vertica Administration</a>
               <div class="dropdown-content">
-                <a href="{{ '/administration-table-projection' | relative_url }}">Table · Projection</a>
-                <a href="{{ '/administration-schema' | relative_url }}">Schema</a>
-                <a href="{{ '/administration-user' | relative_url }}">User</a>
-                <a href="{{ '/administration-profile' | relative_url }}">Profile</a>
-                <a href="{{ '/administration-resource-pool' | relative_url }}">Resource Pools</a>
-                <a href="{{ '/administration-privilege' | relative_url }}">Privilege</a>
+                <a href="{{ '/02_1tableprojection' | relative_url }}">Table · Projection</a>
+                <a href="{{ '/02_2schema' | relative_url }}">Schema</a>
+                <a href="{{ '/02_3user' | relative_url }}">User</a>
+                <a href="{{ '/02_4profile' | relative_url }}">Profile</a>
+                <a href="{{ '/02_5resourcepool' | relative_url }}">Resource Pools</a>
+                <a href="{{ '/02_6privilege' | relative_url }}">Privilege</a>
               </div>
             </div>
 
             <div class="dropdown">
-              <a href="{{ '/fundamentals' | relative_url }}">Vertica Fundamental</a>
+              <a href="{{ '/03fundamentals' | relative_url }}">Vertica Fundamental</a>
               <div class="dropdown-content">
-                <a href="{{ '/fundamentals' | relative_url }}">Vertica 학습하기</a>
+                <a href="{{ '/03fundamentals' | relative_url }}">Vertica 학습하기</a>
               </div>
             </div>
 
             <div class="dropdown">
-              <a href="{{ '/reference' | relative_url }}">Vertica Reference</a>
+              <a href="{{ '/04reference' | relative_url }}">Vertica Reference</a>
               <div class="dropdown-content">
-                <a href="{{ '/reference' | relative_url }}">Vertica 고객사례</a>
+                <a href="{{ '/04reference' | relative_url }}">Vertica 고객사례</a>
               </div>
             </div>
 
@@ -56,9 +55,21 @@
         </div>
       </header>
 
-      <main class="site-content">
-        {{ content }}
-      </main>
+      <div class="layout-inner">
+        <aside class="page-sidebar">
+          <span class="eyebrow">Quick Links</span>
+          <h2>Vertica 리소스</h2>
+          <p>주요 리소스와 문의 페이지를 언제나 빠르게 이동할 수 있습니다.</p>
+          <a class="sidebar-link" href="https://docs.vertica.com/26.1.x/en/" target="_blank" rel="noopener">Docs</a>
+          <a class="sidebar-link" href="http://www.gtgsc.com/gtg/sub/bigdata/vertica.php" target="_blank" rel="noopener">Partners</a>
+          <a class="sidebar-link" href="{{ '/99Class' | relative_url }}">Class</a>
+          <a class="sidebar-link" href="{{ '/99QnA' | relative_url }}">QnA</a>
+        </aside>
+
+        <main class="site-content">
+          {{ content }}
+        </main>
+      </div>
 
       <footer class="site-footer">
         <p>© {{ site.time | date: '%Y' }} Vertica Blog. All rights reserved.</p>
