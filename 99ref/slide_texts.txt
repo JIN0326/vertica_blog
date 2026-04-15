@@ -1,0 +1,271 @@
+=== ppt/slides/slide1.xml count=2
+레퍼런스
+00
+=== ppt/slides/slide2.xml count=67
+금융 레퍼런스
+발주처
+사업내용
+도입 용량
+비고
+신한은행
+통합 분석 
+One DW / Machine Learning / AML 
+시스템 
+/ 
+마이데이터
+Node
+License
+1.3PB
+Teradata
+ 
+/ IBM DB2 
+대체 
+Enterprise mode 
+에서 
+EON Mode
+로 전환
+Multi cluster
+하나은행
+분석 
+DW
+Node
+License
+100TB
+정보계 분석 
+DW
+EON Mode 
+구축
+한국신용정보원
+빅데이터 분석 
+285TB
+빅데이터 분석 및 마이데이터 분석
+새마을금고연합회
+상시감시 분석시스템
+25TB
+분석
+/
+통계 시스템
+빗썸 코리아
+Enterprise Data Warehouse
+Node
+License
+100TB
+신규 
+EDW
+버티카
+ 라이선스 증설
+한화생명금융서비스
+Open 
+통합영업플랫폼 구축
+2TB
+신규 
+EDW
+테크핀레이팅스
+기업 
+CB 
+등급 산출 및 분석
+40TB
+Postgresql
+ 
+대체
+2
+=== ppt/slides/slide3.xml count=98
+기업 레퍼런스
+발주처
+사업내용
+도입 용량
+비고
+삼성전자
+워크로드 관리 플랫폼
+40TB
+Platform 
+LSF
+ - PA
+용 
+DBMS
+버티카
+ 라이선스 증설
+삼성
+SDS
+운영 자동화 지원 
+DW
+5TB
+삼성
+SDS 
+클라우드
+ 
+누리
+(Nuri) 
+구축
+버티카
+ 라이선스 증설
+KT
+차세대 
+BIDW
+500TB
+Teradata 
+대체
+LG
+유플러스
+BS 
+통합 정보계 
+/ 
+IFRS7
+ 시스템
+292TB
+정보계 
+DBMS
+Enterprise mode 
+에서 
+EON Mode
+로 전환
+버티카 라이선스 증설
+한국조폐공사
+신뢰 구축 플랫폼 구축
+5TB
+분석
+/
+통계 시스템
+LG
+전자
+New BEST 
+DW
+14TB
+LG
+전자 한국 물류 
+DW
+Oracle Exadata 
+대체
+펑타이그레이트차이나
+Enterprise Data Warehouse
+12TB
+AWS Eon Mode 
+구축
+버티카
+ 라이선스 증설
+대검찰청
+Enterprise Data Warehouse
+8TB
+분석
+/
+통계 시스템
+미스토홀딩스
+(
+구
+.
+휠라
+)
+Enterprise Data Warehouse
+5TB
+EDW
+건설근로자공제회
+Enterprise Data Warehouse
+20TB
+EDW
+SH
+서울주택도시공사
+Enterprise Data Warehouse
+2TB
+EDW
+3
+=== ppt/slides/slide4.xml count=100
+병원 레퍼런스
+발주처
+사업내용
+도입 용량
+비고
+삼성서울병원
+의료정보분석
+ 
+시스템
+4TB
+CDW
+서울대학교병원
+의료정보분석
+ 
+시스템
+4TB
+CDW
+고려대학교병원
+의료정보분석
+ 
+시스템
+15TB
+CDW / EDW
+버티카
+ 라이선스 및 노드 증설
+건국대학교병원
+의료정보분석
+ 
+시스템
+4TB
+CDW
+경북대학병원
+의료정보분석
+ 
+시스템
+2TB
+CDW
+울산대학병원
+의료정보분석
+ 
+시스템
+3TB
+CDW
+서울의료원 
+의료정보분석
+ 
+시스템
+3TB
+CDW
+인하대학병원
+의료정보분석
+ 
+시스템
+4TB
+AWS 
+구축
+CDW / EDW
+원주세브란스기독병원
+의료정보분석
+ 
+시스템
+1TB
+CDW
+분당차병원
+의료정보분석
+ 
+시스템
+4TB
+CDW
+국립병원
+의료정보분석
+ 
+시스템
+4TB
+CDW
+충무병원
+의료정보분석
+ 
+시스템
+2TB
+CDW
+삼육대병원
+의료정보분석
+ 
+시스템
+2TB
+CDW
+강원대병원
+의료정보분석
+ 
+시스템
+4TB
+CDW
+삼광랩트리
+의료정보분석
+ 
+시스템
+3TB
+CDW
+4
