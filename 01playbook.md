@@ -15,6 +15,7 @@ layout: default
     <a class="button secondary" href="{{ '/01_2technology' | relative_url }}">Vertica 핵심 기술</a>
     <a class="button secondary" href="{{ '/01_3portfolio' | relative_url }}">Vertica 포트폴리오</a>
     <a class="button secondary" href="{{ '/01_4architecture' | relative_url }}">Vertica 아키텍처</a>
+    <a class="button secondary" href="{{ '/01_5operation' | relative_url }}">Vertica 편의성</a>
   </div>
 </section>
 
@@ -43,6 +44,11 @@ layout: default
       <p>Vertica는 Enterprise 모드와 Eon 모드로 나뉘며, 각각 계산과 저장소의 결합 또는 분리를 통해 성능과 확장성을 다르게 설계합니다.</p>
       <p>클러스터 노드 구성과 Storage 구조, 네트워크 요구 사항을 함께 이해하는 것이 중요합니다.</p>
     </article>
+
+    <article id="operation" class="content-section">
+      <h2>Vertica 편의성</h2>
+      <p> xxx </p>
+    </article>
   </div>
 
   <aside class="page-sidebar">
@@ -53,6 +59,7 @@ layout: default
         <li><a href="#technology">Vertica 핵심 기술</a></li>
         <li><a href="#portfolio">Vertica 포트폴리오</a></li>
         <li><a href="#architecture">Vertica 아키텍처</a></li>
+        <li><a href="#operation">Vertica 편의성</a></li>
       </ul>
     </div>
   </aside>

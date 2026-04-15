@@ -54,9 +54,14 @@ permalink: /
       <a href="{{ '/01_3portfolio' | relative_url }}">이동 →</a>
     </article>
     <article class="card">
-      <h3>아키텍처 장점</h3>
+      <h3>Vertica 아키텍처</h3>
       <p>Pure-MPP, Columnar Storage, 압축, 무중단 운영 등 핵심 장점을 정리했습니다.</p>
       <a href="{{ '/01_4architecture' | relative_url }}">이동 →</a>
+    </article>
+    <article class="card">
+      <h3>Vertica 편의성</h3>
+      <p> xxx </p>
+      <a href="{{ '/01_5operation' | relative_url }}">이동 →</a>
     </article>
   </div>
 </section>
