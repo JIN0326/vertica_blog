@@ -60,7 +60,7 @@ permalink: /
     </article>
     <article class="card">
       <h3>Vertica 편의성</h3>
-      <p> xxx </p>
+      <p>운영 안정성과 개발 편의성을 모두 고려한 플랫폼의 특징을 알아봅니다.</p>
       <a href="{{ '/01_5operation' | relative_url }}">이동 →</a>
     </article>
   </div>
@@ -123,4 +123,3 @@ permalink: /
     </article>
   </div>
 </section>
-

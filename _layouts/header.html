@@ -1,0 +1,21 @@
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="{{ '/' | relative_url }}">
+      <img src="{{ '/assets/images/Vertica_logo.png' | relative_url }}" alt="{{ site.title }} logo" />
+    </a>
+    <nav class="site-nav">
+      {% for item in site.data.navigation %}
+      <div class="dropdown">
+        <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
+        {% if item.sublinks %}
+        <div class="dropdown-content">
+          {% for sublink in item.sublinks %}
+          <a href="{{ sublink.url | relative_url }}">{{ sublink.title }}</a>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </nav>
+  </div>
+</header>

@@ -25,8 +25,8 @@ body {
   width: min(1300px, calc(100% - 40px));
   margin: 0 auto;
   display: grid;
-  grid-template-columns: minmax(260px, 320px) minmax(0, 1fr);
-  gap: 32px;
+  grid-template-columns: 220px minmax(0, 1fr); /* 왼쪽 공통 사이드바 너비 축소 */
+  gap: 28px;
   align-items: start;
   padding: 20px 0 80px;
 }
@@ -439,8 +439,8 @@ article[id] {
 /* 6.3 Two-Column Layout (2단 레이아웃) */
 .page-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 280px;
-  gap: 28px;
+  grid-template-columns: minmax(0, 1fr) 240px; /* 페이지 목차 사이드바 너비 축소 */
+  gap: 24px;
   margin-top: 32px;
 }
 

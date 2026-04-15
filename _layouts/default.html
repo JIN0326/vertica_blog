@@ -9,62 +9,10 @@
   </head>
   <body>
     <div class="page-shell">
-      <header class="site-header">
-        <div class="header-inner">
-          <a class="brand" href="{{ '/' | relative_url }}">
-            <img src="{{ '/assets/images/Vertica_logo.png' | relative_url }}" alt="{{ site.title }} logo" />
-          </a>
-          <nav class="site-nav">
-            <div class="dropdown">
-              <a href="{{ '/01playbook' | relative_url }}">Vertica Playbook</a>
-              <div class="dropdown-content">
-                <a href="{{ '/01_1whatisvertica' | relative_url }}">Vertica란 무엇인가</a>
-                <a href="{{ '/01_2technology' | relative_url }}">Vertica 핵심 기술</a>
-                <a href="{{ '/01_3portfolio' | relative_url }}">Vertica 포트폴리오</a>
-                <a href="{{ '/01_4architecture' | relative_url }}">Vertica 아키텍처</a>
-                <a href="{{ '/01_5operation' | relative_url }}">Vertica 편의성</a>
-              </div>
-            </div>
-
-            <div class="dropdown">
-              <a href="{{ '/02administration' | relative_url }}">Vertica Administration</a>
-              <div class="dropdown-content">
-                <a href="{{ '/02_1tableprojection' | relative_url }}">Table · Projection</a>
-                <a href="{{ '/02_2schema' | relative_url }}">Schema</a>
-                <a href="{{ '/02_3user' | relative_url }}">User</a>
-                <a href="{{ '/02_4profile' | relative_url }}">Profile</a>
-                <a href="{{ '/02_5resourcepool' | relative_url }}">Resource Pools</a>
-                <a href="{{ '/02_6privilege' | relative_url }}">Privilege</a>
-              </div>
-            </div>
-
-            <div class="dropdown">
-              <a href="{{ '/03fundamentals' | relative_url }}">Vertica Fundamental</a>
-              <div class="dropdown-content">
-                <a href="{{ '/03fundamentals' | relative_url }}">Vertica 학습하기</a>
-              </div>
-            </div>
-
-            <div class="dropdown">
-              <a href="{{ '/04reference' | relative_url }}">Vertica Reference</a>
-              <div class="dropdown-content">
-                <a href="{{ '/04reference' | relative_url }}">Vertica 고객사례</a>
-              </div>
-            </div>
-
-          </nav>
-        </div>
-      </header>
+      {% include header.html %}
 
       <div class="layout-inner">
-        <aside class="page-sidebar">
-		    <div class="sidebar-panel">
-          <span class="eyebrow">Quick Links</span>
-          <a class="sidebar-link" href="https://docs.vertica.com/26.1.x/en/" target="_blank" rel="noopener">⚙ Docs</a>
-          <a class="sidebar-link" href="http://www.gtgsc.com/gtg/sub/bigdata/vertica.php" target="_blank" rel="noopener">🏢 Partners</a>
-          <a class="sidebar-link" href="{{ '/99Class' | relative_url }}">🌱 Class</a>
-          <a class="sidebar-link" href="{{ '/99QnA' | relative_url }}">❓ QnA</a>
-        </aside>
+        {% include sidebar.html %}
 
         <main class="site-content">
           {{ content }}
@@ -72,9 +20,7 @@
 		    </div>
       </div>
 
-      <footer class="site-footer">
-        <p>© {{ site.time | date: '%Y' }} Vertica Blog. All rights reserved.</p>
-      </footer>
+      {% include footer.html %}
     </div>
   </body>
 </html>
