@@ -155,19 +155,19 @@ body {
 
 .sidebar-link {
   display: block;
-  padding: 14px 16px;
-  background: #f7faff;
-  color: var(--text);
-  border-radius: 14px;
+  padding: 12px 16px;
+  background: transparent;
+  color: var(--sub);
+  border-radius: 10px;
   text-decoration: none;
-  font-weight: 700;
-  border: 1px solid transparent;
-  margin-bottom: 12px;
+  font-weight: 500;
+  border: 1px solid var(--border-color);
+  margin-bottom: 10px;
   transition: all 0.2s ease;
 }
 
 .sidebar-link:hover {
-  background: #ffffff;
+  background: rgba(45, 105, 255, 0.05);
   border-color: var(--accent);
   color: var(--accent);
 }
@@ -500,6 +500,16 @@ article[id] {
 }
 .sidebar-panel a:hover {
   text-decoration: underline;
+}
+
+.sidebar-panel a.active {
+  color: var(--text);
+  font-weight: 700;
+  cursor: default;
+}
+
+.sidebar-panel a.active:hover {
+  text-decoration: none;
 }
 
 /* 6.5 Card Section (Fundamentals 페이지 카드) */
