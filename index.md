@@ -64,11 +64,6 @@ layout: default
       <p>Pure-MPP, Columnar Storage, 압축, 무중단 운영 등 핵심 장점을 정리했습니다.</p>
       <a href="{{ '/architecture' | relative_url }}">이동 →</a>
     </article>
-    <article class="card">
-      <h3>Vertica Reference</h3>
-      <p>국내 Vertica 사례 기반 레퍼런스를 한곳에 정리했습니다.</p>
-      <a href="{{ '/reference' | relative_url }}">이동 →</a>
-    </article>
   </div>
 </section>
 
@@ -118,3 +113,15 @@ layout: default
     </article>
   </div>
 </section>
+
+<section id="Reference" class="reference-section">
+  <h2>Vertica Reference</h2>
+  <div class="cards">
+    <article class="card">
+      <h3>Vertica Reference</h3>
+      <p>국내 Vertica 사례 기반 레퍼런스를 한곳에 정리했습니다.</p>
+      <a href="{{ '/reference' | relative_url }}">이동 →</a>
+    </article>
+  </div>
+</section>
+

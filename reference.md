@@ -12,7 +12,6 @@ layout: default
 </div>
 
 <section class="reference-section">
-  <h2>Vertica Reference 요약</h2>
   <div class="cards">
     <article class="card">
       <h3>금융 레퍼런스</h3>
