@@ -3,7 +3,7 @@ description: Vertica Analytics Platform 소개 블로그
 baseurl: "/vertica_blog"
 url: "https://jin0326.github.io"
 markdown: kramdown
-theme: minima
+#theme: minima
 plugins:
   - jekyll-feed
 exclude:
