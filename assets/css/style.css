@@ -202,7 +202,7 @@ h1 {
   border-radius: 0;
 }
 
-.mode-body { padding: 5px; text-align: left; } 
+.mode-body { padding: 10px; text-align: left; } 
 .mode-body h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 10px; } 
 .mode-body p { font-size: 0.95rem; color: var(--muted); margin: 0; line-height: 1.6; }
 
