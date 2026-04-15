@@ -21,7 +21,7 @@ layout: default
 </section>
 
 <div class="page-layout">
-  <main>
+  <div>
     <article id="table-projection" class="content-section">
       <h2>Table · Projection</h2>
       <p>Vertica의 테이블(Table)은 논리적인 데이터 구조이며, 프로젝션(Projection)은 테이블 데이터의 물리적인 저장 방식입니다. 쿼리 성능 최적화를 위해 프로젝션의 정렬(ORDER BY) 및 분산(SEGMENTED BY) 설계를 신중하게 해야 합니다.</p>
@@ -51,7 +51,7 @@ layout: default
       <h2>Privilege</h2>
       <p>권한(Privilege)은 스키마, 테이블, 뷰 등 특정 데이터베이스 객체에 대한 사용자의 접근 및 조작 권한을 정의합니다. GRANT와 REVOKE 명령어를 사용하여 사용자나 Role에 필요한 최소한의 권한을 부여하는 것이 보안의 핵심입니다.</p>
     </article>
-  </main>
+  </div>
 
   <aside class="page-sidebar">
     <div class="sidebar-panel">

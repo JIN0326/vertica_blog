@@ -19,7 +19,7 @@ layout: default
 </section>
 
 <div class="page-layout">
-  <main>
+  <div>
     <article id="what-is-vertica" class="content-section">
       <h2>Vertica란 무엇인가?</h2>
       <p>Vertica는 대용량 분석을 위한 컬럼 기반 MPP 데이터베이스입니다. 고급 압축과 분산처리를 통해 빠른 분석 쿼리 성능을 제공합니다.</p>
@@ -43,7 +43,7 @@ layout: default
       <p>Vertica는 Enterprise 모드와 Eon 모드로 나뉘며, 각각 계산과 저장소의 결합 또는 분리를 통해 성능과 확장성을 다르게 설계합니다.</p>
       <p>클러스터 노드 구성과 Storage 구조, 네트워크 요구 사항을 함께 이해하는 것이 중요합니다.</p>
     </article>
-  </main>
+  </div>
 
   <aside class="page-sidebar">
     <div class="sidebar-panel">
