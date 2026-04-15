@@ -10,7 +10,7 @@ layout: default
 </div>
 
 <div class="page-layout">
-  <div class="content-section">
+  <div class="content-section" markdown="1">
   ## 문의 내용
 
   - Vertica 제품 도입 상담
@@ -19,21 +19,21 @@ layout: default
 
   ## 문의 방법
 
-  메일 문의는 아래 양식으로 보내주세요. <br>
-  문의 대응이 늦어질 수 있는 점 양해 부탁드립니다. <br>
+  메일 문의는 아래 양식으로 보내주세요.  
+  문의 대응이 늦어질 수 있는 점 양해 부탁드립니다.  
   가능한 빠른 시일 내에 답변 드리도록 하겠습니다.
 
-  - 메일 주소 : xxx
+  - **메일 주소**: `your_email@example.com` (실제 이메일 주소로 변경해주세요)
 
-  [메일 문의 시 요청 사항]
+  ### 메일 문의 시 요청 사항
 
-  제목 : [버티카QnA] xxxx    ex) [버티카QnA] 프로젝션 재생성 가이드
+  **제목**: `[버티카QnA] xxxx` (예: `[버티카QnA] 프로젝션 재생성 가이드`)
 
-  내용 :
-  - 버티카 버전 : vertica X.X    ex) vertica 24.x.x-x
-  - 버티카 노드 수 : X node    ex) 3 node
-  - 소속 : XXX업체            (option)
-  - 문의 내용 :
+  **내용**:
+  - **버티카 버전**: vertica X.X (예: `vertica 24.x.x-x`)
+  - **버티카 노드 수**: X node (예: `3 node`)
+  - **소속**: XXX업체 (선택 사항)
+  - **문의 내용**: (여기에 상세 내용을 작성해주세요)
 
   </div>
 </div>
