@@ -172,6 +172,12 @@ body {
   color: var(--accent);
 }
 
+.site-sidebar {
+  position: sticky;
+  top: 104px;
+  align-self: start;
+}
+
 /* ==========================================================================
    2. Hero Section 
    ========================================================================== */
@@ -315,7 +321,7 @@ h1 {
     grid-template-columns: 1fr;
   }
 
-  .page-sidebar {
+  .site-sidebar {
     position: relative;
     top: 0;
     margin-bottom: 24px;
