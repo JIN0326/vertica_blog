@@ -5,8 +5,7 @@ layout: default
 
 <div class="hero-container">
   <div class="hero-content">
-    <span class="eyebrow">Reference</span>
-    <h1>국내 Vertica 도입 사례와 실전 레퍼런스</h1>
+    <h1>Vertica 레퍼런스</h1>
     <p>금융, 기업, 병원 분야에서 검증된 Vertica 구축 사례를 정리했습니다. <br>
     대용량 분석, DW 전환, EON Mode 도입 등 실제 레퍼런스를 통해 Vertica 적용 포인트를 확인해보세요.</p>
   </div>
@@ -70,9 +69,3 @@ layout: default
 | 울산대학병원 | 의료정보분석 시스템 | 3TB | CDW |
 | 서울의료원 | 의료정보분석 시스템 | 3TB | CDW |
 
-## 국내 Vertica 도입 포인트
-
-- 금융권은 통합 분석 플랫폼과 마이데이터, Enterprise mode에서 EON Mode 전환 사례가 돋보입니다.
-- 기업 분야는 대규모 BIDW, DW 전환, Teradata/Oracle 대체, 클라우드 기반 Eon Mode 구축이 주요 트렌드입니다.
-- 병원 분야는 CDW/EDW 기반 의료정보분석 시스템 구축과 Vertica 라이선스 확장·증설이 핵심입니다.
-- 4TB부터 1.3PB까지 다양한 스케일에서 Vertica가 실제 운영되고 있는 점을 확인할 수 있습니다.

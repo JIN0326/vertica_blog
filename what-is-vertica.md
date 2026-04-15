@@ -6,7 +6,6 @@ layout: default
 # Vertica란 무엇인가 
 <div class="slide-banner">
   <div class="slide-banner__intro">
-    <p class="eyebrow">Architecture Overview</p>
     <p>Vertica는 데이터 수집부터 분석, 시각화에 이르는 전 과정을 통합한 현대적인 데이터 레이크하우스 아키텍처를 제공합니다.</p>
   </div>
 

@@ -67,7 +67,7 @@ layout: default
     <article class="card">
       <h3>Vertica Reference</h3>
       <p>국내 Vertica 사례 기반 레퍼런스를 한곳에 정리했습니다.</p>
-      <a href="{{ '/vertica-reference' | relative_url }}">이동 →</a>
+      <a href="{{ '/reference' | relative_url }}">이동 →</a>
     </article>
   </div>
 </section>
