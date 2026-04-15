@@ -5,9 +5,10 @@ layout: default
 
 <div class="hero-container">
   <div class="hero-content">
-    <span class="eyebrow" style="font-weight: bold;">Analytics Platform</span>
+    <span class="eyebrow" style="font-weight: bold;">Analytics Database</span>
     <h1>데이터의 한계를 넘어서, <br> Vertica로 실현하는 초고속 분석</h1>
-    <p>Vertica의 차세대 레이크하우스 아키텍처와 고성능 분석 노하우를 집약한 기술 블로그입니다.</p>
+    <p>Vertica는 대규모 데이터 분석에 최적화된 SQL 데이터 웨어하우스 플랫폼입니다. <br>
+    페타바이트 규모의 복잡한 데이터 워크로드를 처리하여 기업이 데이터를 관리하고 분석하는 방식을 혁신하도록 설계된 Analytics Database 입니다.</p>
     <div class="link-container">
       <a href="https://docs.vertica.com/26.1.x/en/">
           Vertica 공식 문서 (Documentation)
@@ -16,17 +17,7 @@ layout: default
           Vertica 공식 파트너사 (GTG)
       </a>
     </div>
-  </div>
-</div>
-
-<section class="summary-section">
-  <div class="summary-header">
-    <h2>Vertica는 무엇인가?</h2>
-    <p>Vertica는 대규모 데이터 분석에 최적화된 SQL 데이터 웨어하우스 플랫폼입니다. <br>
-    빠른 쿼리 처리, 고급 분석 기능, 클라우드 및 온프레미스 확장성을 모두 제공하여 기업용 데이터 분석 환경을 단순화합니다.</p>
-  </div>
-
-  <div class="architecture-grid">
+    <div class="architecture-grid">
     <article class="mode-card">
       <div class="mode-image">
         <img src="{{ '/assets/images/EnteroriseMode.png' | relative_url }}" alt="Vertica Enterprise Mode" />
@@ -47,7 +38,7 @@ layout: default
       </div>
     </article>
   </div>
-</section>
+</div>
 
 <section id="playbook" class="playbook-section">
   <h2>Vertica Playbook</h2>

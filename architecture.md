@@ -3,7 +3,7 @@ title: Vertica 아키텍처 장점
 layout: default
 ---
 
-# Vertica 아키텍처 장점
+# Vertica 아키텍처
 Vertica는 단순하고 효율적인 아키텍처로 대규모 데이터 분석을 지원합니다.
 
 ## Pure-MPP 구조
