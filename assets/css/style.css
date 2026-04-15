@@ -118,41 +118,6 @@ body {
   color: var(--accent);
 }
 
-.hero-layout {
-  display: grid;
-  grid-template-columns: minmax(260px, 320px) minmax(0, 1fr);
-  gap: 32px;
-  align-items: start;
-  margin-top: 24px;
-}
-
-.hero-sidebar {
-  background: #ffffff;
-  border: 1px solid var(--border-color);
-  box-shadow: var(--shadow);
-  border-radius: 20px;
-  padding: 24px;
-  position: sticky;
-  top: 110px;
-}
-
-.hero-sidebar .eyebrow {
-  margin-bottom: 18px;
-}
-
-.hero-sidebar h2 {
-  font-size: 1.1rem;
-  font-weight: 800;
-  margin-bottom: 16px;
-}
-
-.hero-sidebar p {
-  font-size: 0.95rem;
-  color: var(--sub);
-  margin-bottom: 20px;
-  line-height: 1.7;
-}
-
 .sidebar-link {
   display: block;
   padding: 10px 14px;
@@ -184,19 +149,6 @@ body {
    ========================================================================== */
 .hero-container {
   padding: 10px 0 10px; 
-  text-align: left; 
-}
-
-.eyebrow {
-  display: inline-block;
-  padding: 6px 14px;
-  background: #e5ecff;
-  color: var(--accent);
-  border-radius: 8px;
-  font-size: 0.8rem; 
-  font-weight: 1200px;
-  text-transform: uppercase;
-  margin-bottom: 20px; 
 }
 
 /* 왼쪽 사이드바의 Quick Links 타이틀 중앙 정렬 */
