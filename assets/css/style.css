@@ -315,6 +315,10 @@ body[data-theme="dark"] .site-header {
   background-color: rgba(30, 41, 59, 0.8);
 }
 
+body[data-theme="dark"] .brand img {
+  filter: invert(1) hue-rotate(180deg);
+}
+
 body[data-theme="dark"] .dropdown-content {
   background: var(--surface);
 }
