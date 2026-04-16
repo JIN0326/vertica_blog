@@ -9,7 +9,7 @@ layout: default
   <p>궁금한 점을 자유롭게 질문하고, 답변을 받아보세요.</p>
 </div>
 
-<div class="content-section">
+<div class="content-section content-section-centered">
   <!-- Utterances 댓글 시스템을 여기에 삽입합니다. -->
   <script src="https://utteranc.es/client.js"
           repo="[YOUR_GITHUB_USERNAME]/[YOUR_REPOSITORY_NAME]"

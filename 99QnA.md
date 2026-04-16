@@ -9,8 +9,7 @@ layout: default
   <p>Vertica 관련 기술 문의와 지원 요청을 위한 안내 페이지입니다.</p>
 </div>
 
-<div class="page-layout">
-  <div class="content-section" markdown="1">
+<div class="content-section content-section-centered" markdown="1">
   ## 문의 내용
 
   - Vertica 제품 도입 상담
@@ -36,4 +35,3 @@ layout: default
   - **문의 내용**: (여기에 상세 내용을 작성해주세요)
 
   </div>
-</div>
