@@ -14,7 +14,7 @@
     -   **`00index.md` (메인 페이지)**: 블로그 소개 및 각 주요 콘텐츠 섹션으로의 링크를 제공합니다.
     -   **`01playbook.md` (Vertica Playbook)**: Vertica의 핵심 개념, 기술, 아키텍처 등 필수 정보를 요약합니다.
     -   **`02administration.md` (Vertica Administration)**: `Table`, `Projection`, `User` 등 주요 객체 관리 방법을 설명합니다.
-    -   **`03coretech.md` (Vertica CoreTech)**: 데이터 적재, vsql, 쿼리 튜닝, 복구 등 핵심 기술을 통합하여 설명합니다.
+    -   **`03performance.md` (Vertica Performance)**: 데이터 적재, 쿼리 튜닝 등 성능 최적화 기술을 통합하여 설명합니다.
     -   **`04utilization.md` (Vertica Utilization)**: 클라이언트 접속, 모니터링, Python 연동 등 실제 활용 방법을 통합하여 설명합니다.
     -   **`90fundamentals.md` (Vertica Fundamentals)**: DB 구성, 백업/복구, 튜닝 등 초심자를 위한 28가지 실습 주제를 나열합니다.
     -   **`91Class.md` (교육 신청)**: Vertica 교육 과정 및 신청 방법을 안내합니다.

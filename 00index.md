@@ -92,23 +92,23 @@ permalink: /
   </div>
 </section>
 
-<section id="coretech" class="fundamentals-section">
-  <h2>Vertica CoreTech</h2>
+<section id="performance" class="fundamentals-section">
+  <h2>Vertica Performance</h2>
   <div class="cards">
-    <article class="card">
-      <h3>데이터 적재 (COPY)</h3>
-      <p>벌크 데이터 로딩을 위한 COPY 명령어의 사용법과 주요 옵션을 알아봅니다.</p>
-      <a href="{{ '/03coretech#copy' | relative_url }}">이동 →</a>
-    </article>
     <article class="card">
       <h3>vsql 명령어</h3>
       <p>Vertica의 CLI 클라이언트인 vsql의 접속 방법과 유용한 메타 명령어를 학습합니다.</p>
-      <a href="{{ '/03coretech#vsql' | relative_url }}">이동 →</a>
+      <a href="{{ '/03performance#vsql' | relative_url }}">이동 →</a>
+    </article>
+    <article class="card">
+      <h3>데이터 적재 (COPY)</h3>
+      <p>벌크 데이터 로딩을 위한 COPY 명령어의 사용법과 주요 옵션을 알아봅니다.</p>
+      <a href="{{ '/03performance#copy' | relative_url }}">이동 →</a>
     </article>
     <article class="card">
       <h3>쿼리 튜닝 (Explain)</h3>
       <p>EXPLAIN으로 실행 계획을 분석하고 쿼리 성능을 최적화하는 방법을 다룹니다.</p>
-      <a href="{{ '/03coretech#tuning' | relative_url }}">이동 →</a>
+      <a href="{{ '/03performance#tuning' | relative_url }}">이동 →</a>
     </article>
   </div>
 </section>

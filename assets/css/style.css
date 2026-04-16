@@ -407,6 +407,28 @@ body[data-theme="dark"] .theme-toggle .sun-icon { display: none; }
   margin-bottom: 1.5rem;
 }
 
+.content-section pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-x: auto;
+  padding: 1em;
+  background-color: rgba(45, 105, 255, 0.04);
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  line-height: 1.5;
+}
+
+.content-section code {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: 0.9em;
+}
+
+.content-section :not(pre) > code {
+  background-color: rgba(45, 105, 255, 0.08);
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+}
+
 /* 단일 컬럼 콘텐츠 섹션 중앙 정렬 */
 .content-section-centered {
   max-width: 760px; /* page-hero p (680px)보다 약간 넓게 설정 */
