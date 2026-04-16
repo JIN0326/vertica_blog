@@ -25,8 +25,6 @@ layout: default
           crossorigin="anonymous"
           async>
   </script>
-</div>
-  </script>
   <noscript>
     <p>댓글을 보려면 JavaScript를 활성화해야 합니다.</p>
     <p>GitHub 저장소의 <a href="https://github.com/JIN0326/vertica_blog/discussions" target="_blank">Discussions 섹션</a>에서 질문을 남겨주세요.</p>
