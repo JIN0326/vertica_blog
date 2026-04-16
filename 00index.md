@@ -41,27 +41,7 @@ permalink: /
     <article class="card">
       <h3>Vertica란 무엇인가</h3>
       <p>Vertica의 개념과 강점을 한 번에 확인할 수 있습니다.</p>
-      <a href="{{ '/01_1whatisvertica' | relative_url }}">이동 →</a>
-    </article>
-    <article class="card">
-      <h3>Vertica 핵심 기술</h3>
-      <p>Native Columnar, Compression, MPP 등 주요 기술 요소를 정리했습니다.</p>
-      <a href="{{ '/01_2technology' | relative_url }}">이동 →</a>
-    </article>
-    <article class="card">
-      <h3>Vertica 포트폴리오</h3>
-      <p>온프레미스, 클라우드, Eon 구조까지 Vertica 제품군을 소개합니다.</p>
-      <a href="{{ '/01_3portfolio' | relative_url }}">이동 →</a>
-    </article>
-    <article class="card">
-      <h3>Vertica 아키텍처</h3>
-      <p>Pure-MPP, Columnar Storage, 압축, 무중단 운영 등 핵심 장점을 정리했습니다.</p>
-      <a href="{{ '/01_4architecture' | relative_url }}">이동 →</a>
-    </article>
-    <article class="card">
-      <h3>Vertica 편의성</h3>
-      <p>운영 안정성과 개발 편의성을 모두 고려한 플랫폼의 특징을 알아봅니다.</p>
-      <a href="{{ '/01_5operation' | relative_url }}">이동 →</a>
+      <a href="{{ '/01playbook' | relative_url }}">이동 →</a>
     </article>
   </div>
 </section>
@@ -72,37 +52,29 @@ permalink: /
     <article class="card">
       <h3>Table · Projection</h3>
       <p>Vertica의 핵심 객체인 Table과 Projection의 개념 및 관리 방법을 설명합니다.</p>
-      <a href="{{ '/02_1tableprojection' | relative_url }}">이동 →</a>
+      <a href="{{ '/02administration' | relative_url }}">이동 →</a>
     </article>
+  </div>
+</section>
+
+<section id="coretech" class="fundamentals-section">
+  <h2>Vertica CoreTech</h2>
+  <div class="cards">
     <article class="card">
-      <h3>Schema</h3>
-      <p>데이터 객체 그룹화 및 권한 관리를 위한 Schema의 생성 및 운영 방법을 다룹니다.</p>
-      <a href="{{ '/02_2schema' | relative_url }}">이동 →</a>
+      <h3>Vertica CoreTech</h3>
+      <p>데이터 적재, vsql, 쿼리 튜닝, 복구 등 Vertica의 핵심 기술을 알아봅니다.</p>
+      <a href="{{ '/03coretech' | relative_url }}">이동 →</a>
     </article>
+  </div>
+</section>
+
+<section id="Utilization" class="fundamentals-section">
+  <h2>Vertica Utilization</h2>
+  <div class="cards">
     <article class="card">
-      <h3>User</h3>
-      <p>데이터베이스 사용자 계정 생성, 권한 부여, 관리 팁을 제공합니다.</p>
-      <a href="{{ '/02_3user' | relative_url }}">이동 →</a>
-    </article>
-    <article class="card">
-      <h3>Profile</h3>
-      <p>사용자 세션의 실행 환경과 자원 제한을 정의하는 Profile에 대해 알아봅니다.</p>
-      <a href="{{ '/02_4profile' | relative_url }}">이동 →</a>
-    </article>
-    <article class="card">
-      <h3>Resource Pools</h3>
-      <p>쿼리 메모리 및 동시 실행 정책을 제어하는 Resource Pool의 구성 및 할당 방법을 설명합니다.</p>
-      <a href="{{ '/02_5resourcepool' | relative_url }}">이동 →</a>
-    </article>
-    <article class="card">
-      <h3>Privilege</h3>
-      <p>리소스 접근 및 실행 정책을 통제하는 Vertica 권한 관리 체계를 정리합니다.</p>
-      <a href="{{ '/02_6privilege' | relative_url }}">이동 →</a>
-    </article>
-    <article class="card">
-      <h3>Backup & Restore</h3>
-      <p>vbr 유틸리티를 활용한 데이터 백업 및 복구 절차와 모범 사례를 안내합니다.</p>
-      <a href="{{ '/02_7backuprestore' | relative_url }}">이동 →</a>
+      <h3>Vertica Utilization</h3>
+      <p>클라이언트 접속, 모니터링, Python 연동 등 Vertica를 실제 환경에서 활용하는 방법을 소개합니다.</p>
+      <a href="{{ '/04utilization' | relative_url }}">이동 →</a>
     </article>
   </div>
 </section>
@@ -112,8 +84,8 @@ permalink: /
   <div class="cards">
     <article class="card">
       <h3>Vertica 학습하기</h3>
-      <p>Vertica의 기본 개념부터 운영, 쿼리, 백업, 적재까지 28가지 학습 항목을 소개합니다.</p>
-      <a href="{{ '/03fundamentals' | relative_url }}">이동 →</a>
+      <p>Vertica의 기본 개념부터 운영, 쿼리, 백업, 적재까지 28가지 핵심 학습 항목을 소개합니다.</p>
+      <a href="{{ '/90fundamentals' | relative_url }}">이동 →</a>
     </article>
   </div>
 </section>

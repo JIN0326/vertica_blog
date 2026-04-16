@@ -2,7 +2,6 @@
 title: Vertica Administration
 layout: default
 ---
-
 <div class="page-hero">
   <span class="chip">Administration</span>
   <h1>Vertica Administration</h1>
@@ -241,6 +240,7 @@ layout: default
         <li><a href="#profile">Profile</a></li>
         <li><a href="#resource-pool">Resource Pool</a></li>
         <li><a href="#privilege">Privilege</a></li>
+        <li><a href="#backup-restore">Backup & Restore</a></li>
       </ul>
     </div>
   </aside>

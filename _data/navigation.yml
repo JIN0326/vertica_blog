@@ -2,36 +2,39 @@
   url: /01playbook
   sublinks:
     - title: Vertica란 무엇인가
-      url: /01_1whatisvertica
+      url: /01playbook#what-is-vertica
     - title: Vertica 핵심 기술
-      url: /01_2technology
+      url: /01playbook#technology
     - title: Vertica 포트폴리오
-      url: /01_3portfolio
+      url: /01playbook#portfolio
     - title: Vertica 아키텍처
-      url: /01_4architecture
+      url: /01playbook#architecture
     - title: Vertica 편의성
-      url: /01_5operation
+      url: /01playbook#operation
 
 - title: Vertica Administration
   url: /02administration
   sublinks:
     - title: Table · Projection
-      url: /02_1tableprojection
+      url: /02administration#table-projection
     - title: Schema
-      url: /02_2schema
+      url: /02administration#schema
     - title: User
-      url: /02_3user
+      url: /02administration#user
     - title: Profile
-      url: /02_4profile
+      url: /02administration#profile
     - title: Resource Pools
-      url: /02_5resourcepool
+      url: /02administration#resource-pool
     - title: Privilege
-      url: /02_6privilege
+      url: /02administration#privilege
     - title: Backup & Restore
-      url: /02_7backuprestore
+      url: /02administration#backup-restore
+
+- title: Vertica CoreTech
+  url: /03coretech
+
+- title: Vertica Utilization
+  url: /04utilization
 
 - title: Vertica Fundamentals
-  url: /03fundamentals
-  sublinks:
-    - title: Vertica 학습하기
-      url: /03fundamentals
+  url: /90fundamentals
