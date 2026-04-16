@@ -118,25 +118,6 @@ body {
   color: var(--accent);
 }
 
-.sidebar-link {
-  display: block;
-  padding: 10px 14px;
-  background: transparent;
-  color: var(--sub);
-  border-radius: 10px;
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 0.9rem;
-  border: none; /* 테두리 제거 */
-  margin-bottom: 6px; /* 간격 축소 */
-  transition: all 0.2s ease;
-}
-
-.sidebar-link:hover {
-  background: rgba(45, 105, 255, 0.05);
-  color: var(--accent);
-}
-
 .site-sidebar {
   position: sticky;
   top: 104px;
@@ -148,14 +129,6 @@ body {
    ========================================================================== */
 .hero-container {
   padding: 10px 0 10px; 
-}
-
-/* 왼쪽 사이드바의 Quick Links 타이틀 중앙 정렬 */
-.layout-inner > .page-sidebar .eyebrow {
-  display: block;
-  text-align: center;
-  font-weight: 700; /* Bold 처리 */
-  margin-bottom: 16px; /* 버튼과의 간격 추가 */
 }
 
 h1 {
@@ -277,16 +250,6 @@ h1 {
    5. 반응형
    ========================================================================== */
 @media (max-width: 1024px) {
-  .layout-inner {
-    grid-template-columns: 1fr;
-  }
-
-  .site-sidebar {
-    position: relative;
-    top: 0;
-    margin-bottom: 24px;
-  }
-
   .hero-layout {
     grid-template-columns: 1fr;
   }
@@ -402,6 +365,7 @@ article[id] {
   font-size: 1rem;
   color: var(--text);
   margin-bottom: 1rem;
+  font-weight: 700; /* 사이드바 제목 Bold 처리 */
 }
 
 .sidebar-panel ul {
@@ -445,12 +409,16 @@ article[id] {
 
 /* 6.6 Responsive for Sub-pages */
 @media (max-width: 900px) {
+  .layout-inner {
+    grid-template-columns: 1fr;
+  }
   .page-layout {
     grid-template-columns: 1fr;
   }
   .page-sidebar {
     position: static;
     top: auto;
+    margin-bottom: 24px;
   }
 }
 
