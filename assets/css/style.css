@@ -382,6 +382,11 @@ article[id] {
   text-decoration: none;
   font-size: 0.9rem;
 }
+.sidebar-panel a span[aria-hidden="true"] {
+  display: inline-block;
+  width: 1.4em;
+  text-align: center;
+}
 .sidebar-panel a:hover {
   text-decoration: underline;
 }
