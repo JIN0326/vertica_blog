@@ -13,6 +13,18 @@
   --shadow: 0 10px 30px rgba(45, 105, 255, 0.06);
 }
 
+body[data-theme="dark"] {
+  --bg-gradient: linear-gradient(180deg, #0f172a 0%, #020617 100%);
+  --text: #e2e8f0;
+  --sub: #94a3b8;
+  --muted: #64748b;
+  --accent: #60a5fa;
+  --accent-dark: #3b82f6;
+  --surface: #1e293b;
+  --border-color: rgba(148, 163, 184, 0.2);
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
 body {
   margin: 0;
   font-family: "Pretendard", "Inter", sans-serif;
@@ -41,7 +53,7 @@ body {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background-color: rgba(255, 255, 255, 0.94);
+  background-color: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border-color);
@@ -54,6 +66,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 16px;
 }
 
 .brand {
@@ -93,7 +106,7 @@ body {
   position: absolute;
   top: 100%;
   left: 50%;
-  transform: translateX(-50%); /* 중앙 정렬 */
+  transform: translateX(-50%);
   background: white;
   min-width: 200px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.1);
@@ -115,6 +128,27 @@ body {
 
 .dropdown-content a:hover {
   background: #f4f8ff;
+  color: var(--accent);
+}
+
+.theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+}
+.theme-toggle:hover {
+  background-color: var(--border-color);
+}
+.theme-toggle svg {
+  width: 20px;
+  height: 20px;
+  color: var(--sub);
   color: var(--accent);
 }
 
@@ -276,6 +310,39 @@ article[id] {
   scroll-margin-top: 80px; 
 }
 
+/* Dark Mode Specific Adjustments */
+body[data-theme="dark"] .site-header {
+  background-color: rgba(30, 41, 59, 0.8);
+}
+
+body[data-theme="dark"] .dropdown-content {
+  background: var(--surface);
+}
+
+body[data-theme="dark"] .dropdown-content a:hover {
+  background: #334155;
+}
+
+body[data-theme="dark"] .mode-card,
+body[data-theme="dark"] .card,
+body[data-theme="dark"] .sidebar-panel,
+body[data-theme="dark"] .content-section {
+  background: var(--surface);
+  border-color: var(--border-color);
+}
+
+body[data-theme="dark"] .card:hover {
+  border-color: var(--accent);
+}
+
+body[data-theme="dark"] .mode-image img,
+body[data-theme="dark"] .slide-panel img,
+body[data-theme="dark"] .tech-feature-card img {
+  filter: brightness(0.85) contrast(1.1);
+}
+
+body[data-theme="dark"] .theme-toggle .moon-icon { display: block; }
+body[data-theme="dark"] .theme-toggle .sun-icon { display: none; }
 /* ==========================================================================
    6. 서브 페이지 레이아웃 (Playbook, Administration 등)
    ========================================================================== */
@@ -387,6 +454,7 @@ article[id] {
   width: 1.4em;
   text-align: center;
 }
+.theme-toggle .moon-icon { display: none; }
 .sidebar-panel a:hover {
   text-decoration: underline;
 }

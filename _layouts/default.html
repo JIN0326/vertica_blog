@@ -22,5 +22,38 @@
 
       {% include footer.html %}
     </div>
+    <script>
+      (function() {
+        const themeToggle = document.getElementById('theme-toggle');
+        if (!themeToggle) return;
+
+        const body = document.body;
+
+        function setGiscusTheme(theme) {
+          const giscusTheme = theme === 'dark' ? 'dark' : 'light';
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (iframe) {
+            iframe.contentWindow.postMessage({ giscus: { setConfig: { theme: giscusTheme } } }, 'https://giscus.app');
+          }
+        }
+
+        function setTheme(theme) {
+          body.setAttribute('data-theme', theme);
+          localStorage.setItem('theme', theme);
+          setGiscusTheme(theme);
+        }
+
+        themeToggle.addEventListener('click', () => {
+          const newTheme = body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+          setTheme(newTheme);
+        });
+
+        // Apply theme on initial load
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const initialTheme = savedTheme || (prefersDark ? 'dark' : 'light');
+        setTheme(initialTheme);
+      })();
+    </script>
   </body>
 </html>

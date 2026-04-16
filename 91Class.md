@@ -4,7 +4,7 @@ layout: default
 ---
 
 <div class="page-hero">
-  <span class="chip">Vertica Class</span>
+  <span class="chip">Class</span>
   <h1>Vertica 교육 신청</h1>
   <p>Vertica 교육 과정과 신청 방법을 안내합니다. 상세 내용은 담당자와 협의하여 진행해 주세요.</p>
 </div>

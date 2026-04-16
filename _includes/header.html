@@ -1,21 +1,25 @@
 <header class="site-header">
   <div class="header-inner">
-    <a class="brand" href="{{ '/' | relative_url }}">
-      <img src="{{ '/assets/images/Vertica_logo.png' | relative_url }}" alt="{{ site.title }} logo" />
+    <a href="{{ '/' | relative_url }}" class="brand">
+      <img src="{{ '/assets/images/vertica-logo.svg' | relative_url }}" alt="{{ site.title }} logo">
     </a>
     <nav class="site-nav">
       {% for item in site.data.navigation %}
-      <div class="dropdown">
-        <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
-        {% if item.sublinks %}
-        <div class="dropdown-content">
-          {% for sublink in item.sublinks %}
-          <a href="{{ sublink.url | relative_url }}">{{ sublink.title }}</a>
-          {% endfor %}
+        <div class="dropdown">
+          <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
+          {% if item.sublinks %}
+            <div class="dropdown-content">
+              {% for sublink in item.sublinks %}
+                <a href="{{ sublink.url | relative_url }}">{{ sublink.title }}</a>
+              {% endfor %}
+            </div>
+          {% endif %}
         </div>
-        {% endif %}
-      </div>
       {% endfor %}
     </nav>
+    <button id="theme-toggle" class="theme-toggle" title="Toggle dark mode">
+      <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.25a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0V3a.75.75 0 01.75-.75zM7.5 12a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM18.894 6.106a.75.75 0 010 1.06l-1.591 1.59a.75.75 0 11-1.06-1.06l1.59-1.59a.75.75 0 011.06 0zM21.75 12a.75.75 0 01-.75.75h-2.25a.75.75 0 010-1.5H21a.75.75 0 01.75.75zM17.894 17.894a.75.75 0 01-1.06 0l-1.59-1.591a.75.75 0 111.06-1.06l1.59 1.59a.75.75 0 010 1.06zM12 21.75a.75.75 0 01-.75-.75v-2.25a.75.75 0 011.5 0V21a.75.75 0 01-.75.75zM5.106 17.894a.75.75 0 010-1.06l1.59-1.59a.75.75 0 111.06 1.06l-1.59 1.59a.75.75 0 01-1.06 0zM3 12a.75.75 0 01.75-.75h2.25a.75.75 0 010 1.5H3.75A.75.75 0 013 12zM6.106 5.106a.75.75 0 011.06 0l1.59 1.591a.75.75 0 11-1.06 1.06L5.106 6.167a.75.75 0 010-1.06z"></path></svg>
+      <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 004.463-.69a.75.75 0 01.981.981A10.503 10.503 0 0118 19.5a10.5 10.5 0 01-10.5-10.5c0-1.25.22-2.454.622-3.574a.75.75 0 01.806-.162z" clip-rule="evenodd"></path></svg>
+    </button>
   </div>
 </header>
