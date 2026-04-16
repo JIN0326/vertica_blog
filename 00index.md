@@ -99,6 +99,11 @@ permalink: /
       <p>리소스 접근 및 실행 정책을 통제하는 Vertica 권한 관리 체계를 정리합니다.</p>
       <a href="{{ '/02_6privilege' | relative_url }}">이동 →</a>
     </article>
+    <article class="card">
+      <h3>Backup & Restore</h3>
+      <p>vbr 유틸리티를 활용한 데이터 백업 및 복구 절차와 모범 사례를 안내합니다.</p>
+      <a href="{{ '/02_7backuprestore' | relative_url }}">이동 →</a>
+    </article>
   </div>
 </section>
 

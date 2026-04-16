@@ -27,6 +27,8 @@
       url: /02_5resourcepool
     - title: Privilege
       url: /02_6privilege
+    - title: Backup & Restore
+      url: /02_7backuprestore
 
 - title: Vertica Fundamentals
   url: /03fundamentals
