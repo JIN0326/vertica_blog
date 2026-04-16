@@ -10,17 +10,25 @@ layout: default
 </div>
 
 <div class="content-section content-section-centered">
-  <!-- Utterances 댓글 시스템을 여기에 삽입합니다. -->
-  <script src="https://utteranc.es/client.js"
-          repo="JIN0326/vertica_blog"
-          issue-term="pathname"
-          label="clipboard-discussion"
-          theme="github-light"
+  <script src="https://giscus.app/client.js"
+          data-repo="JIN0326/vertica_blog"
+          data-repo-id="[Giscus에서 생성된 REPO_ID]"
+          data-category="[Giscus에서 선택한 카테고리 이름]"
+          data-category-id="[Giscus에서 생성된 CATEGORY_ID]"
+          data-mapping="pathname"
+          data-strict="0"
+          data-reactions-enabled="1"
+          data-emit-metadata="0"
+          data-input-position="bottom"
+          data-theme="light"
+          data-lang="ko"
           crossorigin="anonymous"
           async>
   </script>
+</div>
+  </script>
   <noscript>
     <p>댓글을 보려면 JavaScript를 활성화해야 합니다.</p>
-    <p>GitHub 저장소의 <a href="https://github.com/JIN0326/vertica_blog/issues" target="_blank">Issues 섹션</a>에서 질문을 남겨주세요.</p>
+    <p>GitHub 저장소의 <a href="https://github.com/JIN0326/vertica_blog/discussions" target="_blank">Discussions 섹션</a>에서 질문을 남겨주세요.</p>
   </noscript>
 </div>
