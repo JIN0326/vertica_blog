@@ -12,9 +12,9 @@ layout: default
 <div class="content-section content-section-centered">
   <script src="https://giscus.app/client.js"
           data-repo="JIN0326/vertica_blog"
-          data-repo-id="[Giscus에서 생성된 REPO_ID]"
-          data-category="[Giscus에서 선택한 카테고리 이름]"
-          data-category-id="[Giscus에서 생성된 CATEGORY_ID]"
+          data-repo-id="R_kgDOSDEuRA"
+          data-category="Q&A"
+          data-category-id="2"
           data-mapping="pathname"
           data-strict="0"
           data-reactions-enabled="1"
