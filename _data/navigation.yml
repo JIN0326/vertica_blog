@@ -32,9 +32,25 @@
 
 - title: Vertica CoreTech
   url: /03coretech
+  sublinks:
+    - title: 데이터 적재 (COPY)
+      url: /03coretech#copy
+    - title: vsql 명령어
+      url: /03coretech#vsql
+    - title: 쿼리 튜닝 (Explain)
+      url: /03coretech#tuning
+    - title: 데이터 복구 (Restore)
+      url: /03coretech#restore
 
 - title: Vertica Utilization
   url: /04utilization
+  sublinks:
+    - title: 클라이언트 접속
+      url: /04utilization#connecting
+    - title: 모니터링 및 Grafana
+      url: /04utilization#monitoring
+    - title: Python 연동
+      url: /04utilization#python
 
 - title: Vertica Fundamentals
   url: /90fundamentals

@@ -229,6 +229,27 @@ layout: default
   - 최소 권한 원칙을 적용해 불필요한 권한 부여를 제한합니다.
   - 권한 변경 작업은 문서화하고, 주기적으로 권한 검토를 수행합니다.
 
+  <hr style="margin: 3rem 0;">
+  <div id="backup-restore" style="scroll-margin-top: 100px;"></div>
+
+  ## Backup & Restore
+  `vbr`은 Vertica 데이터베이스의 백업 및 복구를 위한 강력한 커맨드 라인 유틸리티입니다. `vbr`을 사용하면 전체 데이터베이스, 특정 스키마나 테이블 등 다양한 단위로 데이터를 안정적으로 백업하고 복구할 수 있습니다.
+
+  ### 주요 기능
+  - **백업 (`--task backup`)**: 전체, 객체, 증분 등 다양한 방식으로 백업을 수행합니다.
+  - **복구 (`--task restore`)**: 스냅샷 기반으로 특정 시점의 데이터를 복구하여 일관성을 보장합니다.
+
+  ### 복구 절차 예시
+  1.  **설정 파일 준비**: 복구 작업을 위한 `.ini` 설정 파일을 준비합니다.
+  2.  **복구 대상 DB 정지**: 데이터 일관성을 위해 복구를 진행할 데이터베이스를 정지합니다.
+  3.  **vbr 복구 명령어 실행**: `vbr --task restore` 명령어를 사용하여 복구를 시작합니다.
+  4.  **DB 재시작 및 확인**: 복구가 완료되면 데이터베이스를 재시작하고 데이터가 정상적으로 복구되었는지 확인합니다.
+
+  ```bash
+  # vbr 복구 실행 예시
+  /opt/vertica/bin/vbr --task restore --config-file my_backup.ini
+  ```
+
   </div>
   <aside class="page-sidebar">
     <div class="sidebar-panel">
