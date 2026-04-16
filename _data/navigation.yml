@@ -9,7 +9,9 @@
       url: /01playbook#portfolio
     - title: Vertica 아키텍처
       url: /01playbook#architecture
-    - title: Vertica 편의성
+    - title: 고급 개념
+      url: /01playbook#advanced
+    - title: 운영과 개발 편의성
       url: /01playbook#operation
 
 - title: Vertica Administration

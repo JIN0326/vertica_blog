@@ -583,19 +583,51 @@ body[data-theme="dark"] .theme-toggle .sun-icon { display: none; }
   cursor: default;
 }
 
-.sidebar-panel a.active:hover {
-  text-decoration: none;
+.sidebar-panel a.active:hover { text-decoration: none; }
+
+/* 6.5 Fundamentals TOC Layout */
+.fundamentals-toc-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.5rem;
+  padding: 2rem;
+  background: var(--surface);
+  border-radius: 24px;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow);
+  margin-top: 32px;
+  scroll-margin-top: 100px;
 }
 
-/* 6.5 Card Section (Fundamentals 페이지 카드) */
-.card-section {
-  margin-top: 32px;
+.toc-column h3 {
+  font-size: 1.2rem;
+  color: var(--accent);
+  margin-top: 0;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border-color);
 }
-.card-section h2 {
-  text-align: center;
-  font-size: 1.8rem;
-  font-weight: 800;
-  margin-bottom: 24px;
+
+.toc-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem 0;
+}
+
+.toc-column ul li {
+  margin-bottom: 0.75rem;
+}
+
+.toc-column ul li a {
+  text-decoration: none;
+  color: var(--sub);
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.toc-column ul li a:hover {
+  color: var(--text);
+  text-decoration: underline;
 }
 
 /* 6.6 Responsive for Sub-pages */

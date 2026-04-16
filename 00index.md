@@ -49,6 +49,11 @@ permalink: /
       <a href="{{ '/01playbook#technology' | relative_url }}">이동 →</a>
     </article>
     <article class="card">
+      <h3>Vertica 포트폴리오</h3>
+      <p>온프레미스, 클라우드, Eon 모드 등 다양한 환경에 맞는 제품군을 소개합니다.</p>
+      <a href="{{ '/01playbook#portfolio' | relative_url }}">이동 →</a>
+    </article>
+    <article class="card">
       <h3>Vertica 아키텍처</h3>
       <p>Pure-MPP, 데이터 이중화, Scale-out 등 효율적인 아키텍처의 특징을 설명합니다.</p>
       <a href="{{ '/01playbook#architecture' | relative_url }}">이동 →</a>
