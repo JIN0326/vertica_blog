@@ -5,7 +5,7 @@ layout: default
 
 <div class="page-hero">
   <span class="chip">Reference</span>
-  <h1>주요 고객사례</h1>
+  <h1>Vertica 고객사례</h1>
   <p>Vertica는 금융, 통신, 제조, 의료 등 다양한 산업 분야의 리딩 기업에서 핵심 분석 플랫폼으로 활약하고 있습니다.</p>
 </div>
 

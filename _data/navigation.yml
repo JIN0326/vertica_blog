@@ -28,14 +28,8 @@
     - title: Privilege
       url: /02_6privilege
 
-- title: Vertica Fundamental
+- title: Vertica Fundamentals
   url: /03fundamentals
   sublinks:
     - title: Vertica 학습하기
       url: /03fundamentals
-
-- title: Vertica Reference
-  url: /04reference
-  sublinks:
-    - title: Vertica 고객사례
-      url: /04reference

@@ -5,7 +5,7 @@ layout: default
 
 <div class="page-hero">
   <span class="chip">QnA</span>
-  <h1>질문과 답변 게시판</h1>
+  <h1>Vertica 문의</h1>
   <p>궁금한 점을 자유롭게 질문하고, 답변을 받아보세요.</p>
 </div>
 

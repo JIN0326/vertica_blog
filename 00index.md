@@ -112,14 +112,3 @@ permalink: /
     </article>
   </div>
 </section>
-
-<section id="Reference" class="reference-section">
-  <h2>Vertica Reference</h2>
-  <div class="cards">
-    <article class="card">
-      <h3>Vertica 고객사례</h3>
-      <p>국내 Vertica 사례 기반 레퍼런스를 한곳에 정리했습니다.</p>
-      <a href="{{ '/04reference' | relative_url }}">이동 →</a>
-    </article>
-  </div>
-</section>
