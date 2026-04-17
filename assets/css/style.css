@@ -405,30 +405,10 @@ body[data-theme="dark"] .theme-toggle .sun-icon { display: none; }
   line-height: 1.7;
 }
 
-/* 6.2 Slide Banner (Playbook 페이지) */
-.slide-banner {
-  margin: 2rem 0;
-  padding: 2rem;
-  background: rgba(45, 105, 255, 0.04);
-  border-radius: 20px;
-  border: 1px solid var(--border-color);
-}
-
-.slide-banner__intro {
-  text-align: center;
-  margin-bottom: 2rem;
-}
-
-.slide-banner__intro p {
-  font-size: 1.1rem;
-  color: var(--sub);
-  max-width: 700px;
-  margin: 0 auto;
-}
-
+/* 6.2 Slide pannels
 .slide-panels {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
 
