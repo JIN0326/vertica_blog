@@ -684,6 +684,90 @@ body[data-theme="dark"] .theme-toggle .sun-icon { display: none; }
   top: 0;
 }
 
+/* 6.9 Portfolio Section */
+.portfolio-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.portfolio-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 24px;
+  align-items: center;
+  padding: 24px;
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  background: var(--surface);
+  transition: all 0.2s ease-in-out;
+}
+
+.portfolio-row:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
+}
+
+.portfolio-row.highlight {
+  border-color: var(--accent);
+  box-shadow: 0 0 20px rgba(45, 105, 255, 0.1);
+}
+
+.portfolio-content h3 {
+  margin: 0 0 12px 0;
+  font-size: 1.2rem;
+  color: var(--text);
+}
+
+.portfolio-content ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.portfolio-content ul li {
+  font-size: 0.95rem;
+  color: var(--sub);
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+  position: relative;
+  padding-left: 1.4em;
+}
+
+.portfolio-content ul li::before {
+  content: "✓";
+  color: var(--accent);
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
+.portfolio-row img {
+  max-width: 180px;
+  height: auto;
+}
+
+.cloud-logos {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 24px 0;
+  gap: 24px;
+  padding: 24px 0;
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.cloud-ecosystem h3 {
+  margin-bottom: 10px;
+}
+
+.cloud-ecosystem ul {
+  padding-left: 20px;
+}
+
 /* ==========================================================================
    7. Footer
    ========================================================================== */
