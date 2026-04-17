@@ -16,58 +16,54 @@ layout: default
   ## Vertica란 무엇인가 
   <div class="slide-banner">
     <div class="slide-banner__intro">
-      <p>Vertica는 데이터 수집부터 분석, 시각화에 이르는 전 과정을 통합한 현대적인 데이터 레이크하우스 아키텍처를 제공합니다.</p>
+      <p>Vertica는 SQL 데이터 웨어하우스, 고급 분석 및 머신러닝, 통합 쿼리 엔진을 하나의 플랫폼으로 결합한 현대적인 분석 데이터베이스입니다.</p>
     </div>
 
     <div class="slide-panels">
       <article class="slide-panel">
       <img src="{{ '/assets/images/WhatisVertica_1.png' | relative_url }}" alt="What is Vertica slide 1" />
-        <h3>Data Sources</h3>
+        <h3>SQL Data Warehouse</h3>
         <ul>
-          <li><b>Files:</b> CSV, JSON, Parquet, ORC, Avro</li>
-          <li><b>Enterprise:</b> ERP, CRM, OLTP (Oracle, MySQL 등)</li>
-          <li><b>Big Data:</b> Kafka 실시간 스트리밍, Spark, HDFS</li>
+          <li>페타바이트(PB) 규모의 데이터 처리</li>
+          <li>표준 SQL 지원 및 ACID 트랜잭션 보장</li>
+          <li>고성능 데이터 적재 및 관리</li>
         </ul>
       </article>
 
       <article class="slide-panel">
       <img src="{{ '/assets/images/WhatisVertica_2.png' | relative_url }}" alt="What is Vertica slide 2" />
-        <h3>Analytics Platform</h3>
+        <h3>Analytics & Machine Learning</h3>
         <ul>
-          <li><b>Unified Engine:</b> Native 및 External 데이터 통합 처리</li>
-          <li><b>In-DB ML:</b> 데이터 이동 없는 고속 머신러닝 분석</li>
-          <li><b>Management:</b> 통합 모니터링 및 클러스터 관리 콘솔</li>
+          <li>데이터 이동 없는 In-Database 분석</li>
+          <li>시계열, 시공간, 패턴 매칭 등 고급 분석 함수</li>
+          <li>Python/R 연동 및 병렬 머신러닝 알고리즘 내장</li>
         </ul>
       </article>
 
       <article class="slide-panel">
       <img src="{{ '/assets/images/WhatisVertica_3.png' | relative_url }}" alt="What is Vertica slide 3" />
-        <h3>Consumption Layer</h3>
+        <h3>Unified Query Engine</h3>
         <ul>
-          <li><b>BI Tools:</b> Tableau, Looker, Power BI 연동</li>
-          <li><b>Data Science:</b> Jupyter, Python, R 환경 지원</li>
-          <li><b>Connectivity:</b> JDBC, ODBC, ADO.net 표준 지원</li>
+          <li>컬럼 기반 저장 및 MPP 아키텍처</li>
+          <li>S3, HDFS 등 외부 데이터 직접 쿼리</li>
+          <li>자동 쿼리 최적화 및 고속 실행</li>
         </ul>
       </article>
     </div>
   </div>
 
-  Vertica 아키텍처는 유연한 확장성과 강력한 분석 성능을 동시에 보장합니다.
+  Vertica는 유연한 확장성과 강력한 분석 성능을 동시에 보장합니다.
 
-  ### 주요 컴포넌트 상세
+  ### 주요 기능 상세
 
-  #### 1. 다양한 데이터 소스 통합 (Ingestion)
-  전통적인 RDBMS 데이터부터 최신 빅데이터 포맷인 Parquet, ORC는 물론이고, Kafka를 통한 실시간 스트리밍 데이터까지 하나의 플랫폼으로 수집하고 분석할 수 있습니다.
+  #### 1. SQL Data Warehouse
+  페타바이트(PB) 규모의 데이터를 안정적으로 저장하고 관리하며, 표준 SQL을 통해 복잡한 데이터 워크로드를 처리합니다. ACID 트랜잭션을 완벽하게 지원하여 데이터의 일관성을 보장합니다.
 
-  #### 2. 하이브리드 스토리지 엔진 (Core)
-  - **Native Storage:** 최적의 압축률과 성능을 보장하는 자체 컬럼형 저장소
-  - **External Data:** S3, HDFS 등 외부에 있는 데이터를 복제 없이 즉시 쿼리
-  - **Management Console:** 직관적인 GUI를 통한 클러스터 성능 최적화
+  #### 2. Analytics & Machine Learning
+  데이터를 다른 시스템으로 옮길 필요 없이 Vertica 내부에서 직접 고급 분석과 머신러닝을 수행합니다. 시계열, 시공간 분석부터 예측 모델링, 분류, 군집화 등 다양한 분석 기능을 SQL 함수 형태로 제공합니다.
 
-  #### 3. 사용자 중심의 데이터 활용 (Output)
-  - 현업 사용자들을 위한 **BI 도구(Tableau, Power BI 등)**와의 완벽한 호환성
-  - 데이터 과학자를 위한 **Python/R 및 In-DB ML** 라이브러리 제공
-  - 개발자를 위한 다양한 표준 인터페이스 및 커넥터 지원
+  #### 3. Unified Query Engine
+  컬럼형 저장 방식과 MPP(대규모 병렬 처리) 아키텍처를 기반으로 한 강력한 쿼리 엔진입니다. Vertica 내부 데이터는 물론, S3나 HDFS와 같은 외부 데이터 레이크에 저장된 데이터를 이동 없이 단일 쿼리로 통합 분석할 수 있습니다.
 
   ### 아키텍처의 강점
 
