@@ -628,8 +628,8 @@ body[data-theme="dark"] .theme-toggle .sun-icon { display: none; }
 /* 6.8 Tech Features Grid */
 .tech-features-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Similar to slide-panels for responsiveness */
-  gap: 20px;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
   margin-top: 1.5rem; /* Maintain original margin */
 }
 
