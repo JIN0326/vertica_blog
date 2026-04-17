@@ -97,18 +97,92 @@ layout: default
     </article>
   </div>
 
+<div id="portfolio" style="scroll-margin-top: 100px; margin-top: 60px;"></div>
 
-  </div>
-  <aside class="page-sidebar">
-    <div class="sidebar-panel">
-      <h3>On this page</h3>
+## Vertica 포트폴리오
+
+<p>Vertica는 온프레미스부터 퍼블릭/프라이빗 클라우드까지 고객의 환경에 최적화된 다양한 배포 옵션을 제공합니다.</p>
+
+<div class="portfolio-container">
+  
+  <div class="portfolio-row">
+    <div class="portfolio-icon">
+      <img src="{{ '/assets/images/portfolio_1.png' | relative_url }}" alt="Enterprise On-Premise" />
+    </div>
+    <div class="portfolio-content">
+      <h4>Vertica Enterprise On-Premise</h4>
       <ul>
-        <li><a href="#what-is-vertica">Vertica란 무엇인가</a></li>
-        <li><a href="#technology">Vertica 핵심 기술</a></li>
-        <li><a href="#portfolio">Vertica 포트폴리오</a></li>
-        <li><a href="#architecture">Vertica 아키텍처</a></li>
-        <li><a href="#advanced">고급 개념</a></li>
-        <li><a href="#operation">운영과 개발 편의성</a></li>
+        <li>컬럼 처리 및 선진 압축 기법 기반</li>
+        <li>최대 성능 및 확장성 보장</li>
+        <li>ML, Pattern Matching, Flex Tables 등 다양한 고급 기능 제공</li>
       </ul>
     </div>
-  </aside>
+    <div class="portfolio-competitor">
+      <span class="comp-label">경쟁기술</span>
+      <p>Oracle Exadata, Teradata, Greenplum</p>
+    </div>
+  </div>
+
+  <div class="portfolio-row">
+    <div class="portfolio-icon">
+      <img src="{{ '/assets/images/portfolio_2.png' | relative_url }}" alt="Enterprise in the Clouds" />
+    </div>
+    <div class="portfolio-content">
+      <h4>Vertica Enterprise in the Clouds</h4>
+      <ul>
+        <li>클라우드 플랫폼으로의 빠른 전개 (BYOL)</li>
+        <li>AWS, Azure, Google, Vmware 완벽 지원</li>
+        <li>유연한 클라우드 기반 옵션 제공</li>
+      </ul>
+    </div>
+    <div class="portfolio-competitor">
+      <span class="comp-label">경쟁기술</span>
+      <p>Redshift, MemSQL, Snowflake</p>
+    </div>
+  </div>
+
+  <div class="portfolio-row highlight">
+    <div class="portfolio-icon">
+      <img src="{{ '/assets/images/portfolio_3.png' | relative_url }}" alt="Vertica Eon Mode" />
+    </div>
+    <div class="portfolio-content">
+      <h4>Vertica Eon in the Clouds & On-Premise</h4>
+      <ul>
+        <li><strong>Computing Node와 Storage의 완전 분리</strong></li>
+        <li>Object Storage 기반의 무한한 확장성</li>
+        <li>Workload에 따른 유연한 증설 및 Multi-Cluster 구성 지원</li>
+      </ul>
+    </div>
+    <div class="portfolio-competitor">
+      <span class="comp-label">경쟁기술</span>
+      <p class="no-comp">없음 (독보적 아키텍처)</p>
+    </div>
+  </div>
+
+  <div class="cloud-ecosystem">
+    <h5>Public / Private Cloud Support</h5>
+    <div class="cloud-logos">
+      <span>AWS</span> <span>Azure</span> <span>GCP</span> <span>Naver Cloud</span> <span>KT Cloud</span> <span>Kubernetes</span> <span>Vmware</span>
+    </div>
+    <div class="cloud-desc">
+      <p>주요 Public cloud marketplace를 통한 수분 내 클러스터 프로비저닝 지원 및 Private cloud(K8s, Vmware) 기반의 DW 구축 지원</p>
+    </div>
+  </div>
+
+</div>
+
+
+</div>
+<aside class="page-sidebar">
+  <div class="sidebar-panel">
+    <h3>On this page</h3>
+    <ul>
+      <li><a href="#what-is-vertica">Vertica란 무엇인가</a></li>
+      <li><a href="#technology">Vertica 핵심 기술</a></li>
+      <li><a href="#portfolio">Vertica 포트폴리오</a></li>
+      <li><a href="#architecture">Vertica 아키텍처</a></li>
+      <li><a href="#advanced">고급 개념</a></li>
+      <li><a href="#operation">운영과 개발 편의성</a></li>
+    </ul>
+  </div>
+</aside>
