@@ -89,7 +89,7 @@ layout: default
     </article>
 
     <article class="tech-feature-card">
-      <img src="{{ '/assets/images/Vertica5Vertica5tech_5.png' | relative_url }}" alt="Projections" />
+      <img src="{{ '/assets/images/Vertica5tech_5.png' | relative_url }}" alt="Projections" />
       <h3>Projections</h3>
       <ul>
         <li>노드 장애 대처와 쿼리 성능을 담보하기 위한 최적화 방안 제공</li>
