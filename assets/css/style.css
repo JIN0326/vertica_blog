@@ -421,7 +421,7 @@ body[data-theme="dark"] .theme-toggle .sun-icon { display: none; }
 }
 
 .slide-panel img {
-  max-width: 100%;
+  max-width: 80px; /* 아이콘 이미지 크기 조정 */
   height: auto;
   border-radius: 8px;
   margin-bottom: 1rem;

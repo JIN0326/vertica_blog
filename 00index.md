@@ -50,7 +50,7 @@ permalink: /
     </article>
     <article class="card">
       <h3>Vertica 포트폴리오</h3>
-      <p>온프레미스, 클라우드, Eon 모드 등 다양한 환경에 맞는 제품군을 소개합니다.</p>
+      <p> xxx </p>
       <a href="{{ '/01playbook#portfolio' | relative_url }}">이동 →</a>
     </article>
     <article class="card">
@@ -59,14 +59,14 @@ permalink: /
       <a href="{{ '/01playbook#architecture' | relative_url }}">이동 →</a>
     </article>
     <article class="card">
-      <h3>고급 개념</h3>
-      <p>쿼리 실행 워크플로우와 데이터 일관성을 보장하는 Epoch의 동작 원리를 알아봅니다.</p>
-      <a href="{{ '/01playbook#advanced' | relative_url }}">이동 →</a>
+      <h3>Vertica 연계</h3>
+      <p> xxx </p>
+      <a href="{{ '/01playbook#embracing' | relative_url }}">이동 →</a>
     </article>
     <article class="card">
-      <h3>운영과 개발 편의성</h3>
-      <p>무중단 서비스, 빠른 백업/복구, SQL 기반 분석 등 운영 및 개발 편의성을 알아봅니다.</p>
-      <a href="{{ '/01playbook#operation' | relative_url }}">이동 →</a>
+      <h3>Vertica EonMode</h3>
+      <p> xxx </p>
+      <a href="{{ '/01playbook#eonmode' | relative_url }}">이동 →</a>
     </article>
   </div>
 </section>
