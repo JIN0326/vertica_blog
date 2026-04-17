@@ -405,7 +405,7 @@ body[data-theme="dark"] .theme-toggle .sun-icon { display: none; }
   line-height: 1.7;
 }
 
-/* 6.2 Slide pannels
+/* 6.2 Slide panels */
 .slide-panels {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
