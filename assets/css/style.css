@@ -421,7 +421,7 @@ body[data-theme="dark"] .theme-toggle .sun-icon { display: none; }
 }
 
 .slide-panel img {
-  max-width: 80px; /* 아이콘 이미지 크기 조정 */
+  max-width: 50px; /* 아이콘 이미지 크기 조정 */
   height: auto;
   border-radius: 8px;
   margin-bottom: 1rem;
@@ -628,7 +628,7 @@ body[data-theme="dark"] .theme-toggle .sun-icon { display: none; }
 /* 6.8 Tech Features Grid */
 .tech-features-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* 화면 크기에 맞춰 자동 정렬 */
   gap: 16px;
   margin-top: 1.5rem; /* Maintain original margin */
 }
@@ -637,7 +637,7 @@ body[data-theme="dark"] .theme-toggle .sun-icon { display: none; }
   background: #fdfdff; /* Light background, similar to slide-panel */
   border: 1px solid var(--border-color);
   border-radius: 16px;
-  padding: 20px;
+  padding: 16px; /* 내부 여백 축소 */
   text-align: center; /* Center content for icons */
   display: flex;
   flex-direction: column;
@@ -645,17 +645,17 @@ body[data-theme="dark"] .theme-toggle .sun-icon { display: none; }
 }
 
 .tech-feature-card img {
-  max-width: 100px; /* Adjust icon size */
+  max-width: 70px; /* 아이콘 크기 축소 */
   height: auto;
   margin-bottom: 1rem;
   background: #f0f5ff; /* Light background for icons */
   border-radius: 8px;
-  padding: 10px; /* Padding around the icon */
+  padding: 8px; /* 아이콘 주변 여백 축소 */
 }
 
 .tech-feature-card h3 {
-  font-size: 1.2rem;
-  margin-bottom: 0.75rem;
+  font-size: 1.0rem; /* 제목 폰트 크기 축소 */
+  margin-bottom: 0.5rem; /* 제목과 내용 간격 축소 */
   color: var(--text);
 }
 
@@ -670,7 +670,7 @@ body[data-theme="dark"] .theme-toggle .sun-icon { display: none; }
 .tech-feature-card ul li {
   margin-bottom: 0.5rem;
   color: var(--sub);
-  font-size: 0.95rem;
+  font-size: 0.9rem; /* 내용 폰트 크기 축소 */
   line-height: 1.5;
   position: relative;
   padding-left: 1.2em; /* Space for custom bullet */
