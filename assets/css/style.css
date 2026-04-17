@@ -701,18 +701,6 @@ body[data-theme="dark"] .theme-toggle .sun-icon { display: none; }
   border: 1px solid var(--border-color);
   border-radius: 16px;
   background: var(--surface);
-  transition: all 0.2s ease-in-out;
-}
-
-.portfolio-row:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow);
-}
-
-.portfolio-row.highlight {
-  border-color: var(--accent);
-  box-shadow: 0 0 20px rgba(45, 105, 255, 0.1);
-}
 
 .portfolio-content h3 {
   margin: 0 0 12px 0;
