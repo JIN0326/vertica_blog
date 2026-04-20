@@ -199,34 +199,31 @@ Vertica는 유연한 확장성과 강력한 분석 성능을 통해 데이터 �
     </p>
 
     <div class="comparison-grid">
-      <div class="card card--other">
-        <h4 class="card__header">
-          Other Systems
-        </h4>
-        <ul>
-          <li>두 종류 이상의 서버</li>
-          <li>특별한 H/W 사용으로 복잡도 증가</li>
-          <li>마스터 서버를 통한 작업 수행</li>
-          <li>저가형 서버 사용</li>
-          <li>관리/운영에 다양한 고려사항 존재</li>
-        </ul>
+      <div class="comparison-column">
+        <h4 class="comparison-column__title">Other Systems</h4>
+        <div class="card card--other">
+          <img src="{{ '/assets/images/architecture1.png' | relative_url }}" alt="아키텍처 비교: Other Systems">
+          <ul>
+            <li>두 종류 이상의 서버</li>
+            <li>특별한 H/W 사용으로 복잡도 증가</li>
+            <li>마스터 서버를 통한 작업 수행</li>
+            <li>저가형 서버 사용</li>
+            <li>관리/운영에 다양한 고려사항 존재</li>
+          </ul>
+        </div>
       </div>
-      <div class="architecture-comparison-image">
-        <img src="{{ '/assets/images/architecture1.png' | relative_url }}" alt="아키텍처 비교: Other Systems">
-        <img src="{{ '/assets/images/architecture2.png' | relative_url }}" alt="아키텍처 비교: Vertica">
-      </div>
-
-      <div class="card card--vertica">
-        <h4 class="card__header">
-          VERTICA
-        </h4>
-        <ul>
-          <li>동일 스펙 / 동일 구성의 서버</li>
-          <li>단순한 구성</li>
-          <li>아무 서버에나 작업을 요청하면 전 노드가 병렬 수행</li>
-          <li>시장의 신뢰도를 확보한 서버 사용</li>
-          <li>관리 및 사용 용이성 확보</li>
-        </ul>
+      <div class="comparison-column">
+        <h4 class="comparison-column__title comparison-column__title--vertica">VERTICA</h4>
+        <div class="card card--vertica">
+          <img src="{{ '/assets/images/architecture2.png' | relative_url }}" alt="아키텍처 비교: Vertica">
+          <ul>
+            <li>동일 스펙 / 동일 구성의 서버</li>
+            <li>단순한 구성</li>
+            <li>아무 서버에나 작업을 요청하면 전 노드가 병렬 수행</li>
+            <li>시장의 신뢰도를 확보한 서버 사용</li>
+            <li>관리 및 사용 용이성 확보</li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -245,15 +242,13 @@ Vertica는 유연한 확장성과 강력한 분석 성능을 통해 데이터 �
       <div class="columnar-image">
         <img src="{{ '/assets/images/architecture3.png' | relative_url }}" alt="Native Columnar Architecture">
       </div>
-      <div class="card">
-        <ul class="feature-list">
-          <li><span class="feature-list__icon">🔹</span> <span>압축과 질의가 물리적인 I/O 레벨부터 컬럼 단위로 처리</span></li>
-          <li><span class="feature-list__icon">🔹</span> <span>컬럼 기반 저장 기술에 맞는 쿼리 옵티마이저</span></li>
-          <li><span class="feature-list__icon">🔹</span> <span>컬럼 단위 저장, 처리를 위한 별도의 옵션이나 절차가 불필요</span></li>
-          <li><span class="feature-list__icon">🔹</span> <span>컬럼 저장 구조에 최적화된 데이터 적재와 트랜잭션 처리</span></li>
-          <li><span class="feature-list__icon">🔹</span> <span>적은 하드웨어 리소스로 다른 DBMS와 동일한 작업 수행</span></li>
-        </ul>
-      </div>
+      <ul class="feature-list">
+        <li><span class="feature-list__icon">🔹</span> <span>압축과 질의가 물리적인 I/O 레벨부터 컬럼 단위로 처리</span></li>
+        <li><span class="feature-list__icon">🔹</span> <span>컬럼 기반 저장 기술에 맞는 쿼리 옵티마이저</span></li>
+        <li><span class="feature-list__icon">🔹</span> <span>컬럼 단위 저장, 처리를 위한 별도의 옵션이나 절차가 불필요</span></li>
+        <li><span class="feature-list__icon">🔹</span> <span>컬럼 저장 구조에 최적화된 데이터 적재와 트랜잭션 처리</span></li>
+        <li><span class="feature-list__icon">🔹</span> <span>적은 하드웨어 리소스로 다른 DBMS와 동일한 작업 수행</span></li>
+      </ul>
     </div>
   </div>
 </div>
