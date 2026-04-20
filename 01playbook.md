@@ -157,11 +157,15 @@ Vertica는 유연한 확장성과 강력한 분석 성능을 통해 데이터 �
   </div>
 
   <div class="cloud-logos">
-    <img src="{{ '/assets/images/portfolio4.png' | relative_url }}" alt="AWS">
-    <img src="{{ '/assets/images/portfolio5.png' | relative_url }}" alt="Kubernetes">
-    <img src="{{ '/assets/images/portfolio6.png' | relative_url }}"  alt="Azure">
-    <img src="{{ '/assets/images/portfolio7.png' | relative_url }}"  alt="Google Cloud">
-    <img src="{{ '/assets/images/portfolio8.png' | relative_url }}"  alt="VMware">
+    <div class="cloud-logos-row">
+      <img src="{{ '/assets/images/portfolio4.png' | relative_url }}" alt="AWS">
+      <img src="{{ '/assets/images/portfolio5.png' | relative_url }}" alt="Kubernetes">
+    </div>
+    <div class="cloud-logos-row">
+      <img src="{{ '/assets/images/portfolio6.png' | relative_url }}"  alt="Azure">
+      <img src="{{ '/assets/images/portfolio7.png' | relative_url }}"  alt="Google Cloud">
+      <img src="{{ '/assets/images/portfolio8.png' | relative_url }}"  alt="VMware">
+    </div>
   </div>
 
   <div class="cloud-ecosystem">
@@ -207,6 +211,10 @@ Vertica는 유연한 확장성과 강력한 분석 성능을 통해 데이터 �
           <li>관리/운영에 다양한 고려사항 존재</li>
         </ul>
       </div>
+      <div class="architecture-comparison-image">
+        <img src="{{ '/assets/images/architecture1.png' | relative_url }}" alt="아키텍처 비교: Other Systems">
+        <img src="{{ '/assets/images/architecture2.png' | relative_url }}" alt="아키텍처 비교: Vertica">
+      </div>
 
       <div class="card card--vertica">
         <h4 class="card__header">
@@ -233,14 +241,19 @@ Vertica는 유연한 확장성과 강력한 분석 성능을 통해 데이터 �
       Query 시 마다 모든 열을 읽어와야 하는 row 기반 DBMS와 비교하여 I/O 발생량을 획기적으로 감소시킬 수 있습니다.
     </p>
 
-    <div class="card">
-      <ul class="feature-list">
-        <li><span class="feature-list__icon">🔹</span> <span>압축과 질의가 물리적인 I/O 레벨부터 컬럼 단위로 처리</span></li>
-        <li><span class="feature-list__icon">🔹</span> <span>컬럼 기반 저장 기술에 맞는 쿼리 옵티마이저</span></li>
-        <li><span class="feature-list__icon">🔹</span> <span>컬럼 단위 저장, 처리를 위한 별도의 옵션이나 절차가 불필요</span></li>
-        <li><span class="feature-list__icon">🔹</span> <span>컬럼 저장 구조에 최적화된 데이터 적재와 트랜잭션 처리</span></li>
-        <li><span class="feature-list__icon">🔹</span> <span>적은 하드웨어 리소스로 다른 DBMS와 동일한 작업 수행</span></li>
-      </ul>
+    <div class="columnar-layout">
+      <div class="columnar-image">
+        <img src="{{ '/assets/images/architecture3.png' | relative_url }}" alt="Native Columnar Architecture">
+      </div>
+      <div class="card">
+        <ul class="feature-list">
+          <li><span class="feature-list__icon">🔹</span> <span>압축과 질의가 물리적인 I/O 레벨부터 컬럼 단위로 처리</span></li>
+          <li><span class="feature-list__icon">🔹</span> <span>컬럼 기반 저장 기술에 맞는 쿼리 옵티마이저</span></li>
+          <li><span class="feature-list__icon">🔹</span> <span>컬럼 단위 저장, 처리를 위한 별도의 옵션이나 절차가 불필요</span></li>
+          <li><span class="feature-list__icon">🔹</span> <span>컬럼 저장 구조에 최적화된 데이터 적재와 트랜잭션 처리</span></li>
+          <li><span class="feature-list__icon">🔹</span> <span>적은 하드웨어 리소스로 다른 DBMS와 동일한 작업 수행</span></li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
