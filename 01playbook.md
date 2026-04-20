@@ -158,12 +158,12 @@ Vertica는 유연한 확장성과 강력한 분석 성능을 통해 데이터 �
 
   <div class="cloud-logos">
     <div class="cloud-logos-row">
-      <img src="{{ '/assets/images/portfolio4.png' | relative_url }}" alt="AWS">
+      <img src="{{ '/assets/images/portfolio4.png' | relative_url }}" alt="Google Cloud">
       <img src="{{ '/assets/images/portfolio5.png' | relative_url }}" alt="Kubernetes">
     </div>
     <div class="cloud-logos-row">
-      <img src="{{ '/assets/images/portfolio6.png' | relative_url }}"  alt="Azure">
-      <img src="{{ '/assets/images/portfolio7.png' | relative_url }}"  alt="Google Cloud">
+      <img src="{{ '/assets/images/portfolio6.png' | relative_url }}"  alt="AWS">
+      <img src="{{ '/assets/images/portfolio7.png' | relative_url }}"  alt="Azure">
       <img src="{{ '/assets/images/portfolio8.png' | relative_url }}"  alt="VMware">
     </div>
   </div>
