@@ -628,7 +628,7 @@ body[data-theme="dark"] .theme-toggle .sun-icon { display: none; }
 /* 6.8 Tech Features Grid */
 .tech-features-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* 화면 크기에 맞춰 자동 정렬 */
+  grid-template-columns: repeat(3, 1fr); /* 3열 그리드로 고정 */
   gap: 16px;
   margin-top: 1.5rem; /* Maintain original margin */
 }
@@ -739,14 +739,19 @@ body[data-theme="dark"] .theme-toggle .sun-icon { display: none; }
 
 .cloud-logos {
   display: flex;
-  justify-content: space-around;
+  justify-content: center; /* 로고 중앙 정렬 */
   align-items: center;
   flex-wrap: wrap;
   margin: 24px 0;
-  gap: 24px;
+  gap: 40px; /* 로고 간격 조정 */
   padding: 24px 0;
   border-top: 1px solid var(--border-color);
   border-bottom: 1px solid var(--border-color);
+}
+
+.cloud-logos img {
+  height: 55px; /* 로고 이미지 크기 키움 */
+  width: auto;
 }
 
 .cloud-ecosystem h3 {
