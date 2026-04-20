@@ -55,49 +55,62 @@ Vertica는 유연한 확장성과 강력한 분석 성능을 통해 데이터 �
 
 ## Vertica 핵심 기술
 
-<p>Vertica는 다음 5가지 기술 요소를 중심으로 고성능 분석을 지원합니다.</p>
+<p>Vertica는 다음 6가지 기술 요소를 중심으로 고성능 분석을 지원합니다.</p>
 
 <div class="tech-features-grid">
   <article class="tech-feature-card">
-    <img src="{{ '/assets/images/Vertica5tech_1.png' | relative_url }}" alt="Native Columnar Storage" />
+    <img src="{{ '/assets/images/Vertica5tech_1.png' | relative_url }}" alt="Columnar Storage" />
     <h3>Native Columnar Storage</h3>
     <ul>
-      <li>필요한 컬럼만을 조회하여 빠른 쿼리 성능 보장</li>
+      <li>필요한 컬럼만을 조회하여 빠른 쿼리 성능을 보장합니다.</li>
     </ul>
   </article>
 
   <article class="tech-feature-card">
-    <img src="{{ '/assets/images/Vertica5tech_2.png' | relative_url }}" alt="Compression/Encoding" />
-    <h3>Compression /Encoding</h3>
+    <img src="{{ '/assets/images/Vertica5tech_2.png' | relative_url }}" alt="Data Compression" />
+    <h3>Compression/Encoding</h3>
     <ul>
-      <li>Disk I/O 비용을 최소화하는 동시에 성능을 가속화</li>
+      <li> Disk I/O 비용을 최소화하는 동시에 성능을 가속화합니다.</li>
     </ul>
   </article>
 
   <article class="tech-feature-card">
-    <img src="{{ '/assets/images/Vertica5tech_3.png' | relative_url }}" alt="MPP Scale-out" />
-    <h3>MPP Scale-out</h3>
-    <ul>
-      <li>Single point of failure를 제거한 순수 MPP 아키텍처 및 Exabyte 수준 확장성</li>
-    </ul>
-  </article>
-
-  <article class="tech-feature-card">
-    <img src="{{ '/assets/images/Vertica5tech_4.png' | relative_url }}" alt="Distributed Query" />
-    <h3>Distributed Query</h3>
-    <ul>
-      <li>특정 노드에 대한 종속성이 없는 분산 쿼리 수행</li>
-    </ul>
-  </article>
-
-  <article class="tech-feature-card">
-    <img src="{{ '/assets/images/Vertica5tech_5.png' | relative_url }}" alt="Projections" />
+    <img src="{{ '/assets/images/Vertica5tech_3.png' | relative_url }}" alt="Projections
+    " />
     <h3>Projections</h3>
     <ul>
-      <li>노드 장애 대처와 쿼리 성능을 담보하기 위한 최적화 방안 제공</li>
+      <li>노드 장애 대처와 쿼리 성능을 담보하기 위한 최적화 방안 제공합니다.</li>
+    </ul>
+  </article>
+
+  <article class="tech-feature-card">
+    <img src="{{ '/assets/images/Vertica5tech_4.png' | relative_url }}" alt="Distributed Query Engine" />
+    <h3>Distributed Query Engine</h3>
+    <ul>
+      <li>대규모 클러스터의 모든 노드에 쿼리를 병렬로 분산시켜 대용량 데이터를 고속으로 처리합니다.</li>
+    </ul>
+  </article>
+
+  <article class="tech-feature-card">
+    <img src="{{ '/assets/images/Vertica5tech_5.png' | relative_url }}" alt="MCP Intergration
+    " />
+    <h3>MCP Intergration</h3>
+    <ul>
+      <li>MCP 기반 자연어 질의 지원으로 SQL에 익숙하지 않은 사용자도 데이터 분석가능 가능합니다.</li>
+    </ul>
+  </article>
+
+  <article class="tech-feature-card">
+    <img src="{{ '/assets/images/Vertica5tech_6.png' | relative_url }}" alt="MPP Scale-out
+    " />
+    <h3>MPP Scale-out</h3>
+    <ul>
+      <li>Name node와 같은 Single point of failure를 제거한 순수 MPP 아키텍처입니다.(Massively Parallel Processing)</li>
     </ul>
   </article>
 </div>
+
+<hr style="margin: 3rem 0;">
 
 <div id="portfolio" style="scroll-margin-top: 100px;"></div>
 
@@ -144,11 +157,11 @@ Vertica는 유연한 확장성과 강력한 분석 성능을 통해 데이터 �
   </div>
 
   <div class="cloud-logos">
-    <img src="{{ '/assets/images/portfolio4.png' | relative_url }}" alt="AWS" height="40">
-    <img src="{{ '/assets/images/portfolio5.png' | relative_url }}" alt="Kubernetes" height="50">
-    <img src="{{ '/assets/images/portfolio6.png' | relative_url }}"  alt="Azure" height="40">
-    <img src="{{ '/assets/images/portfolio7.png' | relative_url }}"  alt="Google Cloud" height="40">
-    <img src="{{ '/assets/images/portfolio8.png' | relative_url }}"  alt="VMware" height="25">
+    <img src="{{ '/assets/images/portfolio4.png' | relative_url }}" alt="AWS">
+    <img src="{{ '/assets/images/portfolio5.png' | relative_url }}" alt="Kubernetes">
+    <img src="{{ '/assets/images/portfolio6.png' | relative_url }}"  alt="Azure">
+    <img src="{{ '/assets/images/portfolio7.png' | relative_url }}"  alt="Google Cloud">
+    <img src="{{ '/assets/images/portfolio8.png' | relative_url }}"  alt="VMware">
   </div>
 
   <div class="cloud-ecosystem">

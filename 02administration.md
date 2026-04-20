@@ -20,11 +20,13 @@ layout: default
   ### Table 생성 및 관리
 
   - `CREATE TABLE`으로 테이블을 생성합니다.
+  - `CREATE TABLE`으로 테이블을 생성하며, `PARTITION BY`를 사용하여 대용량 테이블의 조회 및 관리 성능을 향상시킬 수 있습니다.
   - 컬럼 타입과 `ENCODING`을 적절히 설계해야 합니다.
   - `COPY`명령으로 데이터를 로드하며, `DELETE`, `UPDATE`, `MERGE` 등을 통해 데이터를 관리합니다.
   - `EXPORT`를 사용해 데이터를 외부 파일로 내보낼 수 있습니다.
 
   예시:
+  **테이블 생성 예시:**
 
   ```sql
   CREATE TABLE sales (
@@ -33,6 +35,17 @@ layout: default
     sale_date DATE,
     amount DECIMAL(18,2)
   ) SEGMENTED BY HASH(sale_id) ALL NODES;
+  ```
+
+  **파티션 테이블 생성 예시:**
+  ```sql
+  CREATE TABLE sales_partitioned (
+    sale_id INT,
+    product_id INT,
+    sale_date DATE,
+    amount DECIMAL(18,2)
+  )
+  PARTITION BY sale_date::DATE GROUP BY CALENDAR_HIERARCHY_DAY(sale_date::DATE, 2, 2);
   ```
 
   ### Projection의 역할

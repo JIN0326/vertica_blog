@@ -701,6 +701,7 @@ body[data-theme="dark"] .theme-toggle .sun-icon { display: none; }
   border: 1px solid var(--border-color);
   border-radius: 16px;
   background: var(--surface);
+}
 
 .portfolio-content h3 {
   margin: 0 0 12px 0;
