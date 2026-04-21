@@ -239,9 +239,6 @@ Vertica는 유연한 확장성과 강력한 분석 성능을 통해 데이터 �
     </p>
 
     <div class="columnar-layout">
-      <div class="columnar-image">
-        <img src="{{ '/assets/images/architecture3.png' | relative_url }}" alt="Native Columnar Architecture">
-      </div>
       <ul class="feature-list">
         <li><span class="feature-list__icon">🔹</span> <span>압축과 질의가 물리적인 I/O 레벨부터 컬럼 단위로 처리</span></li>
         <li><span class="feature-list__icon">🔹</span> <span>컬럼 기반 저장 기술에 맞는 쿼리 옵티마이저</span></li>
@@ -249,6 +246,9 @@ Vertica는 유연한 확장성과 강력한 분석 성능을 통해 데이터 �
         <li><span class="feature-list__icon">🔹</span> <span>컬럼 저장 구조에 최적화된 데이터 적재와 트랜잭션 처리</span></li>
         <li><span class="feature-list__icon">🔹</span> <span>적은 하드웨어 리소스로 다른 DBMS와 동일한 작업 수행</span></li>
       </ul>
+      <div class="columnar-image">
+        <img src="{{ '/assets/images/architecture3.png' | relative_url }}" alt="Native Columnar Architecture">
+      </div>
     </div>
   </div>
 </div>
