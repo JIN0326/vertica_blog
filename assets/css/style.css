@@ -890,15 +890,6 @@ body[data-theme="dark"] .theme-toggle .sun-icon { display: none; }
   }
 }
 
-/* 6.12 Image Invert Utility */
-.invert-in-light-mode {
-  filter: invert(1);
-}
-
-body[data-theme="dark"] .invert-in-light-mode {
-  filter: none;
-}
-
 /* 6.11 Integration Section (Kafka, HDFS, etc.) */
 .integration-section {
   display: flex;
