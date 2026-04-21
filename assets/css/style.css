@@ -857,7 +857,7 @@ body[data-theme="dark"] .theme-toggle .sun-icon { display: none; }
   align-items: flex-start;
   gap: 12px;
   font-weight: 600;
-  font-size: 0.9rem; /* Native Columnar 설명 폰트 크기 축소 */
+  font-size: 0.85rem; /* Native Columnar 설명 폰트 크기 축소 */
   margin-bottom: 1rem;
 }
 .feature-list li:last-child {
@@ -872,13 +872,13 @@ body[data-theme="dark"] .theme-toggle .sun-icon { display: none; }
 /* For Native Columnar section */
 .columnar-layout {
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: 1fr 1fr; /* 텍스트와 이미지가 50%씩 차지하도록 변경 */
   gap: 24px;
   align-items: center;
 }
 
 .columnar-image img {
-  max-width: 350px; /* Native Columnar 이미지 크기 키움 */
+  width: 100%; /* 이미지가 컨테이너를 꽉 채우도록 변경 */
   height: auto;
   border-radius: 8px;
 }
