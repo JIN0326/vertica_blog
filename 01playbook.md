@@ -266,7 +266,7 @@ Vertica는 유연한 확장성과 강력한 분석 성능을 통해 데이터 �
     
     <div class="kafka-layout">
       <div class="kafka-layout__image-wrapper">
-        <img src="{{ '/assets/images/embracing1.png' | relative_url }}" alt="Kafka Integration Architecture">
+        <img src="{{ '/assets/images/embracing1.png' | relative_url }}" alt="Kafka Integration Architecture" class="invert-in-light-mode">
       </div>
       
       <div class="kafka-steps">
@@ -322,7 +322,7 @@ Vertica는 유연한 확장성과 강력한 분석 성능을 통해 데이터 �
         추가적인 장비나 별도의 솔루션 설치 없이 하둡 연계를 지원하여 버티카를 통해 <strong>DW와 하둡 데이터 연계 분석</strong>을 지원합니다.
       </p>
       <div class="integration-card__image-wrapper">
-        <img src="{{ '/assets/images/embracing2.png' | relative_url }}" alt="HDFS Integration">
+        <img src="{{ '/assets/images/embracing2.png' | relative_url }}" alt="HDFS Integration" class="invert-in-light-mode">
       </div>
     </article>
 
@@ -332,7 +332,7 @@ Vertica는 유연한 확장성과 강력한 분석 성능을 통해 데이터 �
         추가적인 장비나 별도의 솔루션 설치 없이 Object Storage 에 저장된 데이터를 직접 분석할 수 있으며 버티카 데이터를 다양한 오픈 포맷으로 추출할 수 있어 타 시스템과 유연한 데이터 연계 지원
       </p>
       <div class="integration-card__image-wrapper">
-        <img src="{{ '/assets/images/embracing3.png' | relative_url }}" alt="Object Storage Integration">
+        <img src="{{ '/assets/images/embracing3.png' | relative_url }}" alt="Object Storage Integration" class="invert-in-light-mode">
       </div>
     </article>
   </div>
