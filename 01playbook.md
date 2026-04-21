@@ -121,6 +121,7 @@ Vertica는 유연한 확장성과 강력한 분석 성능을 통해 데이터 �
 <div class="portfolio-container">
 
   <div class="portfolio-row">
+    <img src="{{ '/assets/images/portfolio1.png' | relative_url }}" alt="Vertica Enterprise On-Premise" />
     <div class="portfolio-content">
       <h3>Vertica Enterprise On-Premise</h3>
       <ul>
@@ -129,10 +130,10 @@ Vertica는 유연한 확장성과 강력한 분석 성능을 통해 데이터 �
         <li>ML, Pattern Matching, Flex Tables 등 다양한 고급 기능 제공</li>
       </ul>
     </div>
-    <img src="{{ '/assets/images/portfolio1.png' | relative_url }}" alt="Vertica Enterprise On-Premise" />
   </div>
 
   <div class="portfolio-row">
+    <img src="{{ '/assets/images/portfolio2.png' | relative_url }}" alt="Vertica Enterprise in the Clouds" />
     <div class="portfolio-content">
       <h3>Vertica Enterprise in the Clouds</h3>
       <ul>
@@ -141,10 +142,10 @@ Vertica는 유연한 확장성과 강력한 분석 성능을 통해 데이터 �
         <li>유연한 클라우드 기반 옵션 제공</li>
       </ul>
     </div>
-    <img src="{{ '/assets/images/portfolio2.png' | relative_url }}" alt="Vertica Enterprise in the Clouds" />
   </div>
 
   <div class="portfolio-row">
+    <img src="{{ '/assets/images/portfolio3.png' | relative_url }}" alt="Vertica Eon Mode" />
     <div class="portfolio-content">
       <h3>Vertica Eon in the Clouds & On-Premise</h3>
       <ul>
@@ -153,7 +154,6 @@ Vertica는 유연한 확장성과 강력한 분석 성능을 통해 데이터 �
         <li>Workload에 따른 유연한 증설 및 Multi-Cluster 구성 지원</li>
       </ul>
     </div>
-    <img src="{{ '/assets/images/portfolio3.png' | relative_url }}" alt="Vertica Eon Mode" />
   </div>
 
   <div class="cloud-logos">
@@ -239,6 +239,9 @@ Vertica는 유연한 확장성과 강력한 분석 성능을 통해 데이터 �
     </p>
 
     <div class="columnar-layout">
+      <div class="columnar-image">
+        <img src="{{ '/assets/images/architecture3.png' | relative_url }}" alt="Native Columnar Architecture">
+      </div>
       <ul class="feature-list">
         <li><span class="feature-list__icon">🔹</span> <span>압축과 질의가 물리적인 I/O 레벨부터 컬럼 단위로 처리</span></li>
         <li><span class="feature-list__icon">🔹</span> <span>컬럼 기반 저장 기술에 맞는 쿼리 옵티마이저</span></li>
@@ -246,9 +249,6 @@ Vertica는 유연한 확장성과 강력한 분석 성능을 통해 데이터 �
         <li><span class="feature-list__icon">🔹</span> <span>컬럼 저장 구조에 최적화된 데이터 적재와 트랜잭션 처리</span></li>
         <li><span class="feature-list__icon">🔹</span> <span>적은 하드웨어 리소스로 다른 DBMS와 동일한 작업 수행</span></li>
       </ul>
-      <div class="columnar-image">
-        <img src="{{ '/assets/images/architecture3.png' | relative_url }}" alt="Native Columnar Architecture">
-      </div>
     </div>
   </div>
 </div>

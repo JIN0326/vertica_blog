@@ -681,7 +681,7 @@ body[data-theme="dark"] .theme-toggle .sun-icon { display: none; }
 
 .portfolio-row {
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: auto 1fr;
   gap: 24px;
   align-items: center;
   padding: 24px;
@@ -872,7 +872,7 @@ body[data-theme="dark"] .theme-toggle .sun-icon { display: none; }
 /* For Native Columnar section */
 .columnar-layout {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* 텍스트와 이미지가 50%씩 차지하도록 변경 */
+  grid-template-columns: 6.5fr 3.5fr; /* 텍스트와 이미지가 65:35 비율을 갖도록 변경 */
   gap: 24px;
   align-items: center;
 }
