@@ -933,7 +933,7 @@ body[data-theme="dark"] .theme-toggle .sun-icon { display: none; }
   text-align: center;
   box-shadow: var(--shadow);
   width: 100%;
-  max-width: 700px; /* 이미지 컨테이너 최대 너비 설정 */
+  max-width: 450px; /* 이미지 컨테이너 최대 너비 축소 */
 }
 
 .kafka-layout__image-wrapper img {
