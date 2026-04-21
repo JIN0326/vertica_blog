@@ -878,8 +878,8 @@ body[data-theme="dark"] .theme-toggle .sun-icon { display: none; }
 }
 
 .columnar-image img {
-  max-width: 400px; /* Native Columnar 이미지 크기 키움 */
-  height: 100px;
+  max-width: 600px; /* Native Columnar 이미지 크기 키움 */
+  height: 250px;
   border-radius: 8px;
 }
 
