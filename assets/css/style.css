@@ -890,6 +890,144 @@ body[data-theme="dark"] .theme-toggle .sun-icon { display: none; }
   }
 }
 
+/* 6.11 Integration Section (Kafka, HDFS, etc.) */
+.integration-section {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem; /* 섹션 간의 간격 */
+}
+
+.integration-subsection {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.integration-subsection__title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  margin-bottom: 0;
+  color: var(--text);
+}
+
+.integration-subsection__description {
+  color: var(--sub);
+  font-size: 1.05rem;
+  margin-top: -0.5rem; /* 제목과의 간격 조정 */
+  max-width: 80ch;
+}
+
+/* Kafka-specific layout */
+.kafka-layout {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  align-items: start;
+}
+
+.kafka-layout__image-wrapper {
+  background: var(--surface);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+
+.kafka-layout__image-wrapper img {
+  max-width: 100%;
+  height: auto;
+}
+
+.kafka-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.kafka-step__title {
+  color: var(--accent-dark);
+  margin: 0 0 0.5rem 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.kafka-step__number {
+  background: var(--accent);
+  color: white;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.9rem;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.kafka-step__list {
+  color: var(--sub);
+  padding-left: 2.1em; /* 24px (number) + 10px (gap) */
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.kafka-step__list li {
+  margin-bottom: 0.5rem;
+}
+.kafka-step__list li:last-child {
+  margin-bottom: 0;
+}
+
+/* HDFS/Object Storage Cards */
+.integration-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 40px;
+}
+
+.integration-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.integration-card__title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  border-left: 4px solid var(--accent);
+  padding-left: 12px;
+  margin-bottom: 0.8rem;
+  color: var(--text);
+}
+
+.integration-card__description {
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+  color: var(--sub);
+  flex-grow: 1; /* 카드의 높이를 맞추기 위해 */
+  min-height: 70px; /* 기존 스타일 유지 */
+}
+
+.integration-card__image-wrapper {
+  text-align: center;
+  background: var(--surface);
+  padding: 1.5rem;
+  border-radius: 16px;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow);
+}
+
+.integration-card__image-wrapper img {
+  max-width: 100%;
+  height: auto;
+}
+
 /* ==========================================================================
    7. Footer
    ========================================================================== */
