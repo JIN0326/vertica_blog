@@ -259,7 +259,7 @@ Vertica는 유연한 확장성과 강력한 분석 성능을 통해 데이터 �
 
 <div class="integration-section" markdown="1">
   <div class="integration-subsection">
-    <h3 class="integration-subsection__title">Kafka/Spark 연계</h3>
+    <h3 class="integration-subsection__title">Kafka & Spark 연계</h3>
     <p class="integration-subsection__description">
       다양한 채널 및 플랫폼에서 유입되는 데이터를 실시간으로 저장/분석하기 위해서는 데이터 파이프 라인 플랫폼과의 유기적인 연계가 필수적입니다.
     </p>

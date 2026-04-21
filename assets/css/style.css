@@ -919,19 +919,21 @@ body[data-theme="dark"] .theme-toggle .sun-icon { display: none; }
 
 /* Kafka-specific layout */
 .kafka-layout {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 30px;
-  align-items: start;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
 }
 
 .kafka-layout__image-wrapper {
   background: var(--surface);
   border: 1px solid var(--border-color);
   border-radius: 16px;
-  padding: 1.5rem;
+  padding: 2rem;
   text-align: center;
   box-shadow: var(--shadow);
+  width: 100%;
+  max-width: 700px; /* 이미지 컨테이너 최대 너비 설정 */
 }
 
 .kafka-layout__image-wrapper img {
@@ -940,9 +942,10 @@ body[data-theme="dark"] .theme-toggle .sun-icon { display: none; }
 }
 
 .kafka-steps {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 2x2 그리드 레이아웃 */
+  gap: 2.5rem 3rem; /* 행/열 간격 조정 */
+  width: 100%;
 }
 
 .kafka-step__title {
@@ -982,6 +985,12 @@ body[data-theme="dark"] .theme-toggle .sun-icon { display: none; }
 }
 .kafka-step__list li:last-child {
   margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .kafka-steps {
+    grid-template-columns: 1fr; /* 모바일에서는 1열로 변경 */
+  }
 }
 
 /* HDFS/Object Storage Cards */
