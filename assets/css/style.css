@@ -174,7 +174,7 @@ article[id] {
 }
 
 /* 메인/서브 페이지 Hero 영역의 작은 제목 태그 */
-.eyebrow {
+.eyebrow,
 .page-hero .chip {
   display: inline-block;
   padding: 0.4rem 0.85rem;
