@@ -50,7 +50,7 @@ permalink: /
     </article>
     <article class="card">
       <h3>Vertica 포트폴리오</h3>
-      <p> xxx </p>
+      <p>온프레미스부터 클라우드까지, 다양한 환경에 최적화된 Vertica의 배포 포트폴리오를 소개합니다.</p>
       <a href="{{ '/01playbook#portfolio' | relative_url }}">이동 →</a>
     </article>
     <article class="card">
@@ -60,12 +60,12 @@ permalink: /
     </article>
     <article class="card">
       <h3>Vertica 연계</h3>
-      <p> xxx </p>
+      <p>Kafka, S3, HDFS 등 다양한 데이터 생태계와 연동하는 방법을 소개합니다.</p>
       <a href="{{ '/01playbook#embracing' | relative_url }}">이동 →</a>
     </article>
     <article class="card">
       <h3>Vertica EonMode</h3>
-      <p> xxx </p>
+      <p>스토리지와 컴퓨팅을 분리하여 유연성과 확장성을 극대화한 Eon Mode를 심층 분석합니다.</p>
       <a href="{{ '/01playbook#eonmode' | relative_url }}">이동 →</a>
     </article>
   </div>

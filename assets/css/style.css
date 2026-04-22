@@ -612,7 +612,7 @@ h1 {
 
 .portfolio-row {
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: 1fr auto;
   gap: 24px;
   align-items: center;
   padding: 24px;

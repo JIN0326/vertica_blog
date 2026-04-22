@@ -118,7 +118,6 @@ Vertica는 유연한 확장성과 강력한 분석 성능을 통해 데이터 �
 <div class="portfolio-container">
 
   <div class="portfolio-row">
-    <img src="{{ '/assets/images/portfolio1.png' | relative_url }}" alt="Vertica Enterprise On-Premise" />
     <div class="portfolio-content">
       <h3>Vertica Enterprise On-Premise</h3>
       <ul>
@@ -127,10 +126,10 @@ Vertica는 유연한 확장성과 강력한 분석 성능을 통해 데이터 �
         <li>ML, Pattern Matching, Flex Tables 등 다양한 고급 기능 제공</li>
       </ul>
     </div>
+    <img src="{{ '/assets/images/portfolio1.png' | relative_url }}" alt="Vertica Enterprise On-Premise" />
   </div>
 
   <div class="portfolio-row">
-    <img src="{{ '/assets/images/portfolio2.png' | relative_url }}" alt="Vertica Enterprise in the Clouds" />
     <div class="portfolio-content">
       <h3>Vertica Enterprise in the Clouds</h3>
       <ul>
@@ -139,10 +138,10 @@ Vertica는 유연한 확장성과 강력한 분석 성능을 통해 데이터 �
         <li>유연한 클라우드 기반 옵션 제공</li>
       </ul>
     </div>
+    <img src="{{ '/assets/images/portfolio2.png' | relative_url }}" alt="Vertica Enterprise in the Clouds" />
   </div>
 
   <div class="portfolio-row">
-    <img src="{{ '/assets/images/portfolio3.png' | relative_url }}" alt="Vertica Eon Mode" />
     <div class="portfolio-content">
       <h3>Vertica Eon in the Clouds & On-Premise</h3>
       <ul>
@@ -151,6 +150,7 @@ Vertica는 유연한 확장성과 강력한 분석 성능을 통해 데이터 �
         <li>Workload에 따른 유연한 증설 및 Multi-Cluster 구성 지원</li>
       </ul>
     </div>
+    <img src="{{ '/assets/images/portfolio3.png' | relative_url }}" alt="Vertica Eon Mode" />
   </div>
 
   <div class="cloud-logos">
