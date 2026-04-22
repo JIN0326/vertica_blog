@@ -1,5 +1,5 @@
 /* ==========================================================================
-   1. 초기화 및 공용 변수 
+   1. 전역 스타일 및 변수 (Global Styles & Variables)
    ========================================================================== */
 :root {
   --bg-gradient: linear-gradient(180deg, #f8fbff 0%, #f0f5ff 100%);
@@ -13,18 +13,6 @@
   --shadow: 0 10px 30px rgba(45, 105, 255, 0.06);
 }
 
-body[data-theme="dark"] {
-  --bg-gradient: linear-gradient(180deg, #0f172a 0%, #020617 100%);
-  --text: #e2e8f0;
-  --sub: #94a3b8;
-  --muted: #64748b;
-  --accent: #60a5fa;
-  --accent-dark: #3b82f6;
-  --surface: #1e293b;
-  --border-color: rgba(148, 163, 184, 0.2);
-  --shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-}
-
 body {
   margin: 0;
   font-family: "Pretendard", "Inter", sans-serif;
@@ -33,6 +21,17 @@ body {
   line-height: 1.6;
 }
 
+/* 스크롤 이동 시 고정 헤더에 가려지지 않도록 offset 설정 */
+section[id],
+article[id] {
+  scroll-margin-top: 80px; 
+}
+
+/* ==========================================================================
+   2. 공통 레이아웃 (Common Layout)
+   ========================================================================== */
+
+/* 전체 페이지 컨테이너 */
 .layout-inner {
   width: min(1300px, calc(100% - 40px));
   margin: 0 auto;
@@ -43,6 +42,7 @@ body {
   padding: 20px 0 80px;
 }
 
+/* 메인 콘텐츠 영역 */
 .site-content {
   width: 100%;
   margin: 0;
@@ -50,6 +50,9 @@ body {
 }
 
 .site-header {
+/* ==========================================================================
+   3. 헤더 및 내비게이션 (Header & Navigation)
+   ========================================================================== */
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -100,6 +103,7 @@ body {
   color: var(--accent);
 }
 
+/* 드롭다운 메뉴 */
 .dropdown { position: relative; }
 .dropdown-content {
   display: none;
@@ -131,6 +135,7 @@ body {
   color: var(--accent);
 }
 
+/* 다크/라이트 모드 토글 버튼 */
 .theme-toggle {
   background: none;
   border: none;
@@ -148,24 +153,29 @@ body {
 .theme-toggle svg {
   width: 20px;
   height: 20px;
-  color: var(--sub);
   color: var(--accent);
 }
-
-.site-sidebar {
-  position: sticky;
-  top: 104px;
-  align-self: start;
-}
+.theme-toggle .moon-icon { display: none; }
 
 /* ==========================================================================
-   2. Hero Section 
+   4. 메인 페이지 전용 컴포넌트 (index.md)
    ========================================================================== */
+
+/* 4.1 상단 Hero 영역 */
 .hero-container {
   padding: 10px 0 10px; 
 }
 
+.hero-content p {
+  font-size: 1.1rem; 
+  color: var(--sub);
+  max-width: 1200px;
+  margin-bottom: 24px;
+}
+
+/* 메인/서브 페이지 Hero 영역의 작은 제목 태그 */
 .eyebrow {
+.page-hero .chip {
   display: inline-block;
   padding: 0.4rem 0.85rem;
   border-radius: 999px;
@@ -185,13 +195,6 @@ h1 {
   letter-spacing: -0.03em;
 }
 
-.hero-content p {
-  font-size: 1.1rem; 
-  color: var(--sub);
-  max-width: 1200px;
-  margin-bottom: 24px;
-}
-
 .link-container { display: flex; gap: 12px; flex-wrap: wrap; }
 .link-container a {
   padding: 12px 22px;
@@ -206,8 +209,9 @@ h1 {
 .link-container a:hover { background: var(--accent-dark); transform: translateY(-2px); }
 
 /* ==========================================================================
-   3. Summary Section 
+   4.2 아키텍처 요약 섹션
    ========================================================================== */
+
 .summary-section {
   padding: 50px 40px;
   background: #ffffff;
@@ -256,8 +260,9 @@ h1 {
 .mode-body p { font-size: 0.95rem; color: var(--muted); margin: 0; line-height: 1.6; }
 
 /* ==========================================================================
-   4. 일반 카드 섹션 (Playbook 등)
+   4.3 카드 링크 섹션 (Playbook, Administration 등)
    ========================================================================== */
+
 .playbook-section,
 .administration-section,
 .fundamentals-section {
@@ -293,87 +298,13 @@ h1 {
 .card a { color: var(--accent); font-weight: 700; font-size: 0.85rem; } 
 
 /* ==========================================================================
-   5. 반응형
-   ========================================================================== */
-@media (max-width: 1024px) {
-}
-
-@media (max-width: 768px) {
-  .summary-section { padding: 30px 20px; }
-  h1 { font-size: 2.2rem; }
-  .architecture-grid { grid-template-columns: 1fr; }
-  .site-nav {
-    gap: 16px;
-    flex-wrap: wrap;
-  }
-}
-
-section[id],
-article[id] {
-  scroll-margin-top: 80px; 
-}
-
-/* Dark Mode Specific Adjustments */
-body[data-theme="dark"] .site-header {
-  background-color: rgba(30, 41, 59, 0.8);
-}
-
-body[data-theme="dark"] .brand img {
-  filter: invert(1) hue-rotate(180deg);
-}
-
-body[data-theme="dark"] .dropdown-content {
-  background: var(--surface);
-}
-
-body[data-theme="dark"] .dropdown-content a:hover {
-  background: #334155;
-}
-
-body[data-theme="dark"] .mode-image {
-  background: #ffffff;
-}
-
-body[data-theme="dark"] .mode-card,
-body[data-theme="dark"] .card,
-body[data-theme="dark"] .sidebar-panel,
-body[data-theme="dark"] .content-section {
-  background: var(--surface);
-  border-color: var(--border-color);
-}
-
-body[data-theme="dark"] .card:hover {
-  border-color: var(--accent);
-}
-
-body[data-theme="dark"] .mode-image img,
-body[data-theme="dark"] .slide-panel img,
-body[data-theme="dark"] .tech-feature-card img {
-  filter: brightness(0.85) contrast(1.1);
-}
-
-body[data-theme="dark"] .theme-toggle .moon-icon { display: block; }
-body[data-theme="dark"] .theme-toggle .sun-icon { display: none; }
-/* ==========================================================================
-   6. 서브 페이지 레이아웃 (Playbook, Administration 등)
+   5. 서브 페이지 공통 컴포넌트
    ========================================================================== */
 
-/* 6.1 Page Hero (페이지 상단 제목 영역) */
+/* 5.1 페이지 상단 Hero 영역 */
 .page-hero {
   text-align: center;
   padding: 2rem 1rem 2.5rem;
-}
-
-.page-hero .chip {
-  display: inline-block;
-  padding: 0.4rem 0.85rem;
-  border-radius: 999px;
-  background: rgba(45, 105, 255, 0.08);
-  color: var(--accent);
-  font-size: 0.84rem;
-  letter-spacing: 0.02em;
-  margin-bottom: 1rem;
-  text-transform: uppercase;
 }
 
 .page-hero h1 {
@@ -392,7 +323,11 @@ body[data-theme="dark"] .theme-toggle .sun-icon { display: none; }
   line-height: 1.7;
 }
 
-/* 6.2 Slide panels */
+/* ==========================================================================
+   6. 콘텐츠 스타일 (h, p, code, pre 등)
+   ========================================================================== */
+
+/* 7.1 Playbook 페이지: 3-Panel 레이아웃 */
 .slide-panels {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -408,7 +343,7 @@ body[data-theme="dark"] .theme-toggle .sun-icon { display: none; }
 }
 
 .slide-panel img {
-  max-width: 70px; /* 아이콘 이미지 크기 조정 */
+  max-width: 70px;
   height: auto;
   border-radius: 8px;
   margin-bottom: 1rem;
@@ -444,16 +379,17 @@ body[data-theme="dark"] .theme-toggle .sun-icon { display: none; }
   font-weight: bold;
 }
 
-/* 6.3 Two-Column Layout (2단 레이아웃) */
+/* 5.2 2단 콘텐츠 레이아웃 (본문 + 사이드바) */
 .page-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 200px; /* 오른쪽 사이드바 너비 축소 */
+  grid-template-columns: minmax(0, 1fr) 200px;
   gap: 24px;
   margin-top: 32px;
 }
 
+/* 본문 콘텐츠 섹션 */
 .content-section {
-  scroll-margin-top: 100px; /* 고정 헤더 높이만큼 오프셋 */
+  scroll-margin-top: 100px;
   margin-bottom: 2rem;
   padding: 2rem;
   background: var(--surface);
@@ -461,6 +397,7 @@ body[data-theme="dark"] .theme-toggle .sun-icon { display: none; }
   border: 1px solid var(--border-color);
   box-shadow: var(--shadow);
 }
+
 .content-section h2 {
   margin-top: 0;
   font-size: 1.6rem;
@@ -486,18 +423,20 @@ body[data-theme="dark"] .theme-toggle .sun-icon { display: none; }
   font-size: 0.9em;
 }
 
+/* 인라인 코드 블록 */
 .content-section :not(pre) > code {
   background-color: rgba(45, 105, 255, 0.08);
   padding: 0.2em 0.4em;
   border-radius: 4px;
 }
 
-/* 단일 컬럼 콘텐츠 섹션 중앙 정렬 */
+/* 1단 콘텐츠 레이아웃 (중앙 정렬) */
 .content-section-centered {
-  max-width: 760px; /* page-hero p (680px)보다 약간 넓게 설정 */
+  max-width: 760px;
   margin: 0 auto;
 }
-/* 6.4 Sidebar (사이드바) */
+
+/* 5.3 우측 사이드바 (On this page) */
 .page-sidebar {
   position: sticky;
   top: 104px; /* 헤더 높이(67px) + 여백 */
@@ -517,7 +456,7 @@ body[data-theme="dark"] .theme-toggle .sun-icon { display: none; }
   font-size: 1rem;
   color: var(--text);
   margin-bottom: 1rem;
-  font-weight: 700; /* 사이드바 제목 Bold 처리 */
+  font-weight: 700;
 }
 
 .sidebar-panel ul {
@@ -539,7 +478,6 @@ body[data-theme="dark"] .theme-toggle .sun-icon { display: none; }
   width: 1.4em;
   text-align: center;
 }
-.theme-toggle .moon-icon { display: none; }
 .sidebar-panel a:hover {
   text-decoration: underline;
 }
@@ -552,7 +490,12 @@ body[data-theme="dark"] .theme-toggle .sun-icon { display: none; }
 
 .sidebar-panel a.active:hover { text-decoration: none; }
 
-/* 6.5 Fundamentals TOC Layout */
+/* ==========================================================================
+   7. 페이지별 특화 컴포넌트
+   ========================================================================== */
+
+
+/* 7.2 Fundamentals 페이지: 목차 레이아웃 */
 .fundamentals-toc-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -597,22 +540,10 @@ body[data-theme="dark"] .theme-toggle .sun-icon { display: none; }
   text-decoration: underline;
 }
 
-/* 6.6 Responsive for Sub-pages */
-@media (max-width: 900px) {
-  .layout-inner {
-    grid-template-columns: 1fr;
-  }
-  .page-layout {
-    grid-template-columns: 1fr;
-  }
-  .page-sidebar {
-    position: static;
-    top: auto;
-    margin-bottom: 24px;
-  }
-}
+/* 7.3 기타 컴포넌트 (Tech Features, Portfolio, Architecture, Integration 등) */
+/* 이 스타일들은 현재 제공된 마크다운 파일에서는 사용되지 않으나, 다른 페이지에서 사용될 수 있습니다. */
 
-/* 6.8 Tech Features Grid */
+/* Tech Features Grid */
 .tech-features-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* 3열 그리드로 고정 */
@@ -624,7 +555,7 @@ body[data-theme="dark"] .theme-toggle .sun-icon { display: none; }
   background: #fdfdff; /* Light background, similar to slide-panel */
   border: 1px solid var(--border-color);
   border-radius: 16px;
-  padding: 16px; /* 내부 여백 축소 */
+  padding: 16px;
   text-align: center; /* Center content for icons */
   display: flex;
   flex-direction: column;
@@ -632,17 +563,17 @@ body[data-theme="dark"] .theme-toggle .sun-icon { display: none; }
 }
 
 .tech-feature-card img {
-  max-width: 70px; /* 아이콘 크기 축소 */
+  max-width: 70px;
   height: auto;
   margin-bottom: 1rem;
   background: #f0f5ff; /* Light background for icons */
   border-radius: 8px;
-  padding: 8px; /* 아이콘 주변 여백 축소 */
+  padding: 8px;
 }
 
 .tech-feature-card h3 {
-  font-size: 1.0rem; /* 제목 폰트 크기 축소 */
-  margin-bottom: 0.5rem; /* 제목과 내용 간격 축소 */
+  font-size: 1.0rem;
+  margin-bottom: 0.5rem;
   color: var(--text);
 }
 
@@ -657,7 +588,7 @@ body[data-theme="dark"] .theme-toggle .sun-icon { display: none; }
 .tech-feature-card ul li {
   margin-bottom: 0.5rem;
   color: var(--sub);
-  font-size: 0.9rem; /* 내용 폰트 크기 축소 */
+  font-size: 0.9rem;
   line-height: 1.5;
   position: relative;
   padding-left: 1.2em; /* Space for custom bullet */
@@ -671,7 +602,7 @@ body[data-theme="dark"] .theme-toggle .sun-icon { display: none; }
   top: 0;
 }
 
-/* 6.9 Portfolio Section */
+/* Portfolio Section */
 .portfolio-container {
   display: flex;
   flex-direction: column;
@@ -743,7 +674,7 @@ body[data-theme="dark"] .theme-toggle .sun-icon { display: none; }
 }
 
 .cloud-logos img {
-  height: 55px; /* 로고 이미지 크기 키움 */
+  height: 55px;
   width: auto;
 }
 
@@ -755,7 +686,7 @@ body[data-theme="dark"] .theme-toggle .sun-icon { display: none; }
   padding-left: 20px;
 }
 
-/* 6.10 Architecture Section */
+/* Architecture Section */
 .architecture-section .section-description {
   color: var(--sub);
   margin-bottom: 2.5rem;
@@ -805,15 +736,9 @@ body[data-theme="dark"] .theme-toggle .sun-icon { display: none; }
 }
 
 .comparison-grid .card img {
-  max-width: 200px; /* 아키텍처 이미지 크기 동일하게 조정 */
+  max-width: 200px;
   margin: 0 auto 1.5rem;
   display: block;
-}
-
-@media (max-width: 900px) {
-  .comparison-grid {
-    grid-template-columns: 1fr;
-  }
 }
 
 .comparison-grid .card--other {
@@ -857,7 +782,7 @@ body[data-theme="dark"] .theme-toggle .sun-icon { display: none; }
   align-items: flex-start;
   gap: 12px;
   font-weight: 600;
-  font-size: 0.85rem; /* Native Columnar 설명 폰트 크기 축소 */
+  font-size: 0.85rem;
   margin-bottom: 1rem;
 }
 .feature-list li:last-child {
@@ -869,7 +794,6 @@ body[data-theme="dark"] .theme-toggle .sun-icon { display: none; }
   line-height: 1.6;
 }
 
-/* For Native Columnar section */
 .columnar-layout {
   display: grid;
   grid-template-columns: 6.5fr 3.5fr; /* 텍스트와 이미지가 65:35 비율을 갖도록 변경 */
@@ -878,19 +802,12 @@ body[data-theme="dark"] .theme-toggle .sun-icon { display: none; }
 }
 
 .columnar-image img {
-  width: 100%; /* 이미지가 컨테이너를 꽉 채우도록 변경 */
+  width: 100%;
   height: auto;
   border-radius: 8px;
 }
 
-@media (max-width: 768px) {
-  .columnar-layout {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-}
-
-/* 6.11 Integration Section (Kafka, HDFS, etc.) */
+/* Integration Section (Kafka, HDFS, etc.) */
 .integration-section {
   display: flex;
   flex-direction: column;
@@ -913,7 +830,7 @@ body[data-theme="dark"] .theme-toggle .sun-icon { display: none; }
 .integration-subsection__description {
   color: var(--sub);
   font-size: 1.05rem;
-  margin-top: -0.5rem; /* 제목과의 간격 조정 */
+  margin-top: -0.5rem;
   max-width: 80ch;
 }
 
@@ -933,7 +850,7 @@ body[data-theme="dark"] .theme-toggle .sun-icon { display: none; }
   text-align: center;
   box-shadow: var(--shadow);
   width: 100%;
-  max-width: 450px; /* 이미지 컨테이너 최대 너비 축소 */
+  max-width: 450px;
 }
 
 .kafka-layout__image-wrapper img {
@@ -943,7 +860,7 @@ body[data-theme="dark"] .theme-toggle .sun-icon { display: none; }
 
 .kafka-steps {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* 2x2 그리드 레이아웃 */
+  grid-template-columns: 1fr 1fr;
   gap: 2.5rem 3rem; /* 행/열 간격 조정 */
   width: 100%;
 }
@@ -974,7 +891,7 @@ body[data-theme="dark"] .theme-toggle .sun-icon { display: none; }
 
 .kafka-step__list {
   color: var(--sub);
-  padding-left: 2.1em; /* 24px (number) + 10px (gap) */
+  padding-left: 2.1em;
   margin: 0;
   font-size: 0.95rem;
   line-height: 1.6;
@@ -987,13 +904,6 @@ body[data-theme="dark"] .theme-toggle .sun-icon { display: none; }
   margin-bottom: 0;
 }
 
-@media (max-width: 768px) {
-  .kafka-steps {
-    grid-template-columns: 1fr; /* 모바일에서는 1열로 변경 */
-  }
-}
-
-/* HDFS/Object Storage Cards */
 .integration-cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -1019,8 +929,8 @@ body[data-theme="dark"] .theme-toggle .sun-icon { display: none; }
   margin-bottom: 1.5rem;
   line-height: 1.6;
   color: var(--sub);
-  flex-grow: 1; /* 카드의 높이를 맞추기 위해 */
-  min-height: 70px; /* 기존 스타일 유지 */
+  flex-grow: 1;
+  min-height: 70px;
 }
 
 .integration-card__image-wrapper {
@@ -1051,4 +961,42 @@ body[data-theme="dark"] .theme-toggle .sun-icon { display: none; }
   margin: 0;
   font-size: 0.9rem;
   color: var(--muted);
+}
+
+@media (max-width: 900px) {
+  /* 2단 레이아웃을 1단으로 변경 */
+  .layout-inner,
+  .page-layout {
+    grid-template-columns: 1fr;
+  }
+  
+  .page-sidebar {
+    position: static;
+    top: auto;
+    margin-bottom: 24px;
+  }
+
+  .comparison-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .summary-section { padding: 30px 20px; }
+  h1 { font-size: 2.2rem; }
+  .architecture-grid { grid-template-columns: 1fr; }
+  
+  .site-nav {
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .columnar-layout {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .kafka-steps {
+    grid-template-columns: 1fr;
+  }
 }
