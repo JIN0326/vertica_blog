@@ -351,36 +351,33 @@ Vertica는 유연한 확장성과 강력한 분석 성능을 통해 데이터 �
 
   <h3 class="eon-section-title">Eon Mode의 3대 핵심이점</h3>
   
-  <div class="eon-benefits-grid">
-    <div class="card card--benefit">
-      <img src="{{ '/assets/images/eonmode1.png' | relative_url }}" alt="뛰어난 확장성" class="benefit-card__icon">
-      <h4 class="benefit-card__title">뛰어난 확장성</h4>
-      <span class="benefit-card__subtitle">(Scalability)</span>
-      <ul class="benefit-card__list">
+  <div class="slide-panels" style="margin-bottom: 4rem;">
+    <article class="slide-panel">
+      <img src="{{ '/assets/images/eonmode1.png' | relative_url }}" alt="뛰어난 확장성">
+      <h3>뛰어난 확장성 (Scalability)</h3>
+      <ul>
         <li>스토리지와 컴퓨팅이 분리되어 있어, 데이터 재분산(Rebalancing)이나 조정 작업 없이 필요 시 즉각적으로 컴퓨팅 노드를 확장할 수 있습니다.</li>
         <li>컴퓨팅 자원과 완전히 독립적으로 스토리지를 무한 확장할 수 있습니다.</li>
       </ul>
-    </div>
+    </article>
 
-    <div class="card card--benefit">
-      <img src="{{ '/assets/images/eonmode2.png' | relative_url }}" alt="비용 효율성" class="benefit-card__icon">
-      <h4 class="benefit-card__title">비용 효율성</h4>
-      <span class="benefit-card__subtitle">(Cost)</span>
-      <ul class="benefit-card__list">
+    <article class="slide-panel">
+      <img src="{{ '/assets/images/eonmode2.png' | relative_url }}" alt="비용 효율성">
+      <h3>비용 효율성 (Cost)</h3>
+      <ul>
         <li>대용량의 영구 데이터를 비용 효율적인 오픈 오브젝트 스토리지에 저장하여 전체 스토리지 비용을 최적화합니다.</li>
         <li>컴퓨팅 파워가 필요한 순간에만 동적으로 자원을 할당하고 활용하여 효율적인 컴퓨팅 비용 모델을 제공합니다.</li>
       </ul>
-    </div>
+    </article>
 
-    <div class="card card--benefit">
-      <img src="{{ '/assets/images/eonmode3.png' | relative_url }}" alt="고가용성 보장" class="benefit-card__icon">
-      <h4 class="benefit-card__title">고가용성 보장</h4>
-      <span class="benefit-card__subtitle">(Availability)</span>
-      <ul class="benefit-card__list">
+    <article class="slide-panel">
+      <img src="{{ '/assets/images/eonmode3.png' | relative_url }}" alt="고가용성 보장">
+      <h3>고가용성 보장 (Availability)</h3>
+      <ul>
         <li>퍼블릭 클라우드 및 엔터프라이즈급 오브젝트 스토리지의 최고 수준 SLA를 그대로 상속받습니다.</li>
         <li>영구 데이터가 로컬 디스크가 아닌 중앙 오브젝트 스토리지에 저장되므로, 특정 컴퓨팅 노드에 장애가 발생하거나 훼손되어도 데이터 유실이 전혀 없습니다.</li>
       </ul>
-    </div>
+    </article>
   </div>
 
   <h3 class="eon-section-title">혁신적인 컴퓨팅 및 스토리지 아키텍처</h3>

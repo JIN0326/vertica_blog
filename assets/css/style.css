@@ -551,57 +551,6 @@ h1 {
   margin-bottom: 1.5rem;
 }
 
-/* Benefits Grid */
-.eon-benefits-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
-  margin-bottom: 4rem;
-}
-
-.card--benefit {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  padding: 2rem 1.5rem;
-}
-
-.benefit-card__icon {
-  height: 70px;
-  width: auto;
-  margin: 0 auto 1.5rem;
-}
-
-.benefit-card__title {
-  color: var(--text);
-  font-size: 1.2rem;
-  margin: 0 0 0.2rem 0;
-}
-
-.benefit-card__subtitle {
-  color: var(--muted);
-  font-size: 0.95rem;
-  font-weight: 600;
-  margin-bottom: 1.5rem;
-  display: block;
-}
-
-.benefit-card__list {
-  color: var(--sub);
-  text-align: left;
-  padding-left: 1.4em;
-  margin: 0;
-  font-size: 0.95rem;
-  line-height: 1.6;
-}
-
-.benefit-card__list li {
-  margin-bottom: 0.8rem;
-}
-.benefit-card__list li:last-child {
-  margin-bottom: 0;
-}
-
 /* Feature Box */
 .feature-box {
   background: var(--surface);
