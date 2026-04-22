@@ -339,93 +339,108 @@ Vertica는 유연한 확장성과 강력한 분석 성능을 통해 데이터 �
 </div>
 
 <hr style="margin: 3rem 0;">
+
 <div id="eonmode" style="scroll-margin-top: 100px;"></div>
 
-## Vertica Eon Mode
+## Vertica EonMode
 
-<div class="architecture-section">
+<div class="eonmode-section architecture-section" markdown="1">
   <p class="section-description">
-    Eon Mode는 클라우드 이코노믹스의 동적 워크로드 및 효율적인 확장 요구에 대응하기 위해 설계된 컴퓨팅/스토리지(C/S) 분리 아키텍처입니다[cite: 871]. 페타바이트 규모 이상의 통합 데이터 레이크하우스(Lakehouse) 플랫폼을 구축하는 데 최적화되어 있습니다[cite: 898, 899].
+    Eon Mode는 클라우드 이코노믹스의 동적 워크로드 및 효율적인 확장 요구에 대응하기 위해 설계된 <strong>컴퓨팅/스토리지(C/S) 분리 아키텍처</strong>입니다. 페타바이트 규모 이상의 통합 데이터 레이크하우스(Lakehouse) 플랫폼을 구축하는데 최적화되어 있습니다.
   </p>
 
-  <div class="architecture-subsection">
-    <h3 class="section-subtitle">
-      Eon Mode의 3대 핵심 이점
-    </h3>
-    <div class="tech-features-grid">
-      <article class="tech-feature-card">
-        <h3><span style="font-size: 1.5rem;">📈</span> 뛰어난 확장성 (Scalability)</h3>
-        <ul>
-          <li>스토리지와 컴퓨팅이 분리되어 있어, 데이터 재분산(Rebalancing)이나 조정 작업 없이 필요 시 즉각적으로 컴퓨팅 노드를 확장할 수 있습니다[cite: 955, 956].</li>
-          <li>컴퓨팅 자원과 완전히 독립적으로 스토리지를 무한 확장할 수 있습니다[cite: 957].</li>
-        </ul>
-      </article>
-
-      <article class="tech-feature-card">
-        <h3><span style="font-size: 1.5rem;">💰</span> 비용 효율성 (Cost)</h3>
-        <ul>
-          <li>대용량의 영구 데이터를 비용 효율적인 오픈 오브젝트 스토리지에 저장하여 전체 스토리지 비용을 최적화합니다[cite: 959, 960].</li>
-          <li>컴퓨팅 파워가 필요한 순간에만 동적으로 자원을 할당하고 활용하여 효율적인 컴퓨팅 비용 모델을 제공합니다[cite: 961, 962].</li>
-        </ul>
-      </article>
-
-      <article class="tech-feature-card">
-        <h3><span style="font-size: 1.5rem;">🛡️</span> 고가용성 보장 (Availability)</h3>
-        <ul>
-          <li>퍼블릭 클라우드 및 엔터프라이즈급 오브젝트 스토리지의 최고 수준 SLA를 그대로 상속받습니다[cite: 964].</li>
-          <li>영구 데이터가 로컬 디스크가 아닌 중앙 오브젝트 스토리지에 저장되므로, 특정 컴퓨팅 노드에 장애가 발생하거나 훼손되어도 데이터 유실이 전혀 없습니다[cite: 965].</li>
-        </ul>
-      </article>
+  <h3 class="eon-section-title">Eon Mode의 3대 핵심이점</h3>
+  
+  <div class="eon-benefits-grid">
+    <div class="card card--benefit">
+      <img src="{{ '/assets/images/eonmode1.png' | relative_url }}" alt="뛰어난 확장성" class="benefit-card__icon">
+      <h4 class="benefit-card__title">뛰어난 확장성</h4>
+      <span class="benefit-card__subtitle">(Scalability)</span>
+      <ul class="benefit-card__list">
+        <li>스토리지와 컴퓨팅이 분리되어 있어, 데이터 재분산(Rebalancing)이나 조정 작업 없이 필요 시 즉각적으로 컴퓨팅 노드를 확장할 수 있습니다.</li>
+        <li>컴퓨팅 자원과 완전히 독립적으로 스토리지를 무한 확장할 수 있습니다.</li>
+      </ul>
     </div>
-  </div>
 
-  <div class="architecture-subsection">
-    <h3 class="section-subtitle">
-      혁신적인 컴퓨팅 및 스토리지 아키텍처
-    </h3>
-    <div class="columnar-layout" style="align-items: flex-start;">
-      <ul class="feature-list" style="flex: 1;">
-        <li><span class="feature-list__icon">🔹</span> <strong>스마트 캐싱 (Compute Architecture):</strong> 각 컴퓨팅 노드는 영구 데이터를 자체 보관하지 않습니다[cite: 991]. 대신 자주 활용되는 핫 데이터(Hot Data)만 로컬 디스크 캐시에 보관하며 LRU(Least Recently Used) 알고리즘으로 관리하여 쿼리 성능을 극대화합니다[cite: 992].</li>
-        <li><span class="feature-list__icon">🔹</span> <strong>완벽한 트랜잭션 지원 (Storage Architecture):</strong> 오브젝트 스토리지를 사용함에도 Write-Once 기반으로 동작하여 DML(갱신/삭제 등) 처리에 제약이 없습니다[cite: 1043]. 트랜잭션 발생 시 커밋(Commit)된 데이터는 노드 수에 맞춘 최적의 조각으로 나뉘어 저장되며, 즉시 모든 서브클러스터에서 동시에 조회할 수 있습니다[cite: 1044, 1045].</li>
-        <li><span class="feature-list__icon">🔹</span> <strong>인프라 종속성 탈피:</strong> 특정 하드웨어에 종속되지 않고 AWS, Azure, GCP 같은 퍼블릭 클라우드는 물론 Kubernetes 환경, VMware, 그리고 온프레미스(Dell, PureStorage, MinIO 등) 하이브리드 구성을 완벽하게 지원합니다[cite: 1047, 1067, 1070, 1077, 1078, 1613].</li>
+    <div class="card card--benefit">
+      <img src="{{ '/assets/images/eonmode2.png' | relative_url }}" alt="비용 효율성" class="benefit-card__icon">
+      <h4 class="benefit-card__title">비용 효율성</h4>
+      <span class="benefit-card__subtitle">(Cost)</span>
+      <ul class="benefit-card__list">
+        <li>대용량의 영구 데이터를 비용 효율적인 오픈 오브젝트 스토리지에 저장하여 전체 스토리지 비용을 최적화합니다.</li>
+        <li>컴퓨팅 파워가 필요한 순간에만 동적으로 자원을 할당하고 활용하여 효율적인 컴퓨팅 비용 모델을 제공합니다.</li>
+      </ul>
+    </div>
+
+    <div class="card card--benefit">
+      <img src="{{ '/assets/images/eonmode3.png' | relative_url }}" alt="고가용성 보장" class="benefit-card__icon">
+      <h4 class="benefit-card__title">고가용성 보장</h4>
+      <span class="benefit-card__subtitle">(Availability)</span>
+      <ul class="benefit-card__list">
+        <li>퍼블릭 클라우드 및 엔터프라이즈급 오브젝트 스토리지의 최고 수준 SLA를 그대로 상속받습니다.</li>
+        <li>영구 데이터가 로컬 디스크가 아닌 중앙 오브젝트 스토리지에 저장되므로, 특정 컴퓨팅 노드에 장애가 발생하거나 훼손되어도 데이터 유실이 전혀 없습니다.</li>
       </ul>
     </div>
   </div>
 
-  <div class="architecture-subsection">
-    <h3 class="section-subtitle">
-      실전 Use Case: 동시성 확보 및 운영 단순화
-    </h3>
-    
-    <div class="comparison-grid">
-      <div class="comparison-column">
-        <h4 class="comparison-column__title comparison-column__title--vertica">서브클러스터(Subcluster) 기반 워크로드 격리</h4>
-        <div class="card card--vertica">
-          <p>전통적 방식에서는 운영 업무 SLA를 지키기 위해 분석 업무나 새로운 워크로드를 제약해야만 했습니다[cite: 1190].</p>
-          <ul>
-            <li><strong>독립적인 리소스 구성:</strong> 각 서브클러스터는 다른 노드 수, CPU, Memory 등 개별적인 리소스로 구성할 수 있습니다[cite: 994].</li>
-            <li><strong>멀티 클러스터 동시성 확장:</strong> 주간 Batch, BI 대시보드, ML 분석, Spark 연계 등 용도별로 서브클러스터를 분리하여 워크로드 간의 간섭을 원천 차단합니다[cite: 1257, 1260, 1261, 1262, 1263].</li>
-            <li><strong>빠른 확장:</strong> 새로운 클러스터나 노드를 추가할 때 가장 오래 걸리는 '데이터 리밸런싱(Data Rebalancing)' 및 '클러스터 간 데이터 동기화' 과정이 불필요합니다[cite: 1221, 1240, 1241].</li>
-          </ul>
-        </div>
-      </div>
-      
-      <div class="comparison-column">
-        <h4 class="comparison-column__title comparison-column__title--vertica">Revive를 통한 제로 다운타임(Zero Downtime) 마이그레이션</h4>
-        <div class="card card--vertica">
-          <p>하드웨어 EOL(End of Life)이나 클라우드 전환 시 막대한 데이터 이관(Migration)에 대한 부담을 해소합니다[cite: 1364, 1369].</p>
-          <ul>
-            <li><strong>OS 및 데이터 무의존성:</strong> 메타데이터와 영구 데이터는 모두 오브젝트 스토리지에 있으므로 컴퓨팅 노드의 OS나 인프라 환경에 얽매이지 않습니다[cite: 1379, 1394].</li>
-            <li><strong>데이터 이관(Migration) 불필요:</strong> 새로운 인프라나 클라우드에 빈 클러스터를 띄운 후, 기존 오브젝트 스토리지의 메타 정보만 동기화(Revive)하면 즉시 DB가 복구됩니다[cite: 1380, 1395, 1418].</li>
-            <li><strong>서비스 중단 최소화:</strong> 기존 시스템을 중단할 필요 없이 백그라운드에서 신규 구성을 완료한 뒤 전환할 수 있어 다운타임을 수 분 이내로 최소화합니다[cite: 1381, 1417, 1424].</li>
-          </ul>
-        </div>
-      </div>
+  <h3 class="eon-section-title">혁신적인 컴퓨팅 및 스토리지 아키텍처</h3>
+  
+  <div class="feature-box">
+    <dl class="feature-dl">
+      <dt class="feature-dt">
+        <span class="feature-dt__icon">◆</span> 스마트 캐싱 <span class="feature-dt__meta">(Compute Architecture)</span>
+      </dt>
+      <dd class="feature-dd">
+        각 컴퓨팅 노드는 영구 데이터를 자체 보관하지 않습니다. 대신 자주 활용되는 핫 데이터(Hot Data)만 로컬 디스크 캐시에 보관하며 LRU(Least Recently Used) 알고리즘으로 관리하여 쿼리 성능을 극대화합니다.
+      </dd>
+
+      <dt class="feature-dt">
+        <span class="feature-dt__icon">◆</span> 완벽한 트랜잭션 지원 <span class="feature-dt__meta">(Storage Architecture)</span>
+      </dt>
+      <dd class="feature-dd">
+        오브젝트 스토리지를 사용함에도 Write-Once 기반으로 동작하여 DML(갱신/삭제 등) 처리에 제약이 없습니다. 트랜잭션 발생 시 커밋(Commit)된 데이터는 노드 수에 맞춘 최적의 조각으로 나뉘어 저장되며, 즉시 모든 서브클러스터에서 동시에 조회할 수 있습니다.
+      </dd>
+
+      <dt class="feature-dt">
+        <span class="feature-dt__icon">◆</span> 인프라 종속성 탈피
+      </dt>
+      <dd class="feature-dd">
+        특정 하드웨어에 종속되지 않고 AWS, Azure, GCP 같은 퍼블릭 클라우드는 물론 Kubernetes 환경, VMware, 그리고 온프레미스(Dell, PureStorage, MinIO 등) 하이브리드 구성을 완벽하게 지원합니다.
+      </dd>
+    </dl>
+  </div>
+
+  <h3 class="eon-section-title">실전 Use Case: 동시성 확보 및 운영 단순화</h3>
+  
+  <div class="use-case-grid">
+    <div class="card card--use-case">
+      <h4 class="use-case-card__title">서브클러스터(Subcluster) 기반 워크로드 격리</h4>
+      <p class="use-case-card__intro">
+        전통적 방식에서는 운영 업무 SLA를 지키기 위해 분석 업무나 새로운 워크로드를 제약해야만 했습니다.
+      </p>
+      <ul class="use-case-card__list">
+        <li><strong>독립적인 리소스 구성:</strong> 각 서브클러스터는 다른 노드 수, CPU, Memory 등 개별적인 리소스로 구성할 수 있습니다.</li>
+        <li><strong>멀티 클러스터 동시성 확장:</strong> 주간 Batch, BI 대시보드, ML 분석, Spark 연계 등 용도별로 서브클러스터를 분리하여 워크로드 간의 간섭을 원천 차단합니다.</li>
+        <li><strong>빠른 확장:</strong> 새로운 클러스터나 노드를 추가할 때 가장 오래 걸리는 '데이터 리밸런싱(Data Rebalancing)' 및 '클러스터 간 데이터 동기화' 과정이 불필요합니다.</li>
+      </ul>
+    </div>
+
+    <div class="card card--use-case">
+      <h4 class="use-case-card__title">Revive를 통한 제로 다운타임 마이그레이션</h4>
+      <p class="use-case-card__intro">
+        하드웨어 EOL(End of Life)이나 클라우드 전환 시 막대한 데이터 이관(Migration)에 대한 부담을 해소합니다.
+      </p>
+      <ul class="use-case-card__list">
+        <li><strong>OS 및 데이터 무의존성:</strong> 메타데이터와 영구 데이터는 모두 오브젝트 스토리지에 있으므로 컴퓨팅 노드의 OS나 인프라 환경에 얽매이지 않습니다.</li>
+        <li><strong>데이터 이관(Migration) 불필요:</strong> 새로운 인프라나 클라우드에 빈 클러스터를 띄운 후, 기존 오브젝트 스토리지의 메타 정보만 동기화(Revive)하면 즉시 DB가 복구됩니다.</li>
+        <li><strong>서비스 중단 최소화:</strong> 기존 시스템을 중단할 필요 없이 백그라운드에서 신규 구성을 완료한 뒤 전환할 수 있어 다운타임을 수 분 이내로 최소화합니다.</li>
+      </ul>
     </div>
   </div>
-</div> 
 
-<aside class="page-sidebar">
+</div>
+
+</div> <aside class="page-sidebar">
   <div class="sidebar-panel">
     <h3>On this page</h3>
     <ul>

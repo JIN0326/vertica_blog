@@ -543,6 +543,155 @@ h1 {
 /* 7.3 기타 컴포넌트 (Tech Features, Portfolio, Architecture, Integration 등) */
 /* 이 스타일들은 현재 제공된 마크다운 파일에서는 사용되지 않으나, 다른 페이지에서 사용될 수 있습니다. */
 
+/* 7.4 EonMode Section (01playbook.md) */
+.eon-section-title {
+  color: var(--text);
+  font-size: 1.4rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+}
+
+/* Benefits Grid */
+.eon-benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-bottom: 4rem;
+}
+
+.card--benefit {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 1.5rem;
+}
+
+.benefit-card__icon {
+  height: 70px;
+  width: auto;
+  margin: 0 auto 1.5rem;
+}
+
+.benefit-card__title {
+  color: var(--text);
+  font-size: 1.2rem;
+  margin: 0 0 0.2rem 0;
+}
+
+.benefit-card__subtitle {
+  color: var(--muted);
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+.benefit-card__list {
+  color: var(--sub);
+  text-align: left;
+  padding-left: 1.4em;
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.benefit-card__list li {
+  margin-bottom: 0.8rem;
+}
+.benefit-card__list li:last-child {
+  margin-bottom: 0;
+}
+
+/* Feature Box */
+.feature-box {
+  background: var(--surface);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 4rem;
+  box-shadow: var(--shadow);
+}
+
+.feature-dl { margin: 0; }
+
+.feature-dt {
+  color: var(--accent-dark);
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.feature-dt__icon { color: var(--accent); }
+
+.feature-dt__meta {
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: normal;
+}
+
+.feature-dd {
+  color: var(--sub);
+  margin: 0 0 1.8rem 1.5rem;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+.feature-dd:last-of-type { margin-bottom: 0; }
+
+/* Use Case Grid */
+.use-case-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+}
+
+.card--use-case {
+  border-top: 4px solid var(--accent);
+  padding: 2rem;
+}
+
+.use-case-card__title {
+  color: var(--text);
+  font-size: 1.2rem;
+  margin: 0 0 0.8rem 0;
+  text-align: center;
+}
+
+.use-case-card__intro {
+  color: var(--muted);
+  font-size: 0.95rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+  padding-bottom: 1rem;
+  border-bottom: 1px dashed var(--border-color);
+}
+
+.use-case-card__list {
+  color: var(--sub);
+  padding-left: 1.4em;
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  list-style-type: none;
+}
+
+.use-case-card__list li {
+  position: relative;
+  margin-bottom: 1rem;
+}
+.use-case-card__list li:last-child { margin-bottom: 0; }
+
+.use-case-card__list li::before {
+  content: "+";
+  position: absolute;
+  left: -1.4em;
+  color: var(--accent);
+  font-weight: bold;
+}
+
 /* Tech Features Grid */
 .tech-features-grid {
   display: grid;
