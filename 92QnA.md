@@ -9,8 +9,7 @@ layout: default
   <p>궁금한 점을 자유롭게 질문하고, 답변을 받아보세요.</p>
 </div>
 
-<div class="page-layout">
-  <div class="content-section">
+<div class="content-section content-section-centered" style="max-width: 1080px;">
   <script src="https://giscus.app/client.js"
           data-repo="JIN0326/vertica_blog"
           data-repo-id="R_kgDOSDEuRA"
@@ -30,5 +29,4 @@ layout: default
     <p>댓글을 보려면 JavaScript를 활성화해야 합니다.</p>
     <p>GitHub 저장소의 <a href="https://github.com/JIN0326/vertica_blog/discussions" target="_blank">Discussions 섹션</a>에서 질문을 남겨주세요.</p>
   </noscript>
-  </div>
 </div>

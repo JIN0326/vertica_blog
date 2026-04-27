@@ -9,8 +9,7 @@ layout: default
   <p>Vertica는 금융, 통신, 제조, 의료 등 다양한 산업 분야의 리딩 기업에서 핵심 분석 플랫폼으로 활약하고 있습니다.</p>
 </div>
 
-<div class="page-layout">
-  <div class="content-section">
+<div class="content-section content-section-centered" style="max-width: 1080px;">
     <div class="portfolio-container">
       <div class="portfolio-row">
         <div class="portfolio-content">
@@ -33,7 +32,7 @@ layout: default
             <li><strong>주요 활용 사례</strong>: 차세대 BIDW, 통합 정보계 시스템, 물류/SCM 분석, 운영 자동화 DW, EDW</li>
           </ul>
         </div>
-        <img src="{{ '/assets/images/ref_fin.png' | relative_url }}" alt="기업 및 공공 분야 고객사례" style="border-radius: 8px;">
+        <img src="{{ '/assets/images/ref_corp.png' | relative_url }}" alt="기업 및 공공 분야 고객사례" style="border-radius: 8px;">
       </div>
 
       <div class="portfolio-row">
@@ -48,5 +47,4 @@ layout: default
         <img src="{{ '/assets/images/ref_hosp.png' | relative_url }}" alt="의료 분야 고객사례" style="border-radius: 8px;">
       </div>
     </div>
-  </div>
 </div>
