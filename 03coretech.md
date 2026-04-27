@@ -23,12 +23,12 @@ layout: default
   ```
 
   #### 유용한 메타 명령어 (Meta-Commands)
-    - `\l`: 데이터베이스 목록을 보여줍니다.
-    - `\dt [schema.]`: 스키마의 테이블 목록을 보여줍니다.
-    - `\d [table_name]`: 특정 테이블의 상세 정보(컬럼, 타입 등)를 보여줍니다.
-    - `\h [command]`: 특정 SQL 명령어의 도움말을 보여줍니다. (예: `\h CREATE TABLE`)
-    - `\timing`: 쿼리 실행 시간을 표시하거나 끕니다.
-    - `\q`: vsql을 종료합니다.
+  - `\l`: 데이터베이스 목록을 보여줍니다.
+  - `\dt [schema.]`: 스키마의 테이블 목록을 보여줍니다.
+  - `\d [table_name]`: 특정 테이블의 상세 정보(컬럼, 타입 등)를 보여줍니다.
+  - `\h [command]`: 특정 SQL 명령어의 도움말을 보여줍니다. (예: `\h CREATE TABLE`)
+  - `\timing`: 쿼리 실행 시간을 표시하거나 끕니다.
+  - `\q`: vsql을 종료합니다.
 
   <hr style="margin: 3rem 0;">
 
