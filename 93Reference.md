@@ -32,7 +32,7 @@ layout: default
             <li><strong>주요 활용 사례</strong>: 차세대 BIDW, 통합 정보계 시스템, 물류/SCM 분석, 운영 자동화 DW, EDW</li>
           </ul>
         </div>
-        <img src="{{ '/assets/images/ref_corp.png' | relative_url }}" alt="기업 및 공공 분야 고객사례" style="border-radius: 8px;">
+        <img src="{{ '/assets/images/ref_copr.png' | relative_url }}" alt="기업 및 공공 분야 고객사례" style="border-radius: 8px;">
       </div>
 
       <div class="portfolio-row">
