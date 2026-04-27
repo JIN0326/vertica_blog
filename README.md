@@ -1,28 +1,81 @@
-# Vertica 기술 블로그
+# Vertica Blog
 
-이 저장소는 Vertica 데이터베이스의 핵심 개념, 운영 관리, 기초 학습 자료를 정리하고 공유하기 위한 Jekyll 기반 기술 블로그입니다.
+Vertica 분석 플랫폼에 대한 기술 정보와 사용법을 공유하기 위한 Jekyll 기반의 기술 블로그입니다.
 
-## 📂 프로젝트 구조 (Project Structure)
+> Repository: [https://github.com/JIN0326/vertica_blog/](https://github.com/JIN0326/vertica_blog/)
 
-프로젝트의 주요 파일과 디렉터리 구조는 다음과 같습니다.
+## 🚀 프로젝트 소개
 
--   `_layouts/default.html`: 모든 페이지의 기본 레이아웃 파일입니다. 헤더, 푸터, 내비게이션 등이 포함됩니다.
--   `_includes/sidebar.html`: 왼쪽의 'Quick Links' 사이드바 메뉴를 관리합니다.
--   `assets/css/style.css`: 사이트의 모든 스타일을 관리하는 중앙 CSS 파일입니다.
--   `assets/images/`: `00index.md` 등 페이지에서 사용하는 이미지 파일이 저장된 디렉터리입니다.
--   `*.md`: 각 페이지의 콘텐츠를 담고 있는 마크다운 파일입니다.
-    -   **`00index.md` (메인 페이지)**: 블로그 소개 및 각 주요 콘텐츠 섹션으로의 링크를 제공합니다.
-    -   **`01playbook.md` (Vertica Playbook)**: Vertica의 핵심 개념, 기술, 아키텍처 등 필수 정보를 요약합니다.
-    -   **`02administration.md` (Vertica Administration)**: `Table`, `Projection`, `User` 등 주요 객체 관리 방법을 설명합니다.
-    -   **`03performance.md` (Vertica Performance)**: 데이터 적재, 쿼리 튜닝 등 성능 최적화 기술을 통합하여 설명합니다.
-    -   **`04utilization.md` (Vertica Utilization)**: 클라이언트 접속, 모니터링, Python 연동 등 실제 활용 방법을 통합하여 설명합니다.
-    -   **`90fundamentals.md` (Vertica Fundamentals)**: DB 구성, 백업/복구, 튜닝 등 초심자를 위한 28가지 실습 주제를 나열합니다.
-    -   **`91Class.md` (교육 신청)**: Vertica 교육 과정 및 신청 방법을 안내합니다.
-    -   **`92QnA.md` (질문과 답변)**: GitHub Discussions와 연동된 Giscus를 통해 자유롭게 질문하고 답변하는 공개 Q&A 게시판입니다.
-    -   **`93Reference.md` (고객사례)**: 금융, 기업, 의료 등 다양한 산업 분야의 Vertica 도입 사례를 소개합니다.
+이 프로젝트는 Vertica 데이터베이스에 대한 다양한 주제를 다루며, 다음과 같은 내용을 포함합니다.
 
-## ✍️ 콘텐츠 및 스타일 수정
+- **Vertica Playbook**: 핵심 개념, 아키텍처, 기술 요소 등
+- **Vertica Administration**: 테이블, 스키마, 사용자 관리 등 운영 가이드
+- **Vertica CoreTech**: 데이터 적재, 쿼리 튜닝 등 핵심 기술
+- **Vertica Utilization**: 클라이언트 접속, 모니터링, Python 연동 등 활용법
+- **Vertica Fundamentals**: Vertica 학습을 위한 기초 지식
 
--   **콘텐츠**: 각 페이지의 내용은 해당 `.md` 파일을 직접 수정하여 관리합니다.
--   **스타일**: 사이트의 전반적인 디자인은 `assets/css/style.css` 파일에서 수정합니다.
--   **Q&A 관리**: `92QnA.md` 페이지에 올라오는 질문과 답변은 GitHub 저장소의 Discussions 탭에서 직접 관리할 수 있습니다.
+## 📂 프로젝트 구조
+
+프로젝트의 주요 파일 및 디렉토리 구조는 다음과 같습니다.
+
+```
+.
+├── _layouts/
+│   └── default.html      # 기본 레이아웃
+├── _includes/
+│   ├── header.html       # 헤더
+│   ├── footer.html       # 푸터
+│   └── sidebar.html      # 사이드바
+├── assets/
+│   ├── css/style.css     # 스타일시트
+│   └── images/           # 이미지
+├── 00index.md            # 메인 페이지
+├── 01playbook.md         # Vertica Playbook
+├── 02administration.md   # Vertica Administration
+├── 03coretech.md         # Vertica CoreTech
+├── 04utilization.md      # Vertica Utilization
+├── 90fundamentals.md     # Vertica Fundamentals
+├── 91Class.md            # 교육 신청
+├── 92QnA.md              # Q&A
+├── 93Reference.md        # 고객사례
+├── _config.yml           # Jekyll 설정 파일 (추정)
+├── navigation.yml        # 네비게이션 설정 (추정)
+└── README.md             # 프로젝트 설명 파일
+```
+
+### 📄 콘텐츠 페이지
+
+- **`00index.md`**: 블로그 메인 페이지
+- **`01playbook.md`**: Vertica Playbook
+  - Vertica란 무엇인가, Vertica 핵심 기술, Vertica 포트폴리오, Vertica 아키텍처, Vertica 연계, Vertica EonMode
+- **`02administration.md`**: Vertica Administration
+  - Table · Projection, Schema, User, Profile, Resource Pool, Privilege, Backup & Restore
+- **`03coretech.md`**: Vertica CoreTech
+  - vsql 명령어, 데이터 적재 (COPY), 쿼리 튜닝 (Explain)
+- **`04utilization.md`**: Vertica Utilization
+  - 클라이언트 접속, 모니터링 및 Grafana, Python 연동
+- **`90fundamentals.md`**: Vertica 학습 로드맵
+- **`91Class.md`**: Vertica 교육 신청 안내
+- **`92QnA.md`**: Vertica 관련 Q&A
+- **`93Reference.md`**: Vertica 고객사례
+
+## 💻 로컬에서 실행하기
+
+로컬 환경에서 블로그를 실행하고 테스트하려면 아래 단계를 따르세요. (Ruby와 Bundler가 설치되어 있어야 합니다.)
+
+1.  **의존성 설치:**
+    ```bash
+    bundle install
+    ```
+
+2.  **Jekyll 서버 실행:**
+    ```bash
+    bundle exec jekyll serve
+    ```
+
+3.  웹 브라우저에서 `http://localhost:4000` 주소로 접속합니다.
+
+## 🔗 관련 링크
+
+- **Vertica Docs**: https://docs.vertica.com/26.1.x/en/
+- **Vertica Partner**: http://www.gtgsc.com/gtg/sub/bigdata/vertica.php

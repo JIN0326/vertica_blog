@@ -32,15 +32,15 @@
     - title: Backup & Restore
       url: /02administration#backup-restore
 
-- title: Vertica Performance
-  url: /03performance
+- title: Vertica CoreTech
+  url: /03coretech
   sublinks:
     - title: vsql 명령어
-      url: /03performance#vsql
+      url: /03coretech#vsql
     - title: 데이터 적재 (COPY)
-      url: /03performance#copy
+      url: /03coretech#copy
     - title: 쿼리 튜닝 (Explain)
-      url: /03performance#tuning
+      url: /03coretech#tuning
 
 - title: Vertica Utilization
   url: /04utilization

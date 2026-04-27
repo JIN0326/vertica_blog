@@ -1,11 +1,11 @@
 ---
-title: Vertica Performance
+title: Vertica CoreTech
 layout: default
 ---
 
 <div class="page-hero">
-  <span class="chip">Performance</span>
-  <h1>Vertica Performance</h1>
+  <span class="chip">CoreTech</span>
+  <h1>Vertica CoreTech</h1>
   <p>데이터 적재, 쿼리 튜닝, 복구 등 Vertica의 성능을 최적화하는 핵심 기술과 운영 방법을 상세히 설명합니다.</p>
 </div>
 
