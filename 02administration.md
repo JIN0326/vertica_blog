@@ -15,26 +15,22 @@ layout: default
 
   ## Table · Projection
 
-  Vertica에서 가장 중요한 객체는 `Table`과 `Projection`입니다. Table은 데이터 구조를 정의하고 저장을 담당하며, Projection은 데이터를 빠르게 조회하도록 최적화하는 물리 계층입니다.
+  Vertica에서 `Table`은 사용자가 상호작용하는 논리적인 데이터 구조이며, `Projection`은 데이터가 디스크에 실제로 저장되는 물리적인 형식입니다. 모든 테이블은 최소 하나 이상의 프로젝션(Superprojection)을 가져야 합니다.
 
   ### Table 생성 및 관리
 
-  - `CREATE TABLE`으로 테이블을 생성합니다.
-  - `CREATE TABLE`으로 테이블을 생성하며, `PARTITION BY`를 사용하여 대용량 테이블의 조회 및 관리 성능을 향상시킬 수 있습니다.
-  - 컬럼 타입과 `ENCODING`을 적절히 설계해야 합니다.
-  - `COPY`명령으로 데이터를 로드하며, `DELETE`, `UPDATE`, `MERGE` 등을 통해 데이터를 관리합니다.
-  - `EXPORT`를 사용해 데이터를 외부 파일로 내보낼 수 있습니다.
+  - **테이블 생성**: `CREATE TABLE`로 테이블을 생성하면, Vertica는 자동으로 모든 컬럼을 포함하는 기본 프로젝션(Superprojection)을 생성합니다.
+  - **파티셔닝**: 대용량 테이블의 경우 `PARTITION BY`를 사용하여 데이터를 논리적 단위로 분할하면, 데이터 로딩 및 삭제, 쿼리 성능을 크게 향상시킬 수 있습니다.
+  - **데이터 관리**: `COPY` 명령으로 데이터를 대량으로 적재하고, `INSERT`, `UPDATE`, `DELETE`, `MERGE`를 통해 데이터를 조작합니다. `EXPORT_TO_VERTICA` 또는 `EXPORT_TO_PARQUET` 등을 사용해 데이터를 외부로 내보낼 수 있습니다.
 
-  예시:
   **테이블 생성 예시:**
-
   ```sql
   CREATE TABLE sales (
     sale_id INT,
     product_id INT,
     sale_date DATE,
     amount DECIMAL(18,2)
-  ) SEGMENTED BY HASH(sale_id) ALL NODES;
+  ) SEGMENTED BY HASH(sale_id) ALL NODES KSAFE; -- KSAFE 1로 설정하여 노드 1개 장애 허용
   ```
 
   **파티션 테이블 생성 예시:**
@@ -243,9 +239,9 @@ layout: default
   - 권한 변경 작업은 문서화하고, 주기적으로 권한 검토를 수행합니다.
 
   <hr style="margin: 3rem 0;">
-  <div id="backup-restore" style="scroll-margin-top: 100px;"></div>
+  <div id="backuprestore" style="scroll-margin-top: 100px;"></div>
 
-  ## Backup & Restore
+  ## backuprestore
   `vbr`은 Vertica 데이터베이스의 백업 및 복구를 위한 강력한 커맨드 라인 유틸리티입니다. `vbr`을 사용하면 전체 데이터베이스, 특정 스키마나 테이블 등 다양한 단위로 데이터를 안정적으로 백업하고 복구할 수 있습니다.
 
   ### 주요 기능
@@ -274,7 +270,7 @@ layout: default
         <li><a href="#profile">Profile</a></li>
         <li><a href="#resource-pool">Resource Pool</a></li>
         <li><a href="#privilege">Privilege</a></li>
-        <li><a href="#backup-restore">Backup & Restore</a></li>
+        <li><a href="#backuprestore">backuprestore</a></li>
       </ul>
     </div>
   </aside>
