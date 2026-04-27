@@ -9,7 +9,8 @@ layout: default
   <p>Vertica는 금융, 통신, 제조, 의료 등 다양한 산업 분야의 리딩 기업에서 핵심 분석 플랫폼으로 활약하고 있습니다.</p>
 </div>
 
-<div class="content-section content-section-centered" markdown="1">
+<div class="page-layout">
+  <div class="content-section" markdown="1">
   ## 금융 분야
 
   국내 주요 시중은행들은 차세대 통합 분석 플랫폼을 구축하기 위해 Vertica를 선택했습니다. 기존의 레거시 데이터 웨어하우스(DW)를 성공적으로 대체하여, 페타바이트(PB) 규모의 데이터를 처리하는 핵심 분석 시스템, 머신러닝 기반 이상 거래 탐지(AML), 그리고 마이데이터 서비스의 기반을 마련했습니다. 특히 유연한 Eon Mode 아키텍처를 도입하여 클라우드 환경과 같은 확장성과 안정성을 확보했습니다.
@@ -38,4 +39,5 @@ layout: default
 
   - **주요 활용 사례**: 임상 데이터 웨어하우스(CDW), 의료정보 분석 시스템, 연구용 데이터 플랫폼
 
+  </div>
 </div>

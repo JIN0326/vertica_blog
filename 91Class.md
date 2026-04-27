@@ -9,7 +9,8 @@ layout: default
   <p>Vertica 교육 과정과 신청 방법을 안내합니다. 상세 내용은 담당자와 협의하여 진행해 주세요.</p>
 </div>
 
-<div class="content-section content-section-centered" markdown="1">
+<div class="page-layout">
+  <div class="content-section" markdown="1">
   ## 교육 안내
 
   - Vertica 기본 교육
@@ -41,3 +42,4 @@ layout: default
 
 
   </div>
+</div>
