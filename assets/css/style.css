@@ -1098,3 +1098,54 @@ h1 {
     grid-template-columns: 1fr;
   }
 }
+
+/* ==========================================================================
+   8. 다크 모드 (Dark Mode)
+   ========================================================================== */
+html[data-theme="dark"] {
+  --bg-gradient: linear-gradient(180deg, #1a2035 0%, #121829 100%);
+  --text: #e1e8f5;
+  --sub: #a9b8d2;
+  --muted: #7a8ca9;
+  --accent: #528bff;
+  --accent-dark: #70a1ff;
+  --surface: #1e2943;
+  --border-color: rgba(82, 139, 255, 0.15);
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* 다크모드일 때 헤더 배경색 조정 */
+html[data-theme="dark"] .site-header {
+  background-color: rgba(30, 41, 67, 0.8);
+}
+
+/* 다크모드일 때 드롭다운 메뉴 배경색 조정 */
+html[data-theme="dark"] .dropdown-content {
+  background: var(--surface);
+  border-color: var(--border-color);
+}
+
+html[data-theme="dark"] .dropdown-content a {
+  color: var(--text);
+}
+
+html[data-theme="dark"] .dropdown-content a:hover {
+  background: rgba(82, 139, 255, 0.1);
+  color: var(--accent);
+}
+
+/* 다크모드 아이콘 토글 */
+html[data-theme="dark"] .theme-toggle .sun-icon {
+  display: none;
+}
+
+html[data-theme="dark"] .theme-toggle .moon-icon {
+  display: inline-block;
+}
+
+/* 고객사례 로고 이미지 (배경이 하얀색인 경우) */
+html[data-theme="dark"] .portfolio-row img {
+    background-color: white;
+    padding: 10px;
+    border-radius: 8px;
+}
