@@ -9,14 +9,14 @@ layout: default
 </div>
 
 <div class="page-layout"> 
-  <div class="content-section" markdown="1">
+<div class="content-section" markdown="1">
 
-  <div id="table-projection" style="scroll-margin-top: 100px;"></div>
+<div id="table-projection" style="scroll-margin-top: 100px;"></div>
   
-  ## Table · Projection
-  Vertica 아키텍처의 핵심은 **논리적 모델(Table)**과 **물리적 저장(Projection)**의 완벽한 분리에 있습니다. 데이터베이스에 질의를 던질 때, Vertica의 옵티마이저는 논리적 Table에 연결된 여러 물리적 Projection 중 가장 응답 속도가 빠른 것을 스스로 선택하여 쿼리를 수행합니다.
+## Table · Projection
+Vertica 아키텍처의 핵심은 **논리적 모델(Table)**과 **물리적 저장(Projection)**의 완벽한 분리에 있습니다. 데이터베이스에 질의를 던질 때, Vertica의 옵티마이저는 논리적 Table에 연결된 여러 물리적 Projection 중 가장 응답 속도가 빠른 것을 스스로 선택하여 쿼리를 수행합니다.
 
-  <div class="feature-box" style="margin-top: 2rem;">
+<div class="feature-box" style="margin-top: 2rem;">
     <h3 class="eon-section-title" style="margin-top: 0; margin-bottom: 1rem;">Table (논리적 모델)</h3>
     <p style="color: var(--sub); margin-bottom: 1.5rem;">대부분의 상용 DB 데이터 타입과 호환되는 데이터 논리 모델링의 오브젝트입니다. 테이블 정의에는 특별한 옵션이 필요하지 않으며, 대부분의 부가적인 옵션은 파티션 구문 정도입니다.</p>
     <dl class="feature-dl">
