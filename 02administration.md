@@ -83,65 +83,49 @@ layout: default
     
    <div class="architecture-subsection">
       <h4 class="section-subtitle">1. Segmentation (해시 분산)</h4>
-      <div class="columnar-layout">
-        <div>
-          <ul class="feature-list">
-            <li><span class="feature-list__icon">🔹</span> <span>Segment key 컬럼 데이터의 해시값에 의해 모든 노드에 분산 저장</span></li>
-            <li><span class="feature-list__icon">🔹</span> <span>특정 노드로 데이터가 몰리는 Skew 현상 주의</span></li>
-            <li><span class="feature-list__icon">🔹</span> <span>Skew 현상을 최소화하기 위한 Modular hash 기법 제공</span></li>
-            <li><span class="feature-list__icon">🔹</span> <span>동일한 Segment key를 가진 테이블 간의 조인(Join) 성능이 매우 우수</span></li>
-          </ul>
-        </div>
-        <div class="columnar-image image-box-styled">
-          <img src="{{ '/assets/images/proj_segmentation.png' | relative_url }}" alt="Segmentation 데이터 분산 방식 다이어그램">
-        </div>
+      <ul class="feature-list">
+        <li><span class="feature-list__icon">🔹</span> <span>Segment key 컬럼 데이터의 해시값에 의해 모든 노드에 분산 저장</span></li>
+        <li><span class="feature-list__icon">🔹</span> <span>특정 노드로 데이터가 몰리는 Skew 현상 주의</span></li>
+        <li><span class="feature-list__icon">🔹</span> <span>Skew 현상을 최소화하기 위한 Modular hash 기법 제공</span></li>
+        <li><span class="feature-list__icon">🔹</span> <span>동일한 Segment key를 가진 테이블 간의 조인(Join) 성능이 매우 우수</span></li>
+      </ul>
+      <div class="image-box-styled">
+        <img src="{{ '/assets/images/proj_segmentation.png' | relative_url }}" alt="Segmentation 데이터 분산 방식 다이어그램">
       </div>
     </div>
 
    <div class="architecture-subsection">
       <h4 class="section-subtitle">2. Replication (복제)</h4>
-      <div class="columnar-layout">
-        <div>
-          <ul class="feature-list">
-            <li><span class="feature-list__icon">🔹</span> <span>Dimension 테이블처럼 크기가 작은 프로젝션은 모든 노드에 복제시켜 Fact 테이블과의 조인 성능을 높임</span></li>
-            <li><span class="feature-list__icon">🔹</span> <span>데이터가 항상 복제되어 있으므로 노드 장애 시에도 고가용성 제공</span></li>
-            <li><span class="feature-list__icon">🔹</span> <span>UNSEGMENTED 구문이 없을 경우 기본적으로 segmentation으로 생성됨</span></li>
-          </ul>
-        </div>
-        <div class="columnar-image image-box-styled">
-          <img src="{{ '/assets/images/proj_replication.png' | relative_url }}" alt="Replication 데이터 복제 방식 다이어그램">
-        </div>
+      <ul class="feature-list">
+        <li><span class="feature-list__icon">🔹</span> <span>Dimension 테이블처럼 크기가 작은 프로젝션은 모든 노드에 복제시켜 Fact 테이블과의 조인 성능을 높임</span></li>
+        <li><span class="feature-list__icon">🔹</span> <span>데이터가 항상 복제되어 있으므로 노드 장애 시에도 고가용성 제공</span></li>
+        <li><span class="feature-list__icon">🔹</span> <span>UNSEGMENTED 구문이 없을 경우 기본적으로 segmentation으로 생성됨</span></li>
+      </ul>
+      <div class="image-box-styled">
+        <img src="{{ '/assets/images/proj_replication.png' | relative_url }}" alt="Replication 데이터 복제 방식 다이어그램">
       </div>
     </div>
 
    <div class="architecture-subsection">
       <h4 class="section-subtitle">3. 고가용성을 위한 데이터 이중화 (Buddy)</h4>
-      <div class="columnar-layout">
-        <div>
-          <ul class="feature-list">
-            <li><span class="feature-list__icon">🔹</span> <span>Segment 프로젝션은 각 노드에 전체 데이터의 일부만 저장되므로, 고가용성을 위해 다른 노드로 데이터를 복제</span></li>
-            <li><span class="feature-list__icon">🔹</span> <span>항상 Buddy 프로젝션으로 데이터가 동기화됨</span></li>
-            <li><span class="feature-list__icon">🔹</span> <span>노드 장애 시 복제된 버디 프로젝션에서 데이터 변경이 발생하면, 장애 노드 복구 후 자동으로 동기화됨</span></li>
-          </ul>
-        </div>
-        <div class="columnar-image image-box-styled">
-          <img src="{{ '/assets/images/proj_buddy.png' | relative_url }}" alt="Buddy 프로젝션을 이용한 데이터 이중화 다이어그램">
-        </div>
+      <ul class="feature-list">
+        <li><span class="feature-list__icon">🔹</span> <span>Segment 프로젝션은 각 노드에 전체 데이터의 일부만 저장되므로, 고가용성을 위해 다른 노드로 데이터를 복제</span></li>
+        <li><span class="feature-list__icon">🔹</span> <span>항상 Buddy 프로젝션으로 데이터가 동기화됨</span></li>
+        <li><span class="feature-list__icon">🔹</span> <span>노드 장애 시 복제된 버디 프로젝션에서 데이터 변경이 발생하면, 장애 노드 복구 후 자동으로 동기화됨</span></li>
+      </ul>
+      <div class="image-box-styled">
+        <img src="{{ '/assets/images/proj_buddy.png' | relative_url }}" alt="Buddy 프로젝션을 이용한 데이터 이중화 다이어그램">
       </div>
     </div>
 
    <div class="architecture-subsection">
       <h4 class="section-subtitle">4. 특정 노드에 프로젝션 생성</h4>
-      <div class="columnar-layout">
-        <div>
-          <ul class="feature-list">
-            <li><span class="feature-list__icon">🔹</span> <span>노드 간 네트워크 부하 및 복제 부하를 최소화하여 입출력 처리가 필요한 경우, 특정 노드에만 데이터를 저장</span></li>
-            <li><span class="feature-list__icon">🔹</span> <span>노드명은 nodes 시스템 테이블에 저장된 이름을 사용</span></li>
-          </ul>
-        </div>
-        <div class="columnar-image image-box-styled">
-          <img src="{{ '/assets/images/proj_specific_node.png' | relative_url }}" alt="특정 노드에 프로젝션 생성 방식 다이어그램">
-        </div>
+      <ul class="feature-list">
+        <li><span class="feature-list__icon">🔹</span> <span>노드 간 네트워크 부하 및 복제 부하를 최소화하여 입출력 처리가 필요한 경우, 특정 노드에만 데이터를 저장</span></li>
+        <li><span class="feature-list__icon">🔹</span> <span>노드명은 nodes 시스템 테이블에 저장된 이름을 사용</span></li>
+      </ul>
+      <div class="image-box-styled">
+        <img src="{{ '/assets/images/proj_specific_node.png' | relative_url }}" alt="특정 노드에 프로젝션 생성 방식 다이어그램">
       </div>
     </div>
   </div>

@@ -892,6 +892,18 @@ h1 {
   border-radius: 8px;
 }
 
+/* Administration 페이지의 데이터 분산 다이어그램 스타일 */
+.architecture-subsection .image-box-styled {
+  margin-top: 1.5rem;
+}
+
+.architecture-subsection .image-box-styled img {
+  max-width: 600px;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
 /* 이미지 주변에 스타일을 적용하는 박스 */
 .image-box-styled {
   background: var(--surface);
