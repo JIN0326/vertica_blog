@@ -19,6 +19,34 @@ layout: default
   <p class="section-description">Vertica 아키텍처의 핵심은 **논리적 모델(Table)**과 **물리적 저장(Projection)**의 완벽한 분리에 있습니다. 데이터베이스에 질의를 던질 때, Vertica의 옵티마이저는 논리적 Table에 연결된 여러 물리적 Projection 중 가장 응답 속도가 빠른 것을 스스로 선택하여 쿼리를 수행합니다.</p>
 
   <div class="architecture-subsection">
+    <h3 class="section-subtitle">Table (논리적 모델)</h3>
+    <p class="section-description">대부분의 상용 DB 데이터 타입과 호환되는 데이터 논리 모델링의 오브젝트입니다. 테이블 정의에는 특별한 옵션이 필요하지 않으며, 대부분의 부가적인 옵션은 파티션 구문 정도입니다.</p>
+    <dl class="feature-dl">
+      <dt class="feature-dt"><span class="feature-dt__icon">◆</span> 지원 데이터 타입</dt>
+      <dd class="feature-dd">
+        <strong>Character Type:</strong> CHAR(1-65,000), VARCHAR(1-65,000), LONG VARCHAR(1-32,000,000)<br>
+        <strong>Date/Time Type:</strong> DATE, DATETIME=TIMESTAMP, INTERVAL<br>
+        <strong>Approximate Numeric:</strong> Signed 64-bit IEEE, DOUBLE PRECISION, FLOAT/FLOAT8/REAL<br>
+        <strong>Exact Numeric:</strong> INT/INTEGER/BIGINT/INT8/SMALLINT/TINYINT, DECIMAL/NUMERIC/NUMBER
+      </dd>
+    </dl>
+    <div class="syntax-box">
+      <strong>테이블 생성 예시 (분산 및 파티션 설정 포함):</strong>
+      <pre><code>CREATE TABLE sales (
+      sale_id INT NOT NULL,
+      product_id INT,
+      sale_date DATE,
+      amount DECIMAL(18,2)
+  )
+  -- 세그먼트 키 및 K-Safe 설정
+  SEGMENTED BY HASH(sale_id) ALL NODES KSAFE 1
+  -- 계층화된 파티션 설정
+  PARTITION BY sale_date::DATE 
+  GROUP BY CALENDAR_HIERARCHY_DAY(sale_date::DATE, 2, 2);</code></pre>
+    </div>
+  </div>
+
+  <div class="architecture-subsection">
     <h3 class="section-subtitle">Projection (물리적 저장)</h3>
     <p class="section-description">실제 테이블 데이터가 분산 및 압축되어 디스크에 저장되는 오브젝트입니다. 테이블에 데이터가 처음 저장될 때 자동으로 생성되거나, 명시적으로 생성할 수 있습니다.</p>
     <dl class="feature-dl">
@@ -103,26 +131,14 @@ layout: default
   </div>
 </div>
 
-  <hr style="margin: 3rem 0;">
-  <div id="schema" style="scroll-margin-top: 100px;"></div>
+<hr style="margin: 3rem 0;">
+<div id="schema" style="scroll-margin-top: 100px;"></div>
 
 ## Schema
 
-Vertica에서 **Schema(스키마)**는 객체들의 논리적인 그룹이며 별도의 물리적인 특징을 가지지 않습니다. 스키마를 통해 객체 접근 권한을 분리하고 네임스페이스를 관리함으로써 운영 효율성을 높일 수 있습니다.
 <div class="architecture-section" markdown="1">
   <p class="section-description">Vertica에서 **Schema(스키마)**는 객체들의 논리적인 그룹이며 별도의 물리적인 특징을 가지지 않습니다. 스키마를 통해 객체 접근 권한을 분리하고 네임스페이스를 관리함으로써 운영 효율성을 높일 수 있습니다.</p>
 
-<div class="feature-box" style="margin-top: 2rem;">
-  <h3 class="eon-section-title" style="margin-top: 0; margin-bottom: 1rem;">1. 기본 스키마 (Default Schemas)</h3>
-  <p style="color: var(--sub); margin-bottom: 1.5rem;">데이터베이스 생성 시 시스템 관리를 위해 자동으로 생성되는 기본 스키마들입니다.</p>
-  
-  <ul class="feature-list">
-    <li><span class="feature-list__icon">🔹</span> <strong>v_internal:</strong> <span>데이터베이스 내부 테이블용 스키마 </span></li>
-    <li><span class="feature-list__icon">🔹</span> <strong>v_catalog:</strong> <span>오브젝트 정보 카탈로그 스키마 </span></li>
-    <li><span class="feature-list__icon">🔹</span> <strong>v_monitor:</strong> <span>모니터링용 테이블 스키마 </span></li>
-    <li><span class="feature-list__icon">🔹</span> <strong>public:</strong> <span>일반 사용자를 위한 기본 스키마 </span></li>
-  </ul>
-</div>
   <div class="architecture-subsection">
     <h3 class="section-subtitle">1. 기본 스키마 (Default Schemas)</h3>
     <p class="section-description">데이터베이스 생성 시 시스템 관리를 위해 자동으로 생성되는 기본 스키마들입니다.</p>
