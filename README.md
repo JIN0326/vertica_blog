@@ -18,7 +18,7 @@ Vertica 분석 플랫폼에 대한 기술 정보와 사용법을 공유하기 �
 
 프로젝트의 주요 파일 및 디렉토리 구조는 다음과 같습니다.
 
-```
+```text
 .
 ├── _layouts/
 │   └── default.html      # 기본 레이아웃
@@ -38,26 +38,47 @@ Vertica 분석 플랫폼에 대한 기술 정보와 사용법을 공유하기 �
 ├── 91Class.md            # 교육 신청
 ├── 92QnA.md              # Q&A
 ├── 93Reference.md        # 고객사례
-├── _config.yml           # Jekyll 설정 파일 (추정)
-├── navigation.yml        # 네비게이션 설정 (추정)
+├── _config.yml           # Jekyll 설정 파일
+├── navigation.yml        # 네비게이션 설정 
 └── README.md             # 프로젝트 설명 파일
 ```
 
-### 📄 콘텐츠 페이지
+## 📑 상세 콘텐츠 목차
 
-- **`00index.md`**: 블로그 메인 페이지
-- **`01playbook.md`**: Vertica Playbook
-  - Vertica란 무엇인가, Vertica 핵심 기술, Vertica 포트폴리오, Vertica 아키텍처, Vertica 연계, Vertica EonMode
-- **`02administration.md`**: Vertica Administration
-  - Table · Projection, Schema, User, Profile, Resource Pool, Privilege, Backup & Restore
-- **`03coretech.md`**: Vertica CoreTech
-  - vsql 명령어, 데이터 적재 (COPY), 쿼리 튜닝 (Explain)
-- **`04utilization.md`**: Vertica Utilization
-  - 클라이언트 접속, 모니터링 및 Grafana, Python 연동
-- **`90fundamentals.md`**: Vertica 학습 로드맵
-- **`91Class.md`**: Vertica 교육 신청 안내
-- **`92QnA.md`**: Vertica 관련 Q&A
-- **`93Reference.md`**: Vertica 고객사례
+### 📘 Vertica Playbook (`01playbook.md`)
+* **Vertica란 무엇인가**: SQL 데이터 웨어하우스, 분석 및 ML, 쿼리 엔진 특징
+* **Vertica 핵심 기술**: Native Columnar, MPP, 압축, Projections 등 6가지 핵심 요소
+* **Vertica 포트폴리오**: 온프레미스, 클라우드, Eon Mode 등 다양한 배포 옵션
+* **Vertica 아키텍처**: Pure-MPP 아키텍처 및 타 시스템과의 상세 비교
+* **Vertica 연계**: Kafka, Spark, HDFS, Object Storage 통합 가이드
+* **Vertica EonMode**: 컴퓨팅/스토리지 분리 아키텍처의 이점 및 Use Case
+
+### 🛠️ Vertica Administration (`02administration.md`)
+* **Table · Projection**: 논리 모델(Table)과 물리 저장소(Projection)의 분리 및 분산 정책
+* **Schema**: 시스템 기본 스키마 설명 및 생성/관리 방법
+* **User**: 사용자 생성, 관리 및 계정 잠금 해제 방법
+* **Profile**: 보안 정책 및 패스워드 제약 조건 설정
+* **Resource Pools**: 메모리 및 동시성 제어를 통한 워크로드 관리
+* **Privilege**: 객체 접근 권한 및 스키마 권한 상속 체계
+* **Backup & Restore**: vbr 도구를 이용한 스냅샷 백업 및 복구 프로세스
+
+### ⚙️ Vertica CoreTech (`03coretech.md`)
+* **vsql 명령어**: CLI 접속 옵션 및 유용한 메타 커맨드(`\d`, `\timing`, `\x` 등)
+* **데이터 적재 (COPY)**: 대용량 데이터 로딩 구문, 옵션 및 에러 데이터 처리
+* **쿼리 튜닝 (Explain)**: 실행 계획 분석(EXPLAIN/PROFILE) 및 성능 최적화 포인트
+
+### 🚀 Vertica Utilization (`04utilization.md`)
+* **클라이언트 접속**: vsql(CLI) 및 DBeaver(GUI) 접속 가이드
+* **모니터링 (MC & Grafana)**: Management Console(MC)의 주요 기능 및 Grafana 시각화 연동 방법
+* **Python 연동**: `vertica-python` 라이브러리 설치 및 Pandas 활용 예제
+
+### 📚 Vertica Fundamentals (`90fundamentals.md`)
+* **학습 로드맵**: 아키텍처, 객체 관리, 성능 튜닝, 백업/복구 등 28가지 핵심 주제 리스트
+
+### 🔗 기타 서비스 페이지
+* **Class (`91Class.md`)**: Vertica 교육 과정 안내 및 신청 방법 (메일 문의)
+* **QnA (`92QnA.md`)**: Giscus를 이용한 기술 문의 및 답변 게시판
+* **Reference (`93Reference.md`)**: 금융, 기업/공공, 의료 분야별 실제 고객 도입 사례
 
 ## 💻 로컬에서 실행하기
 
@@ -75,7 +96,7 @@ Vertica 분석 플랫폼에 대한 기술 정보와 사용법을 공유하기 �
 
 3.  웹 브라우저에서 `http://localhost:4000` 주소로 접속합니다.
 
-## 🔗 관련 링크
+## 🔗 외부 관련 링크
 
-- **Vertica Docs**: https://docs.vertica.com/26.1.x/en/
+- **Vertica Docs (공식 문서)**: https://docs.vertica.com/26.1.x/en/
 - **Vertica Partner**: http://www.gtgsc.com/gtg/sub/bigdata/vertica.php

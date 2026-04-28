@@ -908,6 +908,12 @@ h1 {
   max-width: 600px;
   width: 100%;
   height: auto;
+  border-radius: 8px;
+}
+
+.image-box-styled + .feature-dl,
+.image-box-styled + ol {
+  margin-top: 2rem;
 }
 
 /* Integration Section */
