@@ -321,7 +321,7 @@ h1 {
 }
 
 .slide-panel img {
-  max-width: 70px;
+  max-width: 100px;
   height: auto;
   border-radius: 8px;
   margin-bottom: 1rem;
@@ -331,6 +331,11 @@ h1 {
   font-size: 1.2rem;
   margin-bottom: 1rem;
   color: var(--text);
+  /* EonMode 섹션 등의 h3 높이를 고정하여 ul 정렬을 맞춤 */
+  min-height: 3em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .slide-panel ul {
@@ -648,7 +653,7 @@ h1 {
 }
 
 .tech-feature-card img {
-  max-width: 70px;
+  max-width: 90px;
   height: auto;
   margin-bottom: 1rem;
   background: #f0f5ff; /* Light background for icons */
@@ -737,6 +742,7 @@ h1 {
 
 .portfolio-row img {
   max-width: 150px;
+  max-width: 120px;
   height: auto;
 }
 
@@ -904,6 +910,14 @@ h1 {
   margin-bottom: 0; /* Remove bottom margin from individual subsections within the grid */
 }
 
+/* Projection 데이터 분산 섹션의 이미지 정렬을 위해 flexbox 적용 */
+.projection-distribution-grid .architecture-subsection {
+  display: flex;
+  flex-direction: column;
+}
+.projection-distribution-grid .architecture-subsection .feature-list {
+  flex-grow: 1; /* 텍스트 목록이 동일한 높이를 차지하도록 확장 */
+}
 
 /* Administration 페이지의 데이터 분산 다이어그램 스타일 */
 .architecture-subsection .image-box-styled {
