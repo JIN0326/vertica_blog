@@ -833,6 +833,14 @@ h1 {
   margin-bottom: 0.8rem;
 }
 
+.architecture-subsection > .section-description {
+  color: var(--sub);
+  margin-top: -0.5rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
 .comparison-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
