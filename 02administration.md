@@ -75,7 +75,7 @@ SEGMENTED BY HASH(sale_id) ALL NODES; -- 분산 정책 정의</code></pre>
 </div>
 
 <h3 class="integration-subsection__title" style="margin: 3rem 0 1.5rem;">Projection의 4가지 종류</h3>
-<div class="use-case-grid">
+<div class="use-case-list">
   <div class="card card--use-case">
     <h4 class="use-case-card__title">1. Super 프로젝션</h4>
     <ul class="use-case-card__list">
@@ -401,7 +401,8 @@ ALTER USER batch_user RESOURCE POOL batch_pool;</code></pre>
       <strong>구문:</strong> <code>GRANT SELECT, UPDATE ON ALL TABLES IN SCHEMA analytics TO analyst;</code>
     </dd>
   </dl>
-  <d
+  <div class="syntax-box">
+    <strong>스키마 권한 상속 예시:</strong>
     <pre><code>-- 1. 스키마 생성 시 상속 활성화
 CREATE SCHEMA analytics DEFAULT INCLUDE PRIVILEGES;
 -- 2. 사용자에게 상속될 테이블 접근 권한 지정 (EXTEND 활용)

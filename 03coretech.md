@@ -20,9 +20,9 @@ layout: default
 <div class="feature-box" style="margin-top: 2rem;">
   <h3 class="eon-section-title" style="margin-top: 0; margin-bottom: 1rem;">주요 접속 및 실행 옵션</h3>
   
-  <div class="content-section" style="padding: 1rem; margin-top: 1rem; margin-bottom: 1.5rem; background-color: rgba(45, 105, 255, 0.04);">
+  <div class="syntax-box">
     <strong>vsql 접속 구문:</strong>
-    <pre style="background: none; padding: 0; border: none; margin-top: 0.5rem;"><code>vsql -h [hostname/IP] -d [dbname] -U [username] -w [password]</code></pre>
+    <pre><code>vsql -h [hostname/IP] -d [dbname] -U [username] -w [password]</code></pre>
   </div>
 
   <dl class="feature-dl">
@@ -58,9 +58,9 @@ layout: default
 <div class="feature-box" style="margin-top: 2rem;">
   <h3 class="eon-section-title" style="margin-top: 0; margin-bottom: 1rem;">COPY 기본 구문 및 옵션</h3>
   
-  <div class="content-section" style="padding: 1rem; margin-top: 1rem; margin-bottom: 1.5rem; background-color: rgba(45, 105, 255, 0.04);">
+  <div class="syntax-box">
     <strong>기본 구문:</strong>
-    <pre style="background: none; padding: 0; border: none; margin-top: 0.5rem;"><code>COPY schema.table (column_list)
+    <pre><code>COPY schema.table (column_list)
     FROM '/path/to/file.csv'
     [옵션 지정];</code></pre>
   </div>
@@ -80,9 +80,9 @@ layout: default
   <h3 class="eon-section-title" style="margin-top: 0; margin-bottom: 1rem;">에러 처리 및 데이터 검증</h3>
   <p style="color: var(--sub); margin-bottom: 1rem;">데이터 적재 시 발생하는 포맷 오류나 제약조건 위반 데이터를 추적하고 안전하게 격리할 수 있습니다.</p>
 
-  <div class="content-section" style="padding: 1rem; margin-top: 1rem; margin-bottom: 1.5rem; background-color: rgba(45, 105, 255, 0.04);">
+  <div class="syntax-box">
     <strong>에러 처리 구문 예시:</strong>
-    <pre style="background: none; padding: 0; border: none; margin-top: 0.5rem;"><code>COPY sales FROM '/data/sales_data.csv' DELIMITER ',' DIRECT
+    <pre><code>COPY sales FROM '/data/sales_data.csv' DELIMITER ',' DIRECT
     REJECTED DATA '/data/logs/sales_rejected.csv'
     EXCEPTIONS '/data/logs/sales_exceptions.log'
     ABORT ON ERROR;</code></pre>
@@ -105,9 +105,9 @@ layout: default
 <div class="feature-box" style="margin-top: 2rem;">
   <h3 class="eon-section-title" style="margin-top: 0; margin-bottom: 1rem;">실행 계획 확인 방법</h3>
   
-  <div class="content-section" style="padding: 1rem; margin-top: 1rem; margin-bottom: 1.5rem; background-color: rgba(45, 105, 255, 0.04);">
+  <div class="syntax-box">
     <strong>기본 구문:</strong>
-    <pre style="background: none; padding: 0; border: none; margin-top: 0.5rem;"><code>EXPLAIN [SELECT / UPDATE / DELETE 쿼리];
+    <pre><code>EXPLAIN [SELECT / UPDATE / DELETE 쿼리];
 PROFILE [SELECT / UPDATE / DELETE 쿼리];</code></pre>
   </div>
 
@@ -131,9 +131,9 @@ PROFILE [SELECT / UPDATE / DELETE 쿼리];</code></pre>
     <li><span class="feature-list__icon">🔹</span> <strong>Join Type:</strong> <span>Hash Join, Merge Join 등 조인 방식이 적절한지 파악합니다. 특히 대용량 조인 시 메모리가 부족해 디스크를 사용하는 현상(Spill to disk)이 발생할 우려가 있는지 체크합니다.</span></li>
   </ul>
 
-  <div class="content-section" style="padding: 1rem; margin-top: 1rem; background-color: rgba(45, 105, 255, 0.04);">
+  <div class="syntax-box">
     <strong>실행 계획 출력 예시:</strong>
-    <pre style="background: none; padding: 0; border: none; margin-top: 0.5rem;"><code>EXPLAIN SELECT * FROM sales s JOIN product p ON s.product_id = p.product_id;
+    <pre><code>EXPLAIN SELECT * FROM sales s JOIN product p ON s.product_id = p.product_id;
 
 -- 결과 요약 트리 (하단부터 상단으로 해석)
 Access Path: 

@@ -619,6 +619,12 @@ h1 {
   gap: 30px;
 }
 
+.use-case-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
 .card--use-case {
   border-top: 4px solid var(--accent);
   padding: 2rem;
