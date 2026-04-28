@@ -88,10 +88,6 @@ SEGMENTED BY HASH(sale_id) ALL NODES; -- 분산 정책 정의</code></pre>
     <p class="use-case-card__intro">
       집계 함수가 포함되어 실시간 대시보드 조회 속도를 극대화합니다.
     </p>
-    <pre><code>-- LAP 예시
-CREATE PROJECTION sales_sum AS 
-SELECT product_id, SUM(amount) 
-FROM sales GROUP BY product_id;</code></pre>
   </div>
   <div class="card card--use-case">
     <h4 class="use-case-card__title">3. Query-specific 프로젝션</h4>
@@ -129,7 +125,7 @@ SEGMENTED BY HASH(c1, c2) ALL NODES;</code></pre>
     <div class="architecture-subsection">
       <h4 class="section-subtitle">2. Replication (복제)</h4>
       <ul class="feature-list">
-        <li><span class="feature-list__icon">🔹</span> <span>소규모 코드성 테이블을 모든 노드에 복제하여 조인 성능 향상 [cite: 111]</span></li>
+        <li><span class="feature-list__icon">🔹</span> <span>소규모 코드성 테이블을 모든 노드에 복제하여 조인 성능 향상</span></li>
         <li><span class="feature-list__icon">🔹</span> <span>노드 장애 시에도 즉각적인 고가용성 제공</span></li>
       </ul>
       <pre style="margin-bottom: 1rem;"><code>-- SQL Syntax
@@ -155,8 +151,6 @@ UNSEGMENTED ALL NODES;</code></pre>
       <ul class="feature-list">
         <li><span class="feature-list__icon">🔹</span> <span>네트워크 부하 최소화를 위해 입출력이 필요한 특정 노드에만 저장 [cite: 112]</span></li>
       </ul>
-      <pre style="margin-bottom: 1rem;"><code>-- 특정 노드 지정 Syntax
-UNSEGMENTED NODE v_db_node0003;</code></pre>
       <div class="image-box-styled">
         <img src="{{ '/assets/images/proj_specific_node.png' | relative_url }}" alt="특정 노드에 프로젝션 생성 다이어그램">
       </div>
@@ -260,156 +254,195 @@ Vertica에서 **Schema(스키마)**는 객체들의 논리적인 그룹이며 �
   </dl>
 </div>
 
-  <hr style="margin: 3rem 0;">
-  <div id="user" style="scroll-margin-top: 100px;"></div>
+<hr style="margin: 3rem 0;">
+<div id="user" style="scroll-margin-top: 100px;"></div>
 
-  ## User
+## User
 
-<p>Vertica에서 <strong>User(사용자)</strong>는 데이터베이스에 접근하는 주체입니다. 사용자를 적절하게 구성하고 권한을 관리하는 것이 안정적인 운영의 시작입니다.</p>
+<p>Vertica에서 <strong>User(사용자)</strong>는 데이터베이스에 접근하는 주체입니다. 관리자 계정(Administrator)은 데이터베이스 설치 시 생성되는 <code>vertica</code>(OS 계정과 동일)이며, 일반 사용자는 명시적으로 생성하여 권한 및 리소스를 할당해야 합니다.</p>
 
 <div class="feature-box" style="margin-top: 2rem;">
-  <h3 class="eon-section-title" style="margin-top: 0; margin-bottom: 1rem;">1. 사용자 생성 (CREATE USER)</h3>
-  <p style="color: var(--sub); margin-bottom: 1rem;"><code>CREATE USER</code> 명령어로 사용자를 생성하며, 패스워드와 인증 모드를 지정할 수 있습니다. 운영 정책에 맞춰 비밀번호 및 계정 잠금 정책을 구성하는 것이 중요합니다.</p>
+  <h3 class="eon-section-title" style="margin-top: 0; margin-bottom: 1rem;">1. 사용자 생성 및 관리 (CREATE / ALTER USER)</h3>
+  <p style="color: var(--sub); margin-bottom: 1rem;">데이터베이스 사용자를 생성하고, 패스워드, 리소스 풀, 프로파일 등의 속성을 지정합니다. 시스템 보안 정책상 암호를 10회 이상 틀리면 계정이 잠기며(Lock), 이 경우 관리자가 <code>ACCOUNT UNLOCK</code> 작업을 수행해야 합니다.</p>
   
   <div class="syntax-box">
     <strong>기본 구문:</strong>
-    <pre><code>CREATE USER user_name IDENTIFIED BY 'password' [ ... options ... ];</code></pre>
+    <pre><code>CREATE USER user_name [ account_parameter value[,...] ];
+ALTER USER user_name { account_parameter setting | ACCOUNT UNLOCK };</code></pre>
   </div>
 
-  <p class="example-label">사용자 생성 예시</p>
-  <pre><code>CREATE USER analyst IDENTIFIED BY 'StrongPassw0rd';</code></pre>
+  <dl class="feature-dl">
+    <dt class="feature-dt"><span class="feature-dt__icon">◆</span> 주요 파라미터</dt>
+    <dd class="feature-dd">
+      <strong>IDENTIFIED BY:</strong> 사용자의 비밀번호를 설정합니다.<br>
+      <strong>PROFILE:</strong> 사용자에게 적용할 보안/패스워드 프로파일을 지정합니다.<br>
+      <strong>RESOURCE POOL:</strong> 쿼리 실행 시 사용할 전용 리소스 풀을 지정합니다.
+    </dd>
+  </dl>
+
+  <p class="example-label">예시</p>
+  <pre><code>-- 사용자 생성 (비밀번호 및 리소스 풀 지정)
+CREATE USER analyst IDENTIFIED BY 'StrongPassw0rd' RESOURCE POOL analyst_pool;
+
+-- 암호 오류로 잠긴 계정 해제 (관리자 권한)
+ALTER USER analyst ACCOUNT UNLOCK;</code></pre>
 </div>
 
 <div class="feature-box">
-  <h3 class="eon-section-title" style="margin-top: 0; margin-bottom: 1rem;">2. 사용자 권한 관리 (GRANT / REVOKE)</h3>
-  <p style="color: var(--sub); margin-bottom: 1rem;">사용자에게 직접 권한을 부여하거나 역할(Role)을 통해 간접적으로 권한을 관리합니다. <code>GRANT</code>로 권한을 부여하고 <code>REVOKE</code>로 회수합니다.</p>
+  <h3 class="eon-section-title" style="margin-top: 0; margin-bottom: 1rem;">2. 사용자 삭제 및 정보 조회</h3>
   
-  <ul class="feature-list">
-    <li><span class="feature-list__icon">🔹</span> <span>사용자 그룹 대신 역할을 사용하면 권한 변경 시 관리가 용이합니다.</span></li>
-    <li><span class="feature-list__icon">🔹</span> <span><code>SELECT * FROM users;</code>로 사용자 목록을 확인할 수 있습니다.</span></li>
-    <li><span class="feature-list__icon">🔹</span> <span>사용하지 않는 계정은 즉시 비활성화하거나 삭제하는 것이 보안에 좋습니다.</span></li>
+  <div class="syntax-box">
+    <strong>삭제 구문 (DROP USER):</strong>
+    <pre><code>DROP USER [ IF EXISTS ] user_name[,...] [ CASCADE ];</code></pre>
+  </div>
+
+  <ul class="feature-list" style="margin-top: 1rem;">
+    <li><span class="feature-list__icon">🔹</span> <strong>CASCADE 옵션:</strong> <span>해당 사용자가 생성한 모든 객체(테이블 등)를 함께 삭제합니다.</span></li>
+    <li><span class="feature-list__icon">🔹</span> <strong>사용자 조회:</strong> <span><code>SELECT * FROM USERS;</code> 쿼리를 통해 전체 데이터베이스 사용자 정보를 확인할 수 있습니다.</span></li>
   </ul>
-
-  <p class="example-label">권한 부여 예시</p>
-  <pre><code>-- analyst 사용자에게 analyst_role 역할 부여
-GRANT analyst_role TO analyst;
-
--- analyst_role 역할에 sales 테이블 조회 권한 부여
-GRANT SELECT ON analytics.sales TO analyst_role;</code></pre>
 </div>
 
-  <hr style="margin: 3rem 0;">
-  <div id="profile" style="scroll-margin-top: 100px;"></div>
+<hr style="margin: 3rem 0;">
+<div id="profile" style="scroll-margin-top: 100px;"></div>
 
-  ## Profile
+## Profile
 
-<p>Vertica <strong>Profile(프로필)</strong>은 사용자 세션에 적용되는 실행 환경과 자원 제한을 정의합니다. 프로필을 통해 각 사용자의 쿼리 실행 조건을 제어하여 대형 쿼리로 인한 전체 성능 저하를 방지할 수 있습니다.</p>
+<p>Vertica <strong>Profile(프로파일)</strong>은 사용자의 <strong>보안 및 패스워드 정책</strong>을 정의하고 관리하는 객체입니다. 사용자별로 보안 등급에 따라 프로파일을 생성하여 할당할 수 있으며, 기본적으로 제공되는 default 프로파일이 존재합니다.</p>
 
 <div class="feature-box" style="margin-top: 2rem;">
   <h3 class="eon-section-title" style="margin-top: 0; margin-bottom: 1rem;">Profile 생성 및 할당</h3>
-  <p style="color: var(--sub); margin-bottom: 1rem;"><code>CREATE PROFILE</code>로 프로필을 생성하고, <code>ALTER USER</code> 또는 <code>GRANT</code>를 통해 사용자나 역할에 할당합니다.</p>
+  <p style="color: var(--sub); margin-bottom: 1rem;"><code>CREATE PROFILE</code>로 패스워드 관련 제약 조건을 설정하고, 사용자 생성 또는 수정 시 이를 할당합니다.</p>
   
   <dl class="feature-dl">
-    <dt class="feature-dt"><span class="feature-dt__icon">◆</span> 주요 속성</dt>
+    <dt class="feature-dt"><span class="feature-dt__icon">◆</span> 주요 제약조건 (Password Parameters)</dt>
     <dd class="feature-dd">
-      <strong>COST_LIMIT:</strong> 쿼리 실행 계획의 최대 비용을 제한합니다.<br>
-      <strong>CONCURRENCY_LIMIT:</strong> 사용자가 동시에 실행할 수 있는 쿼리 수를 제한합니다.<br>
-      <strong>RESOURCE_PORTION:</strong> 리소스 풀에서 할당받을 자원의 비율을 설정합니다.
+      <strong>PASSWORD_LIFE_TIME:</strong> 패스워드의 유효 기간을 설정합니다.<br>
+      <strong>FAILED_LOGIN_ATTEMPTS:</strong> 허용되는 최대 로그인 실패 횟수입니다 (초과 시 Lock).<br>
+      <strong>PASSWORD_LOCK_TIME:</strong> 로그인이 잠긴 후 유지되는 시간입니다.<br>
+      <strong>PASSWORD_MIN_LENGTH:</strong> 패스워드의 최소 길이를 지정합니다.
     </dd>
   </dl>
 
-  <p class="example-label">프로필 생성 및 할당 예시</p>
-  <pre><code>-- 분석가용 프로필 생성
-CREATE PROFILE analyst_profile
-  SET COST_LIMIT = 10000,
-      CONCURRENCY_LIMIT = 10;
+  <p class="example-label">프로파일 생성 및 적용 예시</p>
+  <pre><code>-- 보안이 강화된 프로파일 생성 (길이 10자 이상, 5회 실패 시 잠금)
+CREATE PROFILE strict_profile LIMIT 
+    PASSWORD_MIN_LENGTH 10 
+    FAILED_LOGIN_ATTEMPTS 5;
 
--- analyst 사용자에게 프로필 할당
-ALTER USER analyst SET PROFILE analyst_profile;</code></pre>
+-- 기존 사용자에게 새 프로파일 적용
+ALTER USER analyst PROFILE strict_profile;</code></pre>
 </div>
 
-  <hr style="margin: 3rem 0;">
-  <div id="resource-pool" style="scroll-margin-top: 100px;"></div>
+<hr style="margin: 3rem 0;">
+<div id="resource-pool" style="scroll-margin-top: 100px;"></div>
 
-  ## Resource Pool
+## Resource Pool
 
-<p><strong>Resource Pool(리소스 풀)</strong>을 통해 쿼리 실행에 필요한 메모리와 동시성 수준을 제어할 수 있습니다. 사용자 유형이나 작업의 중요도에 따라 리소스를 분리하여 안정적인 분석 환경을 구축합니다.</p>
+<p><strong>Resource Pool(리소스 풀)</strong>은 버티카 데이터베이스에서 작업(Workload)을 관리하기 위해 할당하는 메모리 및 스레드 공간입니다. 기본적으로 <code>general</code>, <code>sysquery</code>, <code>tm</code>(Tuple Mover) 등의 Built-in 리소스 풀이 제공되며, 업무와 사용자 성격에 맞춰 커스텀 풀을 추가 생성하는 것이 핵심 운영 전략입니다.</p>
 
 <div class="feature-box" style="margin-top: 2rem;">
-  <h3 class="eon-section-title" style="margin-top: 0; margin-bottom: 1rem;">Resource Pool 생성 및 관리</h3>
-  <p style="color: var(--sub); margin-bottom: 1rem;"><code>CREATE RESOURCE POOL</code>로 리소스 풀을 생성하고, 특정 사용자 프로필이나 역할에 연결하여 사용합니다.</p>
+  <h3 class="eon-section-title" style="margin-top: 0; margin-bottom: 1rem;">1. Resource Pool 구성 및 관리</h3>
+  <p style="color: var(--sub); margin-bottom: 1rem;">효율적인 자원 배분을 위해 풀을 생성(<code>CREATE</code>), 수정(<code>ALTER</code>), 삭제(<code>DROP</code>)할 수 있습니다.</p>
   
+  <div class="syntax-box">
+    <strong>기본 생성 구문:</strong>
+    <pre><code>CREATE RESOURCE POOL pool_name [ parameter_name setting ]...;</code></pre>
+  </div>
+
   <dl class="feature-dl">
-    <dt class="feature-dt"><span class="feature-dt__icon">◆</span> 주요 속성</dt>
+    <dt class="feature-dt"><span class="feature-dt__icon">◆</span> 주요 파라미터</dt>
     <dd class="feature-dd">
-      <strong>MAX_MEMORY_SIZE:</strong> 풀에 할당될 최대 메모리 크기를 지정합니다.<br>
-      <strong>MAX_CONCURRENCY:</strong> 풀에서 동시에 실행될 수 있는 최대 쿼리 수를 제한합니다.<br>
-      <strong>MAX_RUNNING:</strong> 동시에 실행 상태에 있을 수 있는 쿼리 수를 제한합니다.
+      <strong>MEMORYSIZE / MAXMEMORYSIZE:</strong> 풀의 초기 메모리 크기와 사용 가능한 최대 메모리 크기<br>
+      <strong>MAXQUERYMEMORYSIZE:</strong> 단일 쿼리가 사용할 수 있는 최대 메모리 (초과 시 쿼리 취소)<br>
+      <strong>MAXCONCURRENCY:</strong> 풀에서 동시에 실행될 수 있는 최대 세션/애플리케이션 개수<br>
+      <strong>PLANNEDCONCURRENCY:</strong> 풀 내 메모리를 분할할 동시성 기준값 (1/n)<br>
+      <strong>QUEUETIMEOUT / RUNTIMECAP:</strong> 대기 큐 타임아웃 및 쿼리 최대 실행 시간 제한
     </dd>
   </dl>
-
-  <p class="example-label">리소스 풀 생성 예시</p>
-  <pre><code>CREATE RESOURCE POOL analyst_pool
-  MAX_MEMORY_SIZE '4GB'
-  MAX_CONCURRENCY 10
-  MAX_RUNNING 8;</code></pre>
+  
+  <ul class="feature-list" style="margin-top: 1rem;">
+    <li><span class="feature-list__icon">💡</span> <strong>운영 Best Practice:</strong> <span>배치 작업 시간대와 일반 사용자 접속 시간대의 리소스 풀 구성을 스크립트로 분리·조정하여 시스템 사용을 극대화합니다.</span></li>
+  </ul>
 </div>
 
-  <hr style="margin: 3rem 0;">
-  <div id="privilege" style="scroll-margin-top: 100px;"></div>
+<div class="feature-box">
+  <h3 class="eon-section-title" style="margin-top: 0; margin-bottom: 1rem;">2. Resource Pool 권한 부여 및 할당</h3>
+  <p style="color: var(--sub); margin-bottom: 1rem;">생성된 리소스 풀은 다수의 사용자가 공유할 수 있으나, 한 사용자는 동시에 하나의 풀만 사용할 수 있습니다.</p>
 
-  ## Privilege
+  <p class="example-label">적용 예시</p>
+  <pre><code>-- 1. 리소스 풀 생성
+CREATE RESOURCE POOL batch_pool 
+    MAXMEMORYSIZE '10G' MAXCONCURRENCY 4;
 
-<p><strong>Privilege(권한)</strong>는 데이터베이스 객체에 대한 사용자의 접근 및 조작 권한을 제어하는 체계입니다. 최소 권한 원칙을 적용하여 보안을 강화하는 것이 중요합니다.</p>
+-- 2. 사용자에게 리소스 풀 사용 권한 부여 (GRANT USAGE)
+GRANT USAGE ON RESOURCE POOL batch_pool TO batch_user;
 
-<div class="feature-box" style="margin-top: 2rem;">
-  <h3 class="eon-section-title" style="margin-top: 0; margin-bottom: 1rem;">객체 권한 관리 (GRANT / REVOKE)</h3>
-  <p style="color: var(--sub); margin-bottom: 1rem;">Vertica의 권한 체계는 객체별 <code>GRANT</code>/<code>REVOKE</code>를 기반으로 합니다. 권한을 직접 사용자에게 부여하기보다 역할(Role)을 활용하는 것이 관리에 유리합니다.</p>
-  
-  <dl class="feature-dl">
-    <dt class="feature-dt"><span class="feature-dt__icon">◆</span> 주요 권한</dt>
-    <dd class="feature-dd">
-      <code>ALL PRIVILEGES</code>, <code>SELECT</code>, <code>INSERT</code>, <code>UPDATE</code>, <code>DELETE</code>, <code>USAGE</code>, <code>CREATE</code> 등으로 세분화됩니다.
-    </dd>
-  </dl>
-
-  <p class="example-label">권한 부여 예시</p>
-  <pre><code>-- analyst_role 역할에 analytics 스키마 사용 권한 부여
-GRANT USAGE ON SCHEMA analytics TO analyst_role;
-
--- analyst_role 역할에 sales 테이블 조회 권한 부여
-GRANT SELECT ON analytics.sales TO analyst_role;</code></pre>
+-- 3. 사용자에게 기본 리소스 풀 할당 (ALTER USER)
+ALTER USER batch_user RESOURCE POOL batch_pool;</code></pre>
 </div>
 
-  <hr style="margin: 3rem 0;">
-  <div id="backup-restore" style="scroll-margin-top: 100px;"></div>
+<hr style="margin: 3rem 0;">
+<div id="privilege" style="scroll-margin-top: 100px;"></div>
 
-  ## Backup & Restore
-<p><code>vbr</code>은 Vertica 데이터베이스의 백업 및 복구를 위한 강력한 커맨드 라인 유틸리티입니다. 전체 데이터베이스, 특정 스키마나 테이블 등 다양한 단위로 데이터를 안정적으로 백업하고 복구할 수 있습니다.</p>
+## Privilege
+
+<p><strong>Privilege(권한)</strong>는 사용자가 SCHEMA, TABLE, RESOURCE POOL 등의 객체에 접근하고 조작할 수 있는 권리를 의미합니다. Vertica에서는 <strong>스키마 권한 상속(Schema Inheritance)</strong>을 적극 활용하여 권한 관리의 편의성을 극대화합니다.</p>
 
 <div class="feature-box" style="margin-top: 2rem;">
-  <h3 class="eon-section-title" style="margin-top: 0; margin-bottom: 1rem;">주요 기능 및 복구 절차</h3>
+  <h3 class="eon-section-title" style="margin-top: 0; margin-bottom: 1rem;">객체 권한 관리 (GRANT)</h3>
   
   <dl class="feature-dl">
-    <dt class="feature-dt"><span class="feature-dt__icon">◆</span> 주요 기능</dt>
+    <dt class="feature-dt"><span class="feature-dt__icon">🔹</span> SCHEMA 권한</dt>
     <dd class="feature-dd">
-      <strong>백업 (<code>--task backup</code>):</strong> 전체, 객체, 증분 등 다양한 방식으로 백업을 수행합니다.<br>
-      <strong>복구 (<code>--task restore</code>):</strong> 스냅샷 기반으로 특정 시점의 데이터를 복구하여 일관성을 보장합니다.
+      기본적으로 <code>USAGE</code>(조회) 및 <code>CREATE</code>(생성) 권한을 부여합니다.<br>
+      <strong>구문:</strong> <code>GRANT { privilege | ALL } ON SCHEMA schema TO grantee;</code>
     </dd>
-    <dt class="feature-dt"><span class="feature-dt__icon">◆</span> 복구 절차 예시</dt>
+
+    <dt class="feature-dt"><span class="feature-dt__icon">🔹</span> TABLE 권한</dt>
     <dd class="feature-dd">
-      <ol style="padding-left: 20px; margin-top: 0.5rem; list-style-type: decimal;">
-        <li><strong>설정 파일 준비:</strong> 복구 작업을 위한 <code>.ini</code> 설정 파일을 준비합니다.</li>
-        <li><strong>복구 대상 DB 정지:</strong> 데이터 일관성을 위해 복구를 진행할 데이터베이스를 정지합니다.</li>
-        <li><strong>vbr 복구 명령어 실행:</strong> <code>vbr --task restore</code> 명령어를 사용하여 복구를 시작합니다.</li>
-        <li><strong>DB 재시작 및 확인:</strong> 복구가 완료되면 데이터베이스를 재시작하고 데이터가 정상적으로 복구되었는지 확인합니다.</li>
-      </ol>
+      <code>SELECT</code>, <code>INSERT</code>, <code>UPDATE</code>, <code>DELETE</code>, <code>ALTER</code>, <code>DROP</code>, <code>TRUNCATE</code> 등을 제어합니다.<br>
+      특정 스키마의 전체 테이블에 일괄 부여할 때는 <code>ALL TABLES IN SCHEMA</code> 구문을 사용합니다.<br>
+      <strong>구문:</strong> <code>GRANT SELECT, UPDATE ON ALL TABLES IN SCHEMA analytics TO analyst;</code>
     </dd>
   </dl>
 
-  <p class="example-label">vbr 복구 실행 예시</p>
-  <pre><code># vbr 복구 실행 예시
-/opt/vertica/bin/vbr --task restore --config-file my_backup.ini</code></pre>
+  <div class="content-section" style="padding: 1rem; margin-top: 1rem; background-color: rgba(45, 105, 255, 0.04);">
+    <strong>스키마 권한 상속 (Schema Inheritance) 예시:</strong>
+    <p style="font-size: 0.9rem; color: var(--sub); margin-top: 0.5rem; margin-bottom: 0.5rem;">객체를 생성할 때마다 권한을 부여하지 않고, 스키마 레벨에서 설정하면 하위 객체에 자동으로 권한이 상속됩니다.</p>
+    <pre><code>-- 1. 스키마 생성 시 상속 활성화
+CREATE SCHEMA analytics DEFAULT INCLUDE PRIVILEGES;
+
+-- 2. 사용자에게 상속될 테이블 접근 권한 지정 (EXTEND 활용)
+GRANT ALL PRIVILEGES EXTEND ON SCHEMA analytics TO analyst;</code></pre>
+  </div>
+</div>
+
+<hr style="margin: 3rem 0;">
+<div id="backup-restore" style="scroll-margin-top: 100px;"></div>
+
+## Backup & Restore
+
+<p>Vertica 데이터베이스의 백업은 OS의 <code>rsync</code>를 활용하는 <strong>스냅샷(Snapshot) 방식의 로컬 백업</strong>을 기본으로 수행합니다. Vertica에서 기본 제공하는 <code>vbr</code> 스크립트를 이용하여 백업의 구성 및 복구를 직관적으로 처리할 수 있습니다.</p>
+
+<div class="feature-box" style="margin-top: 2rem;">
+  <h3 class="eon-section-title" style="margin-top: 0; margin-bottom: 1rem;">백업 아키텍처 및 구성</h3>
+  <p style="color: var(--sub); margin-bottom: 1rem;">각 노드의 디렉토리(예: <code>/data/BACKUP</code>)에 데이터베이스 백업본이 저장됩니다. 첫 번째 Full 백업 이후에 동일한 위치로 백업을 수행하면 자동으로 변경분만 추적하는 <strong>Incremental(증분) 백업</strong>이 수행되어 공간과 시간을 절약합니다. (기존 백업 디렉토리를 삭제하면 다시 Full 백업이 진행됩니다.)</p>
+  
+  <ul class="feature-list">
+    <li><span class="feature-list__icon">🔹</span> <strong>설정 파일 (.ini):</strong> <span>백업 대상 노드, 저장 위치, 패스워드 등을 정의합니다.</span></li>
+    <li><span class="feature-list__icon">🔹</span> <strong>실행 스크립트:</strong> <span>통상적으로 Crontab에 등록하여 심야(예: 05:00)에 자동 수행되도록 구성합니다.</span></li>
+  </ul>
+
+  <p class="example-label">vbr 백업 구성 및 실행 예시</p>
+  <pre><code># 1. 백업 설정 파일 생성 (vbr 설정 유틸리티 활용)
+/opt/vertica/bin/vbr --setupconfig
+
+# 2. 데이터베이스 백업 실행 (증분 백업 자동 적용)
+/opt/vertica/bin/vbr --task backup --config-file /home/vertica/DBA/BACKUP/btc_backup.ini
+
+# 3. 데이터베이스 복구 실행 (장애 발생 시)
+# 복구 작업 전 대상 데이터베이스(혹은 노드)는 반드시 Down 상태여야 합니다.
+/opt/vertica/bin/vbr --task restore --config-file /home/vertica/DBA/BACKUP/btc_backup.ini</code></pre>
 </div>
 
   </div>
