@@ -446,6 +446,13 @@ h1 {
   padding: 0;
 }
 
+.syntax-box p {
+  font-size: 0.9rem;
+  color: var(--sub);
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+
 /* 1단 콘텐츠 레이아웃 (중앙 정렬) */
 .content-section-centered {
   max-width: 760px;

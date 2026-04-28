@@ -149,8 +149,7 @@ UNSEGMENTED ALL NODES;</code></pre>
     <div class="architecture-subsection">
       <h4 class="section-subtitle">4. 특정 노드에 프로젝션 생성</h4>
       <ul class="feature-list">
-        <li><span class="feature-list__icon">🔹</span> <span>네트워크 부하 최소화를 위해 입출력이 필요한 특정 노드에만 저장 [cite: 112]</span></li>
-      </ul>
+        <li><span class="feature-list__icon">🔹</span> <span>네트워크 부하 최소화를 위해 입출력이 필요한 특정 노드에만 저장 
       <div class="image-box-styled">
         <img src="{{ '/assets/images/proj_specific_node.png' | relative_url }}" alt="특정 노드에 프로젝션 생성 다이어그램">
       </div>
@@ -405,13 +404,9 @@ ALTER USER batch_user RESOURCE POOL batch_pool;</code></pre>
       <strong>구문:</strong> <code>GRANT SELECT, UPDATE ON ALL TABLES IN SCHEMA analytics TO analyst;</code>
     </dd>
   </dl>
-
-  <div class="content-section" style="padding: 1rem; margin-top: 1rem; background-color: rgba(45, 105, 255, 0.04);">
-    <strong>스키마 권한 상속 (Schema Inheritance) 예시:</strong>
-    <p style="font-size: 0.9rem; color: var(--sub); margin-top: 0.5rem; margin-bottom: 0.5rem;">객체를 생성할 때마다 권한을 부여하지 않고, 스키마 레벨에서 설정하면 하위 객체에 자동으로 권한이 상속됩니다.</p>
+  <d
     <pre><code>-- 1. 스키마 생성 시 상속 활성화
 CREATE SCHEMA analytics DEFAULT INCLUDE PRIVILEGES;
-
 -- 2. 사용자에게 상속될 테이블 접근 권한 지정 (EXTEND 활용)
 GRANT ALL PRIVILEGES EXTEND ON SCHEMA analytics TO analyst;</code></pre>
   </div>
