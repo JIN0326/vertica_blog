@@ -49,10 +49,10 @@ article[id] {
   padding: 0;
 }
 
-.site-header {
 /* ==========================================================================
    3. 헤더 및 내비게이션 (Header & Navigation)
    ========================================================================== */
+.site-header {
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -79,7 +79,7 @@ article[id] {
 }
 
 .brand img {
-  height: 27px; /* 로고 이미지 높이 수정 */
+  height: 27px;
   width: auto;
 }
 
@@ -136,7 +136,7 @@ article[id] {
 }
 
 /* ==========================================================================
-   4. 메인 페이지 전용 컴포넌트 (index.md)
+   4. 메인 페이지 전용 컴포넌트 (00index.md)
    ========================================================================== */
 
 /* 4.1 상단 Hero 영역 */
@@ -151,9 +151,7 @@ article[id] {
   margin-bottom: 24px;
 }
 
-/* 메인/서브 페이지 Hero 영역의 작은 제목 태그 */
-.eyebrow,
-.page-hero .chip {
+.eyebrow {
   display: inline-block;
   padding: 0.4rem 0.85rem;
   border-radius: 999px;
@@ -186,23 +184,7 @@ h1 {
 }
 .link-container a:hover { background: var(--accent-dark); transform: translateY(-2px); }
 
-/* ==========================================================================
-   4.2 아키텍처 요약 섹션
-   ========================================================================== */
-
-.summary-section {
-  padding: 50px 40px;
-  background: #ffffff;
-  border-radius: 20px;
-  border: 1px solid var(--border-color);
-  box-shadow: var(--shadow);
-  margin-top: 10px; 
-}
-
-.summary-header { text-align: left; margin-bottom: 15px; }
-.summary-header h2 { font-size: 2rem; font-weight: 800; margin-bottom: 10px; } 
-.summary-header p { font-size: 1.05rem; color: var(--sub); } 
-
+/* 4.2 아키텍처 그리드 */
 .architecture-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
@@ -237,18 +219,19 @@ h1 {
 .mode-body h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 0px; } 
 .mode-body p { font-size: 0.95rem; color: var(--muted); margin: 0; line-height: 1.6; }
 
-/* ==========================================================================
-   4.3 카드 링크 섹션 (Playbook, Administration 등)
-   ========================================================================== */
-
+/* 4.3 카드 링크 섹션 (Playbook, Administration 등) */
 .playbook-section,
 .administration-section,
+.coretech-section,
+.utilization-section,
 .fundamentals-section {
   margin-top: 50px;
 }
 
 .playbook-section h2,
 .administration-section h2,
+.coretech-section h2,
+.utilization-section h2,
 .fundamentals-section h2 {
   font-size: 1.8rem;
   font-weight: 800;
@@ -285,6 +268,18 @@ h1 {
   padding: 2rem 1rem 2.5rem;
 }
 
+.page-hero .chip {
+  display: inline-block;
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+  background: rgba(45, 105, 255, 0.08);
+  color: var(--accent);
+  font-size: 0.84rem;
+  letter-spacing: 0.02em;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
 .page-hero h1 {
   margin: 0 auto;
   font-size: clamp(2.2rem, 4.5vw, 3.2rem);
@@ -299,67 +294,6 @@ h1 {
   color: var(--sub);
   font-size: 1.1rem;
   line-height: 1.7;
-}
-
-/* ==========================================================================
-   6. 콘텐츠 스타일 (h, p, code, pre 등)
-   ========================================================================== */
-
-/* 7.1 Playbook 페이지: 3-Panel 레이아웃 */
-.slide-panels {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-
-.slide-panel {
-  background: var(--surface);
-  border-radius: 16px;
-  border: 1px solid var(--border-color);
-  padding: 20px;
-  text-align: center;
-}
-
-.slide-panel img {
-  max-width: 100px;
-  height: auto;
-  border-radius: 8px;
-  margin-bottom: 1rem;
-}
-
-.slide-panel h3 {
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
-  color: var(--text);
-  /* EonMode 섹션 등의 h3 높이를 고정하여 ul 정렬을 맞춤 */
-  min-height: 3em;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.slide-panel ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  text-align: left;
-}
-
-.slide-panel ul li {
-  font-size: 0.9rem;
-  color: var(--sub);
-  margin-bottom: 0.5rem;
-  line-height: 1.5;
-  position: relative;
-  padding-left: 1.4em;
-}
-
-.slide-panel ul li::before {
-  content: "✓";
-  color: var(--accent);
-  position: absolute;
-  left: 0;
-  font-weight: bold;
 }
 
 /* 5.2 2단 콘텐츠 레이아웃 (본문 + 사이드바) */
@@ -424,7 +358,7 @@ h1 {
 
 /* 구문 정의 박스 (Syntax Box) */
 .syntax-box {
-  background: rgba(45, 105, 255, 0.04); /* pre 태그와 동일한 배경 */
+  background: rgba(45, 105, 255, 0.04); 
   border: 1px solid var(--border-color);
   border-radius: 8px;
   padding: 1.25rem;
@@ -439,7 +373,6 @@ h1 {
   margin-bottom: 0.75rem;
 }
 
-/* syntax-box 내부의 pre 태그 스타일 초기화 */
 .syntax-box pre {
   background: none;
   border: none;
@@ -462,7 +395,7 @@ h1 {
 /* 5.3 우측 사이드바 (On this page) */
 .page-sidebar {
   position: sticky;
-  top: 104px; /* 헤더 높이(67px) + 여백 */
+  top: 104px; 
   align-self: start;
 }
 
@@ -511,14 +444,67 @@ h1 {
   cursor: default;
 }
 
-.sidebar-panel a.active:hover { text-decoration: none; }
-
 /* ==========================================================================
-   7. 페이지별 특화 컴포넌트
+   6. 페이지별 특화 컴포넌트
    ========================================================================== */
 
+/* 6.1 Playbook 페이지: 3-Panel 레이아웃 */
+.slide-panels {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
 
-/* 7.2 Fundamentals 페이지: 목차 레이아웃 */
+.slide-panel {
+  background: var(--surface);
+  border-radius: 16px;
+  border: 1px solid var(--border-color);
+  padding: 20px;
+  text-align: center;
+}
+
+.slide-panel img {
+  max-width: 100px;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.slide-panel h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: var(--text);
+  min-height: 3em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slide-panel ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+
+.slide-panel ul li {
+  font-size: 0.9rem;
+  color: var(--sub);
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+  position: relative;
+  padding-left: 1.4em;
+}
+
+.slide-panel ul li::before {
+  content: "✓";
+  color: var(--accent);
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
+/* 6.2 Fundamentals 페이지: 목차 레이아웃 */
 .fundamentals-toc-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -563,10 +549,7 @@ h1 {
   text-decoration: underline;
 }
 
-/* 7.3 기타 컴포넌트 (Tech Features, Portfolio, Architecture, Integration 등) */
-/* 이 스타일들은 현재 제공된 마크다운 파일에서는 사용되지 않으나, 다른 페이지에서 사용될 수 있습니다. */
-
-/* 7.4 EonMode Section (01playbook.md) */
+/* 6.3 EonMode Section */
 .eon-section-title {
   color: var(--text);
   font-size: 1.4rem;
@@ -619,12 +602,6 @@ h1 {
   gap: 30px;
 }
 
-.use-case-list {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 24px;
-}
-
 .card--use-case {
   border-top: 4px solid var(--accent);
   padding: 2rem;
@@ -673,20 +650,20 @@ h1 {
 /* Tech Features Grid */
 .tech-features-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3열 그리드로 고정 */
+  grid-template-columns: repeat(3, 1fr); 
   gap: 16px;
-  margin-top: 1.5rem; /* Maintain original margin */
+  margin-top: 1.5rem;
 }
 
 .tech-feature-card {
-  background: var(--surface); /* 흰색 배경으로 변경 */
+  background: var(--surface);
   border: 1px solid var(--border-color);
   border-radius: 16px;
   padding: 16px;
-  text-align: center; /* Center content for icons */
+  text-align: center;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center items vertically in column */
+  align-items: center;
 }
 
 .tech-feature-card img {
@@ -702,11 +679,11 @@ h1 {
 }
 
 .tech-feature-card ul {
-  list-style: none; /* Remove default bullet points */
+  list-style: none;
   padding: 0;
   margin: 0;
-  text-align: left; /* Align list items to the left */
-  width: 100%; /* Take full width for list items */
+  text-align: left;
+  width: 100%;
 }
 
 .tech-feature-card ul li {
@@ -715,12 +692,12 @@ h1 {
   font-size: 0.9rem;
   line-height: 1.5;
   position: relative;
-  padding-left: 1.2em; /* Space for custom bullet */
+  padding-left: 1.2em;
 }
 
 .tech-feature-card ul li::before {
-  content: "•"; /* Custom bullet point */
-  color: var(--accent); /* Accent color for bullet */
+  content: "•";
+  color: var(--accent);
   position: absolute;
   left: 0;
   top: 0;
@@ -776,7 +753,6 @@ h1 {
 
 .portfolio-row img {
   max-width: 150px;
-  max-width: 120px;
   height: auto;
 }
 
@@ -823,34 +799,16 @@ h1 {
   margin-bottom: 3.5rem;
 }
 
-.architecture-subsection:last-child {
-  margin-bottom: 0;
-}
-
 .architecture-subsection .section-subtitle {
   color: var(--accent-dark);
   font-size: 1.4rem;
   margin-bottom: 0.8rem;
 }
 
-.architecture-subsection > .section-description {
-  color: var(--sub);
-  margin-top: -0.5rem;
-  margin-bottom: 1.5rem;
-  line-height: 1.7;
-  font-size: 1rem;
-}
-
 .comparison-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 24px;
-  align-items: stretch;
-}
-
-.comparison-column {
-  display: flex;
-  flex-direction: column;
 }
 
 .comparison-column__title {
@@ -871,12 +829,10 @@ h1 {
 .comparison-grid .card img {
   max-width: 200px;
   margin: 0 auto 1.5rem;
-  display: block;
 }
 
 .comparison-grid .card--other {
   border-top: 4px solid var(--muted);
-  opacity: 0.9;
 }
 
 .comparison-grid .card--vertica {
@@ -893,11 +849,8 @@ h1 {
 .comparison-grid .card ul {
   text-align: left;
   padding-left: 1.2em;
-  margin-bottom: 0;
   font-size: 0.95rem;
-  line-height: 1.6;
   color: var(--sub);
-  flex-grow: 1;
 }
 
 .comparison-grid .card--vertica ul {
@@ -908,7 +861,6 @@ h1 {
 .feature-list {
   list-style: none;
   padding: 0;
-  margin: 0;
 }
 .feature-list li {
   display: flex;
@@ -918,18 +870,14 @@ h1 {
   font-size: 0.85rem;
   margin-bottom: 1rem;
 }
-.feature-list li:last-child {
-  margin-bottom: 0;
-}
+
 .feature-list .feature-list__icon {
   color: var(--accent);
-  font-size: 1.1rem;
-  line-height: 1.6;
 }
 
 .columnar-layout {
   display: grid;
-  grid-template-columns: 6.5fr 3.5fr; /* 텍스트와 이미지가 65:35 비율을 갖도록 변경 */
+  grid-template-columns: 6.5fr 3.5fr;
   gap: 24px;
   align-items: center;
 }
@@ -937,79 +885,44 @@ h1 {
 .columnar-image img {
   width: 100%;
   height: auto;
-  border-radius: 8px;
 }
 
-/* Projection Distribution Grid for 02administration.md */
+/* Projection Distribution Grid */
 .projection-distribution-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 columns */
-  gap: 24px; /* Gap between grid items */
-  margin-top: 2rem; /* Add some space below the heading */
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 2rem;
 }
 
-.projection-distribution-grid .architecture-subsection {
-  margin-bottom: 0; /* Remove bottom margin from individual subsections within the grid */
-}
-
-/* Projection 데이터 분산 섹션의 이미지 정렬을 위해 flexbox 적용 */
-.projection-distribution-grid .architecture-subsection {
-  display: flex;
-  flex-direction: column;
-}
-.projection-distribution-grid .architecture-subsection .feature-list {
-  flex-grow: 1; /* 텍스트 목록이 동일한 높이를 차지하도록 확장 */
-}
-
-/* Administration 페이지의 데이터 분산 다이어그램 스타일 */
-.architecture-subsection .image-box-styled {
-  margin-top: 1.5rem;
-}
-
-.architecture-subsection .image-box-styled img {
-  max-width: 600px;
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-}
-
-/* 이미지 주변에 스타일을 적용하는 박스 */
 .image-box-styled {
   background: var(--surface);
   padding: 20px;
   border-radius: 12px;
   border: 1px solid var(--border-color);
   text-align: center;
+  margin-top: 1.5rem;
 }
 
-/* Integration Section (Kafka, HDFS, etc.) */
+.image-box-styled img {
+  max-width: 600px;
+  width: 100%;
+  height: auto;
+}
+
+/* Integration Section */
 .integration-section {
   display: flex;
   flex-direction: column;
-  gap: 4rem; /* 섹션 간의 간격 */
-}
-
-.integration-subsection {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+  gap: 4rem;
 }
 
 .integration-subsection__title {
   font-size: 1.4rem;
   font-weight: 800;
-  margin-bottom: 0;
   color: var(--text);
 }
 
-.integration-subsection__description {
-  color: var(--sub);
-  font-size: 1.05rem;
-  margin-top: -0.5rem;
-  max-width: 80ch;
-}
-
-/* Kafka-specific layout */
 .kafka-layout {
   display: flex;
   flex-direction: column;
@@ -1022,32 +935,26 @@ h1 {
   border: 1px solid var(--border-color);
   border-radius: 16px;
   padding: 2rem;
-  text-align: center;
   box-shadow: var(--shadow);
-  width: 100%;
   max-width: 450px;
 }
 
 .kafka-layout__image-wrapper img {
   max-width: 100%;
-  height: auto;
 }
 
 .kafka-steps {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 2.5rem 3rem; /* 행/열 간격 조정 */
-  width: 100%;
+  gap: 2.5rem 3rem;
 }
 
 .kafka-step__title {
   color: var(--accent-dark);
-  margin: 0 0 0.5rem 0;
+  font-weight: 700;
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 1.1rem;
-  font-weight: 700;
 }
 
 .kafka-step__number {
@@ -1060,23 +967,6 @@ h1 {
   justify-content: center;
   align-items: center;
   font-size: 0.9rem;
-  font-weight: bold;
-  flex-shrink: 0;
-}
-
-.kafka-step__list {
-  color: var(--sub);
-  padding-left: 2.1em;
-  margin: 0;
-  font-size: 0.95rem;
-  line-height: 1.6;
-}
-
-.kafka-step__list li {
-  margin-bottom: 0.5rem;
-}
-.kafka-step__list li:last-child {
-  margin-bottom: 0;
 }
 
 .integration-cards {
@@ -1085,27 +975,12 @@ h1 {
   gap: 40px;
 }
 
-.integration-card {
-  display: flex;
-  flex-direction: column;
-}
-
 .integration-card__title {
   font-size: 1.25rem;
   font-weight: 800;
   border-left: 4px solid var(--accent);
   padding-left: 12px;
-  margin-bottom: 0.8rem;
   color: var(--text);
-}
-
-.integration-card__description {
-  font-size: 0.95rem;
-  margin-bottom: 1.5rem;
-  line-height: 1.6;
-  color: var(--sub);
-  flex-grow: 1;
-  min-height: 70px;
 }
 
 .integration-card__image-wrapper {
@@ -1119,7 +994,6 @@ h1 {
 
 .integration-card__image-wrapper img {
   max-width: 100%;
-  height: auto;
 }
 
 /* ==========================================================================
@@ -1138,8 +1012,10 @@ h1 {
   color: var(--muted);
 }
 
+/* ==========================================================================
+   8. Responsive Design
+   ========================================================================== */
 @media (max-width: 900px) {
-  /* 2단 레이아웃을 1단으로 변경 */
   .layout-inner,
   .page-layout {
     grid-template-columns: 1fr;
@@ -1147,7 +1023,6 @@ h1 {
   
   .page-sidebar {
     position: static;
-    top: auto;
     margin-bottom: 24px;
   }
 
@@ -1157,7 +1032,6 @@ h1 {
 }
 
 @media (max-width: 768px) {
-  .summary-section { padding: 30px 20px; }
   h1 { font-size: 2.2rem; }
   .architecture-grid { grid-template-columns: 1fr; }
   
@@ -1171,7 +1045,7 @@ h1 {
     text-align: center;
   }
   .projection-distribution-grid {
-    grid-template-columns: 1fr; /* 1 column on small screens */
+    grid-template-columns: 1fr;
   }
 
   .kafka-steps {
