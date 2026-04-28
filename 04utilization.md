@@ -53,7 +53,7 @@ layout: default
       <p class="section-description">Management Console(MC)은 웹 브라우저 기반(WEB UI)의 강력한 통합 모니터링 및 클러스터 관리 도구입니다. 데이터베이스 상태 분석부터 실제 쿼리 수행까지 운영에 필요한 모든 기능을 직관적으로 제공합니다.</p>
       
       <div class="image-box-styled">
-        <img src="{{ '/assets/images/monitoring_2.png' | relative_url }}" alt="Vertica Management Console (MC) 화면">
+        <img src="{{ '/assets/images/monitoring_1.png' | relative_url }}" alt="Vertica Management Console (MC) 화면">
       </div>
 
       <dl class="feature-dl">
@@ -76,7 +76,7 @@ layout: default
       <p class="section-description">기본 제공되는 MC 외에도, Vertica의 <code>v_monitor</code>와 <code>v_catalog</code> 스키마에서 수집한 메트릭을 Grafana 등과 연계하여 전사 통합 대시보드를 구축할 수 있습니다.</p>
       
       <div class="image-box-styled">
-        <img src="{{ '/assets/images/monitoring_1.jpg' | relative_url }}" alt="Grafana 모니터링 대시보드 화면">
+        <img src="{{ '/assets/images/monitoring_2.jpg' | relative_url }}" alt="Grafana 모니터링 대시보드 화면">
       </div>
 
       <ol style="padding-left: 20px; list-style-type: decimal;">
