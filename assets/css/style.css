@@ -422,6 +422,30 @@ h1 {
   font-size: 0.95rem;
 }
 
+/* 구문 정의 박스 (Syntax Box) */
+.syntax-box {
+  background: rgba(45, 105, 255, 0.04); /* pre 태그와 동일한 배경 */
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1.25rem;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.syntax-box strong {
+  display: block;
+  font-weight: 600;
+  color: var(--sub);
+  margin-bottom: 0.75rem;
+}
+
+/* syntax-box 내부의 pre 태그 스타일 초기화 */
+.syntax-box pre {
+  background: none;
+  border: none;
+  padding: 0;
+}
+
 /* 1단 콘텐츠 레이아웃 (중앙 정렬) */
 .content-section-centered {
   max-width: 760px;
