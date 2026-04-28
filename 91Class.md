@@ -10,13 +10,14 @@ layout: default
 </div>
 
 <div class="content-section content-section-centered" style="max-width: 1080px;" markdown="1">
-  ## 교육 안내
+
+## 교육 안내
 
   - Vertica 기본 교육
   - Vertica 운영 및 관리 교육
   - Vertica 분석 워크로드 최적화 교육
 
-  ## 신청 방법
+## 신청 방법
 
   교육 신청은 아래 메일로 문의해 주세요.  
   교육 가능일자는 일정 인원이 신청할 경우  
@@ -24,7 +25,7 @@ layout: default
   가능한 빠른 시일 내에 답변 드리도록 하겠습니다.
 
 
-  ### 메일 문의 시 요청 사항
+### 메일 문의 시 요청 사항
   
   **메일 주소**: `test@example.com` 
 
