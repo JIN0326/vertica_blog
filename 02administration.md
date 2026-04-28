@@ -79,7 +79,7 @@ layout: default
   <hr style="margin: 4rem 0;">
 
   <div class="architecture-section" markdown="1">
-    <h3 class="integration-subsection__title" style="margin-bottom: 2rem;">데이터 분산 저장 방법</h3>
+  <h3 class="integration-subsection__title" style="margin-bottom: 2rem;">데이터 분산 저장 방법</h3>
     
    <div class="architecture-subsection">
       <h4 class="section-subtitle">1. Segmentation (해시 분산)</h4>
