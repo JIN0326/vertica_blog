@@ -159,7 +159,7 @@ layout: default
   - 스키마는 테이블, 뷰, 프로젝션, 시퀀스 등의 객체를 논리적으로 구분합니다.
   - 네임스페이스를 분리하면 동일 이름의 객체를 서로 다른 스키마에 생성할 수 있습니다.
 
-  예시:
+  <p class="example-label">예시</p>
 
   ```sql
   CREATE SCHEMA analytics;
@@ -172,7 +172,7 @@ layout: default
   - `SET SEARCH_PATH`로 기본 스키마를 지정해 쿼리 작성 편의성을 높입니다.
   - 스키마 내 객체를 삭제할 때는 `DROP SCHEMA ... CASCADE`로 관련 객체를 함께 제거할 수 있습니다.
 
-  예시:
+  <p class="example-label">예시</p>
 
   ```sql
   GRANT USAGE ON SCHEMA analytics TO analyst_role;
@@ -210,7 +210,7 @@ layout: default
   - `GRANT`로 객체 권한을 부여하고, `REVOKE`로 제거합니다.
   - 사용자 그룹 대신 역할을 사용하면 권한 변경 시 관리가 용이합니다.
 
-  예시:
+  <p class="example-label">예시</p>
 
   ```sql
   GRANT SELECT ON analytics.sales TO analyst;
@@ -236,7 +236,7 @@ layout: default
   - `COST_LIMIT`, `CONCURRENCY_LIMIT`, `RESOURCE_PORTION` 등의 속성을 설정할 수 있습니다.
   - 프로필은 사용자 또는 역할에 할당됩니다.
 
-  예시:
+  <p class="example-label">예시</p>
 
   ```sql
   CREATE PROFILE analyst_profile
@@ -249,7 +249,7 @@ layout: default
   - `ALTER USER ... SET PROFILE`로 사용자에게 프로필을 할당합니다.
   - `GRANT`와 함께 역할 기반 프로필 할당도 가능합니다.
 
-  예시:
+  <p class="example-label">예시</p>
 
   ```sql
   ALTER USER analyst SET PROFILE analyst_profile;
@@ -274,7 +274,7 @@ layout: default
   - `MAX_MEMORY_SIZE`, `MAX_CONCURRENCY`, `MAX_RUNNING` 같은 속성으로 쿼리 자원 할당을 제어합니다.
   - 각 풀은 특정 유형의 작업 또는 사용자 그룹에 할당할 수 있습니다.
 
-  예시:
+  <p class="example-label">예시</p>
 
   ```sql
   CREATE RESOURCE POOL analyst_pool
@@ -294,7 +294,7 @@ layout: default
   - `ALL PRIVILEGES`, `SELECT`, `INSERT`, `UPDATE`, `DELETE`, `USAGE`, `CREATE` 등으로 세분화됩니다.
   - 권한을 직접 사용자에게 부여하기보다 역할(Role)을 활용하는 것이 관리에 유리합니다.
 
-  예시:
+  <p class="example-label">예시</p>
 
   ```sql
   GRANT USAGE ON SCHEMA analytics TO analyst_role;
@@ -322,6 +322,8 @@ layout: default
   2.  **복구 대상 DB 정지**: 데이터 일관성을 위해 복구를 진행할 데이터베이스를 정지합니다.
   3.  **vbr 복구 명령어 실행**: `vbr --task restore` 명령어를 사용하여 복구를 시작합니다.
   4.  **DB 재시작 및 확인**: 복구가 완료되면 데이터베이스를 재시작하고 데이터가 정상적으로 복구되었는지 확인합니다.
+
+  <p class="example-label">vbr 복구 실행 예시</p>
 
   ```bash
   # vbr 복구 실행 예시
