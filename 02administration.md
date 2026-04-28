@@ -12,15 +12,13 @@ layout: default
   <div class="content-section" markdown="1">
 
   <div id="table-projection" style="scroll-margin-top: 100px;"></div>
-
+  
   ## Table · Projection
-
   Vertica 아키텍처의 핵심은 **논리적 모델(Table)**과 **물리적 저장(Projection)**의 완벽한 분리에 있습니다. 데이터베이스에 질의를 던질 때, Vertica의 옵티마이저는 논리적 Table에 연결된 여러 물리적 Projection 중 가장 응답 속도가 빠른 것을 스스로 선택하여 쿼리를 수행합니다.
 
   <div class="feature-box" style="margin-top: 2rem;">
     <h3 class="eon-section-title" style="margin-top: 0; margin-bottom: 1rem;">Table (논리적 모델)</h3>
     <p style="color: var(--sub); margin-bottom: 1.5rem;">대부분의 상용 DB 데이터 타입과 호환되는 데이터 논리 모델링의 오브젝트입니다. 테이블 정의에는 특별한 옵션이 필요하지 않으며, 대부분의 부가적인 옵션은 파티션 구문 정도입니다.</p>
-    
     <dl class="feature-dl">
       <dt class="feature-dt"><span class="feature-dt__icon">◆</span> 지원 데이터 타입</dt>
       <dd class="feature-dd">
@@ -36,13 +34,11 @@ layout: default
     <h3 class="eon-section-title" style="margin-top: 0; margin-bottom: 1rem;">Projection (물리적 저장)</h3>
     <p style="color: var(--sub); margin-bottom: 1.5rem;">실제 테이블 데이터가 분산 및 압축되어 디스크에 저장되는 오브젝트입니다. 테이블에 데이터가 처음 저장될 때, 명시적으로 생성할 때(CREATE PROJECTION), 혹은 Database Designer(DBD)에 의해 생성됩니다.</p>
     
-    <dl class="feature-dl">
+   <dl class="feature-dl">
       <dt class="feature-dt"><span class="feature-dt__icon">1</span> 컬럼 인코딩 및 압축 (Encoding)</dt>
       <dd class="feature-dd">매뉴얼하게 정의할 수도 있지만 보통 DBD의 가이드로 재정의합니다. DBD가 최적의 인코딩을 추천하기 위해서는 실제 데이터의 분포도를 알 수 있도록 데이터가 적절히 저장되어 있어야 합니다.</dd>
-      
       <dt class="feature-dt"><span class="feature-dt__icon">2</span> 컬럼 정렬 저장 순서 (Order by)</dt>
       <dd class="feature-dd">데이터가 물리적으로 정렬되어 저장되므로, 쿼리의 조회 및 조인(Join) 속도를 획기적으로 높일 때 사용합니다.</dd>
-      
       <dt class="feature-dt"><span class="feature-dt__icon">3</span> 데이터 분산 정책 (Segmentation)</dt>
       <dd class="feature-dd">멀티 노드에 데이터를 분산시키기 위한 기준 컬럼을 지정하거나, 데이터를 모든 노드 또는 일부 노드에 복제할지 결정합니다.</dd>
     </dl>
@@ -84,7 +80,7 @@ layout: default
   <div class="architecture-section" markdown="1">
     <h3 class="integration-subsection__title" style="margin-bottom: 2rem;">데이터 분산 저장 방법</h3>
     
-    <div class="architecture-subsection">
+   <div class="architecture-subsection">
       <h4 class="section-subtitle">1. Segmentation (해시 분산)</h4>
       <div class="columnar-layout">
         <div>
@@ -95,13 +91,13 @@ layout: default
             <li><span class="feature-list__icon">🔹</span> <span>동일한 Segment key를 가진 테이블 간의 조인(Join) 성능이 매우 우수</span></li>
           </ul>
         </div>
-        <div class="columnar-image" style="background: #ffffff; padding: 20px; border-radius: 12px; border: 1px solid var(--border-color); text-align: center;">
-          <img src="{{ '/assets/images/proj_segmentation.png' | relative_url }}" alt="Segmentation">
+        <div class="columnar-image image-box-styled">
+          <img src="{{ '/assets/images/proj_segmentation.png' | relative_url }}" alt="Segmentation 데이터 분산 방식 다이어그램">
         </div>
       </div>
     </div>
 
-    <div class="architecture-subsection">
+   <div class="architecture-subsection">
       <h4 class="section-subtitle">2. Replication (복제)</h4>
       <div class="columnar-layout">
         <div>
@@ -111,13 +107,13 @@ layout: default
             <li><span class="feature-list__icon">🔹</span> <span>UNSEGMENTED 구문이 없을 경우 기본적으로 segmentation으로 생성됨</span></li>
           </ul>
         </div>
-        <div class="columnar-image" style="background: #ffffff; padding: 20px; border-radius: 12px; border: 1px solid var(--border-color); text-align: center;">
-          <img src="{{ '/assets/images/proj_replication.png' | relative_url }}" alt="Replication">
+        <div class="columnar-image image-box-styled">
+          <img src="{{ '/assets/images/proj_replication.png' | relative_url }}" alt="Replication 데이터 복제 방식 다이어그램">
         </div>
       </div>
     </div>
 
-    <div class="architecture-subsection">
+   <div class="architecture-subsection">
       <h4 class="section-subtitle">3. 고가용성을 위한 데이터 이중화 (Buddy)</h4>
       <div class="columnar-layout">
         <div>
@@ -127,13 +123,13 @@ layout: default
             <li><span class="feature-list__icon">🔹</span> <span>노드 장애 시 복제된 버디 프로젝션에서 데이터 변경이 발생하면, 장애 노드 복구 후 자동으로 동기화됨</span></li>
           </ul>
         </div>
-        <div class="columnar-image" style="background: #ffffff; padding: 20px; border-radius: 12px; border: 1px solid var(--border-color); text-align: center;">
-          <img src="{{ '/assets/images/proj_buddy.png' | relative_url }}" alt="Buddy Projection">
+        <div class="columnar-image image-box-styled">
+          <img src="{{ '/assets/images/proj_buddy.png' | relative_url }}" alt="Buddy 프로젝션을 이용한 데이터 이중화 다이어그램">
         </div>
       </div>
     </div>
 
-    <div class="architecture-subsection">
+   <div class="architecture-subsection">
       <h4 class="section-subtitle">4. 특정 노드에 프로젝션 생성</h4>
       <div class="columnar-layout">
         <div>
@@ -142,8 +138,8 @@ layout: default
             <li><span class="feature-list__icon">🔹</span> <span>노드명은 nodes 시스템 테이블에 저장된 이름을 사용</span></li>
           </ul>
         </div>
-        <div class="columnar-image" style="background: #ffffff; padding: 20px; border-radius: 12px; border: 1px solid var(--border-color); text-align: center;">
-          <img src="{{ '/assets/images/proj_specific_node.png' | relative_url }}" alt="Specific Node">
+        <div class="columnar-image image-box-styled">
+          <img src="{{ '/assets/images/proj_specific_node.png' | relative_url }}" alt="특정 노드에 프로젝션 생성 방식 다이어그램">
         </div>
       </div>
     </div>
