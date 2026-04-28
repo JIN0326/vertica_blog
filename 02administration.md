@@ -75,34 +75,20 @@ SEGMENTED BY HASH(sale_id) ALL NODES; -- 분산 정책 정의</code></pre>
 </div>
 
 <h3 class="integration-subsection__title" style="margin: 3rem 0 1.5rem;">Projection의 4가지 종류</h3>
-<div class="use-case-list">
-  <div class="card card--use-case">
-    <h4 class="use-case-card__title">1. Super 프로젝션</h4>
-    <ul class="use-case-card__list">
-      <li>테이블의 모든 컬럼을 포함하는 기본 프로젝션</li>
-      <li>새로운 속성의 Super 프로젝션 생성 및 REFRESH 후 기존 프로젝션 삭제 가능</li>
-    </ul>
-  </div>
-  <div class="card card--use-case">
-    <h4 class="use-case-card__title">2. Aggregate 프로젝션</h4>
-    <p class="use-case-card__intro">
-      집계 함수가 포함되어 실시간 대시보드 조회 속도를 극대화합니다.
-    </p>
-  </div>
-  <div class="card card--use-case">
-    <h4 class="use-case-card__title">3. Query-specific 프로젝션</h4>
-    <ul class="use-case-card__list">
-      <li>특정 고부하 쿼리 튜닝을 위해 명시적으로 추가된 맞춤형 프로젝션 </li>
-      <li>전체 컬럼이 아닌 분석에 필요한 일부 컬럼만으로도 생성 가능</li>
-    </ul>
-  </div>
-  <div class="card card--use-case">
-    <h4 class="use-case-card__title">4. Buddy 프로젝션</h4>
-    <ul class="use-case-card__list">
-      <li>HA 구성을 위해 인접 노드에 복제되는 이중화 프로젝션 </li>
-      <li>특정 노드 장애 시 Buddy가 서비스를 대신 수행하여 고가용성 보장 </li>
-    </ul>
-  </div>
+<div class="feature-box" style="margin-top: 0;">
+  <dl class="feature-dl">
+    <dt class="feature-dt"><span class="feature-dt__icon">1</span> Super 프로젝션</dt>
+    <dd class="feature-dd">테이블의 모든 컬럼을 포함하는 기본 프로젝션입니다. 새로운 속성의 Super 프로젝션 생성 및 REFRESH 후 기존 프로젝션 삭제가 가능합니다.</dd>
+    
+    <dt class="feature-dt"><span class="feature-dt__icon">2</span> Aggregate 프로젝션</dt>
+    <dd class="feature-dd">집계 함수(SUM, COUNT 등)가 포함되어 있어, 실시간 대시보드나 요약 정보 조회 시 미리 계산된 결과를 반환하여 응답 속도를 극대화합니다.</dd>
+    
+    <dt class="feature-dt"><span class="feature-dt__icon">3</span> Query-specific 프로젝션</dt>
+    <dd class="feature-dd">특정 고부하 쿼리 튜닝을 위해 명시적으로 추가된 맞춤형 프로젝션입니다. 분석에 필요한 일부 컬럼만으로도 생성할 수 있습니다.</dd>
+    
+    <dt class="feature-dt"><span class="feature-dt__icon">4</span> Buddy 프로젝션</dt>
+    <dd class="feature-dd">HA(고가용성) 구성을 위해 인접 노드에 복제되는 이중화 프로젝션입니다. 특정 노드 장애 시 Buddy가 서비스를 대신 수행하여 고가용성을 보장합니다.</dd>
+  </dl>
 </div>
 
 <div class="architecture-section" markdown="1">
@@ -427,15 +413,15 @@ GRANT ALL PRIVILEGES EXTEND ON SCHEMA analytics TO analyst;</code></pre>
   </ul>
 
   <p class="example-label">vbr 백업 구성 및 실행 예시</p>
-  <pre><code># 1. 백업 설정 파일 생성 (vbr 설정 유틸리티 활용)
-/opt/vertica/bin/vbr --setupconfig
+  <pre><code># 1. 백업 초기화 (vbr 유틸리티 활용)
+/opt/vertica/bin/vbr --task init --config-file /home/vertica/DBA/BACKUP/backup.ini
 
 # 2. 데이터베이스 백업 실행 (증분 백업 자동 적용)
-/opt/vertica/bin/vbr --task backup --config-file /home/vertica/DBA/BACKUP/btc_backup.ini
+/opt/vertica/bin/vbr --task backup --config-file /home/vertica/DBA/BACKUP/backup.ini
 
 # 3. 데이터베이스 복구 실행 (장애 발생 시)
 # 복구 작업 전 대상 데이터베이스(혹은 노드)는 반드시 Down 상태여야 합니다.
-/opt/vertica/bin/vbr --task restore --config-file /home/vertica/DBA/BACKUP/btc_backup.ini</code></pre>
+/opt/vertica/bin/vbr --task restore --config-file /home/vertica/DBA/BACKUP/backup.ini</code></pre>
 </div>
 
   </div>
