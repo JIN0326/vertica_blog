@@ -80,6 +80,7 @@ layout: default
 
   <div class="architecture-section" markdown="1">
   <h3 class="integration-subsection__title" style="margin-bottom: 2rem;">데이터 분산 저장 방법</h3>
+  <div class="projection-distribution-grid">
     
    <div class="architecture-subsection">
       <h4 class="section-subtitle">1. Segmentation (해시 분산)</h4>
@@ -128,6 +129,7 @@ layout: default
         <img src="{{ '/assets/images/proj_specific_node.png' | relative_url }}" alt="특정 노드에 프로젝션 생성 방식 다이어그램">
       </div>
     </div>
+  </div>
   </div>
 
   <hr style="margin: 3rem 0;">
