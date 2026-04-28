@@ -36,7 +36,7 @@ article[id] {
   width: min(1300px, calc(100% - 40px));
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1.5fr 8.5fr; /* 사이드바와 메인 콘텐츠 비율 조정 (1.5:8.5) */
+  grid-template-columns: 1.2fr 8.8fr; /* 사이드바와 메인 콘텐츠 비율 조정 (1.2:8.8) */
   gap: 28px;
   align-items: start;
   padding: 20px 0 80px;
@@ -360,7 +360,7 @@ h1 {
 /* 5.2 2단 콘텐츠 레이아웃 (본문 + 사이드바) */
 .page-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 200px;
+  grid-template-columns: minmax(0, 1fr) 180px;
   gap: 24px;
   margin-top: 32px;
 }
@@ -736,7 +736,7 @@ h1 {
 }
 
 .portfolio-row img {
-  max-width: 180px;
+  max-width: 150px;
   height: auto;
 }
 
