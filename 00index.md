@@ -127,8 +127,8 @@ permalink: /
       <a href="{{ '/04utilization#connecting' | relative_url }}">이동 →</a>
     </article>
     <article class="card">
-      <h3>모니터링 및 Grafana</h3>
-      <p>시스템 테이블과 Grafana를 활용하여 모니터링 대시보드를 구축하는 방법을 소개합니다.</p>
+      <h3>모니터링</h3>
+      <p>Management Console(MC)과 Grafana를 활용한 데이터베이스 모니터링 방법을 알아봅니다.</p>
       <a href="{{ '/04utilization#monitoring' | relative_url }}">이동 →</a>
     </article>
     <article class="card">

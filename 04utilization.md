@@ -43,13 +43,13 @@ layout: default
 
   <div id="monitoring" style="scroll-margin-top: 100px;"></div>
 
-  ## 모니터링 (MC & Grafana)
+  ## 모니터링
 
   <div class="architecture-section" markdown="1">
     <p class="section-description">안정적인 데이터베이스 운영을 위해서는 시스템의 상태를 지속적으로 모니터링하는 것이 필수적입니다. Vertica는 전용 UI 관리 도구인 Management Console(MC)과 오픈소스 기반의 Grafana 연동을 모두 완벽하게 지원합니다.</p>
 
     <div class="architecture-subsection">
-      <h3 class="section-subtitle">1. Vertica Management Console (MC)</h3>
+      <h3 class="section-subtitle">1. 모니터링 콘솔 (MC)</h3>
       <p class="section-description">Management Console(MC)은 웹 브라우저 기반(WEB UI)의 강력한 통합 모니터링 및 클러스터 관리 도구입니다. 데이터베이스 상태 분석부터 실제 쿼리 수행까지 운영에 필요한 모든 기능을 직관적으로 제공합니다.</p>
       
       <div class="image-box-styled">
@@ -72,7 +72,7 @@ layout: default
     </div>
 
     <div class="architecture-subsection" style="margin-top: 4rem;">
-      <h3 class="section-subtitle">2. Grafana를 이용한 시각화 (Custom Dashboard)</h3>
+      <h3 class="section-subtitle">2. Grafana 연동</h3>
       <p class="section-description">기본 제공되는 MC 외에도, Vertica의 <code>v_monitor</code>와 <code>v_catalog</code> 스키마에서 수집한 메트릭을 Grafana 등과 연계하여 전사 통합 대시보드를 구축할 수 있습니다.</p>
       
       <div class="image-box-styled">
@@ -80,9 +80,9 @@ layout: default
       </div>
 
       <ol style="padding-left: 20px; list-style-type: decimal;">
-      <li><strong>데이터 수집 (Exporter)</strong>: Python 스크립트나 오픈소스 Exporter를 사용하여 Vertica 메트릭을 수집합니다.</li>
-      <li><strong>저장 (TSDB)</strong>: 수집된 메트릭을 Prometheus나 InfluxDB와 같은 시계열 데이터베이스에 저장합니다.</li>
-      <li><strong>시각화 (Grafana)</strong>: Grafana에서 TSDB를 데이터 소스로 연결하여 부서나 업무 목적에 맞는 맞춤형 대시보드를 구성합니다.</li>
+        <li><strong>데이터 수집 (Exporter)</strong>: Python 스크립트나 오픈소스 Exporter를 사용하여 Vertica 메트릭을 수집합니다.</li>
+        <li><strong>저장 (TSDB)</strong>: 수집된 메트릭을 Prometheus나 InfluxDB와 같은 시계열 데이터베이스에 저장합니다.</li>
+        <li><strong>시각화 (Grafana)</strong>: Grafana에서 TSDB를 데이터 소스로 연결하여 부서나 업무 목적에 맞는 맞춤형 대시보드를 구성합니다.</li>
       </ol>
     </div>
   </div>
@@ -132,7 +132,7 @@ with vertica_python.connect(**conn_info) as connection:
       <h3>On this page</h3>
       <ul>
         <li><a href="#connecting">클라이언트 접속</a></li>
-        <li><a href="#monitoring">모니터링 (MC & Grafana)</a></li>
+        <li><a href="#monitoring">모니터링</a></li>
         <li><a href="#python">Python 연동</a></li>
       </ul>
     </div>

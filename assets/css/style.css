@@ -800,7 +800,7 @@ h1 {
 }
 
 .architecture-subsection .section-subtitle {
-  color: var(--accent-dark);
+  color: var(--text); /* 중/소제목 색상을 검정으로 변경 */
   font-size: 1.4rem;
   margin-bottom: 0.8rem;
 }

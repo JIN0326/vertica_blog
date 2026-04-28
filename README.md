@@ -80,22 +80,6 @@ Vertica 분석 플랫폼에 대한 기술 정보와 사용법을 공유하기 �
 * **QnA (`92QnA.md`)**: Giscus를 이용한 기술 문의 및 답변 게시판
 * **Reference (`93Reference.md`)**: 금융, 기업/공공, 의료 분야별 실제 고객 도입 사례
 
-## 💻 로컬에서 실행하기
-
-로컬 환경에서 블로그를 실행하고 테스트하려면 아래 단계를 따르세요. (Ruby와 Bundler가 설치되어 있어야 합니다.)
-
-1.  **의존성 설치:**
-    ```bash
-    bundle install
-    ```
-
-2.  **Jekyll 서버 실행:**
-    ```bash
-    bundle exec jekyll serve
-    ```
-
-3.  웹 브라우저에서 `http://localhost:4000` 주소로 접속합니다.
-
 ## 🔗 외부 관련 링크
 
 - **Vertica Docs (공식 문서)**: https://docs.vertica.com/26.1.x/en/

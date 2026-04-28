@@ -47,7 +47,7 @@
   sublinks:
     - title: 클라이언트 접속
       url: /04utilization#connecting
-    - title: 모니터링 및 Grafana
+    - title: 모니터링
       url: /04utilization#monitoring
     - title: Python 연동
       url: /04utilization#python
