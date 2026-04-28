@@ -8,74 +8,146 @@ layout: default
   <p>Vertica 데이터베이스의 핵심 객체(Table, Schema, User 등)를 관리하고 운영하는 방법을 상세히 설명합니다. 아래 목차를 통해 원하는 섹션으로 바로 이동할 수 있습니다.</p>
 </div>
 
-<div class="page-layout">
+<div class="page-layout"> 
   <div class="content-section" markdown="1">
 
   <div id="table-projection" style="scroll-margin-top: 100px;"></div>
 
   ## Table · Projection
 
-  Vertica에서 `Table`은 사용자가 상호작용하는 논리적인 데이터 구조이며, `Projection`은 데이터가 디스크에 실제로 저장되는 물리적인 형식입니다. 모든 테이블은 최소 하나 이상의 프로젝션(Superprojection)을 가져야 합니다.
+  Vertica 아키텍처의 핵심은 **논리적 모델(Table)**과 **물리적 저장(Projection)**의 완벽한 분리에 있습니다. 데이터베이스에 질의를 던질 때, Vertica의 옵티마이저는 논리적 Table에 연결된 여러 물리적 Projection 중 가장 응답 속도가 빠른 것을 스스로 선택하여 쿼리를 수행합니다.
 
-  ### Table 생성 및 관리
+  <div class="feature-box" style="margin-top: 2rem;">
+    <h3 class="eon-section-title" style="margin-top: 0; margin-bottom: 1rem;">Table (논리적 모델)</h3>
+    <p style="color: var(--sub); margin-bottom: 1.5rem;">대부분의 상용 DB 데이터 타입과 호환되는 데이터 논리 모델링의 오브젝트입니다. 테이블 정의에는 특별한 옵션이 필요하지 않으며, 대부분의 부가적인 옵션은 파티션 구문 정도입니다.</p>
+    
+    <dl class="feature-dl">
+      <dt class="feature-dt"><span class="feature-dt__icon">◆</span> 지원 데이터 타입</dt>
+      <dd class="feature-dd">
+        <strong>Character Type:</strong> CHAR(1-65,000), VARCHAR(1-65,000), LONG VARCHAR(1-32,000,000)<br>
+        <strong>Date/Time Type:</strong> DATE, DATETIME=TIMESTAMP, INTERVAL<br>
+        <strong>Approximate Numeric:</strong> Signed 64-bit IEEE, DOUBLE PRECISION, FLOAT/FLOAT8/REAL<br>
+        <strong>Exact Numeric:</strong> INT/INTEGER/BIGINT/INT8/SMALLINT/TINYINT, DECIMAL/NUMERIC/NUMBER
+      </dd>
+    </dl>
+  </div>
 
-  - **테이블 생성**: `CREATE TABLE`로 테이블을 생성하면, Vertica는 자동으로 모든 컬럼을 포함하는 기본 프로젝션(Superprojection)을 생성합니다.
-  - **파티셔닝**: 대용량 테이블의 경우 `PARTITION BY`를 사용하여 데이터를 논리적 단위로 분할하면, 데이터 로딩 및 삭제, 쿼리 성능을 크게 향상시킬 수 있습니다.
-  - **데이터 관리**: `COPY` 명령으로 데이터를 대량으로 적재하고, `INSERT`, `UPDATE`, `DELETE`, `MERGE`를 통해 데이터를 조작합니다. `EXPORT_TO_VERTICA` 또는 `EXPORT_TO_PARQUET` 등을 사용해 데이터를 외부로 내보낼 수 있습니다.
+  <div class="feature-box">
+    <h3 class="eon-section-title" style="margin-top: 0; margin-bottom: 1rem;">Projection (물리적 저장)</h3>
+    <p style="color: var(--sub); margin-bottom: 1.5rem;">실제 테이블 데이터가 분산 및 압축되어 디스크에 저장되는 오브젝트입니다. 테이블에 데이터가 처음 저장될 때, 명시적으로 생성할 때(CREATE PROJECTION), 혹은 Database Designer(DBD)에 의해 생성됩니다.</p>
+    
+    <dl class="feature-dl">
+      <dt class="feature-dt"><span class="feature-dt__icon">1</span> 컬럼 인코딩 및 압축 (Encoding)</dt>
+      <dd class="feature-dd">매뉴얼하게 정의할 수도 있지만 보통 DBD의 가이드로 재정의합니다. DBD가 최적의 인코딩을 추천하기 위해서는 실제 데이터의 분포도를 알 수 있도록 데이터가 적절히 저장되어 있어야 합니다.</dd>
+      
+      <dt class="feature-dt"><span class="feature-dt__icon">2</span> 컬럼 정렬 저장 순서 (Order by)</dt>
+      <dd class="feature-dd">데이터가 물리적으로 정렬되어 저장되므로, 쿼리의 조회 및 조인(Join) 속도를 획기적으로 높일 때 사용합니다.</dd>
+      
+      <dt class="feature-dt"><span class="feature-dt__icon">3</span> 데이터 분산 정책 (Segmentation)</dt>
+      <dd class="feature-dd">멀티 노드에 데이터를 분산시키기 위한 기준 컬럼을 지정하거나, 데이터를 모든 노드 또는 일부 노드에 복제할지 결정합니다.</dd>
+    </dl>
+  </div>
 
-  **테이블 생성 예시:**
-  ```sql
-  CREATE TABLE sales (
-    sale_id INT,
-    product_id INT,
-    sale_date DATE,
-    amount DECIMAL(18,2)
-  ) SEGMENTED BY HASH(sale_id) ALL NODES KSAFE; -- KSAFE 1로 설정하여 노드 1개 장애 허용
-  ```
+  <h3 class="integration-subsection__title" style="margin: 3rem 0 1.5rem;">Projection의 4가지 종류</h3>
+  <div class="use-case-grid">
+    <div class="card card--use-case">
+      <h4 class="use-case-card__title">1. Super 프로젝션</h4>
+      <ul class="use-case-card__list">
+        <li>테이블의 모든 컬럼을 포함하는 기본 프로젝션</li>
+        <li>다른 속성의 Super 프로젝션을 만들어 데이터를 동기화시킨 후에만 기존 Super 프로젝션 삭제 가능</li>
+      </ul>
+    </div>
+    <div class="card card--use-case">
+      <h4 class="use-case-card__title">2. Aggregate 프로젝션</h4>
+      <ul class="use-case-card__list">
+        <li>SUM, COUNT와 같은 표현식 또는 집계함수를 포함</li>
+        <li>이미 집계된 데이터가 물리적으로 포함되어 있어 매우 빠른 조회 속도 보장</li>
+      </ul>
+    </div>
+    <div class="card card--use-case">
+      <h4 class="use-case-card__title">3. Query-specific 프로젝션</h4>
+      <ul class="use-case-card__list">
+        <li>특정 쿼리 튜닝을 위해 명시적으로 추가된 맞춤형 프로젝션</li>
+        <li>전체 컬럼이 아닌 분석에 필요한 일부 컬럼만으로도 생성 가능</li>
+      </ul>
+    </div>
+    <div class="card card--use-case">
+      <h4 class="use-case-card__title">4. Buddy 프로젝션</h4>
+      <ul class="use-case-card__list">
+        <li>K-Safe 정책에 따라 데이터를 이중화 또는 삼중화할 때 다른 노드에 복제되는 백업용 프로젝션</li>
+      </ul>
+    </div>
+  </div>
 
-  **파티션 테이블 생성 예시:**
-  ```sql
-  CREATE TABLE sales_partitioned (
-    sale_id INT,
-    product_id INT,
-    sale_date DATE,
-    amount DECIMAL(18,2)
-  )
-  PARTITION BY sale_date::DATE GROUP BY CALENDAR_HIERARCHY_DAY(sale_date::DATE, 2, 2);
-  ```
+  <hr style="margin: 4rem 0;">
 
-  ### Projection의 역할
+  <div class="architecture-section" markdown="1">
+    <h3 class="integration-subsection__title" style="margin-bottom: 2rem;">데이터 분산 저장 방법</h3>
+    
+    <div class="architecture-subsection">
+      <h4 class="section-subtitle">1. Segmentation (해시 분산)</h4>
+      <div class="columnar-layout">
+        <div>
+          <ul class="feature-list">
+            <li><span class="feature-list__icon">🔹</span> <span>Segment key 컬럼 데이터의 해시값에 의해 모든 노드에 분산 저장</span></li>
+            <li><span class="feature-list__icon">🔹</span> <span>특정 노드로 데이터가 몰리는 Skew 현상 주의</span></li>
+            <li><span class="feature-list__icon">🔹</span> <span>Skew 현상을 최소화하기 위한 Modular hash 기법 제공</span></li>
+            <li><span class="feature-list__icon">🔹</span> <span>동일한 Segment key를 가진 테이블 간의 조인(Join) 성능이 매우 우수</span></li>
+          </ul>
+        </div>
+        <div class="columnar-image" style="background: #ffffff; padding: 20px; border-radius: 12px; border: 1px solid var(--border-color); text-align: center;">
+          <img src="{{ '/assets/images/proj_segmentation.png' | relative_url }}" alt="Segmentation">
+        </div>
+      </div>
+    </div>
 
-  - Projection은 `Query Optimizer`가 사용할 물리적 뷰입니다.
-  - 기본적으로 Vertica는 자동 Projection을 생성하지만, 중요한 쿼리에는 `CREATE PROJECTION`으로 최적화된 projection을 구성할 수 있습니다.
-  - Projection은 `자주 사용하는 컬럼`, `정렬 키`, `조인 컬럼` 중심으로 설계합니다.
+    <div class="architecture-subsection">
+      <h4 class="section-subtitle">2. Replication (복제)</h4>
+      <div class="columnar-layout">
+        <div>
+          <ul class="feature-list">
+            <li><span class="feature-list__icon">🔹</span> <span>Dimension 테이블처럼 크기가 작은 프로젝션은 모든 노드에 복제시켜 Fact 테이블과의 조인 성능을 높임</span></li>
+            <li><span class="feature-list__icon">🔹</span> <span>데이터가 항상 복제되어 있으므로 노드 장애 시에도 고가용성 제공</span></li>
+            <li><span class="feature-list__icon">🔹</span> <span>UNSEGMENTED 구문이 없을 경우 기본적으로 segmentation으로 생성됨</span></li>
+          </ul>
+        </div>
+        <div class="columnar-image" style="background: #ffffff; padding: 20px; border-radius: 12px; border: 1px solid var(--border-color); text-align: center;">
+          <img src="{{ '/assets/images/proj_replication.png' | relative_url }}" alt="Replication">
+        </div>
+      </div>
+    </div>
 
-  ### Projection 최적화 포인트
+    <div class="architecture-subsection">
+      <h4 class="section-subtitle">3. 고가용성을 위한 데이터 이중화 (Buddy)</h4>
+      <div class="columnar-layout">
+        <div>
+          <ul class="feature-list">
+            <li><span class="feature-list__icon">🔹</span> <span>Segment 프로젝션은 각 노드에 전체 데이터의 일부만 저장되므로, 고가용성을 위해 다른 노드로 데이터를 복제</span></li>
+            <li><span class="feature-list__icon">🔹</span> <span>항상 Buddy 프로젝션으로 데이터가 동기화됨</span></li>
+            <li><span class="feature-list__icon">🔹</span> <span>노드 장애 시 복제된 버디 프로젝션에서 데이터 변경이 발생하면, 장애 노드 복구 후 자동으로 동기화됨</span></li>
+          </ul>
+        </div>
+        <div class="columnar-image" style="background: #ffffff; padding: 20px; border-radius: 12px; border: 1px solid var(--border-color); text-align: center;">
+          <img src="{{ '/assets/images/proj_buddy.png' | relative_url }}" alt="Buddy Projection">
+        </div>
+      </div>
+    </div>
 
-  - `ORDER BY`는 쿼리 수행 속도에 큰 영향을 줍니다.
-  - `PARTITION BY`는 큰 테이블 처리 성능을 개선합니다.
-  - 중복 제거 및 집계 쿼리를 위한 `segment by`, `local order by`를 적절히 사용합니다.
-
-  예시:
-
-  ```sql
-  CREATE PROJECTION sales_projection (
-    sale_id,
-    product_id,
-    sale_date,
-    amount
-  )
-  AS
-  SELECT sale_id, product_id, sale_date, amount
-  FROM sales
-  ORDER BY sale_date, product_id;
-  ```
-
-  ### 운영 팁
-
-  - `SELECT * FROM projections WHERE anchor_table_name = 'sales';`로 테이블에 연결된 projection을 조회합니다.
-  - `SELECT REFRESH_PROJECTIONS()`로 projection 상태를 재생성/재정비할 수 있습니다.
-  - `ANALYZE_STATISTICS`로 통계 정보를 갱신하면 최적화에 도움이 됩니다.
+    <div class="architecture-subsection">
+      <h4 class="section-subtitle">4. 특정 노드에 프로젝션 생성</h4>
+      <div class="columnar-layout">
+        <div>
+          <ul class="feature-list">
+            <li><span class="feature-list__icon">🔹</span> <span>노드 간 네트워크 부하 및 복제 부하를 최소화하여 입출력 처리가 필요한 경우, 특정 노드에만 데이터를 저장</span></li>
+            <li><span class="feature-list__icon">🔹</span> <span>노드명은 nodes 시스템 테이블에 저장된 이름을 사용</span></li>
+          </ul>
+        </div>
+        <div class="columnar-image" style="background: #ffffff; padding: 20px; border-radius: 12px; border: 1px solid var(--border-color); text-align: center;">
+          <img src="{{ '/assets/images/proj_specific_node.png' | relative_url }}" alt="Specific Node">
+        </div>
+      </div>
+    </div>
+  </div>
 
   <hr style="margin: 3rem 0;">
   <div id="schema" style="scroll-margin-top: 100px;"></div>
@@ -239,9 +311,9 @@ layout: default
   - 권한 변경 작업은 문서화하고, 주기적으로 권한 검토를 수행합니다.
 
   <hr style="margin: 3rem 0;">
-  <div id="backuprestore" style="scroll-margin-top: 100px;"></div>
+  <div id="backup-restore" style="scroll-margin-top: 100px;"></div>
 
-  ## backuprestore
+  ## Backup & Restore
   `vbr`은 Vertica 데이터베이스의 백업 및 복구를 위한 강력한 커맨드 라인 유틸리티입니다. `vbr`을 사용하면 전체 데이터베이스, 특정 스키마나 테이블 등 다양한 단위로 데이터를 안정적으로 백업하고 복구할 수 있습니다.
 
   ### 주요 기능
@@ -270,7 +342,7 @@ layout: default
         <li><a href="#profile">Profile</a></li>
         <li><a href="#resource-pool">Resource Pool</a></li>
         <li><a href="#privilege">Privilege</a></li>
-        <li><a href="#backuprestore">backuprestore</a></li>
+        <li><a href="#backup-restore">Backup & Restore</a></li>
       </ul>
     </div>
   </aside>
