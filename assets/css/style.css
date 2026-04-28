@@ -673,7 +673,7 @@ h1 {
 }
 
 .tech-feature-card {
-  background: #fdfdff; /* Light background, similar to slide-panel */
+  background: var(--surface); /* 흰색 배경으로 변경 */
   border: 1px solid var(--border-color);
   border-radius: 16px;
   padding: 16px;
@@ -687,9 +687,6 @@ h1 {
   max-width: 90px;
   height: auto;
   margin-bottom: 1rem;
-  background: #f0f5ff; /* Light background for icons */
-  border-radius: 8px;
-  padding: 8px;
 }
 
 .tech-feature-card h3 {

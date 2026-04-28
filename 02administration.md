@@ -145,7 +145,8 @@ SEGMENTED BY HASH(sale_id) ALL NODES; -- 분산 정책 정의</code></pre>
   <div class="architecture-subsection">
       <h4 class="section-subtitle">4. 특정 노드에 프로젝션 생성</h4>
       <ul class="feature-list">
-        <li><span class="feature-list__icon">🔹</span> <span>네트워크 부하 최소화를 위해 입출력이 필요한 특정 노드에만 저장 
+        <li><span class="feature-list__icon">🔹</span> <span>네트워크 부하 최소화를 위해 입출력이 필요한 특정 노드에만 저장</span></li>
+      </ul>
       <div class="image-box-styled">
         <img src="{{ '/assets/images/proj_specific_node.png' | relative_url }}" alt="특정 노드에 프로젝션 생성 다이어그램">
       </div>
