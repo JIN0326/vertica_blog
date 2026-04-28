@@ -80,19 +80,39 @@ permalink: /
       <a href="{{ '/02administration#table-projection' | relative_url }}">이동 →</a>
     </article>
     <article class="card">
-      <h3>Schema & User</h3>
-      <p>객체를 그룹화하는 Schema와 데이터베이스 접근 주체인 User를 관리합니다.</p>
+      <h3>Schema</h3>
+      <p>객체를 그룹화하는 Schema를 관리합니다.</p>
       <a href="{{ '/02administration#schema' | relative_url }}">이동 →</a>
     </article>
     <article class="card">
-      <h3>Profile & Resource Pool</h3>
-      <p>사용자 세션 환경과 쿼리 자원 할당을 제어하는 방법을 알아봅니다.</p>
+      <h3>User</h3>
+      <p>데이터베이스 접근 주체인 User를 관리합니다.</p>
+      <a href="{{ '/02administration#user' | relative_url }}">이동 →</a>
+    </article>
+    <article class="card">
+      <h3>Profile</h3>
+      <p>사용자 세션 환경을 제어하는 방법을 알아봅니다.</p>
       <a href="{{ '/02administration#profile' | relative_url }}">이동 →</a>
     </article>
     <article class="card">
-      <h3>Privilege & Backup</h3>
-      <p>객체 접근 권한을 관리하고, vbr을 이용한 데이터 백업/복구 방법을 다룹니다.</p>
+      <h3>Resource Pool</h3>
+      <p>쿼리 자원 할당을 제어하는 방법을 알아봅니다.</p>
+      <a href="{{ '/02administration#resource-pool' | relative_url }}">이동 →</a>
+    </article>
+    <article class="card">
+      <h3>Privilege</h3>
+      <p>객체 접근 권한을 관리합니다.</p>
       <a href="{{ '/02administration#privilege' | relative_url }}">이동 →</a>
+    </article>
+    <article class="card">
+      <h3>Backup & Restore</h3>
+      <p>vbr을 이용한 데이터 백업/복구 방법을 다룹니다.</p>
+      <a href="{{ '/02administration#backup-restore' | relative_url }}">이동 →</a>
+    </article>
+    <article class="card">
+      <h3>Cluster Operation</h3>
+      <p>xxx</p>
+      <a href="{{ '/02administration#privilcluster-operation' | relative_url }}">이동 →</a>
     </article>
   </div>
 </section>

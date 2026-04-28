@@ -31,6 +31,8 @@
       url: /02administration#privilege
     - title: Backup & Restore
       url: /02administration#backup-restore
+    - title: Cluster Operation
+      url: /02administration#cluster-operation
 
 - title: Vertica CoreTech
   url: /03coretech

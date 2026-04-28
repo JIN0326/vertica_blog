@@ -403,6 +403,70 @@ GRANT ALL PRIVILEGES EXTEND ON SCHEMA analytics TO analyst;</code></pre>
   </div>
 </div>
 
+<hr style="margin: 3rem 0;">
+<div id="cluster-operation" style="scroll-margin-top: 100px;"></div>
+
+## Cluster Operation & Diagnostics
+
+<div class="architecture-section" markdown="1">
+  <p class="section-description">Vertica 클러스터의 안정적인 운영을 위해 데이터베이스를 기동/중지하고, 노드 장애 시 조치하며, 원인 분석을 위한 진단 파일을 생성하는 핵심 운영 가이드입니다.</p>
+
+  <div class="architecture-subsection">
+    <h3 class="section-subtitle">1. DB 기동 및 중지 (Start / Stop)</h3>
+    <p class="section-description">Vertica 관리자 도구인 <code>admintools</code>를 사용하여 데이터베이스를 안전하게 기동하거나 중지할 수 있습니다.</p>
+    
+    <div class="syntax-box">
+      <strong>Vertica 상태 확인:</strong>
+      <pre><code>admintools -t view_cluster</code></pre>
+      <strong>Vertica DB 기동:</strong>
+      <pre><code>admintools -t start_db -d DBNM -p 'vertica계정password' -i</code></pre>
+      <strong>기동 로그 모니터링:</strong>
+      <pre><code>tail -f /catalog/DBNM/v_dbnm_node00XX_catalog/startup.log</code></pre>
+    </div>
+  </div>
+
+  <div class="architecture-subsection">
+    <h3 class="section-subtitle">2. 클라이언트 접속 세션 관리</h3>
+    <p class="section-description">DB 기동 후 또는 점검 시 클라이언트의 최대 접속 세션 수를 제어하여 시스템 안정성을 확보할 수 있습니다.</p>
+    <div class="syntax-box">
+      <strong>사용자 접속 가능 session 수 원복 (예: 1000개):</strong>
+      <pre><code>vsql -p 5453 -U vertica -w 'vertica계정password' -c "SELECT set_config_parameter('MaxClientSessions', 1000);"</code></pre>
+    </div>
+  </div>
+
+  <div class="architecture-subsection">
+    <h3 class="section-subtitle">3. 장애 발생 시 클러스터/노드 재기동</h3>
+    <p class="section-description">특정 노드가 다운되거나 클러스터 통신에 문제가 발생했을 때, 다음과 같은 절차로 상태를 점검하고 재기동을 시도합니다.</p>
+    <ul class="feature-list">
+      <li><span class="feature-list__icon">🔹</span> <strong>SSH 통신 확인:</strong> <span>각 노드에서 다른 노드로의 SSH 통신이 정상인지 확인합니다 (<code>ssh [IP1~IP3]</code>).</span></li>
+      <li><span class="feature-list__icon">🔹</span> <strong>프로세스 점검:</strong> <span>노드별로 Vertica 및 Spread 관련 프로세스가 살아있는지 확인합니다 (<code>ps -ef | grep vertica</code>, <code>ps -ef | grep spread</code>).</span></li>
+      <li><span class="feature-list__icon">🔹</span> <strong>로그 확인:</strong> <span>다운된 노드에 접속하여 <code>startup.log</code>를 모니터링하며 재기동(Start DB)을 시도합니다.</span></li>
+    </ul>
+  </div>
+
+  <div class="architecture-subsection">
+    <h3 class="section-subtitle">4. 장애 분석 파일 생성 (Scrutinize)</h3>
+    <p class="section-description">시스템 장애나 성능 이슈의 근본 원인을 분석하기 위해 Vertica 기술 지원팀에 전달할 <strong>진단 데이터(Scrutinize)</strong>를 수집합니다.</p>
+    <div class="syntax-box">
+      <strong>Scrutinize 수집 실행:</strong>
+      <pre><code>admintools -t scrutinize -d DBNM</code></pre>
+      <p style="margin-top: 10px; font-size: 0.9em; color: var(--muted);">※ 실행 시 시스템 상태, 로그, 카탈로그 메타데이터가 압축 파일 형태로 자동 생성됩니다.</p>
+    </div>
+  </div>
+
+  <div class="architecture-subsection">
+    <h3 class="section-subtitle">5. Management Console (MC) 기동/중지</h3>
+    <p class="section-description">클러스터 기동 전에는 MC를 중지하고, 클러스터 기동이 완료된 후에 MC를 기동하는 것을 권장합니다. OS의 <code>systemctl</code> 명령어를 사용하여 제어합니다.</p>
+    <div class="syntax-box">
+      <strong>MC 상태 확인 / 기동 / 중지:</strong>
+      <pre><code>sudo systemctl status vertica-consoled
+sudo systemctl start vertica-consoled
+sudo systemctl stop vertica-consoled</code></pre>
+    </div>
+  </div>
+
+</div>
+
 </div>
 <aside class="page-sidebar">
   <div class="sidebar-panel">
@@ -415,6 +479,7 @@ GRANT ALL PRIVILEGES EXTEND ON SCHEMA analytics TO analyst;</code></pre>
       <li><a href="#resource-pool">Resource Pool</a></li>
       <li><a href="#privilege">Privilege</a></li>
       <li><a href="#backup-restore">Backup & Restore</a></li>
+      <li><a href="#cluster-operation">Cluster Operation</a></li>
     </ul>
   </div>
 </aside>
