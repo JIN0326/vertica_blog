@@ -38,9 +38,11 @@ layout: default
     sale_date DATE,
     amount DECIMAL(18,2)
 )
--- 세그먼트 키 및 K-Safe 설정
+-- 정렬키 설정
+ORDER BY (sale_id, product_id, sale_date)
+-- 분산키 설정
 SEGMENTED BY HASH(sale_id) ALL NODES KSAFE 1
--- 계층화된 파티션 설정
+-- 파티션 설정
 PARTITION BY sale_date::DATE 
 GROUP BY CALENDAR_HIERARCHY_DAY(sale_date::DATE, 2, 2);</code></pre>
     </div>
@@ -66,8 +68,8 @@ GROUP BY CALENDAR_HIERARCHY_DAY(sale_date::DATE, 2, 2);</code></pre>
     amount
 )
 AS SELECT sale_id, product_id, sale_date, amount FROM sales
-ORDER BY sale_date, product_id -- 물리적 정렬 순서 정의
-SEGMENTED BY HASH(sale_id) ALL NODES; -- 분산 정책 정의</code></pre>
+ORDER BY sale_date, product_id -- 정렬키 정의
+SEGMENTED BY HASH(sale_id) ALL NODES; -- 분산키 정의</code></pre>
     </div>
   </div>
 
