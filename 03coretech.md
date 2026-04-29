@@ -219,7 +219,7 @@ Access Path:
 </div>
 
   <aside class="page-sidebar">
-  <div class="sidebar-panel">
+  <div class="sidebar-panel" style="padding-right: 1rem;">
     <h3>On this page</h3>
     <ul>
       <li><a href="#vsql">vsql</a></li>
@@ -230,5 +230,3 @@ Access Path:
   </div>
   </aside>
 </div>
-
-

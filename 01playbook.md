@@ -440,7 +440,7 @@ Vertica는 온프레미스부터 퍼블릭/프라이빗 클라우드까지 고�
 </div>
 
   <aside class="page-sidebar">
-  <div class="sidebar-panel">
+  <div class="sidebar-panel" style="padding-right: 1rem;">
     <h3>On this page</h3>
     <ul>
       <li><a href="#what-is-vertica">Vertica란 무엇인가</a></li>
@@ -453,5 +453,3 @@ Vertica는 온프레미스부터 퍼블릭/프라이빗 클라우드까지 고�
   </div>
   </aside>
 </div>
-
-

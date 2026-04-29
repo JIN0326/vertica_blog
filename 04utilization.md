@@ -128,7 +128,7 @@ with vertica_python.connect(**conn_info) as connection:
   </div>
 
   <aside class="page-sidebar">
-    <div class="sidebar-panel">
+    <div class="sidebar-panel" style="padding-right: 1rem;">
       <h3>On this page</h3>
       <ul>
         <li><a href="#connecting">클라이언트 접속</a></li>
@@ -138,5 +138,3 @@ with vertica_python.connect(**conn_info) as connection:
     </div>
   </aside>
 </div>
-
-

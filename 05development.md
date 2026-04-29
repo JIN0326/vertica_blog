@@ -94,7 +94,7 @@ FROM salary;</code></pre>
   </div>
 
   <aside class="page-sidebar">
-    <div class="sidebar-panel">
+    <div class="sidebar-panel" style="padding-right: 1rem;">
     <h3>On this page</h3>
     <ul>
       <li><a href="#architecture-sql">SQL 아키텍처</a></li>
@@ -104,5 +104,3 @@ FROM salary;</code></pre>
     </div>
   </aside>
 </div>
-
-

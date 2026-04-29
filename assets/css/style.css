@@ -802,8 +802,8 @@ h1 {
 }
 
 .comparison-grid .card img {
-  max-width: 200px;
-  margin: 0 auto 1.5rem;
+  max-width: 150px; /* 이미지 최대 너비 감소 */
+  margin: 0 auto 1rem; /* 이미지 하단 여백 감소 */
 }
 
 .comparison-grid .card--other {
