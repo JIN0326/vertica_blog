@@ -1,4 +1,4 @@
----
+﻿---
 title: Vertica Administration
 layout: default
 ---

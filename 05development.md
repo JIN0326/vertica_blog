@@ -1,4 +1,4 @@
----
+﻿---
 title: Vertica SQL Development
 layout: default
 ---

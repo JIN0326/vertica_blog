@@ -1,4 +1,4 @@
----
+﻿---
 title: Vertica Core Tech
 layout: default
 ---
