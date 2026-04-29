@@ -424,6 +424,8 @@ GRANT ALL PRIVILEGES EXTEND ON SCHEMA analytics TO analyst;</code></pre>
       <pre><code>admintools -t start_db -d DBNM -p 'vertica계정password' -i</code></pre>
       <strong>기동 로그 모니터링:</strong>
       <pre><code>tail -f /catalog/DBNM/v_dbnm_node00XX_catalog/startup.log</code></pre>
+      <strong>Vertica DB 중지:</strong>
+      <pre><code>admintools -t stop_db -d DBNM -p 'vertica계정password' </code></pre>
     </div>
   </div>
 
