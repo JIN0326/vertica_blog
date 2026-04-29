@@ -76,7 +76,7 @@ layout: default
       <p class="section-description">기본 제공되는 MC 외에도, Vertica의 <code>v_monitor</code>와 <code>v_catalog</code> 스키마에서 수집한 메트릭을 Grafana 등과 연계하여 전사 통합 대시보드를 구축할 수 있습니다.</p>
       
   <div class="image-box-styled">
-        <img src="{{ '/assets/images/monitoring_2.jpg' | relative_url }}" alt="Grafana 모니터링 대시보드 화면">
+        <img src="{{ '/assets/images/monitoring_1.jpg' | relative_url }}" alt="Grafana 모니터링 대시보드 화면">
       </div>
 
   <ol style="padding-left: 20px; list-style-type: decimal;">

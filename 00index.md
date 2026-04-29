@@ -111,8 +111,8 @@ permalink: /
     </article>
     <article class="card">
       <h3>Cluster Operation</h3>
-      <p>xxx</p>
-      <a href="{{ '/02administration#privilcluster-operation' | relative_url }}">이동 →</a>
+      <p>DB 기동/중지, 장애 조치 등 클러스터 운영의 핵심 가이드를 제공합니다.</p>
+      <a href="{{ '/02administration#cluster-operation' | relative_url }}">이동 →</a>
     </article>
   </div>
 </section>
@@ -133,7 +133,7 @@ permalink: /
     <article class="card">
       <h3>쿼리 튜닝 (Explain)</h3>
       <p>EXPLAIN으로 실행 계획을 분석하고 쿼리 성능을 최적화하는 방법을 다룹니다.</p>
-      <a href="{{ '/03coretech#tuning' | relative_url }}">이동 →</a>
+      <a href="{{ '/03coretech#explain' | relative_url }}">이동 →</a>
     </article>
   </div>
 </section>
