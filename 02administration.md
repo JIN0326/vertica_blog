@@ -411,8 +411,8 @@ GRANT ALL PRIVILEGES EXTEND ON SCHEMA analytics TO analyst;</code></pre>
 
 ## Cluster Operation & Diagnostics
 
-<div class="architecture-section">
-  <p class="section-description">Vertica 클러스터의 안정적인 운영을 위해 데이터베이스를 기동/중지하고, 특히 노드 장애 시 운영 가이드에 따른 표준 조치 절차를 수행합니다.</p>
+<div class="architecture-section" markdown="1">
+  <p class="section-description">Vertica 클러스터의 안정적인 운영을 위해 데이터베이스를 기동/중지하고, 노드 장애 시 운영 가이드에 따른 표준 조치 절차를 수행합니다.</p>
 
   <div class="architecture-subsection">
     <h3 class="section-subtitle">1. DB 기동 및 중지 (Start / Stop)</h3>
@@ -438,70 +438,67 @@ GRANT ALL PRIVILEGES EXTEND ON SCHEMA analytics TO analyst;</code></pre>
   </div>
 
   <div class="architecture-subsection">
-    <h3 class="section-subtitle">3. 장애 발생 시 클러스터/노드 재기동 (7.1 Node Down 조치)</h3>
-    <p class="section-description">특정 노드가 DOWN 상태일 때, 운영 가이드(7.1)에 명시된 절차에 따라 장애를 진단하고 복구합니다.</p>
+    <h3 class="section-subtitle">3. 장애 발생 시 클러스터/노드 재기동</h3>
+    
+    <h4 class="section-subtitle">가. 장애 진단 프로세스</h4>
+    <p class="section-description">장애 발생 시점부터 복구 완료까지의 주요 단계를 시각적으로 확인합니다.</p>
 
-    <div class="image-box-styled">
-      <img src="{{ '/assets/images/cluster_operation_1.png' | relative_url }}" alt="장애 조치 표준 프로세스 매핑">
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0;">
+      <div class="image-box-styled" style="text-align: center;">
+        <img src="{{ '/assets/images/cluster_operation_1.png' | relative_url }}" alt="정상단계" style="width: 100%; border-radius: 8px;">
+        <p style="margin-top: 10px; font-weight: 600;">[1단계] 정상 단계</p>
+        <p style="font-size: 0.85rem; color: var(--muted);">모든 노드가 UP 상태로 서비스 중</p>
+      </div>
+      <div class="image-box-styled" style="text-align: center;">
+        <img src="{{ '/assets/images/cluster_operation_2.png' | relative_url }}" alt="장애발생" style="width: 100%; border-radius: 8px;">
+        <p style="margin-top: 10px; font-weight: 600; color: #d93025;">[2단계] 장애 발생</p>
+        <p style="font-size: 0.85rem; color: var(--muted);">특정 노드가 DOWN되어 가용성 저하</p>
+      </div>
+      <div class="image-box-styled" style="text-align: center;">
+        <img src="{{ '/assets/images/cluster_operation_3.png' | relative_url }}" alt="장애노드 재시작" style="width: 100%; border-radius: 8px;">
+        <p style="margin-top: 10px; font-weight: 600;">[3단계] 장애 노드 재시작</p>
+        <p style="font-size: 0.85rem; color: var(--muted);">Admintools를 통한 노드 복구 시도</p>
+      </div>
+      <div class="image-box-styled" style="text-align: center;">
+        <img src="{{ '/assets/images/cluster_operation_4.png' | relative_url }}" alt="정상 서비스단계" style="width: 100%; border-radius: 8px;">
+        <p style="margin-top: 10px; font-weight: 600; color: #1e8e3e;">[4단계] 정상 서비스 단계</p>
+        <p style="font-size: 0.85rem; color: var(--muted);">데이터 동기화 완료 및 서비스 정상화</p>
+      </div>
     </div>
 
-    <div class="step-section">
-      <h4 class="step-title">Step 1. 통신 상태 확인 (Check Connectivity)</h4>
-      <p class="section-description">노드 재기동 시도 전, 대상 노드와의 네트워크 및 SSH 통신이 가능한지 확인합니다.</p>
-      <div class="image-box-styled">
-        <img src="{{ '/assets/images/cluster_operation_2.png' | relative_url }}" alt="SSH 통신 확인">
-      </div>
-      <div class="syntax-box">
-        <pre><code>-- 각 노드 간 패스워드 없는 SSH 접속 확인
-ssh [Target_Node_IP]</code></pre>
-      </div>
-    </div>
-
-    <div class="step-section">
-      <h4 class="step-title">Step 2. 잔류 프로세스 점검 및 제거 (Process Clean-up)</h4>
-      <p class="section-description">노드가 비정상 종료된 경우, <code>vertica</code> 또는 <code>spread</code> 프로세스가 남아서 재기동을 방해할 수 있습니다. 반드시 확인 후 제거해야 합니다.</p>
-      
-      <div class="image-box-styled">
-        <img src="{{ '/assets/images/image_cee622.png' | relative_url }}" alt="운영가이드 7.1 노드 다운 조치 절차">
-      </div>
-
-      <div class="syntax-box">
-        <strong>프로세스 생존 확인:</strong>
-        <pre><code>ps -ef | grep vertica
+    <h4 class="section-subtitle">나. 장애 조치 Check List</h4>
+    <p class="section-description">재기동 전, 운영 가이드(7.1)에 따라 아래 항목을 반드시 점검하여 잔류 프로세스를 정리합니다.</p>
+    <ul class="feature-list">
+      <li>
+        <span class="feature-list__icon">🔹</span> <strong>SSH 접속 확인:</strong> <span>각 노드 간 패스워드 없는 SSH 통신이 가능한지 점검 (<code>ssh [Target_Node_IP]</code>)</span>
+      </li>
+      <li>
+        <span class="feature-list__icon">🔹</span> <strong>프로세스 생존 확인:</strong> <span>비정상 종료 시 남은 <code>vertica</code>, <code>spread</code> 프로세스를 확인하고 <code>kill -9</code>로 종료</span>
+        <div class="syntax-box" style="margin-top: 10px;">
+          <pre><code>ps -ef | grep vertica
 ps -ef | grep spread</code></pre>
-        <strong>강제 종료:</strong>
-        <pre><code>kill -9 [PID]</code></pre>
-      </div>
+        </div>
+      </li>
+    </ul>
+
+    <h4 class="section-subtitle">다. 노드 재기동 실행</h4>
+    <div class="syntax-box">
+      <strong>재기동 Command:</strong>
+      <pre><code>admintools -t restart_node -d DBNM -p 'password' --hosts [Down_Node_IP]</code></pre>
     </div>
 
-    <div class="step-section">
-      <h4 class="step-title">Step 3. 노드 재기동 (Restart Node)</h4>
-      <p class="section-description">프로세스가 정리된 상태에서 <code>admintools</code>를 사용하여 노드를 다시 클러스터에 참여시킵니다.</p>
-      <div class="image-box-styled">
-        <img src="{{ '/assets/images/cluster_operation_3.png' | relative_url }}" alt="노드 재기동 실행">
-      </div>
-      <div class="syntax-box">
-        <pre><code>admintools -t restart_node -d DBNM -p 'password' --hosts [Down_Node_IP]</code></pre>
-      </div>
-    </div>
-
-    <div class="step-section">
-      <h4 class="step-title">Step 4. 기동 로그 모니터링 (Startup Log)</h4>
-      <p class="section-description">데이터 동기화 및 기동 완료 여부를 로그를 통해 최종 확인합니다.</p>
-      <div class="image-box-styled">
-        <img src="{{ '/assets/images/cluster_operation_4.png' | relative_url }}" alt="Startup Log 실시간 모니터링">
-      </div>
-      <div class="syntax-box">
-        <pre><code>tail -f /catalog/DBNM/v_dbnm_node00XX_catalog/startup.log</code></pre>
-      </div>
+    <h4 class="section-subtitle">라. 기동 모니터링</h4>
+    <div class="syntax-box">
+      <strong>로그 확인:</strong>
+      <pre><code>tail -f /catalog/DBNM/v_dbnm_node00XX_catalog/startup.log</code></pre>
     </div>
   </div>
 
-  <div class="architecture-subsection">
+  <div class="architecture-subsection" style="margin-top: 3rem;">
     <h3 class="section-subtitle">4. 장애 분석 파일 생성 (Scrutinize)</h3>
-    <p class="section-description">복구 후에도 문제가 지속되거나 원인 분석이 필요할 때 기술 지원팀에 전달할 파일을 생성합니다.</p>
-    <div class="image-box-styled">
-      <img src="{{ '/assets/images/image_cf4a64.jpg' | relative_url }}" alt="Scrutinize 실행 메뉴">
+    <p class="section-description">원인 분석을 위해 기술 지원팀에 전달할 정밀 진단 파일을 생성합니다.</p>
+    <div class="image-box-styled" style="margin-bottom: 1.5rem;">
+      <img src="{{ '/assets/images/image_cf4a64.jpg' | relative_url }}" alt="Scrutinize 메뉴">
     </div>
     <div class="syntax-box">
       <pre><code>/opt/vertica/bin/scrutinize --by-minute yes -d DBNM -P 'password'</code></pre>
@@ -510,7 +507,7 @@ ps -ef | grep spread</code></pre>
 
   <div class="architecture-subsection">
     <h3 class="section-subtitle">5. Management Console (MC) 기동/중지</h3>
-    <p class="section-description">클러스터 작업 시 관리 UI인 MC 서비스를 제어합니다.</p>
+    <p class="section-description">클러스터 작업 시 관리 UI 서비스를 제어합니다.</p>
     <div class="syntax-box">
       <pre><code>sudo systemctl status vertica-consoled
 sudo systemctl start vertica-consoled

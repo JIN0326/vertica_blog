@@ -92,48 +92,6 @@ FROM salary;</code></pre>
   </div>
 </div>
 
-<hr style="margin: 3rem 0;">
-
-<div id="comparison" style="scroll-margin-top: 100px;"></div>
-
-## 타 DB 대비 주요 차이점 (Oracle 기준)
-
-<div class="architecture-section" markdown="1">
-  <table class="comparison-table">
-    <thead>
-      <tr>
-        <th>항목</th>
-        <th>Oracle</th>
-        <th>Vertica</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><strong>저장 방식</strong></td>
-        <td>Row-based (행 중심)</td>
-        <td><strong>Columnar (열 중심)</strong></td>
-      </tr>
-      <tr>
-        <td><strong>숫자 타입</strong></td>
-        <td>NUMBER (가변)</td>
-        <td><strong>INTEGER, NUMERIC (고정/명시)</strong></td>
-      </tr>
-      <tr>
-        <td><strong>DML 특징</strong></td>
-        <td>OLTP (단건 처리 강점)</td>
-        <td><strong>OLAP (Bulk 처리 최적화)</strong></td>
-      </tr>
-      <tr>
-        <td><strong>사용자 함수</strong></td>
-        <td>PL/SQL 지원</td>
-        <td>테이블 참조 SQL 함수 제한적</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-
-</div>
-
 <aside class="page-sidebar">
   <div class="sidebar-panel">
     <h3>On this page</h3>
@@ -141,7 +99,6 @@ FROM salary;</code></pre>
       <li><a href="#architecture-sql">SQL 아키텍처</a></li>
       <li><a href="#query-best-practices">쿼리 Best Practices</a></li>
       <li><a href="#dml-optimization">DML 최적화 가이드</a></li>
-      <li><a href="#comparison">Oracle과 비교</a></li>
     </ul>
   </div>
 </aside>

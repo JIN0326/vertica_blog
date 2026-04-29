@@ -15,16 +15,12 @@ layout: default
 
 ## vsql (Command Line Interface)
 
-<div class="architecture-section" markdown="1">
+<div class="architecture-section">
   <p class="section-description"><code>vsql</code>은 Vertica 데이터베이스에 접속하여 SQL 쿼리를 실행하고 결과를 확인할 수 있는 강력한 커맨드 라인 유틸리티입니다. 데이터베이스 관리 및 스크립트 기반의 자동화 작업에 주로 활용됩니다.</p>
 
   <div class="architecture-subsection">
     <h3 class="section-subtitle">주요 접속 및 실행 옵션</h3>
     <p class="section-description">vsql 실행 시 다양한 파라미터를 통해 접속 대상과 실행 방식을 세밀하게 지정할 수 있습니다.</p>
-
-    <div class="image-box-styled" style="margin-bottom: 1.5rem;">
-      <img src="{{ '/assets/images/image_ced264.png' | relative_url }}" alt="vsql Option" style="max-width: 100%; height: auto; border-radius: 8px;">
-    </div>
 
     <div class="syntax-box">
       <strong>vsql 접속 구문:</strong>
@@ -39,7 +35,7 @@ layout: default
         <strong>-U:</strong> 접속할 DB User명을 지정합니다. (기본값: 현재 OS 계정)<br>
         <strong>-w:</strong> 접속할 계정의 패스워드를 지정합니다.
       </dd>
-      <dt class="feature-dt" style="margin-top: 1rem;"><span class="feature-dt__icon">◆</span> 실행 옵션</dt>
+      <dt class="feature-dt"><span class="feature-dt__icon">◆</span> 실행 옵션</dt>
       <dd class="feature-dd">
         <strong>-c "query":</strong> vsql 접속 화면으로 들어가지 않고 단일 쿼리를 실행한 후 즉시 종료합니다.<br>
         <strong>-f filename.sql:</strong> 파일에 작성된 SQL 스크립트를 일괄 실행합니다.<br>
@@ -51,13 +47,9 @@ layout: default
     </dl>
   </div>
 
-  <div class="architecture-subsection" style="margin-top: 3rem;">
+  <div class="architecture-subsection">
     <h3 class="section-subtitle">vsql 메타 커맨드 (Meta-Commands)</h3>
     <p class="section-description">vsql 내부에서 <code>\</code>(백슬래시)로 시작하는 명령어를 통해 다양한 정보 조회 및 환경 설정을 수행할 수 있습니다.</p>
-
-    <div class="image-box-styled" style="margin-bottom: 1.5rem;">
-      <img src="{{ '/assets/images/image_ced33f.png' | relative_url }}" alt="vsql Meta Command" style="max-width: 100%; height: auto; border-radius: 8px;">
-    </div>
 
     <ul class="feature-list">
       <li><span class="feature-list__icon">🔹</span> <strong>\?:</strong> <span>메타 커맨드(Meta-Command) 전반에 대한 도움말을 출력합니다.</span></li>

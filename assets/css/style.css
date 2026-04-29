@@ -593,6 +593,9 @@ h1 {
   line-height: 1.6;
   font-size: 0.95rem;
 }
+.feature-dd + .feature-dt {
+  margin-top: 1rem;
+}
 .feature-dd:last-of-type { margin-bottom: 0; }
 
 /* Use Case Grid */
@@ -923,7 +926,7 @@ h1 {
   border: 1px solid var(--border-color);
   text-align: center;
   margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .image-box-styled img {
