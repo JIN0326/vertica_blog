@@ -15,7 +15,7 @@ layout: default
 
 ## Vertica란 무엇인가 
 
-<p>Vertica는 데이터 수집부터 분석, 시각화에 이르는 전 과정을 통합한 <strong>현대적인 데이터 레이크하우스(Data Lakehouse)</strong> 아키텍처를 제공합니다.</p>
+Vertica는 데이터 수집부터 분석, 시각화에 이르는 전 과정을 통합한 <strong>현대적인 데이터 레이크하우스(Data Lakehouse)</strong> 아키텍처를 제공합니다.
 
 <div class="slide-panels">
   <article class="slide-panel">
@@ -55,7 +55,7 @@ Vertica는 유연한 확장성과 강력한 분석 성능을 통해 데이터 �
 
 ## Vertica 핵심 기술
 
-<p>Vertica는 다음 6가지 기술 요소를 중심으로 고성능 분석을 지원합니다.</p>
+Vertica는 다음 6가지 기술 요소를 중심으로 고성능 분석을 지원합니다.
 
 <div class="tech-features-grid">
   <article class="tech-feature-card">
@@ -113,7 +113,7 @@ Vertica는 유연한 확장성과 강력한 분석 성능을 통해 데이터 �
 
 ## Vertica 포트폴리오
 
-<p>Vertica는 온프레미스부터 퍼블릭/프라이빗 클라우드까지 고객의 환경에 최적화된 다양한 배포 옵션을 제공합니다.</p>
+Vertica는 온프레미스부터 퍼블릭/프라이빗 클라우드까지 고객의 환경에 최적화된 다양한 배포 옵션을 제공합니다.
 
 <div class="portfolio-container">
 

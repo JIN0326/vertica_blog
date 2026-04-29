@@ -39,7 +39,7 @@ layout: default
     amount DECIMAL(18,2)
 )
 -- 정렬키 설정
-ORDER BY (sale_id, product_id, sale_date)
+ORDER BY sale_id, product_id, sale_date
 -- 분산키 설정
 SEGMENTED BY HASH(sale_id) ALL NODES KSAFE 1
 -- 파티션 설정
@@ -411,7 +411,7 @@ GRANT ALL PRIVILEGES EXTEND ON SCHEMA analytics TO analyst;</code></pre>
 
 ## Cluster Operation & Diagnostics
 
-<div class="architecture-section" markdown="1">
+<div class="architecture-section">
   <p class="section-description">Vertica 클러스터의 안정적인 운영을 위해 데이터베이스를 기동/중지하고, 노드 장애 시 운영 가이드에 따른 표준 조치 절차를 수행합니다.</p>
 
   <div class="architecture-subsection">
@@ -443,26 +443,26 @@ GRANT ALL PRIVILEGES EXTEND ON SCHEMA analytics TO analyst;</code></pre>
     <h4 class="section-subtitle">가. 장애 진단 프로세스</h4>
     <p class="section-description">장애 발생 시점부터 복구 완료까지의 주요 단계를 시각적으로 확인합니다.</p>
 
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0;">
-      <div class="image-box-styled" style="text-align: center;">
-        <img src="{{ '/assets/images/cluster_operation_1.png' | relative_url }}" alt="정상단계" style="width: 100%; border-radius: 8px;">
-        <p style="margin-top: 10px; font-weight: 600;">[1단계] 정상 단계</p>
-        <p style="font-size: 0.85rem; color: var(--muted);">모든 노드가 UP 상태로 서비스 중</p>
+    <div class="process-grid">
+      <div class="process-step">
+        <div class="image-box-styled"><img src="{{ '/assets/images/cluster_operation_1.png' | relative_url }}" alt="정상단계"></div>
+        <p class="process-step__title">[1단계] 정상 단계</p>
+        <p class="process-step__description">모든 노드가 UP 상태로 서비스 중</p>
       </div>
-      <div class="image-box-styled" style="text-align: center;">
-        <img src="{{ '/assets/images/cluster_operation_2.png' | relative_url }}" alt="장애발생" style="width: 100%; border-radius: 8px;">
-        <p style="margin-top: 10px; font-weight: 600; color: #d93025;">[2단계] 장애 발생</p>
-        <p style="font-size: 0.85rem; color: var(--muted);">특정 노드가 DOWN되어 가용성 저하</p>
+      <div class="process-step">
+        <div class="image-box-styled"><img src="{{ '/assets/images/cluster_operation_2.png' | relative_url }}" alt="장애발생"></div>
+        <p class="process-step__title process-step__title--failure">[2단계] 장애 발생</p>
+        <p class="process-step__description">특정 노드가 DOWN되어 가용성 저하</p>
       </div>
-      <div class="image-box-styled" style="text-align: center;">
-        <img src="{{ '/assets/images/cluster_operation_3.png' | relative_url }}" alt="장애노드 재시작" style="width: 100%; border-radius: 8px;">
-        <p style="margin-top: 10px; font-weight: 600;">[3단계] 장애 노드 재시작</p>
-        <p style="font-size: 0.85rem; color: var(--muted);">Admintools를 통한 노드 복구 시도</p>
+      <div class="process-step">
+        <div class="image-box-styled"><img src="{{ '/assets/images/cluster_operation_3.png' | relative_url }}" alt="장애노드 재시작"></div>
+        <p class="process-step__title">[3단계] 장애 노드 재시작</p>
+        <p class="process-step__description">Admintools를 통한 노드 복구 시도</p>
       </div>
-      <div class="image-box-styled" style="text-align: center;">
-        <img src="{{ '/assets/images/cluster_operation_4.png' | relative_url }}" alt="정상 서비스단계" style="width: 100%; border-radius: 8px;">
-        <p style="margin-top: 10px; font-weight: 600; color: #1e8e3e;">[4단계] 정상 서비스 단계</p>
-        <p style="font-size: 0.85rem; color: var(--muted);">데이터 동기화 완료 및 서비스 정상화</p>
+      <div class="process-step">
+        <div class="image-box-styled"><img src="{{ '/assets/images/cluster_operation_4.png' | relative_url }}" alt="정상 서비스단계"></div>
+        <p class="process-step__title process-step__title--success">[4단계] 정상 서비스 단계</p>
+        <p class="process-step__description">데이터 동기화 완료 및 서비스 정상화</p>
       </div>
     </div>
 
@@ -474,7 +474,7 @@ GRANT ALL PRIVILEGES EXTEND ON SCHEMA analytics TO analyst;</code></pre>
       </li>
       <li>
         <span class="feature-list__icon">🔹</span> <strong>프로세스 생존 확인:</strong> <span>비정상 종료 시 남은 <code>vertica</code>, <code>spread</code> 프로세스를 확인하고 <code>kill -9</code>로 종료</span>
-        <div class="syntax-box" style="margin-top: 10px;">
+        <div class="syntax-box">
           <pre><code>ps -ef | grep vertica
 ps -ef | grep spread</code></pre>
         </div>
@@ -494,10 +494,10 @@ ps -ef | grep spread</code></pre>
     </div>
   </div>
 
-  <div class="architecture-subsection" style="margin-top: 3rem;">
+  <div class="architecture-subsection">
     <h3 class="section-subtitle">4. 장애 분석 파일 생성 (Scrutinize)</h3>
     <p class="section-description">원인 분석을 위해 기술 지원팀에 전달할 정밀 진단 파일을 생성합니다.</p>
-    <div class="image-box-styled" style="margin-bottom: 1.5rem;">
+    <div class="image-box-styled">
       <img src="{{ '/assets/images/image_cf4a64.jpg' | relative_url }}" alt="Scrutinize 메뉴">
     </div>
     <div class="syntax-box">

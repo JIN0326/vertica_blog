@@ -10,13 +10,13 @@ layout: default
 </div>
 
 <div class="page-layout">
-  <div class="content-section" markdown="1">
+<div class="content-section" markdown="1">
 
-  <div id="connecting" style="scroll-margin-top: 100px;"></div>
+<div id="connecting" style="scroll-margin-top: 100px;"></div>
 
 ## 클라이언트 접속
 
-  <div class="architecture-section">
+<div class="architecture-section">
     <p class="section-description">Vertica는 <code>vsql</code>, <code>DBeaver</code> 등 다양한 클라이언트 도구를 지원하여 사용자가 편리하게 데이터베이스에 접속할 수 있도록 합니다.</p>
     
     <div class="architecture-subsection">
@@ -45,7 +45,7 @@ layout: default
 
 ## 모니터링
 
-  <div class="architecture-section">
+<div class="architecture-section">
     <p class="section-description">안정적인 데이터베이스 운영을 위해서는 시스템의 상태를 지속적으로 모니터링하는 것이 필수적입니다. Vertica는 전용 UI 관리 도구인 Management Console(MC)과 오픈소스 기반의 Grafana 연동을 모두 완벽하게 지원합니다.</p>
 
   <div class="architecture-subsection">
@@ -93,7 +93,7 @@ layout: default
 
 ## Python 연동
 
-  <div class="architecture-section">
+<div class="architecture-section">
     <p class="section-description"><code>vertica-python</code>은 Vertica 데이터베이스와 통신하기 위한 순수 Python DB-API 클라이언트입니다. 별도의 외부 드라이버 없이 Python만으로 Vertica에 쉽게 연결할 수 있습니다.</p>
     
   <div class="architecture-subsection">

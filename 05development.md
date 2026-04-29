@@ -92,6 +92,7 @@ FROM salary;</code></pre>
   </div>
 </div>
 
+
 <aside class="page-sidebar">
   <div class="sidebar-panel">
     <h3>On this page</h3>
