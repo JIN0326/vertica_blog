@@ -366,7 +366,7 @@ h1 {
 }
 
 .sidebar-panel {
-  padding: 20px;
+  padding: 12px 10px;
   border-radius: 24px;
   background: var(--surface);
   border: 1px solid var(--border-color);
@@ -375,10 +375,11 @@ h1 {
 
 .sidebar-panel h3 {
   margin-top: 0;
-  font-size: 1rem;
+  font-size: 0.85rem;
   color: var(--text);
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   font-weight: 700;
+  line-height: 1.2;
 }
 
 .sidebar-panel ul {
@@ -386,14 +387,15 @@ h1 {
   margin: 0;
   padding: 0;
   display: grid;
-  gap: 12px;
+  gap: 6px;
 }
 
 .sidebar-panel a {
   color: var(--accent);
   font-weight: 600;
   text-decoration: none;
-  font-size: 0.9rem;
+  font-size: 0.82rem;
+  line-height: 1.25;
 }
 .sidebar-panel a span[aria-hidden="true"] {
   display: inline-block;
