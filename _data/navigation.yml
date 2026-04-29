@@ -1,4 +1,5 @@
 - title: Vertica Playbook
+  title: Playbook
   url: /01playbook
   sublinks:
     - title: Vertica란 무엇인가
@@ -14,7 +15,7 @@
     - title: Vertica EonMode
       url: /01playbook#eonmode
 
-- title: Vertica Administration
+- title: Administration
   url: /02administration
   sublinks:
     - title: Table · Projection
@@ -34,17 +35,19 @@
     - title: Cluster Operation
       url: /02administration#cluster-operation
 
-- title: Vertica CoreTech
+- title: CoreTech
   url: /03coretech
   sublinks:
     - title: vsql 명령어
       url: /03coretech#vsql
     - title: 데이터 적재 (COPY)
       url: /03coretech#copy
+    - title: 데이터 내보내기 (Export)
+      url: /03coretech#export
     - title: 쿼리 튜닝 (Explain)
       url: /03coretech#explain
 
-- title: Vertica Utilization
+- title: Utilization
   url: /04utilization
   sublinks:
     - title: 클라이언트 접속
@@ -54,5 +57,15 @@
     - title: Python 연동
       url: /04utilization#python
 
-- title: Vertica Fundamentals
+- title: Development
+  url: /05development
+  sublinks:
+    - title: SQL 아키텍처
+      url: /05development#architecture-sql
+    - title: 쿼리 Best Practices
+      url: /05development#query-best-practices
+    - title: DML 최적화
+      url: /05development#dml-optimization
+
+- title: Fundamentals
   url: /90fundamentals

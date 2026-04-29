@@ -9,13 +9,13 @@ permalink: /
     <span class="eyebrow">Analytics Database</span>
     <h1>데이터의 한계를 넘어서, <br> Vertica로 실현하는 초고속 분석</h1>
     <p>Vertica는 대규모 데이터 분석에 최적화된 SQL 데이터 웨어하우스 플랫폼입니다. <br>
-    페타바이트 규모의 복잡한 데이터 워크로드를 처리하여 기업이 데이터를 관리하고 분석하는 방식을 혁신하도록 설계된 Analytics Database 입니다.</p>
+    페타바이트 규모의 복잡한 데이터 워크로드를 처리하여 기업이 데이터를 관리하고 분석하는 방식을 혁신하도록 설계된 Analytics Database입니다.</p>
   </div>
 
     <div class="architecture-grid">
     <article class="mode-card">
       <div class="mode-image">
-        <img src="{{ '/assets/images/EnteroriseMode.png' | relative_url }}" alt="Vertica Enterprise Mode" />
+        <img src="{{ '/assets/images/EnterpriseMode.png' | relative_url }}" alt="Vertica Enterprise Mode" />
       </div>
       <div class="mode-body">
         <h3>Enterprise Mode</h3>
@@ -131,6 +131,11 @@ permalink: /
       <a href="{{ '/03coretech#copy' | relative_url }}">이동 →</a>
     </article>
     <article class="card">
+      <h3>데이터 내보내기 (Export)</h3>
+      <p>vsql, EXPORT TO PARQUET 등 데이터를 외부로 추출하는 다양한 방법을 알아봅니다.</p>
+      <a href="{{ '/03coretech#export' | relative_url }}">이동 →</a>
+    </article>
+    <article class="card">
       <h3>쿼리 튜닝 (Explain)</h3>
       <p>EXPLAIN으로 실행 계획을 분석하고 쿼리 성능을 최적화하는 방법을 다룹니다.</p>
       <a href="{{ '/03coretech#explain' | relative_url }}">이동 →</a>
@@ -155,6 +160,27 @@ permalink: /
       <h3>Python 연동</h3>
       <p>vertica-python 라이브러리를 사용하여 Python 환경에서 데이터를 처리하고 분석합니다.</p>
       <a href="{{ '/04utilization#python' | relative_url }}">이동 →</a>
+    </article>
+  </div>
+</section>
+
+<section id="development" class="development-section">
+  <h2>Vertica Development</h2>
+  <div class="cards">
+    <article class="card">
+      <h3>SQL 아키텍처</h3>
+      <p>Vertica의 SQL 처리 아키텍처와 최적화 원리를 이해합니다.</p>
+      <a href="{{ '/05development#architecture-sql' | relative_url }}">이동 →</a>
+    </article>
+    <article class="card">
+      <h3>쿼리 Best Practices</h3>
+      <p>고성능 쿼리 작성을 위한 모범 사례와 튜닝 팁을 학습합니다.</p>
+      <a href="{{ '/05development#query-best-practices' | relative_url }}">이동 →</a>
+    </article>
+    <article class="card">
+      <h3>DML 최적화</h3>
+      <p>INSERT, UPDATE, DELETE 등 DML 작업의 성능을 최적화하는 방법을 알아봅니다.</p>
+      <a href="{{ '/05development#dml-optimization' | relative_url }}">이동 →</a>
     </article>
   </div>
 </section>

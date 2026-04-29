@@ -15,33 +15,61 @@ layout: default
 
 ## vsql (Command Line Interface)
 
-<div class="architecture-section">
+<div class="architecture-section" markdown="1">
   <p class="section-description"><code>vsql</code>은 Vertica 데이터베이스에 접속하여 SQL 쿼리를 실행하고 결과를 확인할 수 있는 강력한 커맨드 라인 유틸리티입니다. 데이터베이스 관리 및 스크립트 기반의 자동화 작업에 주로 활용됩니다.</p>
 
   <div class="architecture-subsection">
     <h3 class="section-subtitle">주요 접속 및 실행 옵션</h3>
+    <p class="section-description">vsql 실행 시 다양한 파라미터를 통해 접속 대상과 실행 방식을 세밀하게 지정할 수 있습니다.</p>
+
+    <div class="image-box-styled" style="margin-bottom: 1.5rem;">
+      <img src="{{ '/assets/images/image_ced264.png' | relative_url }}" alt="vsql Option" style="max-width: 100%; height: auto; border-radius: 8px;">
+    </div>
+
     <div class="syntax-box">
       <strong>vsql 접속 구문:</strong>
       <pre><code>vsql -h [hostname/IP] -d [dbname] -U [username] -w [password]</code></pre>
     </div>
     <dl class="feature-dl">
-      <dt class="feature-dt"><span class="feature-dt__icon">◆</span> 실행 옵션</dt>
+      <dt class="feature-dt"><span class="feature-dt__icon">◆</span> 접속 옵션</dt>
+      <dd class="feature-dd">
+        <strong>vsql DB명:</strong> 현재 OS 계정과 동일한 DB User로 접속합니다.<br>
+        <strong>-h:</strong> 접속할 DB의 IP를 지정합니다. (미지정 시 Local 접속)<br>
+        <strong>-d:</strong> 접속할 DB명을 지정합니다. (기본값: 현재 OS 계정)<br>
+        <strong>-U:</strong> 접속할 DB User명을 지정합니다. (기본값: 현재 OS 계정)<br>
+        <strong>-w:</strong> 접속할 계정의 패스워드를 지정합니다.
+      </dd>
+      <dt class="feature-dt" style="margin-top: 1rem;"><span class="feature-dt__icon">◆</span> 실행 옵션</dt>
       <dd class="feature-dd">
         <strong>-c "query":</strong> vsql 접속 화면으로 들어가지 않고 단일 쿼리를 실행한 후 즉시 종료합니다.<br>
         <strong>-f filename.sql:</strong> 파일에 작성된 SQL 스크립트를 일괄 실행합니다.<br>
-        <strong>-a:</strong> 실행되는 모든 쿼리를 화면에 출력합니다 (스크립트 디버깅용으로 유용함).
+        <strong>-a:</strong> 스크립트 파일 실행 시, 수행되는 쿼리문도 함께 화면에 출력합니다.<br>
+        <strong>-E:</strong> <code>\d</code> 같은 메타 커맨드 수행 시, 내장되어 백그라운드에서 동작하는 실제 쿼리를 출력합니다.<br>
+        <strong>-e:</strong> 사용자가 수행하는 쿼리를 화면에 한 번 더 출력해 줍니다.<br>
+        <strong>-m:</strong> 메시지 출력 레벨을 지정합니다 (디버그용).
       </dd>
     </dl>
   </div>
 
-  <div class="architecture-subsection">
+  <div class="architecture-subsection" style="margin-top: 3rem;">
     <h3 class="section-subtitle">vsql 메타 커맨드 (Meta-Commands)</h3>
     <p class="section-description">vsql 내부에서 <code>\</code>(백슬래시)로 시작하는 명령어를 통해 다양한 정보 조회 및 환경 설정을 수행할 수 있습니다.</p>
+
+    <div class="image-box-styled" style="margin-bottom: 1.5rem;">
+      <img src="{{ '/assets/images/image_ced33f.png' | relative_url }}" alt="vsql Meta Command" style="max-width: 100%; height: auto; border-radius: 8px;">
+    </div>
+
     <ul class="feature-list">
+      <li><span class="feature-list__icon">🔹</span> <strong>\?:</strong> <span>메타 커맨드(Meta-Command) 전반에 대한 도움말을 출력합니다.</span></li>
+      <li><span class="feature-list__icon">🔹</span> <strong>\h:</strong> <span>SQL 명령어 구문에 대한 상세 도움말을 출력합니다.</span></li>
+      <li><span class="feature-list__icon">🔹</span> <strong>\c:</strong> <span>현재 세션을 끊고 다른 DB 혹은 다른 User로 재접속합니다.</span></li>
       <li><span class="feature-list__icon">🔹</span> <strong>\d [table]:</strong> <span>특정 테이블, 뷰, 시퀀스 등의 구조(컬럼 타입 등) 및 상세 정보를 출력합니다.</span></li>
       <li><span class="feature-list__icon">🔹</span> <strong>\dt:</strong> <span>현재 접속한 스키마의 전체 테이블 목록을 조회합니다.</span></li>
+      <li><span class="feature-list__icon">🔹</span> <strong>\v:</strong> <span>현재 사용 가능한 View 객체 목록을 출력합니다.</span></li>
+      <li><span class="feature-list__icon">🔹</span> <strong>\e:</strong> <span>마지막으로 실행한 쿼리를 OS 기본 에디터(vi 등)로 열어 편집 후 바로 실행합니다.</span></li>
       <li><span class="feature-list__icon">🔹</span> <strong>\timing:</strong> <span>쿼리 실행 시간(Elapsed time) 출력 기능을 On/Off 합니다.</span></li>
       <li><span class="feature-list__icon">🔹</span> <strong>\x:</strong> <span>출력 포맷을 컬럼형(세로) 또는 레코드형(가로)으로 전환(Expanded display)하여 긴 결과값을 보기 쉽게 만듭니다.</span></li>
+      <li><span class="feature-list__icon">🔹</span> <strong>\!:</strong> <span>vsql 프롬프트를 빠져나가지 않은 상태에서 OS 쉘 명령어(예: <code>\! ls -al</code>)를 실행합니다.</span></li>
       <li><span class="feature-list__icon">🔹</span> <strong>\o [file]:</strong> <span>이후 실행되는 쿼리의 결과를 화면이 아닌 지정한 파일로 저장합니다.</span></li>
     </ul>
   </div>
@@ -89,6 +117,61 @@ layout: default
       <li><span class="feature-list__icon">🔹</span> <strong>EXCEPTIONS:</strong> <span>데이터가 거부된 구체적인 이유(에러 메시지 및 발생 위치)를 파일에 기록하여 원인 파악을 돕습니다.</span></li>
       <li><span class="feature-list__icon">🔹</span> <strong>ABORT ON ERROR:</strong> <span>단 1건의 에러라도 발생하면 전체 COPY 작업을 즉시 중단하고 롤백(Rollback)시켜 데이터 정합성을 보호합니다.</span></li>
     </ul>
+  </div>
+</div>
+
+<hr style="margin: 3rem 0;">
+<div id="export" style="scroll-margin-top: 100px;"></div>
+
+## 데이터 내보내기 (Export)
+
+<div class="architecture-section">
+  <p class="section-description">Vertica의 데이터를 외부 파일로 추출하거나 다른 클러스터로 전송하는 방법입니다. 운영 환경에서는 주로 사용자 데이터의 논리적 백업이나 타 시스템과의 데이터 연계를 위해 사용됩니다.</p>
+
+  <div class="architecture-subsection">
+    <h3 class="section-subtitle">1. vsql을 이용한 텍스트 파일 내보내기</h3>
+    <p class="section-description">가장 보편적인 방법으로, <code>vsql</code>의 실행 결과를 파일로 리다이렉션하여 CSV나 TSV 형태의 텍스트 파일을 생성합니다.</p>
+    
+    <div class="syntax-box">
+      <strong>기본 실행 구문:</strong>
+      <pre><code>vsql -U username -w password -At -F ',' -c "SELECT * FROM public.sales;" -o sales_backup.csv</code></pre>
+    </div>
+    <dl class="feature-dl">
+      <dt class="feature-dt"><span class="feature-dt__icon">◆</span> 주요 옵션 설명</dt>
+      <dd class="feature-dd">
+        <strong>-A (unaligned):</strong> 출력 시 컬럼 간격을 맞추지 않고 붙여서 출력합니다.<br>
+        <strong>-t (tuples only):</strong> 컬럼명(Header) 없이 데이터 행만 출력합니다.<br>
+        <strong>-F (field separator):</strong> 컬럼 구분자를 지정합니다 (예: <code>','</code>, <code>'|'</code>).<br>
+        <strong>-o (output):</strong> 결과를 콘솔이 아닌 지정한 파일명으로 저장합니다.
+      </dd>
+    </dl>
+  </div>
+
+  <div class="architecture-subsection">
+    <h3 class="section-subtitle">2. EXPORT TO PARQUET (데이터 레이크 연동)</h3>
+    <p class="section-description">분석용 표준 포맷인 Parquet 형태로 데이터를 내보냅니다. S3나 HDFS 같은 외부 스토리지로 데이터를 백업할 때 매우 효율적입니다.</p>
+    <div class="syntax-box">
+      <pre><code>EXPORT TO PARQUET(directory='s3://my-bucket/backup/sales/') 
+AS SELECT * FROM public.sales;</code></pre>
+    </div>
+    <ul class="feature-list">
+      <li><span class="feature-list__icon">🔹</span> <strong>압축 효율:</strong> <span>Parquet의 컬럼 기반 압축을 통해 파일 크기를 최소화합니다.</span></li>
+      <li><span class="feature-list__icon">🔹</span> <strong>병렬 처리:</strong> <span>모든 노드가 동시에 파일을 생성하므로 대용량 데이터 추출 속도가 매우 빠릅니다.</span></li>
+    </ul>
+  </div>
+
+  <div class="architecture-subsection">
+    <h3 class="section-subtitle">3. EXPORT TO VERTICA (클러스터 간 복제)</h3>
+    <p class="section-description">네트워크를 통해 한 Vertica 클러스터에서 다른 클러스터로 직접 데이터를 전송합니다.</p>
+    <div class="syntax-box">
+      <pre><code>-- 대상 DB에 접속 정보 설정 후 실행
+CONNECT TO VERTICA target_db USER dbadmin PASSWORD 'password' ON 'target_host', 5433;
+
+EXPORT TO VERTICA target_db.public.sales 
+FROM public.sales;
+
+DISCONNECT target_db;</code></pre>
+    </div>
   </div>
 </div>
 
@@ -148,6 +231,7 @@ Access Path:
     <ul>
       <li><a href="#vsql">vsql</a></li>
       <li><a href="#copy">COPY</a></li>
+      <li><a href="#export">EXPORT</a></li>
       <li><a href="#explain">EXPLAIN</a></li>
     </ul>
   </div>

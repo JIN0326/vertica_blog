@@ -20,6 +20,8 @@ Vertica 분석 플랫폼에 대한 기술 정보와 사용법을 공유하기 �
 
 ```text
 .
+├── _data/
+│   └── navigation.yml    # 네비게이션 설정
 ├── _layouts/
 │   └── default.html      # 기본 레이아웃
 ├── _includes/
@@ -39,7 +41,6 @@ Vertica 분석 플랫폼에 대한 기술 정보와 사용법을 공유하기 �
 ├── 92QnA.md              # Q&A
 ├── 93Reference.md        # 고객사례
 ├── _config.yml           # Jekyll 설정 파일
-├── navigation.yml        # 네비게이션 설정 
 └── README.md             # 프로젝트 설명 파일
 ```
 
@@ -61,10 +62,12 @@ Vertica 분석 플랫폼에 대한 기술 정보와 사용법을 공유하기 �
 * **Resource Pools**: 메모리 및 동시성 제어를 통한 워크로드 관리
 * **Privilege**: 객체 접근 권한 및 스키마 권한 상속 체계
 * **Backup & Restore**: vbr 도구를 이용한 스냅샷 백업 및 복구 프로세스
+* **Cluster Operation & Diagnostics**: DB 기동/중지, 장애 조치, 진단 파일 생성 등 핵심 클러스터 운영 가이드
 
 ### ⚙️ Vertica CoreTech (`03coretech.md`)
 * **vsql 명령어**: CLI 접속 옵션 및 유용한 메타 커맨드(`\d`, `\timing`, `\x` 등)
 * **데이터 적재 (COPY)**: 대용량 데이터 로딩 구문, 옵션 및 에러 데이터 처리
+* **데이터 내보내기 (Export)**: vsql, EXPORT TO PARQUET/VERTICA 등 다양한 데이터 추출 방법
 * **쿼리 튜닝 (Explain)**: 실행 계획 분석(EXPLAIN/PROFILE) 및 성능 최적화 포인트
 
 ### 🚀 Vertica Utilization (`04utilization.md`)

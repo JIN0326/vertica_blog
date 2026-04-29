@@ -405,18 +405,18 @@ GRANT ALL PRIVILEGES EXTEND ON SCHEMA analytics TO analyst;</code></pre>
   </div>
 </div>
 
+
 <hr style="margin: 3rem 0;">
 <div id="cluster-operation" style="scroll-margin-top: 100px;"></div>
 
 ## Cluster Operation & Diagnostics
 
 <div class="architecture-section">
-  <p class="section-description">Vertica 클러스터의 안정적인 운영을 위해 데이터베이스를 기동/중지하고, 노드 장애 시 조치하며, 원인 분석을 위한 진단 파일을 생성하는 핵심 운영 가이드입니다.</p>
+  <p class="section-description">Vertica 클러스터의 안정적인 운영을 위해 데이터베이스를 기동/중지하고, 특히 노드 장애 시 운영 가이드에 따른 표준 조치 절차를 수행합니다.</p>
 
   <div class="architecture-subsection">
     <h3 class="section-subtitle">1. DB 기동 및 중지 (Start / Stop)</h3>
-    <p class="section-description">Vertica 관리자 도구인 <code>admintools</code>를 사용하여 데이터베이스를 안전하게 기동하거나 중지할 수 있습니다.</p>
-    
+    <p class="section-description">Vertica 관리자 도구인 <code>admintools</code>를 사용하여 데이터베이스 전체를 안전하게 제어합니다.</p>
     <div class="syntax-box">
       <strong>Vertica 상태 확인:</strong>
       <pre><code>admintools -t view_cluster</code></pre>
@@ -431,47 +431,95 @@ GRANT ALL PRIVILEGES EXTEND ON SCHEMA analytics TO analyst;</code></pre>
 
   <div class="architecture-subsection">
     <h3 class="section-subtitle">2. 클라이언트 접속 세션 관리</h3>
-    <p class="section-description">DB 기동 후 또는 점검 시 클라이언트의 최대 접속 세션 수를 제어하여 시스템 안정성을 확보할 수 있습니다.</p>
+    <p class="section-description">점검 전후로 클라이언트의 최대 접속 세션 수를 조정하여 시스템 진입을 제어합니다.</p>
     <div class="syntax-box">
-      <strong>사용자 접속 가능 session 수 원복 (예: 1000개):</strong>
-      <pre><code>vsql -p 5453 -U vertica -w 'vertica계정password' -c "SELECT set_config_parameter('MaxClientSessions', 1000);"</code></pre>
+      <pre><code>vsql -p 5453 -U vertica -w 'password' -c "SELECT set_config_parameter('MaxClientSessions', 1000);"</code></pre>
     </div>
   </div>
 
   <div class="architecture-subsection">
-    <h3 class="section-subtitle">3. 장애 발생 시 클러스터/노드 재기동</h3>
-    <p class="section-description">특정 노드가 다운되거나 클러스터 통신에 문제가 발생했을 때, 다음과 같은 절차로 상태를 점검하고 재기동을 시도합니다.</p>
-    <ul class="feature-list">
-      <li><span class="feature-list__icon">🔹</span> <strong>SSH 통신 확인:</strong> <span>각 노드에서 다른 노드로의 SSH 통신이 정상인지 확인합니다 (<code>ssh [IP1~IP3]</code>).</span></li>
-      <li><span class="feature-list__icon">🔹</span> <strong>프로세스 점검:</strong> <span>노드별로 Vertica 및 Spread 관련 프로세스가 살아있는지 확인합니다 (<code>ps -ef | grep vertica</code>, <code>ps -ef | grep spread</code>).</span></li>
-      <li><span class="feature-list__icon">🔹</span> <strong>로그 확인:</strong> <span>다운된 노드에 접속하여 <code>startup.log</code>를 모니터링하며 재기동(Start DB)을 시도합니다.</span></li>
-    </ul>
+    <h3 class="section-subtitle">3. 장애 발생 시 클러스터/노드 재기동 (7.1 Node Down 조치)</h3>
+    <p class="section-description">특정 노드가 DOWN 상태일 때, 운영 가이드(7.1)에 명시된 절차에 따라 장애를 진단하고 복구합니다.</p>
+
+    <div class="image-box-styled">
+      <img src="{{ '/assets/images/cluster_operation_1.png' | relative_url }}" alt="장애 조치 표준 프로세스 매핑">
+    </div>
+
+    <div class="step-section">
+      <h4 class="step-title">Step 1. 통신 상태 확인 (Check Connectivity)</h4>
+      <p class="section-description">노드 재기동 시도 전, 대상 노드와의 네트워크 및 SSH 통신이 가능한지 확인합니다.</p>
+      <div class="image-box-styled">
+        <img src="{{ '/assets/images/cluster_operation_2.png' | relative_url }}" alt="SSH 통신 확인">
+      </div>
+      <div class="syntax-box">
+        <pre><code>-- 각 노드 간 패스워드 없는 SSH 접속 확인
+ssh [Target_Node_IP]</code></pre>
+      </div>
+    </div>
+
+    <div class="step-section">
+      <h4 class="step-title">Step 2. 잔류 프로세스 점검 및 제거 (Process Clean-up)</h4>
+      <p class="section-description">노드가 비정상 종료된 경우, <code>vertica</code> 또는 <code>spread</code> 프로세스가 남아서 재기동을 방해할 수 있습니다. 반드시 확인 후 제거해야 합니다.</p>
+      
+      <div class="image-box-styled">
+        <img src="{{ '/assets/images/image_cee622.png' | relative_url }}" alt="운영가이드 7.1 노드 다운 조치 절차">
+      </div>
+
+      <div class="syntax-box">
+        <strong>프로세스 생존 확인:</strong>
+        <pre><code>ps -ef | grep vertica
+ps -ef | grep spread</code></pre>
+        <strong>강제 종료:</strong>
+        <pre><code>kill -9 [PID]</code></pre>
+      </div>
+    </div>
+
+    <div class="step-section">
+      <h4 class="step-title">Step 3. 노드 재기동 (Restart Node)</h4>
+      <p class="section-description">프로세스가 정리된 상태에서 <code>admintools</code>를 사용하여 노드를 다시 클러스터에 참여시킵니다.</p>
+      <div class="image-box-styled">
+        <img src="{{ '/assets/images/cluster_operation_3.png' | relative_url }}" alt="노드 재기동 실행">
+      </div>
+      <div class="syntax-box">
+        <pre><code>admintools -t restart_node -d DBNM -p 'password' --hosts [Down_Node_IP]</code></pre>
+      </div>
+    </div>
+
+    <div class="step-section">
+      <h4 class="step-title">Step 4. 기동 로그 모니터링 (Startup Log)</h4>
+      <p class="section-description">데이터 동기화 및 기동 완료 여부를 로그를 통해 최종 확인합니다.</p>
+      <div class="image-box-styled">
+        <img src="{{ '/assets/images/cluster_operation_4.png' | relative_url }}" alt="Startup Log 실시간 모니터링">
+      </div>
+      <div class="syntax-box">
+        <pre><code>tail -f /catalog/DBNM/v_dbnm_node00XX_catalog/startup.log</code></pre>
+      </div>
+    </div>
   </div>
 
   <div class="architecture-subsection">
     <h3 class="section-subtitle">4. 장애 분석 파일 생성 (Scrutinize)</h3>
-    <p class="section-description">시스템 장애나 성능 이슈의 근본 원인을 분석하기 위해 Vertica 기술 지원팀에 전달할 <strong>진단 데이터(Scrutinize)</strong>를 수집합니다.</p>
+    <p class="section-description">복구 후에도 문제가 지속되거나 원인 분석이 필요할 때 기술 지원팀에 전달할 파일을 생성합니다.</p>
+    <div class="image-box-styled">
+      <img src="{{ '/assets/images/image_cf4a64.jpg' | relative_url }}" alt="Scrutinize 실행 메뉴">
+    </div>
     <div class="syntax-box">
-      <strong>Scrutinize 수집 실행:</strong>
-      <pre><code>admintools -t scrutinize -d DBNM</code></pre>
-      <p style="margin-top: 10px; font-size: 0.9em; color: var(--muted);">※ 실행 시 시스템 상태, 로그, 카탈로그 메타데이터가 압축 파일 형태로 자동 생성됩니다.</p>
+      <pre><code>/opt/vertica/bin/scrutinize --by-minute yes -d DBNM -P 'password'</code></pre>
     </div>
   </div>
 
   <div class="architecture-subsection">
     <h3 class="section-subtitle">5. Management Console (MC) 기동/중지</h3>
-    <p class="section-description">클러스터 기동 전에는 MC를 중지하고, 클러스터 기동이 완료된 후에 MC를 기동하는 것을 권장합니다. OS의 <code>systemctl</code> 명령어를 사용하여 제어합니다.</p>
+    <p class="section-description">클러스터 작업 시 관리 UI인 MC 서비스를 제어합니다.</p>
     <div class="syntax-box">
-      <strong>MC 상태 확인 / 기동 / 중지:</strong>
       <pre><code>sudo systemctl status vertica-consoled
 sudo systemctl start vertica-consoled
 sudo systemctl stop vertica-consoled</code></pre>
     </div>
   </div>
-
 </div>
 
-</div>
+
 <aside class="page-sidebar">
   <div class="sidebar-panel">
     <h3>On this page</h3>
