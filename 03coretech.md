@@ -15,7 +15,7 @@ layout: default
 
 ## vsql (Command Line Interface)
 
-<div class="architecture-section" markdown="1">
+<div class="architecture-section">
   <p class="section-description"><code>vsql</code>은 Vertica 데이터베이스에 접속하여 SQL 쿼리를 실행하고 결과를 확인할 수 있는 강력한 커맨드 라인 유틸리티입니다. 데이터베이스 관리 및 스크립트 기반의 자동화 작업에 주로 활용됩니다.</p>
 
   <div class="architecture-subsection">
@@ -52,7 +52,7 @@ layout: default
 
 ## COPY (대용량 데이터 적재)
 
-<div class="architecture-section" markdown="1">
+<div class="architecture-section">
   <p class="section-description"><code>COPY</code>문은 Vertica에서 대용량 데이터를 가장 빠르고 효율적으로 적재(Load)하기 위한 핵심 명령어입니다. 외부 파일이나 스트림으로부터 데이터를 읽어 테이블에 고속으로 삽입합니다.</p>
 
   <div class="architecture-subsection">
@@ -97,7 +97,7 @@ layout: default
 
 ## EXPLAIN (쿼리 실행 계획 분석)
 
-<div class="architecture-section" markdown="1">
+<div class="architecture-section">
   <p class="section-description"><code>EXPLAIN</code>은 Vertica 옵티마이저가 SQL 쿼리를 어떻게 분석하고 실행할 것인지에 대한 <strong>실행 계획(Execution Plan)</strong>을 보여줍니다. 쿼리 성능 튜닝 및 병목 구간 파악을 위한 가장 기초적이고 필수적인 도구입니다.</p>
 
   <div class="architecture-subsection">

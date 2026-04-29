@@ -799,6 +799,10 @@ h1 {
   margin-bottom: 3.5rem;
 }
 
+.projection-distribution-grid > .architecture-subsection {
+  margin-bottom: 0;
+}
+
 .architecture-subsection .section-subtitle {
   color: var(--text); /* 중/소제목 색상을 검정으로 변경 */
   font-size: 1.4rem;
@@ -892,7 +896,7 @@ h1 {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 24px;
-  margin-top: 2rem;
+  margin-top: 1.5rem;
 }
 
 .image-box-styled {

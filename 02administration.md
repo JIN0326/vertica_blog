@@ -15,7 +15,7 @@ layout: default
 
 ## Table · Projection
 
-<div class="architecture-section" markdown="1">
+<div class="architecture-section">
   <p class="section-description">Vertica 아키텍처의 핵심은 **논리적 모델(Table)**과 **물리적 저장(Projection)**의 완벽한 분리에 있습니다. 데이터베이스에 질의를 던질 때, Vertica의 옵티마이저는 논리적 Table에 연결된 여러 물리적 Projection 중 가장 응답 속도가 빠른 것을 스스로 선택하여 쿼리를 수행합니다.</p>
 
   <div class="architecture-subsection">
@@ -138,7 +138,7 @@ SEGMENTED BY HASH(sale_id) ALL NODES; -- 분산키 정의</code></pre>
 
 ## Schema
 
-<div class="architecture-section" markdown="1">
+<div class="architecture-section">
   <p class="section-description">Vertica에서 **Schema(스키마)**는 객체들의 논리적인 그룹이며 별도의 물리적인 특징을 가지지 않습니다. 스키마를 통해 객체 접근 권한을 분리하고 네임스페이스를 관리함으로써 운영 효율성을 높일 수 있습니다.</p>
 
   <div class="architecture-subsection">
@@ -227,7 +227,7 @@ ALTER SCHEMA sales_biz OWNER TO dbadmin;</code></pre>
 
 ## User
 
-<div class="architecture-section" markdown="1">
+<div class="architecture-section">
   <p class="section-description">Vertica에서 <strong>User(사용자)</strong>는 데이터베이스에 접근하는 주체입니다. 관리자 계정(Administrator)은 데이터베이스 설치 시 생성되는 <code>vertica</code>(OS 계정과 동일)이며, 일반 사용자는 명시적으로 생성하여 권한 및 리소스를 할당해야 합니다.</p>
 
   <div class="architecture-subsection">
@@ -272,7 +272,7 @@ ALTER USER analyst ACCOUNT UNLOCK;</code></pre>
 
 ## Profile
 
-<div class="architecture-section" markdown="1">
+<div class="architecture-section">
   <p class="section-description">Vertica <strong>Profile(프로파일)</strong>은 사용자의 <strong>보안 및 패스워드 정책</strong>을 정의하고 관리하는 객체입니다. 사용자별로 보안 등급에 따라 프로파일을 생성하여 할당할 수 있으며, 기본적으로 제공되는 default 프로파일이 존재합니다.</p>
 
   <div class="architecture-subsection">
@@ -303,7 +303,7 @@ ALTER USER analyst PROFILE strict_profile;</code></pre>
 
 ## Resource Pool
 
-<div class="architecture-section" markdown="1">
+<div class="architecture-section">
   <p class="section-description"><strong>Resource Pool(리소스 풀)</strong>은 버티카 데이터베이스에서 작업(Workload)을 관리하기 위해 할당하는 메모리 및 스레드 공간입니다. 기본적으로 <code>general</code>, <code>sysquery</code>, <code>tm</code>(Tuple Mover) 등의 Built-in 리소스 풀이 제공되며, 업무와 사용자 성격에 맞춰 커스텀 풀을 추가 생성하는 것이 핵심 운영 전략입니다.</p>
 
   <div class="architecture-subsection">
@@ -349,7 +349,7 @@ ALTER USER batch_user RESOURCE POOL batch_pool;</code></pre>
 
 ## Privilege
 
-<div class="architecture-section" markdown="1">
+<div class="architecture-section">
   <p class="section-description"><strong>Privilege(권한)</strong>는 사용자가 SCHEMA, TABLE, RESOURCE POOL 등의 객체에 접근하고 조작할 수 있는 권리를 의미합니다. Vertica에서는 <strong>스키마 권한 상속(Schema Inheritance)</strong>을 적극 활용하여 권한 관리의 편의성을 극대화합니다.</p>
 
   <div class="architecture-subsection">
@@ -382,7 +382,7 @@ GRANT ALL PRIVILEGES EXTEND ON SCHEMA analytics TO analyst;</code></pre>
 
 ## Backup & Restore
 
-<div class="architecture-section" markdown="1">
+<div class="architecture-section">
   <p class="section-description">Vertica 데이터베이스의 백업은 OS의 <code>rsync</code>를 활용하는 <strong>스냅샷(Snapshot) 방식의 로컬 백업</strong>을 기본으로 수행합니다. Vertica에서 기본 제공하는 <code>vbr</code> 스크립트를 이용하여 백업의 구성 및 복구를 직관적으로 처리할 수 있습니다.</p>
 
   <div class="architecture-subsection">
@@ -410,7 +410,7 @@ GRANT ALL PRIVILEGES EXTEND ON SCHEMA analytics TO analyst;</code></pre>
 
 ## Cluster Operation & Diagnostics
 
-<div class="architecture-section" markdown="1">
+<div class="architecture-section">
   <p class="section-description">Vertica 클러스터의 안정적인 운영을 위해 데이터베이스를 기동/중지하고, 노드 장애 시 조치하며, 원인 분석을 위한 진단 파일을 생성하는 핵심 운영 가이드입니다.</p>
 
   <div class="architecture-subsection">

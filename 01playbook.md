@@ -257,7 +257,7 @@ Vertica는 유연한 확장성과 강력한 분석 성능을 통해 데이터 �
 
 ## Vertica 연계
 
-<div class="integration-section" markdown="1">
+<div class="integration-section">
   <div class="integration-subsection">
     <h3 class="integration-subsection__title">Kafka & Spark 연계</h3>
     <p class="integration-subsection__description">
@@ -344,7 +344,7 @@ Vertica는 유연한 확장성과 강력한 분석 성능을 통해 데이터 �
 
 ## Vertica EonMode
 
-<div class="eonmode-section architecture-section" markdown="1">
+<div class="eonmode-section architecture-section">
   <p class="section-description">
     Eon Mode는 클라우드 이코노믹스의 동적 워크로드 및 효율적인 확장 요구에 대응하기 위해 설계된 <strong>컴퓨팅/스토리지(C/S) 분리 아키텍처</strong>입니다. 페타바이트 규모 이상의 통합 데이터 레이크하우스(Lakehouse) 플랫폼을 구축하는데 최적화되어 있습니다.
   </p>
