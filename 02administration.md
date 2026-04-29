@@ -8,8 +8,8 @@ layout: default
   <p>Vertica 데이터베이스의 핵심 객체(Table, Schema, User 등)를 관리하고 운영하는 방법을 상세히 설명합니다. 아래 목차를 통해 원하는 섹션으로 바로 이동할 수 있습니다.</p>
 </div>
 
-<div class="page-layout"> 
-<div class="content-section" markdown="1">
+<div class="page-layout">
+  <div class="content-section" markdown="1">
 
 <div id="table-projection" style="scroll-margin-top: 100px;"></div>
 
@@ -514,11 +514,11 @@ sudo systemctl start vertica-consoled
 sudo systemctl stop vertica-consoled</code></pre>
     </div>
   </div>
-</div>
+  </div>
+  </div>
 
-
-<aside class="page-sidebar">
-  <div class="sidebar-panel">
+  <aside class="page-sidebar">
+    <div class="sidebar-panel">
     <h3>On this page</h3>
     <ul>
       <li><a href="#table-projection">Table · Projection</a></li>
@@ -530,6 +530,8 @@ sudo systemctl stop vertica-consoled</code></pre>
       <li><a href="#backup-restore">Backup & Restore</a></li>
       <li><a href="#cluster-operation">Cluster Operation</a></li>
     </ul>
-  </div>
-</aside>
+    </div>
+  </aside>
 </div>
+
+

@@ -10,7 +10,7 @@ layout: default
 </div>
 
 <div class="page-layout">
-<div class="content-section" markdown="1">
+  <div class="content-section" markdown="1">
 
 <div id="architecture-sql" style="scroll-margin-top: 100px;"></div>
 
@@ -90,17 +90,19 @@ FROM salary;</code></pre>
     <h3 class="section-subtitle">2. 시퀀스(Sequence) 성능 설정</h3>
     <p class="section-description">시퀀스 사용 시 성능 향상을 위해 <strong>Cache</strong>를 충분히 설정하는 것이 좋습니다 (노드별 기본값 250,000 권장).</p>
   </div>
-</div>
+  </div>
+  </div>
 
-
-<aside class="page-sidebar">
-  <div class="sidebar-panel">
+  <aside class="page-sidebar">
+    <div class="sidebar-panel">
     <h3>On this page</h3>
     <ul>
       <li><a href="#architecture-sql">SQL 아키텍처</a></li>
       <li><a href="#query-best-practices">쿼리 Best Practices</a></li>
       <li><a href="#dml-optimization">DML 최적화 가이드</a></li>
     </ul>
-  </div>
-</aside>
+    </div>
+  </aside>
 </div>
+
+

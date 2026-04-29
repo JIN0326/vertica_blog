@@ -9,7 +9,7 @@ layout: default
 </div>
 
 <div class="page-layout">
-<div class="content-section" markdown="1">
+  <div class="content-section" markdown="1">
 
 <div id="what-is-vertica" style="scroll-margin-top: 100px;"></div>
 
@@ -437,7 +437,9 @@ Vertica는 온프레미스부터 퍼블릭/프라이빗 클라우드까지 고�
 
 </div>
 
-</div> <aside class="page-sidebar">
+</div>
+
+  <aside class="page-sidebar">
   <div class="sidebar-panel">
     <h3>On this page</h3>
     <ul>
@@ -449,5 +451,7 @@ Vertica는 온프레미스부터 퍼블릭/프라이빗 클라우드까지 고�
       <li><a href="#eonmode">Vertica EonMode</a></li>
     </ul>
   </div>
-</aside>
+  </aside>
 </div>
+
+

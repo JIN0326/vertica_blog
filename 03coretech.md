@@ -8,8 +8,8 @@ layout: default
   <p>Vertica 개발 및 운영에 필수적인 핵심 기술인 vsql, 데이터 적재(COPY), 그리고 쿼리 실행 계획 분석(EXPLAIN)에 대해 상세히 알아봅니다.</p>
 </div>
 
-<div class="page-layout"> 
-<div class="content-section" markdown="1">
+<div class="page-layout">
+  <div class="content-section" markdown="1">
 
 <div id="vsql" style="scroll-margin-top: 100px;"></div>
 
@@ -217,7 +217,8 @@ Access Path:
 </div>
 
 </div>
-<aside class="page-sidebar">
+
+  <aside class="page-sidebar">
   <div class="sidebar-panel">
     <h3>On this page</h3>
     <ul>
@@ -227,5 +228,7 @@ Access Path:
       <li><a href="#explain">EXPLAIN</a></li>
     </ul>
   </div>
-</aside>
+  </aside>
 </div>
+
+

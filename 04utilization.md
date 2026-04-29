@@ -10,7 +10,7 @@ layout: default
 </div>
 
 <div class="page-layout">
-<div class="content-section" markdown="1">
+  <div class="content-section" markdown="1">
 
 <div id="connecting" style="scroll-margin-top: 100px;"></div>
 
@@ -138,3 +138,5 @@ with vertica_python.connect(**conn_info) as connection:
     </div>
   </aside>
 </div>
+
+
