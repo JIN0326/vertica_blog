@@ -1,7 +1,4 @@
-﻿/* ==========================================================================
-   1. ?꾩뿭 ?ㅽ???諛?蹂??(Global Styles & Variables)
-   ========================================================================== */
-:root {
+﻿:root {
   --bg-gradient: linear-gradient(180deg, #f8fbff 0%, #f0f5ff 100%);
   --text: #1a2b4b;
   --sub: #3e4d6b;
@@ -21,37 +18,26 @@ body {
   line-height: 1.6;
 }
 
-/* ?ㅽ겕濡??대룞 ??怨좎젙 ?ㅻ뜑??媛?ㅼ?吏 ?딅룄濡?offset ?ㅼ젙 */
 section[id],
 article[id] {
   scroll-margin-top: 80px; 
 }
 
-/* ==========================================================================
-   2. 怨듯넻 ?덉씠?꾩썐 (Common Layout)
-   ========================================================================== */
-
-/* ?꾩껜 ?섏씠吏 而⑦뀒?대꼫 */
 .layout-inner {
   width: min(1300px, calc(100% - 40px));
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1.2fr 8.8fr; /* ?ъ씠?쒕컮? 硫붿씤 肄섑뀗痢?鍮꾩쑉 議곗젙 (1.2:8.8) */
-  gap: 28px;
+  grid-template-columns: 1.2fr 8.8fr; gap: 28px;
   align-items: start;
   padding: 20px 0 80px;
 }
 
-/* 硫붿씤 肄섑뀗痢??곸뿭 */
 .site-content {
   width: 100%;
   margin: 0;
   padding: 0;
 }
 
-/* ==========================================================================
-   3. ?ㅻ뜑 諛??대퉬寃뚯씠??(Header & Navigation)
-   ========================================================================== */
 .site-header {
   position: sticky;
   top: 0;
@@ -103,7 +89,6 @@ article[id] {
   color: var(--accent);
 }
 
-/* ?쒕∼?ㅼ슫 硫붾돱 */
 .dropdown { position: relative; }
 .dropdown-content {
   display: none;
@@ -135,11 +120,6 @@ article[id] {
   color: var(--accent);
 }
 
-/* ==========================================================================
-   4. 硫붿씤 ?섏씠吏 ?꾩슜 而댄룷?뚰듃 (00index.md)
-   ========================================================================== */
-
-/* 4.1 ?곷떒 Hero ?곸뿭 */
 .hero-container {
   padding: 10px 0 10px; 
 }
@@ -184,7 +164,6 @@ h1 {
 }
 .link-container a:hover { background: var(--accent-dark); transform: translateY(-2px); }
 
-/* 4.2 ?꾪궎?띿쿂 洹몃━??*/
 .architecture-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
@@ -219,7 +198,6 @@ h1 {
 .mode-body h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 0px; } 
 .mode-body p { font-size: 0.95rem; color: var(--muted); margin: 0; line-height: 1.6; }
 
-/* 4.3 移대뱶 留곹겕 ?뱀뀡 (Playbook, Administration ?? */
 .playbook-section,
 .administration-section,
 .coretech-section,
@@ -258,11 +236,6 @@ h1 {
 .card p { font-size: 0.9rem; color: var(--muted); margin-bottom: 12px; } 
 .card a { color: var(--accent); font-weight: 700; font-size: 0.85rem; } 
 
-/* ==========================================================================
-   5. ?쒕툕 ?섏씠吏 怨듯넻 而댄룷?뚰듃
-   ========================================================================== */
-
-/* 5.1 ?섏씠吏 ?곷떒 Hero ?곸뿭 */
 .page-hero {
   text-align: center;
   padding: 2rem 1rem 2.5rem;
@@ -296,15 +269,13 @@ h1 {
   line-height: 1.7;
 }
 
-/* 5.2 2??肄섑뀗痢??덉씠?꾩썐 (蹂몃Ц + ?ъ씠?쒕컮) */
 .page-layout {
   display: grid;
-  grid-template-columns: 220px minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr) 220px;
   gap: 24px;
   margin-top: 32px;
 }
 
-/* 蹂몃Ц 肄섑뀗痢??뱀뀡 */
 .content-section {
   scroll-margin-top: 100px;
   margin-bottom: 2rem;
@@ -340,14 +311,12 @@ h1 {
   font-size: 0.9em;
 }
 
-/* ?몃씪??肄붾뱶 釉붾줉 */
 .content-section :not(pre) > code {
   background-color: rgba(45, 105, 255, 0.08);
   padding: 0.2em 0.4em;
   border-radius: 4px;
 }
 
-/* ?덉떆 肄붾뱶 釉붾줉 ?쇰꺼 */
 .example-label {
   font-weight: 600;
   color: var(--sub);
@@ -356,7 +325,6 @@ h1 {
   font-size: 0.95rem;
 }
 
-/* 援щЦ ?뺤쓽 諛뺤뒪 (Syntax Box) */
 .syntax-box {
   background: rgba(45, 105, 255, 0.04); 
   border: 1px solid var(--border-color);
@@ -386,18 +354,15 @@ h1 {
   margin-bottom: 1rem;
 }
 
-/* 1??肄섑뀗痢??덉씠?꾩썐 (以묒븰 ?뺣젹) */
 .content-section-centered {
   max-width: 760px;
   margin: 0 auto;
 }
 
-/* 5.3 ?곗륫 ?ъ씠?쒕컮 (On this page) */
 .page-sidebar {
   position: sticky;
   top: 104px; 
   align-self: start;
-  order: -1;
 }
 
 .sidebar-panel {
@@ -445,11 +410,6 @@ h1 {
   cursor: default;
 }
 
-/* ==========================================================================
-   6. ?섏씠吏蹂??뱁솕 而댄룷?뚰듃
-   ========================================================================== */
-
-/* 6.1 Playbook ?섏씠吏: 3-Panel ?덉씠?꾩썐 */
 .slide-panels {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -498,14 +458,13 @@ h1 {
 }
 
 .slide-panel ul li::before {
-  content: "??;
+  content: "•";
   color: var(--accent);
   position: absolute;
   left: 0;
   font-weight: bold;
 }
 
-/* 6.2 Fundamentals ?섏씠吏: 紐⑹감 ?덉씠?꾩썐 */
 .fundamentals-toc-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -550,7 +509,6 @@ h1 {
   text-decoration: underline;
 }
 
-/* 6.3 EonMode Section */
 .eon-section-title {
   color: var(--text);
   font-size: 1.4rem;
@@ -558,7 +516,6 @@ h1 {
   margin-bottom: 1.5rem;
 }
 
-/* Feature Box */
 .feature-box {
   background: var(--surface);
   border: 1px solid var(--border-color);
@@ -599,7 +556,6 @@ h1 {
 }
 .feature-dd:last-of-type { margin-bottom: 0; }
 
-/* Use Case Grid */
 .use-case-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -651,7 +607,6 @@ h1 {
   font-weight: bold;
 }
 
-/* Tech Features Grid */
 .tech-features-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr); 
@@ -700,14 +655,13 @@ h1 {
 }
 
 .tech-feature-card ul li::before {
-  content: "??;
+  content: "•";
   color: var(--accent);
   position: absolute;
   left: 0;
   top: 0;
 }
 
-/* Portfolio Section */
 .portfolio-container {
   display: flex;
   flex-direction: column;
@@ -748,7 +702,7 @@ h1 {
 }
 
 .portfolio-content ul li::before {
-  content: "??;
+  content: "•";
   color: var(--accent);
   position: absolute;
   left: 0;
@@ -791,7 +745,6 @@ h1 {
   padding-left: 20px;
 }
 
-/* Architecture Section */
 .architecture-section .section-description {
   color: var(--sub);
   margin-bottom: 2.5rem;
@@ -808,8 +761,7 @@ h1 {
 }
 
 .architecture-subsection .section-subtitle {
-  color: var(--text); /* 以??뚯젣紐??됱긽??寃?뺤쑝濡?蹂寃?*/
-  font-size: 1.4rem;
+  color: var(--text); font-size: 1.4rem;
   margin-bottom: 0.8rem;
 }
 
@@ -916,7 +868,6 @@ h1 {
   height: auto;
 }
 
-/* Projection Distribution Grid */
 .projection-distribution-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -985,7 +936,6 @@ h1 {
   margin-top: 2rem;
 }
 
-/* Integration Section */
 .integration-section {
   display: flex;
   flex-direction: column;
@@ -1071,9 +1021,6 @@ h1 {
   max-width: 100%;
 }
 
-/* ==========================================================================
-   7. Footer
-   ========================================================================== */
 .site-footer {
   text-align: center;
   padding: 40px 20px;
@@ -1087,9 +1034,6 @@ h1 {
   color: var(--muted);
 }
 
-/* ==========================================================================
-   8. Responsive Design
-   ========================================================================== */
 @media (max-width: 900px) {
   .layout-inner,
   .page-layout {
@@ -1114,13 +1058,10 @@ h1 {
     gap: 16px;
     flex-wrap: nowrap;
     overflow-x: auto;
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
-  }
+    -ms-overflow-style: none;  scrollbar-width: none;  }
 
   .site-nav::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, Opera */
-  }
+    display: none; }
 
   .columnar-layout {
     grid-template-columns: 1fr;
