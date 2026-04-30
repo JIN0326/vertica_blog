@@ -799,6 +799,7 @@ h1 {
   flex-direction: column;
   height: 100%;
   text-align: center;
+  padding-bottom: 1rem; /* 카드 하단 패딩 감소 */
 }
 
 .comparison-grid .card img {
@@ -826,6 +827,7 @@ h1 {
   padding-left: 1.2em;
   font-size: 0.95rem;
   color: var(--sub);
+  margin-bottom: 0; /* 목록 하단 마진 제거 */
 }
 
 .comparison-grid .card--vertica ul {

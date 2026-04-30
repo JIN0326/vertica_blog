@@ -7,9 +7,6 @@ layout: default
   <span class="chip">Fundamentals</span>
   <h1>Vertica, 대용량 데이터 분석을 위한 컬럼 기반 DB의 시작.</h1>
   <p>핵심 개념부터 차근차근 데이터 분석의 탄탄한 기본기를 완성해보세요.</p>
-  <div class="link-container" style="justify-content: center; margin-top: 2rem;">
-    <a href="#toc-container">학습 시작하기</a>
-  </div>
 </div>
 
 <div class="fundamentals-toc-container" id="toc-container">

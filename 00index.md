@@ -64,6 +64,11 @@ permalink: /
       <a href="{{ '/01playbook#embracing' | relative_url }}">이동 →</a>
     </article>
     <article class="card">
+      <h3>Vertica MCP 연동</h3>
+      <p>LLM과 Vertica를 연동하여 자연어 기반 데이터 분석을 수행하는 방법을 알아봅니다.</p>
+      <a href="{{ '/01playbook#mcp-integration' | relative_url }}">이동 →</a>
+    </article>
+    <article class="card">
       <h3>Vertica EonMode</h3>
       <p>스토리지와 컴퓨팅을 분리하여 유연성과 확장성을 극대화한 Eon Mode를 심층 분석합니다.</p>
       <a href="{{ '/01playbook#eonmode' | relative_url }}">이동 →</a>
