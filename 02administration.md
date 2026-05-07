@@ -467,18 +467,18 @@ GRANT ALL PRIVILEGES EXTEND ON SCHEMA analytics TO analyst;</code></pre>
     </div>
 
     <h4 class="section-subtitle">나. 장애 조치 Check List</h4>
-    <p class="section-description">재기동 전, 운영 가이드(7.1)에 따라 아래 항목을 반드시 점검하여 잔류 프로세스를 정리합니다.</p>
+    <p class="section-description">재기동 전에 따라 아래 항목을 반드시 점검하여 잔류 프로세스를 정리합니다.</p>
     <ul class="feature-list">
       <li>
         <span class="feature-list__icon">🔹</span> <strong>SSH 접속 확인:</strong> <span>각 노드 간 패스워드 없는 SSH 통신이 가능한지 점검 (<code>ssh [Target_Node_IP]</code>)</span>
       </li>
       <li>
         <span class="feature-list__icon">🔹</span> <strong>프로세스 생존 확인:</strong> <span>비정상 종료 시 남은 <code>vertica</code>, <code>spread</code> 프로세스를 확인하고 <code>kill -9</code>로 종료</span>
+        </div>
+      </li>
         <div class="syntax-box">
           <pre><code>ps -ef | grep vertica
 ps -ef | grep spread</code></pre>
-        </div>
-      </li>
     </ul>
 
     <h4 class="section-subtitle">다. 노드 재기동 실행</h4>
@@ -497,9 +497,6 @@ ps -ef | grep spread</code></pre>
   <div class="architecture-subsection">
     <h3 class="section-subtitle">4. 장애 분석 파일 생성 (Scrutinize)</h3>
     <p class="section-description">원인 분석을 위해 기술 지원팀에 전달할 정밀 진단 파일을 생성합니다.</p>
-    <div class="image-box-styled">
-      <img src="{{ '/assets/images/image_cf4a64.jpg' | relative_url }}" alt="Scrutinize 메뉴">
-    </div>
     <div class="syntax-box">
       <pre><code>/opt/vertica/bin/scrutinize --by-minute yes -d DBNM -P 'password'</code></pre>
     </div>
