@@ -1,5 +1,4 @@
-- title: Vertica Playbook
-  title: Playbook
+- title: Playbook
   url: /01playbook
   sublinks:
     - title: Vertica란 무엇인가
