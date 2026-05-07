@@ -9,8 +9,8 @@ layout: default
   <p>대용량 데이터 분석을 위한 컬럼 기반 DB, Vertica의 시작. <br> 핵심 개념부터 차근차근 데이터 분석의 탄탄한 기본기를 완성해보세요.</p>
 </div>
 
-<div class="fundamentals-toc-container" id="toc-container">
-  <div class="fundamentals-grid">
+<div class="content-section" markdown="1">
+  <div class="fundamentals-grid" id="toc-container">
     <!-- Card 1 -->
     <div class="fundamentals-card">
       <div>

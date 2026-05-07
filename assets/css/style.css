@@ -1052,6 +1052,10 @@ h1 {
   .comparison-grid {
     grid-template-columns: 1fr;
   }
+
+  .fundamentals-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 768px) {
@@ -1076,6 +1080,10 @@ h1 {
   }
 
   .kafka-steps {
+    grid-template-columns: 1fr;
+  }
+
+  .fundamentals-grid {
     grid-template-columns: 1fr;
   }
 }
