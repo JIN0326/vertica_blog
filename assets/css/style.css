@@ -785,6 +785,7 @@ h1 {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 24px;
   margin-bottom: 3rem; 
+}
 
 .comparison-column__title {
   text-align: center;

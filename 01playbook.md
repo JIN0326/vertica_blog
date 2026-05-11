@@ -264,12 +264,12 @@ Vertica는 온프레미스부터 퍼블릭/프라이빗 클라우드까지 고�
       다양한 채널 및 플랫폼에서 유입되는 데이터를 실시간으로 저장/분석하기 위해서는 데이터 파이프 라인 플랫폼과의 유기적인 연계가 필수적입니다.
     </p>
     
-    <div class="kafka-layout">
+  <div class="kafka-layout">
       <div class="kafka-layout__image-wrapper">
         <img src="{{ '/assets/images/embracing1.png' | relative_url }}" alt="Kafka Integration Architecture">
       </div>
       
-      <div class="kafka-steps">
+  <div class="kafka-steps">
         <div>
           <h4 class="kafka-step__title">
             <span class="kafka-step__number">1</span> Consume
@@ -281,7 +281,7 @@ Vertica는 온프레미스부터 퍼블릭/프라이빗 클라우드까지 고�
           </ul>
         </div>
 
-        <div>
+  <div>
           <h4 class="kafka-step__title">
             <span class="kafka-step__number">2</span> Realtime Analytics
           </h4>
@@ -290,7 +290,7 @@ Vertica는 온프레미스부터 퍼블릭/프라이빗 클라우드까지 고�
           </ul>
         </div>
 
-        <div>
+  <div>
           <h4 class="kafka-step__title">
             <span class="kafka-step__number">3</span> Produce
           </h4>
@@ -300,7 +300,7 @@ Vertica는 온프레미스부터 퍼블릭/프라이빗 클라우드까지 고�
           </ul>
         </div>
 
-        <div>
+  <div>
           <h4 class="kafka-step__title">
             <span class="kafka-step__number">4</span> Spark integration
           </h4>
@@ -326,7 +326,7 @@ Vertica는 온프레미스부터 퍼블릭/프라이빗 클라우드까지 고�
       </div>
     </article>
 
-    <article class="integration-card">
+  <article class="integration-card">
       <h3 class="integration-card__title">Object Storage 연계</h3>
       <p class="integration-card__description">
         추가적인 장비나 별도의 솔루션 설치 없이 Object Storage 에 저장된 데이터를 직접 분석할 수 있으며 버티카 데이터를 다양한 오픈 포맷으로 추출할 수 있어 타 시스템과 유연한 데이터 연계 지원
@@ -457,7 +457,7 @@ winget install OpenJS.Nodejs
       </ul>
     </article>
 
-    <article class="slide-panel">
+  <article class="slide-panel">
       <img src="{{ '/assets/images/eonmode2.png' | relative_url }}" alt="비용 효율성">
       <h3>비용 효율성 (Cost)</h3>
       <ul>
@@ -466,7 +466,7 @@ winget install OpenJS.Nodejs
       </ul>
     </article>
 
-    <article class="slide-panel">
+  <article class="slide-panel">
       <img src="{{ '/assets/images/eonmode3.png' | relative_url }}" alt="고가용성 보장">
       <h3>고가용성 보장 (Availability)</h3>
       <ul>
@@ -487,14 +487,14 @@ winget install OpenJS.Nodejs
         각 컴퓨팅 노드는 영구 데이터를 자체 보관하지 않습니다. 대신 자주 활용되는 핫 데이터(Hot Data)만 로컬 디스크 캐시에 보관하며 LRU(Least Recently Used) 알고리즘으로 관리하여 쿼리 성능을 극대화합니다.
       </dd>
 
-      <dt class="feature-dt">
+  <dt class="feature-dt">
         <span class="feature-dt__icon">◆</span> 완벽한 트랜잭션 지원 <span class="feature-dt__meta">(Storage Architecture)</span>
       </dt>
       <dd class="feature-dd">
         오브젝트 스토리지를 사용함에도 Write-Once 기반으로 동작하여 DML(갱신/삭제 등) 처리에 제약이 없습니다. 트랜잭션 발생 시 커밋(Commit)된 데이터는 노드 수에 맞춘 최적의 조각으로 나뉘어 저장되며, 즉시 모든 서브클러스터에서 동시에 조회할 수 있습니다.
       </dd>
 
-      <dt class="feature-dt">
+  <dt class="feature-dt">
         <span class="feature-dt__icon">◆</span> 인프라 종속성 탈피
       </dt>
       <dd class="feature-dd">
@@ -518,7 +518,7 @@ winget install OpenJS.Nodejs
       </ul>
     </div>
 
-    <div class="card card--use-case">
+  <div class="card card--use-case">
       <h4 class="use-case-card__title">Revive를 통한 제로 다운타임 마이그레이션</h4>
       <p class="use-case-card__intro">
         하드웨어 EOL(End of Life)이나 클라우드 전환 시 막대한 데이터 이관(Migration)에 대한 부담을 해소합니다.
