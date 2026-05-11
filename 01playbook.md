@@ -224,6 +224,7 @@ Vertica는 온프레미스부터 퍼블릭/프라이빗 클라우드까지 고�
       </div>
     </div>
   </div>
+  </div>
 
   <div class="architecture-subsection">
     <h3 class="section-subtitle">
