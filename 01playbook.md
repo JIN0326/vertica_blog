@@ -236,7 +236,7 @@ Vertica는 온프레미스부터 퍼블릭/프라이빗 클라우드까지 고�
       Query 시 마다 모든 열을 읽어와야 하는 row 기반 DBMS와 비교하여 I/O 발생량을 획기적으로 감소시킬 수 있습니다.
     </p>
 
-    <div class="columnar-layout">
+  <div class="columnar-layout">
       <div class="columnar-image">
         <img src="{{ '/assets/images/architecture3.png' | relative_url }}" alt="Native Columnar Architecture">
       </div>
