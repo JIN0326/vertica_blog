@@ -195,33 +195,32 @@ Vertica는 온프레미스부터 퍼블릭/프라이빗 클라우드까지 고�
       또한 클러스터 구성이나 노드 구성에 특별한 하드웨어나 소프트웨어를 필요로 하지 않기 때문에 비용적인 강점이 있으며,
       복잡한 구성이 불필요하여 클러스터 구성 과정이 매우 간단하고 빠릅니다.
     </p>
-
-    <div class="comparison-grid">
-      <div class="comparison-column">
-        <h4 class="comparison-column__title">Other Systems</h4>
-        <div class="card card--other" style="display: flex; flex-direction: column; align-items: center; padding: 1rem 1rem 0rem;">
-          <img src="{{ '/assets/images/architecture1.png' | relative_url }}" alt="아키텍처 비교: Other Systems" style="max-width: 250px; width: 80%; margin-bottom: 1rem;">
-          <ul style="margin: 0; padding: 0; list-style-position: inside; font-size: 0.9rem; text-align: left; width: 100%;">
-            <li>두 종류 이상의 서버</li>
-            <li>특별한 H/W 사용으로 복잡도 증가</li>
-            <li>마스터 서버를 통한 작업 수행</li>
-            <li>저가형 서버 사용</li>
-            <li>관리/운영에 다양한 고려사항 존재</li>
-          </ul>
-        </div>
+    
+  <div class="comparison-grid">
+    <div class="comparison-column">
+      <h4 class="comparison-column__title">Other Systems</h4>
+      <div class="card card--other">
+        <img src="{{ '/assets/images/architecture1.png' | relative_url }}" alt="아키텍처 비교: Other Systems">
+        <ul>
+          <li>두 종류 이상의 서버</li>
+          <li>특별한 H/W 사용으로 복잡도 증가</li>
+          <li>마스터 서버를 통한 작업 수행</li>
+          <li>저가형 서버 사용</li>
+          <li>관리/운영에 다양한 고려사항 존재</li>
+        </ul>
       </div>
-      <div class="comparison-column">
-        <h4 class="comparison-column__title comparison-column__title--vertica">VERTICA</h4>
-        <div class="card card--vertica" style="display: flex; flex-direction: column; align-items: center; padding: 1rem 1rem 0rem;">
-          <img src="{{ '/assets/images/architecture2.png' | relative_url }}" alt="아키텍처 비교: Vertica" style="max-width: 250px; width: 80%; margin-bottom: 1rem;">
-          <ul style="margin: 0; padding: 0; list-style-position: inside; font-size: 0.9rem; text-align: left; width: 100%;">
-            <li>동일 스펙 / 동일 구성의 서버</li>
-            <li>단순한 구성</li>
-            <li>아무 서버에나 작업을 요청하면 전 노드가 병렬 수행</li>
-            <li>시장의 신뢰도를 확보한 서버 사용</li>
-            <li>관리 및 사용 용이성 확보</li>
-          </ul>
-        </div>
+    </div>
+    <div class="comparison-column">
+      <h4 class="comparison-column__title comparison-column__title--vertica">VERTICA</h4>
+      <div class="card card--vertica">
+        <img src="{{ '/assets/images/architecture2.png' | relative_url }}" alt="아키텍처 비교: Vertica">
+        <ul>
+          <li>동일 스펙 / 동일 구성의 서버</li>
+          <li>단순한 구성</li>
+          <li>아무 서버에나 작업을 요청하면 전 노드가 병렬 수행</li>
+          <li>시장의 신뢰도를 확보한 서버 사용</li>
+          <li>관리 및 사용 용이성 확보</li>
+        </ul>
       </div>
     </div>
   </div>
