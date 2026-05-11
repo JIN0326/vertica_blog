@@ -55,6 +55,12 @@
       url: /04utilization#monitoring
     - title: Python 연동
       url: /04utilization#python
+    - title: Apache Iceberg 연동
+      url: /04utilization#iceberg
+    - title: Apache Polaris 연동
+      url: /04utilization#polaris
+    - title: PyIceberg & AWS Glue
+      url: /04utilization#pyiceberg
 
 - title: Development
   url: /05development

@@ -166,6 +166,21 @@ permalink: /
       <p>vertica-python 라이브러리를 사용하여 Python 환경에서 데이터를 처리하고 분석합니다.</p>
       <a href="{{ '/04utilization#python' | relative_url }}">이동 →</a>
     </article>
+    <article class="card">
+      <h3>Apache Iceberg 연동</h3>
+      <p>Data Lakehouse 구축을 위해 Apache Iceberg 테이블 포맷과 연동하는 방법을 알아봅니다.</p>
+      <a href="{{ '/04utilization#iceberg' | relative_url }}">이동 →</a>
+    </article>
+    <article class="card">
+      <h3>Apache Polaris 연동</h3>
+      <p>중앙 메타데이터 서비스인 Polaris와 연동하여 동적으로 최신 테이블 정보를 조회합니다.</p>
+      <a href="{{ '/04utilization#polaris' | relative_url }}">이동 →</a>
+    </article>
+    <article class="card">
+      <h3>PyIceberg & AWS Glue</h3>
+      <p>Python 기반 PyIceberg와 AWS Glue를 활용하여 서버리스 데이터 운영을 구현합니다.</p>
+      <a href="{{ '/04utilization#pyiceberg' | relative_url }}">이동 →</a>
+    </article>
   </div>
 </section>
 

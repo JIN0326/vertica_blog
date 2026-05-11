@@ -1,4 +1,4 @@
-﻿﻿# Vertica Blog
+﻿# Vertica Blog
 
 Vertica 분석 플랫폼에 대한 기술 정보와 사용법을 공유하기 위한 Jekyll 기반의 기술 블로그입니다.
 
