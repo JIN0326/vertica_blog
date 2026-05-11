@@ -65,6 +65,3 @@
       url: /05development#query-best-practices
     - title: DML 최적화
       url: /05development#dml-optimization
-
-- title: Fundamentals
-  url: /90fundamentals

@@ -189,14 +189,3 @@ permalink: /
     </article>
   </div>
 </section>
-
-<section id="fundamentals" class="fundamentals-section">
-  <h2>Vertica Fundamentals</h2>
-  <div class="cards">
-    <article class="card">
-      <h3>Vertica 학습하기</h3>
-      <p>Vertica의 기본 개념부터 운영, 쿼리, 백업, 적재까지 28가지 핵심 학습 항목을 소개합니다.</p>
-      <a href="{{ '/90fundamentals' | relative_url }}">이동 →</a>
-    </article>
-  </div>
-</section>
