@@ -100,6 +100,7 @@ with vertica_python.connect(**conn_info) as connection:
 
 ## Apache Iceberg 연동 
 <div class="architecture-section">
+<img src="{{ '/assets/images/iceberg.png' | relative_url }}" alt="Apache Iceberg">
     <p class="section-description">Apache Iceberg는 대규모 분석 데이터를 위한 오픈 테이블 포맷으로, Vertica에서 이를 <strong>외부 테이블(External Table)</strong>로 조회하여 고속 분석을 수행할 수 있습니다.</p>
     
   <div class="architecture-subsection">
