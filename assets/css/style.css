@@ -986,9 +986,15 @@ h1 {
   border-radius: 8px;
 }
 
-.image-box-styled--logo img {
-  max-width: 300px;
+.flow-diagram {
+  text-align: center;
+  margin: 1rem 0 2rem;
+}
+
+.flow-diagram img {
+  max-width: 600px;
   width: 100%;
+  height: auto;
 }
 
 .image-box-styled + .feature-dl,

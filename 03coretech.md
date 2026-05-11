@@ -115,7 +115,7 @@ layout: default
 <hr style="margin: 3rem 0;">
 <div id="export" style="scroll-margin-top: 100px;"></div>
 
-## 데이터 내보내기 (Export)
+## Export (데이터 내보내기)
 
 <div class="architecture-section">
   <p class="section-description">Vertica의 데이터를 외부 파일로 추출하거나 다른 클러스터로 전송하는 방법입니다. 운영 환경에서는 주로 사용자 데이터의 논리적 백업이나 타 시스템과의 데이터 연계를 위해 사용됩니다.</p>
