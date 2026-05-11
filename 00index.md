@@ -126,7 +126,7 @@ permalink: /
   <h2>Vertica CoreTech</h2>
   <div class="cards">
     <article class="card">
-      <h3>vsql (Command Line Interface)</h3>
+      <h3>vsql (CLI)</h3>
       <p>Vertica의 CLI 클라이언트인 vsql의 접속 방법과 유용한 메타 커맨드를 학습합니다.</p>
       <a href="{{ '/03coretech#vsql' | relative_url }}">이동 →</a>
     </article>

@@ -5,7 +5,7 @@ layout: default
 <div class="page-hero">
   <span class="chip">Core Tech</span>
   <h1>Vertica Core Tech</h1>
-  <p>Vertica 개발 및 운영에 필수적인 핵심 기술인 vsql, 데이터 적재(COPY), 그리고 쿼리 실행 계획 분석(EXPLAIN)에 대해 상세히 알아봅니다.</p>
+  <p>Vertica 개발 및 운영에 필수적인 핵심 기술인 vsql, 데이터 적재(COPY), 그리고 쿼리 분석(EXPLAIN)에 대해 상세히 알아봅니다.</p>
 </div>
 
 <div class="page-layout">
@@ -13,7 +13,7 @@ layout: default
 
 <div id="vsql" style="scroll-margin-top: 100px;"></div>
 
-## vsql (Command Line Interface)
+## vsql (CLI)
 
 <div class="architecture-section">
   <p class="section-description"><code>vsql</code>은 Vertica 데이터베이스에 접속하여 SQL 쿼리를 실행하고 결과를 확인할 수 있는 강력한 커맨드 라인 유틸리티입니다. 데이터베이스 관리 및 스크립트 기반의 자동화 작업에 주로 활용됩니다.</p>
@@ -225,7 +225,7 @@ Access Path:
       <li><a href="#vsql">vsql</a></li>
       <li><a href="#copy">COPY</a></li>
       <li><a href="#export">EXPORT</a></li>
-      <li><a href="#explain">EXPLAIN</a></li>
+      <li><a href="#explain">EXPLAIN (쿼리 분석)</a></li>
     </ul>
   </div>
   </aside>

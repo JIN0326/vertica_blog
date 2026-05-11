@@ -37,7 +37,7 @@
 - title: CoreTech
   url: /03coretech
   sublinks:
-    - title: vsql (Command Line Interface)
+    - title: vsql (CLI)
       url: /03coretech#vsql
     - title: COPY (데이터 적재)
       url: /03coretech#copy

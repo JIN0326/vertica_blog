@@ -66,10 +66,10 @@ Vertica 분석 플랫폼에 대한 기술 정보와 사용법을 공유하기 �
 * **Cluster Operation & Diagnostics**: DB 기동/중지, 장애 조치, 진단 파일 생성 등 핵심 클러스터 운영 가이드
 
 ### ⚙️ Vertica CoreTech (`03coretech.md`)
-* **vsql 명령어**: CLI 접속 옵션 및 유용한 메타 커맨드(`\d`, `\timing`, `\x` 등)
+* **vsql (CLI)**: CLI 접속 옵션 및 유용한 메타 커맨드(`\d`, `\timing`, `\x` 등)
 * **데이터 적재 (COPY)**: 대용량 데이터 로딩 구문, 옵션 및 에러 데이터 처리
 * **데이터 내보내기 (Export)**: vsql, EXPORT TO PARQUET/VERTICA 등 다양한 데이터 추출 방법
-* **쿼리 튜닝 (EXPLAIN)**: 실행 계획 분석(EXPLAIN/PROFILE) 및 성능 최적화 포인트
+* **쿼리 분석 (EXPLAIN)**: 실행 계획 분석(EXPLAIN/PROFILE) 및 성능 최적화 포인트
 
 ### 🚀 Vertica Utilization (`04utilization.md`)
 * **클라이언트 접속**: vsql(CLI) 및 DBeaver(GUI) 접속 가이드
