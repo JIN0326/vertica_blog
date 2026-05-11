@@ -199,7 +199,7 @@ Vertica는 온프레미스부터 퍼블릭/프라이빗 클라우드까지 고�
     <div class="comparison-grid">
       <div class="comparison-column">
         <h4 class="comparison-column__title">Other Systems</h4>
-        <div class="card card--other" style="display: flex; flex-direction: column; align-items: center; padding: 1rem 1rem 0.8rem;">
+        <div class="card card--other" style="display: flex; flex-direction: column; align-items: center; padding: 1rem 1rem 0rem;">
           <img src="{{ '/assets/images/architecture1.png' | relative_url }}" alt="아키텍처 비교: Other Systems" style="max-width: 250px; width: 80%; margin-bottom: 1rem;">
           <ul style="margin: 0; padding: 0; list-style-position: inside; font-size: 0.9rem; text-align: left; width: 100%;">
             <li>두 종류 이상의 서버</li>
@@ -212,7 +212,7 @@ Vertica는 온프레미스부터 퍼블릭/프라이빗 클라우드까지 고�
       </div>
       <div class="comparison-column">
         <h4 class="comparison-column__title comparison-column__title--vertica">VERTICA</h4>
-        <div class="card card--vertica" style="display: flex; flex-direction: column; align-items: center; padding: 1rem 1rem 0.8rem;">
+        <div class="card card--vertica" style="display: flex; flex-direction: column; align-items: center; padding: 1rem 1rem 0rem;">
           <img src="{{ '/assets/images/architecture2.png' | relative_url }}" alt="아키텍처 비교: Vertica" style="max-width: 250px; width: 80%; margin-bottom: 1rem;">
           <ul style="margin: 0; padding: 0; list-style-position: inside; font-size: 0.9rem; text-align: left; width: 100%;">
             <li>동일 스펙 / 동일 구성의 서버</li>
