@@ -888,6 +888,20 @@ h1 {
   margin-top: 1rem;
 }
 
+.projection-distribution-grid > .architecture-subsection {
+  display: flex;
+  flex-direction: column;
+}
+
+.projection-distribution-grid .section-subtitle {
+  font-size: 1.1rem;
+  color: var(--accent);
+}
+
+.projection-distribution-grid .feature-list {
+  flex-grow: 1;
+}
+
 .image-box-styled {
   background: var(--surface);
   padding: 20px;

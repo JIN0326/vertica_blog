@@ -41,7 +41,7 @@ layout: default
 -- 정렬키 설정
 ORDER BY sale_id, product_id, sale_date
 -- 분산키 설정
-SEGMENTED BY HASH(sale_id) ALL NODES KSAFE 1
+SEGMENTED BY HASH(sale_id) ALL NODES
 -- 파티션 설정
 PARTITION BY sale_date::DATE 
 GROUP BY CALENDAR_HIERARCHY_DAY(sale_date::DATE, 2, 2);</code></pre>
@@ -90,9 +90,9 @@ SEGMENTED BY HASH(sale_id) ALL NODES; -- 분산키 정의</code></pre>
   <div class="architecture-subsection">
     <h3 class="section-subtitle">Projection 데이터 분산</h3>
     <div class="projection-distribution-grid">
-      <div class="architecture-subsection" style="display: flex; flex-direction: column;">
+      <div class="architecture-subsection">
         <h4 class="section-subtitle">1. Segmentation (해시 분산)</h4>
-        <ul class="feature-list" style="flex-grow: 1;">
+        <ul class="feature-list">
           <li><span class="feature-list__icon">🔹</span> <span>Segment key 해시값 기반 분산 저장</span></li>
           <li><span class="feature-list__icon">🔹</span> <span>동일 Segment key 간 조인(Join) 성능 우수</span></li>
         </ul>
@@ -100,9 +100,9 @@ SEGMENTED BY HASH(sale_id) ALL NODES; -- 분산키 정의</code></pre>
           <img src="{{ '/assets/images/proj_segmentation.png' | relative_url }}" alt="Segmentation (해시 분산) 다이어그램">
         </div>
       </div>
-      <div class="architecture-subsection" style="display: flex; flex-direction: column;">
+      <div class="architecture-subsection">
         <h4 class="section-subtitle">2. Replication (복제)</h4>
-        <ul class="feature-list" style="flex-grow: 1;">
+        <ul class="feature-list">
           <li><span class="feature-list__icon">🔹</span> <span>소규모 코드성 테이블을 모든 노드에 복제하여 조인 성능 향상</span></li>
           <li><span class="feature-list__icon">🔹</span> <span>노드 장애 시에도 즉각적인 고가용성 제공</span></li>
         </ul>
@@ -110,9 +110,9 @@ SEGMENTED BY HASH(sale_id) ALL NODES; -- 분산키 정의</code></pre>
           <img src="{{ '/assets/images/proj_replication.png' | relative_url }}" alt="Replication (복제) 다이어그램">
         </div>
       </div>
-      <div class="architecture-subsection" style="display: flex; flex-direction: column;">
+      <div class="architecture-subsection">
         <h4 class="section-subtitle">3. 고가용성을 위한 데이터 이중화 (Buddy)</h4>
-        <ul class="feature-list" style="flex-grow: 1;">
+        <ul class="feature-list">
           <li><span class="feature-list__icon">🔹</span> <span>노드 장애에 대비해 다른 노드에 복제본 자동 생성 및 관리</span></li>
           <li><span class="feature-list__icon">🔹</span> <span>장애 복구 후 자동으로 데이터 동기화(Recovery) 수행</span></li>
         </ul>
@@ -120,9 +120,9 @@ SEGMENTED BY HASH(sale_id) ALL NODES; -- 분산키 정의</code></pre>
           <img src="{{ '/assets/images/proj_buddy.png' | relative_url }}" alt="Buddy 프로젝션을 이용한 이중화 다이어그램">
         </div>
       </div>
-      <div class="architecture-subsection" style="display: flex; flex-direction: column;">
+      <div class="architecture-subsection">
         <h4 class="section-subtitle">4. 특정 노드에 프로젝션 생성</h4>
-        <ul class="feature-list" style="flex-grow: 1;">
+        <ul class="feature-list">
           <li><span class="feature-list__icon">🔹</span> <span>네트워크 부하 최소화를 위해 입출력이 필요한 특정 노드에만 저장</span></li>
         </ul>
         <div class="image-box-styled">
