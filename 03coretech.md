@@ -170,7 +170,7 @@ DISCONNECT target_db;</code></pre>
 <hr style="margin: 3rem 0;">
 <div id="explain" style="scroll-margin-top: 100px;"></div>
 
-## EXPLAIN (쿼리 실행 계획 분석)
+## EXPLAIN (쿼리 분석)
 
 <div class="architecture-section">
   <p class="section-description"><code>EXPLAIN</code>은 Vertica 옵티마이저가 SQL 쿼리를 어떻게 분석하고 실행할 것인지에 대한 <strong>실행 계획(Execution Plan)</strong>을 보여줍니다. 쿼리 성능 튜닝 및 병목 구간 파악을 위한 가장 기초적이고 필수적인 도구입니다.</p>

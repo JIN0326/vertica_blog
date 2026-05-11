@@ -37,13 +37,13 @@
 - title: CoreTech
   url: /03coretech
   sublinks:
-    - title: vsql
+    - title: vsql (Command Line Interface)
       url: /03coretech#vsql
     - title: COPY (데이터 적재)
       url: /03coretech#copy
     - title: Export (데이터 내보내기)
       url: /03coretech#export
-    - title: Explain (쿼리 튜닝)
+    - title: EXPLAIN (쿼리 분석)
       url: /03coretech#explain
 
 - title: Utilization

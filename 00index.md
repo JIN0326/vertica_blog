@@ -126,23 +126,23 @@ permalink: /
   <h2>Vertica CoreTech</h2>
   <div class="cards">
     <article class="card">
-      <h3>vsql 명령어</h3>
-      <p>Vertica의 CLI 클라이언트인 vsql의 접속 방법과 유용한 메타 명령어를 학습합니다.</p>
+      <h3>vsql (Command Line Interface)</h3>
+      <p>Vertica의 CLI 클라이언트인 vsql의 접속 방법과 유용한 메타 커맨드를 학습합니다.</p>
       <a href="{{ '/03coretech#vsql' | relative_url }}">이동 →</a>
     </article>
     <article class="card">
-      <h3>데이터 적재 (COPY)</h3>
+      <h3>COPY (데이터 적재)</h3>
       <p>벌크 데이터 로딩을 위한 COPY 명령어의 사용법과 주요 옵션을 알아봅니다.</p>
       <a href="{{ '/03coretech#copy' | relative_url }}">이동 →</a>
     </article>
     <article class="card">
-      <h3>데이터 내보내기 (Export)</h3>
+      <h3>Export (데이터 내보내기)</h3>
       <p>vsql, EXPORT TO PARQUET 등 데이터를 외부로 추출하는 다양한 방법을 알아봅니다.</p>
       <a href="{{ '/03coretech#export' | relative_url }}">이동 →</a>
     </article>
     <article class="card">
-      <h3>쿼리 튜닝 (Explain)</h3>
-      <p>EXPLAIN으로 실행 계획을 분석하고 쿼리 성능을 최적화하는 방법을 다룹니다.</p>
+      <h3>EXPLAIN (쿼리 분석)</h3>
+      <p>실행 계획을 분석하고 쿼리 성능을 최적화하는 방법을 다룹니다.</p>
       <a href="{{ '/03coretech#explain' | relative_url }}">이동 →</a>
     </article>
   </div>
