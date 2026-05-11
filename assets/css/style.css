@@ -986,6 +986,11 @@ h1 {
   border-radius: 8px;
 }
 
+.image-box-styled--logo img {
+  max-width: 300px;
+  width: 100%;
+}
+
 .image-box-styled + .feature-dl,
 .image-box-styled + ol {
   margin-top: 2rem;

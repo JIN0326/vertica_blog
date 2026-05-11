@@ -100,8 +100,8 @@ with vertica_python.connect(**conn_info) as connection:
 
 ## Apache Iceberg 연동 
 <div class="architecture-section">
-<div class="image-box-styled">
-  <img src="{{ '/assets/images/util_iceberg.png' | relative_url }}" alt="Apache Iceberg" style="max-width: 300px; width: 100%;">
+<div class="image-box-styled image-box-styled--logo">
+  <img src="{{ '/assets/images/util_iceberg.png' | relative_url }}" alt="Apache Iceberg">
 </div>
 <p class="section-description">Apache Iceberg는 대규모 분석 데이터를 위한 오픈 테이블 포맷으로, Vertica에서 이를 <strong>외부 테이블(External Table)</strong>로 조회하여 고속 분석을 수행할 수 있습니다.</p>
     
@@ -144,8 +144,8 @@ spark.hadoop.fs.s3a.secret.key=stg12345!</code></pre>
 ## Apache Polaris
 
 <div class="architecture-section">
-<div class="image-box-styled">
-  <img src="{{ '/assets/images/util_polaris.png' | relative_url }}" alt="Apache Iceberg" style="max-width: 300px; width: 100%;">
+<div class="image-box-styled image-box-styled--logo">
+  <img src="{{ '/assets/images/util_polaris.png' | relative_url }}" alt="Apache Polaris">
 </div>
     <p class="section-description"><strong>Apache Polaris</strong>는 레이크하우스의 중앙 메타데이터 서비스 역할을 수행하며, 자격 증명 제공(credential vending) 및 역할 기반 접근 제어(RBAC) 기능을 지원합니다.</p>
 
@@ -204,8 +204,8 @@ curl -X POST http://&lt;META_IP&gt;:8181/api/management/v1/catalogs \
 ## PyIceberg & AWS Glue 
 
 <div class="architecture-section">
-<div class="image-box-styled">
-  <img src="{{ '/assets/images/util_pyiceberg.png' | relative_url }}" alt="Apache Iceberg" style="max-width: 300px; width: 100%;">
+<div class="image-box-styled image-box-styled--logo">
+  <img src="{{ '/assets/images/util_pyiceberg.png' | relative_url }}" alt="PyIceberg and AWS Glue">
 </div>
     <p class="section-description"><strong>PyIceberg</strong>는 JVM 없이 순수 Python 환경에서 Iceberg 테이블을 제어하며, AWS Glue 카탈로그와 연동하여 서버리스 데이터 운영을 가능하게 합니다.</p>
 
