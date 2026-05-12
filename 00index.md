@@ -131,8 +131,8 @@ permalink: /
       <a href="{{ '/03coretech#vsql' | relative_url }}">이동 →</a>
     </article>
     <article class="card">
-      <h3>COPY (데이터 적재)</h3>
-      <p>벌크 데이터 로딩을 위한 COPY 명령어의 사용법과 주요 옵션을 알아봅니다.</p>
+      <h3>Copy (데이터 적재)</h3>
+      <p>벌크 데이터 로딩을 위한 Copy 명령어의 사용법과 주요 옵션을 알아봅니다.</p>
       <a href="{{ '/03coretech#copy' | relative_url }}">이동 →</a>
     </article>
     <article class="card">

@@ -39,7 +39,7 @@
   sublinks:
     - title: vsql (CLI)
       url: /03coretech#vsql
-    - title: COPY (데이터 적재)
+    - title: Copy (데이터 적재)
       url: /03coretech#copy
     - title: Export (데이터 내보내기)
       url: /03coretech#export

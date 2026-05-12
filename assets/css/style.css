@@ -1002,6 +1002,115 @@ h1 {
   margin-top: 2rem;
 }
 
+.content-header-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-bottom: 1.5rem;
+}
+
+.btn {
+  padding: 10px 20px;
+  background: var(--accent);
+  color: white;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  transition: 0.2s;
+  text-decoration: none !important;
+  display: inline-block;
+  border: 1px solid transparent;
+}
+.btn:hover {
+  background: var(--accent-dark);
+  transform: translateY(-2px);
+}
+
+.tab-content {
+  display: none;
+}
+.tab-content.active {
+  display: block;
+}
+
+.tab-btn {
+  padding: 10px 20px;
+  border: 1px solid var(--border-color);
+  background-color: var(--surface);
+  cursor: pointer;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--sub);
+  transition: 0.2s;
+}
+
+.tab-btn.active {
+  background-color: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+
+.table-responsive {
+  overflow-x: auto;
+  width: 100%;
+  margin-top: 1.25rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+}
+
+.lifecycle-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+  white-space: nowrap;
+  font-size: 0.875rem;
+}
+
+.lifecycle-table th,
+.lifecycle-table td {
+  border: 1px solid var(--border-color);
+  padding: 8px 12px;
+}
+
+.lifecycle-table thead th {
+  background-color: rgba(45, 105, 255, 0.04);
+  font-weight: bold;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.lifecycle-table tbody tr:hover {
+  background-color: rgba(45, 105, 255, 0.02);
+}
+
+.support-o {
+  color: #28a745;
+  font-weight: bold;
+}
+
+.support-x {
+  color: #dc3545;
+}
+
+.reference-link {
+  text-align: right;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.reference-link a {
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.reference-link a:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
 .integration-section {
   display: flex;
   flex-direction: column;

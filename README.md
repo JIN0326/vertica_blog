@@ -40,6 +40,7 @@ Vertica 분석 플랫폼에 대한 기술 정보와 사용법을 공유하기 �
 ├── 91Class.md            # 교육 신청
 ├── 92QnA.md              # Q&A
 ├── 93Reference.md        # 고객사례
+├── 94lifecycle.md        # 제품 수명주기
 ├── _config.yml           # Jekyll 설정 파일
 └── README.md             # 프로젝트 설명 파일
 ```
@@ -67,7 +68,7 @@ Vertica 분석 플랫폼에 대한 기술 정보와 사용법을 공유하기 �
 
 ### ⚙️ Vertica CoreTech (`03coretech.md`)
 * **vsql (CLI)**: CLI 접속 옵션 및 유용한 메타 커맨드(`\d`, `\timing`, `\x` 등)
-* **데이터 적재 (COPY)**: 대용량 데이터 로딩 구문, 옵션 및 에러 데이터 처리
+* **데이터 적재 (Copy)**: 대용량 데이터 로딩 구문, 옵션 및 에러 데이터 처리
 * **데이터 내보내기 (Export)**: vsql, EXPORT TO PARQUET/VERTICA 등 다양한 데이터 추출 방법
 * **쿼리 분석 (EXPLAIN)**: 실행 계획 분석(EXPLAIN/PROFILE) 및 성능 최적화 포인트
 
@@ -80,6 +81,7 @@ Vertica 분석 플랫폼에 대한 기술 정보와 사용법을 공유하기 �
 * **Class (`91Class.md`)**: Vertica 교육 과정 안내 및 신청 방법 (메일 문의)
 * **QnA (`92QnA.md`)**: Giscus를 이용한 기술 문의 및 답변 게시판
 * **Reference (`93Reference.md`)**: 금융, 기업/공공, 의료 분야별 실제 고객 도입 사례
+* **Lifecycle (`94lifecycle.md`)**: 제품 릴리즈 주기, 지원 정책, OS 호환성 정보
 
 ## 🔗 외부 관련 링크
 

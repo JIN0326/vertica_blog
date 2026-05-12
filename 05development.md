@@ -1,4 +1,4 @@
-﻿---
+﻿﻿---
 title: Vertica SQL Development
 layout: default
 ---
@@ -82,7 +82,7 @@ FROM salary;</code></pre>
     <p class="section-description">Vertica는 소량의 데이터를 빈번하게 <code>INSERT/UPDATE/DELETE</code> 하는 작업에 취약합니다.</p>
     <ul class="feature-list">
       <li><span class="feature-list__icon">❌</span> <span><strong>지양:</strong> 단건 단위의 DML 처리</span></li>
-      <li><span class="feature-list__icon">✅</span> <span><strong>권장:</strong> <code>COPY</code> 구문을 이용한 Bulk 적재 또는 대단위 Batch 처리</span></li>
+      <li><span class="feature-list__icon">✅</span> <span><strong>권장:</strong> <code>Copy</code> 구문을 이용한 Bulk 적재 또는 대단위 Batch 처리</span></li>
     </ul>
   </div>
 

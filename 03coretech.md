@@ -5,7 +5,7 @@ layout: default
 <div class="page-hero">
   <span class="chip">Core Tech</span>
   <h1>Vertica Core Tech</h1>
-  <p>Vertica 개발 및 운영에 필수적인 핵심 기술인 vsql, 데이터 적재(COPY), 그리고 쿼리 분석(EXPLAIN)에 대해 상세히 알아봅니다.</p>
+  <p>Vertica 개발 및 운영에 필수적인 핵심 기술인 vsql, 데이터 적재(Copy), 그리고 쿼리 분석(EXPLAIN)에 대해 상세히 알아봅니다.</p>
 </div>
 
 <div class="page-layout">
@@ -70,13 +70,13 @@ layout: default
 <hr style="margin: 3rem 0;">
 <div id="copy" style="scroll-margin-top: 100px;"></div>
 
-## COPY (대용량 데이터 적재)
+## Copy (대용량 데이터 적재)
 
 <div class="architecture-section">
-  <p class="section-description"><code>COPY</code>문은 Vertica에서 대용량 데이터를 가장 빠르고 효율적으로 적재(Load)하기 위한 핵심 명령어입니다. 외부 파일이나 스트림으로부터 데이터를 읽어 테이블에 고속으로 삽입합니다.</p>
+  <p class="section-description"><code>Copy</code>문은 Vertica에서 대용량 데이터를 가장 빠르고 효율적으로 적재(Load)하기 위한 핵심 명령어입니다. 외부 파일이나 스트림으로부터 데이터를 읽어 테이블에 고속으로 삽입합니다.</p>
 
   <div class="architecture-subsection">
-    <h3 class="section-subtitle">COPY 기본 구문 및 옵션</h3>
+    <h3 class="section-subtitle">Copy 기본 구문 및 옵션</h3>
     <div class="syntax-box">
       <strong>기본 구문:</strong>
       <pre><code>COPY schema.table (column_list)
@@ -107,7 +107,7 @@ layout: default
     <ul class="feature-list">
       <li><span class="feature-list__icon">🔹</span> <strong>REJECTED DATA:</strong> <span>적재에 실패한 원본 데이터(Row)를 지정한 경로의 파일로 따로 저장합니다.</span></li>
       <li><span class="feature-list__icon">🔹</span> <strong>EXCEPTIONS:</strong> <span>데이터가 거부된 구체적인 이유(에러 메시지 및 발생 위치)를 파일에 기록하여 원인 파악을 돕습니다.</span></li>
-      <li><span class="feature-list__icon">🔹</span> <strong>ABORT ON ERROR:</strong> <span>단 1건의 에러라도 발생하면 전체 COPY 작업을 즉시 중단하고 롤백(Rollback)시켜 데이터 정합성을 보호합니다.</span></li>
+      <li><span class="feature-list__icon">🔹</span> <strong>ABORT ON ERROR:</strong> <span>단 1건의 에러라도 발생하면 전체 Copy 작업을 즉시 중단하고 롤백(Rollback)시켜 데이터 정합성을 보호합니다.</span></li>
     </ul>
   </div>
 </div>
@@ -143,7 +143,7 @@ layout: default
     <h3 class="section-subtitle">2. EXPORT TO PARQUET (데이터 레이크 연동)</h3>
     <p class="section-description">분석용 표준 포맷인 Parquet 형태로 데이터를 내보냅니다. S3나 HDFS 같은 외부 스토리지로 데이터를 백업할 때 매우 효율적입니다.</p>
     <div class="syntax-box">
-      <pre><code>EXPORT TO PARQUET(directory='s3://my-bucket/backup/sales/') 
+      <pre><code>EXPORT TO PARQUET(directory='s3://my-bucket/backup/sales/')
 AS SELECT * FROM public.sales;</code></pre>
     </div>
     <ul class="feature-list">
@@ -223,7 +223,7 @@ Access Path:
     <h3>On this page</h3>
     <ul>
       <li><a href="#vsql">vsql</a></li>
-      <li><a href="#copy">COPY</a></li>
+      <li><a href="#copy">Copy</a></li>
       <li><a href="#export">EXPORT</a></li>
       <li><a href="#explain">EXPLAIN (쿼리 분석)</a></li>
     </ul>

@@ -257,8 +257,7 @@ layout: default
     <!-- Card 25 -->
     <div class="fundamentals-card">
       <div>
-        <h3>25. COPY구문 (khy)</h3>
-        <ul>
+        <h3>25. Copy구문 </h3>
           <li>– basic, delimiter, recordterminator, null처리, filler, 특수문자, 여러파일포맷, 등</li>
         </ul>
       </div>
