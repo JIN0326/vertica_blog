@@ -126,6 +126,16 @@ permalink: /
   <h2>Vertica CoreTech</h2>
   <div class="cards">
     <article class="card">
+      <h3>모니터링</h3>
+      <p>Management Console(MC)과 Grafana를 활용한 데이터베이스 모니터링 방법을 알아봅니다.</p>
+      <a href="{{ '/03coretech#monitoring' | relative_url }}">이동 →</a>
+    </article>
+    <article class="card">
+      <h3>클라이언트 접속</h3>
+      <p>vsql, DBeaver 등 다양한 클라이언트 도구를 사용하여 Vertica에 접속하는 방법을 알아봅니다.</p>
+      <a href="{{ '/03coretech#connecting' | relative_url }}">이동 →</a>
+    </article>
+    <article class="card">
       <h3>vsql (CLI)</h3>
       <p>Vertica의 CLI 클라이언트인 vsql의 접속 방법과 유용한 메타 커맨드를 학습합니다.</p>
       <a href="{{ '/03coretech#vsql' | relative_url }}">이동 →</a>
@@ -152,19 +162,14 @@ permalink: /
   <h2>Vertica Utilization</h2>
   <div class="cards">
     <article class="card">
-      <h3>클라이언트 접속</h3>
-      <p>vsql, DBeaver 등 다양한 클라이언트 도구를 사용하여 Vertica에 접속하는 방법을 알아봅니다.</p>
-      <a href="{{ '/04utilization#connecting' | relative_url }}">이동 →</a>
-    </article>
-    <article class="card">
-      <h3>모니터링</h3>
-      <p>Management Console(MC)과 Grafana를 활용한 데이터베이스 모니터링 방법을 알아봅니다.</p>
-      <a href="{{ '/04utilization#monitoring' | relative_url }}">이동 →</a>
-    </article>
-    <article class="card">
       <h3>Python 연동</h3>
       <p>vertica-python 라이브러리를 사용하여 Python 환경에서 데이터를 처리하고 분석합니다.</p>
       <a href="{{ '/04utilization#python' | relative_url }}">이동 →</a>
+    </article>
+    <article class="card">
+      <h3>Apache Airflow 연동</h3>
+      <p>Airflow를 활용하여 Vertica의 데이터 파이프라인을 자동화하고 스케줄링하는 방법을 알아봅니다.</p>
+      <a href="{{ '/04utilization#airflow' | relative_url }}">이동 →</a>
     </article>
     <article class="card">
       <h3>Apache Iceberg 연동</h3>

@@ -9,7 +9,7 @@ layout: default
   <p>Vertica 제품의 릴리즈 주기, 지원 정책, 그리고 OS 호환성 정보를 안내합니다.</p>
 </div>
 
-<div class="content-section content-section-centered" style="max-width: 1200px; margin: 0 auto;">
+<div class="content-section content-section-centered lifecycle-page-wrapper" style="max-width: 1200px; margin: 0 auto;">
   
   <div class="content-header-actions">
     <button class="tab-btn active" onclick="switchTab('eos', this)">EOS Info</button>
@@ -18,7 +18,7 @@ layout: default
 
   <div id="tab-eos" class="tab-content active table-responsive">
     <p class="reference-link">
-      <a href="https://www.microfocus.com/productlifecycle/" target="_blank" rel="noopener">참고 링크: Micro Focus Product Lifecycle</a>
+      <a href="https://www.microfocus.com/productlifecycle/?term=Vertica" target="_blank" rel="noopener">참고 링크: Micro Focus Product Lifecycle</a>
     </p>
     <table class="lifecycle-table">
       <thead>

@@ -1,15 +1,61 @@
-﻿---
+﻿﻿---
 title: Vertica Core Tech
 layout: default
 ---
 <div class="page-hero">
   <span class="chip">Core Tech</span>
   <h1>Vertica Core Tech</h1>
-  <p>Vertica 개발 및 운영에 필수적인 핵심 기술인 vsql, 데이터 적재(Copy), 그리고 쿼리 분석(EXPLAIN)에 대해 상세히 알아봅니다.</p>
+  <p>Vertica 개발 및 운영에 필수적인 핵심 기술인 모니터링, 클라이언트 접속, vsql, 데이터 적재(Copy), 그리고 쿼리 분석(EXPLAIN)에 대해 상세히 알아봅니다.</p>
 </div>
 
 <div class="page-layout">
   <div class="content-section" markdown="1">
+
+<div id="monitoring" style="scroll-margin-top: 100px;"></div>
+
+## 모니터링
+
+<div class="architecture-section">
+    <p class="section-description">안정적인 데이터베이스 운영을 위해서는 Management Console(MC)과 Grafana를 통한 지속적인 모니터링이 필수적입니다.</p>
+
+  <div class="architecture-subsection">
+      <h3 class="section-subtitle">1. 모니터링 콘솔 (MC)</h3>
+      <p class="section-description">Management Console(MC)은 웹 브라우저 기반의 통합 모니터링 및 클러스터 관리 도구입니다.</p>
+      
+  <div class="image-box-styled">
+        <img src="{{ '/assets/images/monitoring_1.png' | relative_url }}" alt="Vertica Management Console (MC) 화면">
+      </div>
+
+  <dl class="feature-dl">
+        <dt class="feature-dt"><span class="feature-dt__icon">◆</span> 주요 핵심 기능</dt>
+        <dd class="feature-dd">
+          <strong>Overview & Activity:</strong> 하드웨어 자원과 리소스 풀 사용량, 쿼리 상태를 실시간으로 확인합니다.<br>
+          <strong>Query Execution:</strong> UI 내에서 직접 SQL을 실행하고 시각적인 트리 구조로 실행 계획을 분석합니다.
+        </dd>
+      </dl>
+    </div>
+  </div>
+  
+<hr style="margin: 3rem 0;">
+
+<div id="connecting" style="scroll-margin-top: 100px;"></div>
+
+## 클라이언트 접속
+
+<div class="architecture-section">
+    <p class="section-description">Vertica는 <code>DBeaver</code>와 같은 GUI 도구와 <code>vsql</code>이라는 강력한 CLI 도구를 지원하여 사용자가 편리하게 데이터베이스에 접속할 수 있도록 합니다. <code>vsql</code>에 대한 자세한 내용은 다음 섹션에서 다룹니다.</p>
+    
+    <div class="architecture-subsection">
+      <h3 class="section-subtitle">DBeaver (GUI)</h3>
+      <p class="section-description">DBeaver와 같은 GUI 도구는 Vertica JDBC 드라이버를 사용하여 쉽게 연결할 수 있습니다.</p>
+      <ol>
+        <li>Vertica 공식 웹사이트에서 JDBC 드라이버(<code>.jar</code> 파일)를 다운로드합니다.</li>
+        <li>DBeaver의 <code>드라이버 관리자</code>에서 다운로드한 <code>.jar</code> 파일을 추가하여 새 드라이버를 설정합니다.</li>
+      </ol>
+    </div>
+  </div>
+
+<hr style="margin: 3rem 0;">
 
 <div id="vsql" style="scroll-margin-top: 100px;"></div>
 
@@ -222,6 +268,8 @@ Access Path:
   <div class="sidebar-panel" style="padding-right: 1rem;">
     <h3>On this page</h3>
     <ul>
+      <li><a href="#monitoring">모니터링</a></li>
+      <li><a href="#connecting">클라이언트 접속</a></li>
       <li><a href="#vsql">vsql</a></li>
       <li><a href="#copy">Copy</a></li>
       <li><a href="#export">EXPORT</a></li>

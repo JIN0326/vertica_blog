@@ -67,15 +67,19 @@ Vertica 분석 플랫폼에 대한 기술 정보와 사용법을 공유하기 �
 * **Cluster Operation & Diagnostics**: DB 기동/중지, 장애 조치, 진단 파일 생성 등 핵심 클러스터 운영 가이드
 
 ### ⚙️ Vertica CoreTech (`03coretech.md`)
+* **모니터링**: Management Console(MC) 및 Grafana를 활용한 모니터링 방법
+* **클라이언트 접속**: vsql(CLI) 및 DBeaver(GUI) 접속 가이드
 * **vsql (CLI)**: CLI 접속 옵션 및 유용한 메타 커맨드(`\d`, `\timing`, `\x` 등)
-* **데이터 적재 (Copy)**: 대용량 데이터 로딩 구문, 옵션 및 에러 데이터 처리
-* **데이터 내보내기 (Export)**: vsql, EXPORT TO PARQUET/VERTICA 등 다양한 데이터 추출 방법
-* **쿼리 분석 (EXPLAIN)**: 실행 계획 분석(EXPLAIN/PROFILE) 및 성능 최적화 포인트
+* **Copy (데이터 적재)**: 대용량 데이터 로딩 구문, 옵션 및 에러 데이터 처리
+* **Export (데이터 내보내기)**: vsql, EXPORT TO PARQUET/VERTICA 등 다양한 데이터 추출 방법
+* **EXPLAIN (쿼리 분석)**: 실행 계획 분석(EXPLAIN/PROFILE) 및 성능 최적화 포인트
 
 ### 🚀 Vertica Utilization (`04utilization.md`)
-* **클라이언트 접속**: vsql(CLI) 및 DBeaver(GUI) 접속 가이드
-* **모니터링 (MC & Grafana)**: Management Console(MC)의 주요 기능 및 Grafana 시각화 연동 방법
-* **Python 연동**: `vertica-python` 라이브러리 설치 및 Pandas 활용 예제
+* **Python 연동**: `vertica-python` 라이브러리를 사용한 데이터 처리 및 분석
+* **Apache Airflow 연동**: Airflow를 활용한 데이터 파이프라인 자동화 및 스케줄링
+* **Apache Iceberg 연동**: Spark 기반 Iceberg 테이블 생성 및 Vertica 연동 조회
+* **Apache Polaris 연동**: 중앙 메타데이터 서비스 Polaris와 동적 연동
+* **PyIceberg & AWS Glue**: PyIceberg와 AWS Glue를 활용한 서버리스 데이터 운영
 
 ### 🔗 기타 서비스 페이지
 * **Class (`91Class.md`)**: Vertica 교육 과정 안내 및 신청 방법 (메일 문의)

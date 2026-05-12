@@ -37,6 +37,10 @@
 - title: CoreTech
   url: /03coretech
   sublinks:
+    - title: 모니터링
+      url: /03coretech#monitoring
+    - title: 클라이언트 접속
+      url: /03coretech#connecting
     - title: vsql (CLI)
       url: /03coretech#vsql
     - title: Copy (데이터 적재)
@@ -49,10 +53,6 @@
 - title: Utilization
   url: /04utilization
   sublinks:
-    - title: 클라이언트 접속
-      url: /04utilization#connecting
-    - title: 모니터링
-      url: /04utilization#monitoring
     - title: Python 연동
       url: /04utilization#python
     - title: Apache Iceberg 연동
@@ -61,6 +61,8 @@
       url: /04utilization#polaris
     - title: PyIceberg & AWS Glue
       url: /04utilization#pyiceberg
+    - title: Apache Airflow 연동
+      url: /04utilization#airflow
 
 - title: Development
   url: /05development
