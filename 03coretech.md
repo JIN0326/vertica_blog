@@ -5,7 +5,7 @@ layout: default
 <div class="page-hero">
   <span class="chip">Core Tech</span>
   <h1>Vertica Core Tech</h1>
-  <p>Vertica 개발 및 운영에 필수적인 핵심 기술인 vsql, Monitoring, Clients, 데이터 적재(Copy), 그리고 쿼리 분석(EXPLAIN)에 대해 상세히 알아봅니다.</p>
+  <p>Vertica 개발 및 운영에 필수적인 핵심 기술인 vsql, Monitoring, Clients, 데이터 적재(Copy), 데이터 내보내기(Export) 그리고 쿼리 분석(Explain)에 대해 상세히 알아봅니다.</p>
 </div>
 
 <div class="page-layout">
