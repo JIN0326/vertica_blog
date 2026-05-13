@@ -1,21 +1,30 @@
 <header class="site-header">
   <div class="header-inner">
     <a href="{{ '/' | relative_url }}" class="brand">
-      <img src="{{ '/assets/images/Vertica_logo.png' | relative_url }}" alt="{{ site.title }} logo">
+      <img src="{{ '/assets/images/vertica_logo.svg' | relative_url }}" alt="{{ site.title }}" style="height: 27px;">
     </a>
-    <nav class="site-nav">
-      {% for item in site.data.navigation %}
-        <div class="dropdown">
-          <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
-          {% if item.sublinks %}
-            <div class="dropdown-content">
-              {% for sublink in item.sublinks %}
-                <a href="{{ sublink.url | relative_url }}">{{ sublink.title }}</a>
-              {% endfor %}
-            </div>
-          {% endif %}
-        </div>
-      {% endfor %}
-    </nav>
+
+    <div class="header-right-controls">
+      <nav class="site-nav">
+        {% for item in site.data.navigation %}
+          <div class="dropdown">
+            <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
+            {% if item.sublinks %}
+              <div class="dropdown-content">
+                {% for sublink in item.sublinks %}
+                  <a href="{{ sublink.url | relative_url }}">{{ sublink.title }}</a>
+                {% endfor %}
+              </div>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </nav>
+
+      <div class="search-control">
+        <button id="search-btn" class="search-btn" aria-label="Open search">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </button>
+      </div>
+    </div>
   </div>
 </header>

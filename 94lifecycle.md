@@ -292,7 +292,7 @@ layout: default
     });
     
     // 2. 모든 버튼에서 active 클래스 제거
-    document.querySelectorAll('.content-header-actions .btn').forEach(function(btn) {
+    document.querySelectorAll('.content-header-actions .tab-btn').forEach(function(btn) {
       btn.classList.remove('active');
     });
     

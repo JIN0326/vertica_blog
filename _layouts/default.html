@@ -21,5 +21,81 @@
 
       {% include footer.html %}
     </div>
+
+    <div id="search-overlay" class="search-overlay" style="display: none;">
+      <div class="search-overlay-content">
+        <button id="close-search-btn" class="close-search-btn" aria-label="Close search">&times;</button>
+        <h3>Search Blog</h3>
+        <input type="text" id="search-input" placeholder="Search for content..." autocomplete="off">
+        <ul id="search-results"></ul>
+      </div>
+    </div>
+
+    <script>
+      (function() {
+        const searchBtn = document.getElementById('search-btn');
+        const closeSearchBtn = document.getElementById('close-search-btn');
+        const searchOverlay = document.getElementById('search-overlay');
+        const searchInput = document.getElementById('search-input');
+        const searchResults = document.getElementById('search-results');
+        let searchData = [];
+        let isDataLoaded = false;
+
+        function loadSearchData() {
+          if (isDataLoaded) return;
+          fetch('{{ "/search.json" | relative_url }}')
+            .then(response => response.json())
+            .then(data => {
+              searchData = data;
+              isDataLoaded = true;
+            });
+        }
+
+        function openSearch() {
+          loadSearchData();
+          searchOverlay.style.display = 'flex';
+          document.body.style.overflow = 'hidden';
+          searchInput.focus();
+        }
+
+        function closeSearch() {
+          searchOverlay.style.display = 'none';
+          document.body.style.overflow = '';
+          searchInput.value = '';
+          searchResults.innerHTML = '';
+        }
+
+        function performSearch() {
+          const query = searchInput.value.toLowerCase();
+          searchResults.innerHTML = '';
+          if (query.length < 2) return;
+
+          const results = searchData.filter(item =>
+            item.title.toLowerCase().includes(query) ||
+            item.content.toLowerCase().includes(query)
+          );
+
+          if (results.length > 0) {
+            results.slice(0, 10).forEach(result => { // Show top 10 results
+              const li = document.createElement('li');
+              li.innerHTML = `<a href="${result.url}">${result.title}</a>`;
+              searchResults.appendChild(li);
+            });
+          } else {
+            searchResults.innerHTML = '<li>No results found.</li>';
+          }
+        }
+
+        searchBtn.addEventListener('click', openSearch);
+        closeSearchBtn.addEventListener('click', closeSearch);
+        searchOverlay.addEventListener('click', (e) => {
+          if (e.target === searchOverlay) closeSearch();
+        });
+        searchInput.addEventListener('input', performSearch);
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && searchOverlay.style.display === 'flex') closeSearch();
+        });
+      })();
+    </script>
   </body>
 </html>
