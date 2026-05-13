@@ -29,6 +29,7 @@ layout: default
         </tr>
       </thead>
       <tbody>
+        <tr><td>Vertica 26.2</td><td>28 Apr 2026</td><td>30 Apr 2029</td></tr>
         <tr><td>Vertica 26.1</td><td>29 Jan 2026</td><td>28 Feb 2029</td></tr>
         <tr><td>Vertica 25.4</td><td>17 Oct 2025</td><td>31 Oct 2028</td></tr>
         <tr><td>Vertica 25.3</td><td>10 Jul 2025</td><td>31 Jul 2028</td></tr>
@@ -88,6 +89,17 @@ layout: default
         </tr>
       </thead>
       <tbody>
+        <tr>
+          <td><strong>26.2</strong></td>
+          <td class="support-o">O</td><td class="support-o">O</td><td class="support-x">X</td>
+          <td class="support-o">O</td><td class="support-o">O</td>
+          <td class="support-o">O</td><td class="support-x">X</td><td class="support-x">X</td>
+          <td class="support-x">X</td><td class="support-x">X</td><td class="support-x">X</td>
+          <td class="support-o">O</td><td class="support-x">X</td><td class="support-x">X</td><td class="support-x">X</td>
+          <td class="support-o">O</td><td class="support-x">X</td>
+          <td class="support-o">O</td><td class="support-x">X</td><td class="support-x">X</td>
+          <td class="support-o">O</td><td class="support-x">X</td>
+        </tr>
         <tr>
           <td><strong>26.1</strong></td>
           <td class="support-o">O</td><td class="support-o">O</td><td class="support-x">X</td> <td class="support-o">O</td><td class="support-o">O</td> <td class="support-o">O</td><td class="support-x">X</td><td class="support-x">X</td> <td class="support-x">X</td><td class="support-x">X</td><td class="support-x">X</td> <td class="support-o">O</td><td class="support-x">X</td><td class="support-x">X</td><td class="support-x">X</td> <td class="support-o">O</td><td class="support-x">X</td> <td class="support-o">O</td><td class="support-x">X</td><td class="support-x">X</td> <td class="support-o">O</td><td class="support-x">X</td> </tr>
