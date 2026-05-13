@@ -8,7 +8,7 @@ permalink: /
   <div class="hero-content">
     <span class="eyebrow">Analytics Database</span>
     <h1>데이터의 한계를 넘어서, <br> Vertica로 실현하는 초고속 분석</h1>
-    <p>Vertica는 대규모 데이터 분석에 최적화된 SQL 데이터 웨어하우스 플랫폼입니다. <br>
+    <p>Vertica는 대용량 분석에 특화된 MPP 및 컬럼 기반(Columnar) 아키텍처를 갖춘 SQL 데이터 웨어하우스입니다. <br>
     페타바이트 규모의 복잡한 데이터 워크로드를 처리하여 기업이 데이터를 관리하고 분석하는 방식을 혁신하도록 설계된 Analytics Database입니다.</p>
   </div>
 
