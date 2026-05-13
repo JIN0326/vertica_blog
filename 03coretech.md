@@ -1,5 +1,5 @@
 ﻿﻿---
-title: Vertica Core Tech
+title: Vertica CoreTech
 layout: default
 ---
 

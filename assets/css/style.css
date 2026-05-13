@@ -25,7 +25,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100%;
-  padding-bottom: 80px;
+  padding-bottom: 70px;
 }
 
 section[id],
@@ -57,7 +57,7 @@ article[id] {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border-color);
-  padding: 18px 0;
+  padding: 14px 0;
 }
 
 .header-inner {
@@ -1071,6 +1071,12 @@ h1 {
   border-radius: 8px;
 }
 
+.lifecycle-page-wrapper .table-responsive {
+  width: 550px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .lifecycle-table {
   width: 100%;
   border-collapse: collapse;
@@ -1094,6 +1100,30 @@ h1 {
 }
 
 .lifecycle-table tbody tr:hover {
+  background-color: rgba(45, 105, 255, 0.02);
+}
+
+/* "Supported OS" table: Sticky first column */
+#tab-os .lifecycle-table th:first-child,
+#tab-os .lifecycle-table td:first-child {
+  position: -webkit-sticky; /* For Safari */
+  position: sticky;
+  left: 0;
+  z-index: 2;
+}
+
+/* Ensure the top-left corner cell is above both sticky header and column */
+#tab-os .lifecycle-table thead th:first-child {
+  z-index: 3;
+}
+
+/* Set background for sticky cells to hide content behind them */
+#tab-os .lifecycle-table tbody td:first-child {
+  background-color: var(--surface);
+}
+
+/* Ensure hover background applies to the sticky cell too */
+#tab-os .lifecycle-table tbody tr:hover td:first-child {
   background-color: rgba(45, 105, 255, 0.02);
 }
 
@@ -1224,7 +1254,7 @@ h1 {
   right: 0;
   background-color: var(--surface);
   text-align: center;
-  padding: 20px;
+  padding: 15px;
   border-top: 1px solid var(--border-color);
   z-index: 100;
 }

@@ -51,6 +51,8 @@ Vertica는 데이터 수집부터 분석, 시각화에 이르는 전 과정을 �
 
 Vertica는 유연한 확장성과 강력한 분석 성능을 통해 데이터 가치를 극대화합니다.
 
+<hr style="margin: 3rem 0;">
+
 <div id="technology" style="scroll-margin-top: 100px; margin-top: 60px;"></div>
 
 ## Vertica 핵심 기술
