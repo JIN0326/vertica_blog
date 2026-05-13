@@ -36,6 +36,7 @@ Vertica 분석 플랫폼에 대한 기술 정보와 사용법을 공유하기 �
 ├── 02administration.md   # Vertica Administration
 ├── 03coretech.md         # Vertica CoreTech
 ├── 04utilization.md      # Vertica Utilization
+├── 05auth_security.md    # Vertica Auth & Security
 ├── 90fundamentals.md     # Vertica Fundamentals
 ├── 91Class.md            # 교육 신청
 ├── 92QnA.md              # Q&A
@@ -67,9 +68,9 @@ Vertica 분석 플랫폼에 대한 기술 정보와 사용법을 공유하기 �
 * **Cluster Operation & Diagnostics**: DB 기동/중지, 장애 조치, 진단 파일 생성 등 핵심 클러스터 운영 가이드
 
 ### ⚙️ Vertica CoreTech (`03coretech.md`)
-* **모니터링**: Management Console(MC) 및 Grafana를 활용한 모니터링 방법
-* **클라이언트 접속**: vsql(CLI) 및 DBeaver(GUI) 접속 가이드
 * **vsql (CLI)**: CLI 접속 옵션 및 유용한 메타 커맨드(`\d`, `\timing`, `\x` 등)
+* **Monitoring**: Management Console(MC) 및 Grafana를 활용한 모니터링 방법
+* **Clients**: vsql(CLI) 및 DBeaver(GUI) 접속 가이드
 * **Copy (데이터 적재)**: 대용량 데이터 로딩 구문, 옵션 및 에러 데이터 처리
 * **Export (데이터 내보내기)**: vsql, EXPORT TO PARQUET/VERTICA 등 다양한 데이터 추출 방법
 * **EXPLAIN (쿼리 분석)**: 실행 계획 분석(EXPLAIN/PROFILE) 및 성능 최적화 포인트
@@ -80,6 +81,12 @@ Vertica 분석 플랫폼에 대한 기술 정보와 사용법을 공유하기 �
 * **Apache Iceberg 연동**: Spark 기반 Iceberg 테이블 생성 및 Vertica 연동 조회
 * **Apache Polaris 연동**: 중앙 메타데이터 서비스 Polaris와 동적 연동
 * **PyIceberg & AWS Glue**: PyIceberg와 AWS Glue를 활용한 서버리스 데이터 운영
+
+### 🔒 Vertica Auth & Security (`05auth_security.md`)
+* **Client Authentication**: Hash, LDAP, TLS, OAuth 등 다양한 클라이언트 인증 방식 설정 및 관리
+* **LDAP 인증**: Active Directory 또는 OpenLDAP 서버와 연동하여 통합 계정 인증 구현
+* **TLS 보안**: 서버-클라이언트 간 상호 인증(Mutual Mode)으로 통신 암호화 및 보안 강화
+* **Okta 연동**: Okta IdP를 활용하여 데이터베이스 및 MC에 대한 SSO(Single Sign-On) 구현
 
 ### 🔗 기타 서비스 페이지
 * **Class (`91Class.md`)**: Vertica 교육 과정 안내 및 신청 방법 (메일 문의)

@@ -2,60 +2,15 @@
 title: Vertica Core Tech
 layout: default
 ---
+
 <div class="page-hero">
   <span class="chip">Core Tech</span>
   <h1>Vertica Core Tech</h1>
-  <p>Vertica 개발 및 운영에 필수적인 핵심 기술인 모니터링, 클라이언트 접속, vsql, 데이터 적재(Copy), 그리고 쿼리 분석(EXPLAIN)에 대해 상세히 알아봅니다.</p>
+  <p>Vertica 개발 및 운영에 필수적인 핵심 기술인 vsql, Monitoring, Clients, 데이터 적재(Copy), 그리고 쿼리 분석(EXPLAIN)에 대해 상세히 알아봅니다.</p>
 </div>
 
 <div class="page-layout">
   <div class="content-section" markdown="1">
-
-<div id="monitoring" style="scroll-margin-top: 100px;"></div>
-
-## 모니터링
-
-<div class="architecture-section">
-    <p class="section-description">안정적인 데이터베이스 운영을 위해서는 Management Console(MC)과 Grafana를 통한 지속적인 모니터링이 필수적입니다.</p>
-
-  <div class="architecture-subsection">
-      <h3 class="section-subtitle">1. 모니터링 콘솔 (MC)</h3>
-      <p class="section-description">Management Console(MC)은 웹 브라우저 기반의 통합 모니터링 및 클러스터 관리 도구입니다.</p>
-      
-  <div class="image-box-styled">
-        <img src="{{ '/assets/images/monitoring_1.png' | relative_url }}" alt="Vertica Management Console (MC) 화면">
-      </div>
-
-  <dl class="feature-dl">
-        <dt class="feature-dt"><span class="feature-dt__icon">◆</span> 주요 핵심 기능</dt>
-        <dd class="feature-dd">
-          <strong>Overview & Activity:</strong> 하드웨어 자원과 리소스 풀 사용량, 쿼리 상태를 실시간으로 확인합니다.<br>
-          <strong>Query Execution:</strong> UI 내에서 직접 SQL을 실행하고 시각적인 트리 구조로 실행 계획을 분석합니다.
-        </dd>
-      </dl>
-    </div>
-  </div>
-  
-<hr style="margin: 3rem 0;">
-
-<div id="connecting" style="scroll-margin-top: 100px;"></div>
-
-## 클라이언트 접속
-
-<div class="architecture-section">
-    <p class="section-description">Vertica는 <code>DBeaver</code>와 같은 GUI 도구와 <code>vsql</code>이라는 강력한 CLI 도구를 지원하여 사용자가 편리하게 데이터베이스에 접속할 수 있도록 합니다. <code>vsql</code>에 대한 자세한 내용은 다음 섹션에서 다룹니다.</p>
-    
-    <div class="architecture-subsection">
-      <h3 class="section-subtitle">DBeaver (GUI)</h3>
-      <p class="section-description">DBeaver와 같은 GUI 도구는 Vertica JDBC 드라이버를 사용하여 쉽게 연결할 수 있습니다.</p>
-      <ol>
-        <li>Vertica 공식 웹사이트에서 JDBC 드라이버(<code>.jar</code> 파일)를 다운로드합니다.</li>
-        <li>DBeaver의 <code>드라이버 관리자</code>에서 다운로드한 <code>.jar</code> 파일을 추가하여 새 드라이버를 설정합니다.</li>
-      </ol>
-    </div>
-  </div>
-
-<hr style="margin: 3rem 0;">
 
 <div id="vsql" style="scroll-margin-top: 100px;"></div>
 
@@ -109,6 +64,132 @@ layout: default
       <li><span class="feature-list__icon">🔹</span> <strong>\x:</strong> <span>출력 포맷을 컬럼형(세로) 또는 레코드형(가로)으로 전환(Expanded display)하여 긴 결과값을 보기 쉽게 만듭니다.</span></li>
       <li><span class="feature-list__icon">🔹</span> <strong>\!:</strong> <span>vsql 프롬프트를 빠져나가지 않은 상태에서 OS 쉘 명령어(예: <code>\! ls -al</code>)를 실행합니다.</span></li>
       <li><span class="feature-list__icon">🔹</span> <strong>\o [file]:</strong> <span>이후 실행되는 쿼리의 결과를 화면이 아닌 지정한 파일로 저장합니다.</span></li>
+    </ul>
+  </div>
+</div>
+
+<hr style="margin: 3rem 0;">
+
+<div id="monitoring" style="scroll-margin-top: 100px;"></div>
+
+## Monitoring
+
+<div class="architecture-section">
+    <p class="section-description">안정적인 데이터베이스 운영을 위해서는 Management Console(MC)과 Grafana를 통한 지속적인 모니터링이 필수적입니다.</p>
+
+  <div class="architecture-subsection">
+      <h3 class="section-subtitle">1. 모니터링 콘솔 (MC)</h3>
+      <p class="section-description">Management Console(MC)은 웹 브라우저 기반의 통합 모니터링 및 클러스터 관리 도구입니다.</p>
+      
+  <div class="image-box-styled">
+        <img src="{{ '/assets/images/monitoring_1.png' | relative_url }}" alt="Vertica Management Console (MC) 화면">
+      </div>
+
+  <dl class="feature-dl">
+        <dt class="feature-dt"><span class="feature-dt__icon">◆</span> 주요 핵심 기능</dt>
+        <dd class="feature-dd">
+          <strong>Overview & Activity:</strong> 하드웨어 자원과 리소스 풀 사용량, 쿼리 상태를 실시간으로 확인합니다.<br>
+          <strong>Query Execution:</strong> UI 내에서 직접 SQL을 실행하고 시각적인 트리 구조로 실행 계획을 분석합니다.
+        </dd>
+      </dl>
+    </div>
+  </div>
+  
+<hr style="margin: 3rem 0;">
+
+<div id="clients" style="scroll-margin-top: 100px;"></div>
+
+## Clients
+
+<div class="architecture-section">
+  <p class="section-description">Vertica는 다양한 클라이언트 도구 및 애플리케이션과의 원활한 연동을 위해 표준 <b>JDBC</b> 및 <b>ODBC</b> 드라이버를 제공합니다. 안정적인 운영 환경을 위해 로드 밸런싱(Load Balancing)과 대체 노드(Backup Server Node) 설정이 강력히 권장됩니다.</p>
+  
+  <div class="architecture-subsection">
+    <h3 class="section-subtitle">1. DBeaver (GUI 클라이언트)</h3>
+    <p class="section-description">DBeaver, DataGrip 등의 범용 DB 관리 도구는 대부분 JDBC 드라이버를 기반으로 연결됩니다.</p>
+    <ul class="feature-list">
+      <li><span class="feature-list__icon">🔹</span> <strong>드라이버 다운로드:</strong> Vertica 공식 웹사이트에서 클러스터 버전에 맞는 JDBC 드라이버(<code>.jar</code>)를 다운로드합니다.</li>
+      <li><span class="feature-list__icon">🔹</span> <strong>드라이버 설정:</strong> 도구의 '드라이버 관리자' 메뉴에서 새 드라이버를 생성하고 다운로드한 <code>.jar</code> 파일을 추가합니다.</li>
+      <li><span class="feature-list__icon">🔹</span> <strong>연결 생성:</strong> Host(IP), Port(기본 5433), Database, User, Password를 입력하여 접속합니다.</li>
+    </ul>
+  </div>
+
+  <div class="architecture-subsection">
+    <h3 class="section-subtitle">2. JDBC 접속 (Java 애플리케이션)</h3>
+    <p class="section-description">Java 환경에서 접속하기 위해서는 런타임이 라이브러리 클래스를 찾을 수 있도록 <code>CLASSPATH</code>에 Vertica JDBC jar 파일을 반드시 추가해야 합니다. (예: <code>export CLASSPATH=$CLASSPATH:/opt/vertica/java/lib/vertica-jdbc.jar</code>)</p>
+    
+  <div class="syntax-box">
+      <strong>Java JDBC 연결 및 HA(고가용성) 설정 예시:</strong>
+      <pre><code>import java.sql.*;
+import java.util.Properties;
+
+// 1. 접속 정보 및 핵심 Properties 설정
+Properties myProp = new Properties();
+myProp.put("user", "dbadmin");
+myProp.put("password", "your_password");
+
+// 로드 밸런싱 활성화 (Round Robin 방식으로 접속 분산)
+myProp.put("ConnectionLoadBalance", "true"); 
+
+// 장애 대비 대체 노드 리스트 지정 (고가용성 확보)
+myProp.put("BackupServerNode", "192.168.0.101,192.168.0.102"); 
+
+// 2. 연결 생성
+Connection conn;
+try {
+    conn = DriverManager.getConnection(
+        "jdbc:vertica://192.168.0.100:5433/mydatabase", myProp
+    );
+    System.out.println("Connected Successfully!");
+} catch (SQLException e) {
+    e.printStackTrace();
+}</code></pre>
+    </div>
+    
+  <dl class="feature-dl">
+      <dt class="feature-dt"><span class="feature-dt__icon">◆</span> 주요 JDBC Connection Properties</dt>
+      <dd class="feature-dd">
+        <strong>ConnectionLoadBalance:</strong> <code>true</code> 설정 시 클라이언트 접속 오버헤드를 클러스터 전체 노드로 균등하게 분산시킵니다.<br>
+        <strong>BackupServerNode:</strong> 최초 접속 대상 노드에 장애가 발생했을 때, 자동으로 재접속을 시도할 백업 노드의 IP 목록(쉼표 구분)을 지정합니다.<br>
+        <strong>LoginTimeout / LogLevel:</strong> 로그인 대기 시간이나 드라이버 로깅 레벨(DEBUG, INFO, ERROR 등)을 세밀하게 조정할 수 있습니다.
+      </dd>
+    </dl>
+  </div>
+
+  <div class="architecture-subsection">
+    <h3 class="section-subtitle">3. ODBC 접속 (Linux DSN 설정)</h3>
+    <p class="section-description">Linux 환경에서 타사 BI 툴이나 C/C++, Python(pyodbc) 등으로 접속하려면 클라이언트 서버에 <strong>ODBC Driver Manager (UnixODBC 또는 iODBC)</strong>가 사전에 반드시 설치되어 있어야 합니다.</p>
+    
+  <p class="section-description">ODBC 설정은 <strong>접속 정보(odbc.ini)</strong>와 <strong>드라이버 환경(vertica.ini)</strong>을 나누어 구성합니다.</p>
+
+  <div class="syntax-box">
+      <strong>1. /etc/odbc.ini (데이터 소스 및 접속 정보)</strong>
+      <pre><code>[VerticaDSN]
+Description = Vertica Database
+Driver      = /opt/vertica/lib64/libverticaodbc.so
+Database    = mydatabase
+Servername  = 192.168.0.100
+UID         = dbadmin
+PWD         = your_password
+Port        = 5433
+ConnSettings=
+ConnectionLoadBalance = true
+Locale      = en_US@collation=binary
+BackupServerNode = 192.168.0.101,192.168.0.102</code></pre>
+    </div>
+
+  <div class="syntax-box">
+      <strong>2. /etc/vertica.ini (드라이버 환경 구성)</strong>
+      <pre><code>[Driver]
+DriverManagerEncoding=UTF-16
+ODBCInstLib=/usr/local/odbc/lib/libodbcinst.so  # ODBC 설치 라이브러리 경로 지정
+ErrorMessagesPath=/opt/vertica
+LogLevel=4
+LogPath=/tmp</code></pre>
+    </div>
+
+  <ul class="feature-list">
+      <li><span class="feature-list__icon">🔹</span> <strong>환경 변수 등록:</strong> ODBC 드라이버가 <code>vertica.ini</code> 파일을 인식할 수 있도록 <code>.profile</code> 또는 <code>.bash_profile</code>에 환경 변수를 반드시 추가해야 합니다. <br><code>export VERTICAINI=/etc/vertica.ini</code></li>
     </ul>
   </div>
 </div>
@@ -216,7 +297,7 @@ DISCONNECT target_db;</code></pre>
 <hr style="margin: 3rem 0;">
 <div id="explain" style="scroll-margin-top: 100px;"></div>
 
-## EXPLAIN (쿼리 분석)
+## Explain (쿼리 분석)
 
 <div class="architecture-section">
   <p class="section-description"><code>EXPLAIN</code>은 Vertica 옵티마이저가 SQL 쿼리를 어떻게 분석하고 실행할 것인지에 대한 <strong>실행 계획(Execution Plan)</strong>을 보여줍니다. 쿼리 성능 튜닝 및 병목 구간 파악을 위한 가장 기초적이고 필수적인 도구입니다.</p>
@@ -268,12 +349,12 @@ Access Path:
   <div class="sidebar-panel" style="padding-right: 1rem;">
     <h3>On this page</h3>
     <ul>
-      <li><a href="#monitoring">모니터링</a></li>
-      <li><a href="#connecting">클라이언트 접속</a></li>
       <li><a href="#vsql">vsql</a></li>
+      <li><a href="#monitoring">Monitoring</a></li>
+      <li><a href="#clients">Clients</a></li>
       <li><a href="#copy">Copy</a></li>
-      <li><a href="#export">EXPORT</a></li>
-      <li><a href="#explain">EXPLAIN (쿼리 분석)</a></li>
+      <li><a href="#export">Export</a></li>
+      <li><a href="#explain">Explain</a></li>
     </ul>
   </div>
   </aside>

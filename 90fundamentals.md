@@ -142,7 +142,7 @@ layout: default
           <li>– perform, execute, raise, exception</li>
         </ul>
       </div>
-      <a href="{{ '/05development' | relative_url }}" class="button">학습하기</a>
+      <a href="#" class="button">학습하기</a>
     </div>
     <!-- Card 14 -->
     <div class="fundamentals-card">
@@ -172,7 +172,7 @@ layout: default
           <li>– 관계이해</li>
         </ul>
       </div>
-      <a href="{{ '/05development' | relative_url }}" class="button">학습하기</a>
+      <a href="#" class="button">학습하기</a>
     </div>
     <!-- Card 17 -->
     <div class="fundamentals-card">
@@ -202,7 +202,7 @@ layout: default
           <li>– comments 구문을 쓸 수 있는 dynamic query 작성</li>
         </ul>
       </div>
-      <a href="{{ '/05development' | relative_url }}" class="button">학습하기</a>
+      <a href="#" class="button">학습하기</a>
     </div>
     <!-- Card 20 -->
     <div class="fundamentals-card">
@@ -252,7 +252,7 @@ layout: default
           <li>– 주요 function 확인</li>
         </ul>
       </div>
-      <a href="{{ '/05development' | relative_url }}" class="button">학습하기</a>
+      <a href="#" class="button">학습하기</a>
     </div>
     <!-- Card 25 -->
     <div class="fundamentals-card">
@@ -291,7 +291,7 @@ layout: default
           <li>– CTAS, LIKE, COPY_TABLE</li>
         </ul>
       </div>
-      <a href="{{ '/05development' | relative_url }}" class="button">학습하기</a>
+      <a href="#" class="button">학습하기</a>
     </div>
   </div>
 </div>

@@ -126,19 +126,19 @@ permalink: /
   <h2>Vertica CoreTech</h2>
   <div class="cards">
     <article class="card">
-      <h3>모니터링</h3>
+      <h3>vsql (CLI)</h3>
+      <p>Vertica의 CLI 클라이언트인 vsql의 접속 방법과 유용한 메타 커맨드를 학습합니다.</p>
+      <a href="{{ '/03coretech#vsql' | relative_url }}">이동 →</a>
+    </article>
+    <article class="card">
+      <h3>Monitoring</h3>
       <p>Management Console(MC)과 Grafana를 활용한 데이터베이스 모니터링 방법을 알아봅니다.</p>
       <a href="{{ '/03coretech#monitoring' | relative_url }}">이동 →</a>
     </article>
     <article class="card">
-      <h3>클라이언트 접속</h3>
+      <h3>Clients</h3>
       <p>vsql, DBeaver 등 다양한 클라이언트 도구를 사용하여 Vertica에 접속하는 방법을 알아봅니다.</p>
-      <a href="{{ '/03coretech#connecting' | relative_url }}">이동 →</a>
-    </article>
-    <article class="card">
-      <h3>vsql (CLI)</h3>
-      <p>Vertica의 CLI 클라이언트인 vsql의 접속 방법과 유용한 메타 커맨드를 학습합니다.</p>
-      <a href="{{ '/03coretech#vsql' | relative_url }}">이동 →</a>
+      <a href="{{ '/03coretech#clients' | relative_url }}">이동 →</a>
     </article>
     <article class="card">
       <h3>Copy (데이터 적재)</h3>
@@ -151,7 +151,7 @@ permalink: /
       <a href="{{ '/03coretech#export' | relative_url }}">이동 →</a>
     </article>
     <article class="card">
-      <h3>EXPLAIN (쿼리 분석)</h3>
+      <h3>Explain (쿼리 분석)</h3>
       <p>실행 계획을 분석하고 쿼리 성능을 최적화하는 방법을 다룹니다.</p>
       <a href="{{ '/03coretech#explain' | relative_url }}">이동 →</a>
     </article>
@@ -182,30 +182,35 @@ permalink: /
       <a href="{{ '/04utilization#polaris' | relative_url }}">이동 →</a>
     </article>
     <article class="card">
-      <h3>PyIceberg & AWS Glue</h3>
+      <h3>PyIceberg & AWS Glue 연동</h3>
       <p>Python 기반 PyIceberg와 AWS Glue를 활용하여 서버리스 데이터 운영을 구현합니다.</p>
       <a href="{{ '/04utilization#pyiceberg' | relative_url }}">이동 →</a>
     </article>
   </div>
 </section>
 
-<section id="development" class="development-section">
-  <h2>Vertica Development</h2>
+<section id="auth-security" class="utilization-section">
+  <h2>Vertica Auth & Security</h2>
   <div class="cards">
     <article class="card">
-      <h3>SQL 아키텍처</h3>
-      <p>Vertica의 SQL 처리 아키텍처와 최적화 원리를 이해합니다.</p>
-      <a href="{{ '/05development#architecture-sql' | relative_url }}">이동 →</a>
+      <h3>Client Authentication</h3>
+      <p>Hash, LDAP, TLS, OAuth 등 다양한 클라이언트 인증 방식을 설정하고 관리합니다.</p>
+      <a href="{{ '/05auth_security#auth-overview' | relative_url }}">이동 →</a>
     </article>
     <article class="card">
-      <h3>쿼리 Best Practices</h3>
-      <p>고성능 쿼리 작성을 위한 모범 사례와 튜닝 팁을 학습합니다.</p>
-      <a href="{{ '/05development#query-best-practices' | relative_url }}">이동 →</a>
+      <h3>LDAP 인증</h3>
+      <p>Active Directory 또는 OpenLDAP 서버와 연동하여 통합 계정 인증을 구현합니다.</p>
+      <a href="{{ '/05auth_security#ldap' | relative_url }}">이동 →</a>
     </article>
     <article class="card">
-      <h3>DML 최적화</h3>
-      <p>INSERT, UPDATE, DELETE 등 DML 작업의 성능을 최적화하는 방법을 알아봅니다.</p>
-      <a href="{{ '/05development#dml-optimization' | relative_url }}">이동 →</a>
+      <h3>TLS 보안</h3>
+      <p>서버-클라이언트 간 상호 인증(Mutual Mode)으로 통신을 암호화하고 보안을 강화합니다.</p>
+      <a href="{{ '/05auth_security#tls' | relative_url }}">이동 →</a>
+    </article>
+    <article class="card">
+      <h3>Okta 연동</h3>
+      <p>Okta IdP를 활용하여 데이터베이스 및 MC에 대한 SSO(Single Sign-On)를 구현합니다.</p>
+      <a href="{{ '/05auth_security#okta' | relative_url }}">이동 →</a>
     </article>
   </div>
 </section>

@@ -1,4 +1,4 @@
-﻿:root {
+﻿﻿:root {
   --bg-gradient: linear-gradient(180deg, #f8fbff 0%, #f0f5ff 100%);
   --text: #1a2b4b;
   --sub: #3e4d6b;
@@ -25,6 +25,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100%;
+  padding-bottom: 80px;
 }
 
 section[id],
@@ -1070,18 +1071,12 @@ h1 {
   border-radius: 8px;
 }
 
-.lifecycle-page-wrapper .table-responsive {
-  width: 550px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .lifecycle-table {
+  width: 100%;
   border-collapse: collapse;
   text-align: center;
   white-space: nowrap;
   font-size: 0.875rem;
-  margin: 0 auto;
 }
 
 .lifecycle-table th,
@@ -1118,13 +1113,23 @@ h1 {
 }
 
 .reference-link a {
-  color: var(--muted);
+  color: var(--accent);
   text-decoration: none;
   transition: color 0.2s;
+  font-weight: 600;
 }
 .reference-link a:hover {
-  color: var(--accent);
   text-decoration: underline;
+}
+
+.reference-link a[target="_blank"]::after {
+  content: ' ↗';
+  display: inline-block;
+  font-size: 0.9em;
+  transition: transform 0.2s;
+}
+.reference-link a[target="_blank"]:hover::after {
+  transform: translate(2px, -2px);
 }
 
 .integration-section {
@@ -1213,10 +1218,15 @@ h1 {
 }
 
 .site-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--surface);
   text-align: center;
-  padding: 40px 20px;
-  margin-top: 60px;
+  padding: 20px;
   border-top: 1px solid var(--border-color);
+  z-index: 100;
 }
 
 .site-footer p {

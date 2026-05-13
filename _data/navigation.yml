@@ -37,17 +37,17 @@
 - title: CoreTech
   url: /03coretech
   sublinks:
-    - title: 모니터링
-      url: /03coretech#monitoring
-    - title: 클라이언트 접속
-      url: /03coretech#connecting
     - title: vsql (CLI)
       url: /03coretech#vsql
+    - title: Monitoring
+      url: /03coretech#monitoring
+    - title: Clients
+      url: /03coretech#clients
     - title: Copy (데이터 적재)
       url: /03coretech#copy
     - title: Export (데이터 내보내기)
       url: /03coretech#export
-    - title: EXPLAIN (쿼리 분석)
+    - title: Explain (쿼리 분석)
       url: /03coretech#explain
 
 - title: Utilization
@@ -55,21 +55,23 @@
   sublinks:
     - title: Python 연동
       url: /04utilization#python
+    - title: Apache Airflow 연동
+      url: /04utilization#airflow
     - title: Apache Iceberg 연동
       url: /04utilization#iceberg
     - title: Apache Polaris 연동
       url: /04utilization#polaris
-    - title: PyIceberg & AWS Glue
+    - title: PyIceberg & AWS Glue 연동
       url: /04utilization#pyiceberg
-    - title: Apache Airflow 연동
-      url: /04utilization#airflow
 
-- title: Development
-  url: /05development
+- title: Auth&Security
+  url: /05auth_security
   sublinks:
-    - title: SQL 아키텍처
-      url: /05development#architecture-sql
-    - title: 쿼리 Best Practices
-      url: /05development#query-best-practices
-    - title: DML 최적화
-      url: /05development#dml-optimization
+    - title: Client Auth
+      url: /05auth_security#auth-overview
+    - title: LDAP 인증
+      url: /05auth_security#ldap
+    - title: TLS 보안
+      url: /05auth_security#tls
+    - title: Okta 연동
+      url: /05auth_security#okta
