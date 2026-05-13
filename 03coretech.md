@@ -23,7 +23,7 @@ layout: default
     <h3 class="section-subtitle">주요 접속 및 실행 옵션</h3>
     <p class="section-description">vsql 실행 시 다양한 파라미터를 통해 접속 대상과 실행 방식을 세밀하게 지정할 수 있습니다.</p>
 
-    <div class="syntax-box">
+  <div class="syntax-box">
       <strong>vsql 접속 구문:</strong>
       <pre><code>vsql -h [hostname/IP] -d [dbname] -U [username] -w [password]</code></pre>
     </div>
@@ -52,7 +52,7 @@ layout: default
     <h3 class="section-subtitle">vsql 메타 커맨드 (Meta-Commands)</h3>
     <p class="section-description">vsql 내부에서 <code>\</code>(백슬래시)로 시작하는 명령어를 통해 다양한 정보 조회 및 환경 설정을 수행할 수 있습니다.</p>
 
-    <ul class="feature-list">
+  <ul class="feature-list">
       <li><span class="feature-list__icon">🔹</span> <strong>\?:</strong> <span>메타 커맨드(Meta-Command) 전반에 대한 도움말을 출력합니다.</span></li>
       <li><span class="feature-list__icon">🔹</span> <strong>\h:</strong> <span>SQL 명령어 구문에 대한 상세 도움말을 출력합니다.</span></li>
       <li><span class="feature-list__icon">🔹</span> <strong>\c:</strong> <span>현재 세션을 끊고 다른 DB 혹은 다른 User로 재접속합니다.</span></li>
@@ -251,7 +251,7 @@ LogPath=/tmp</code></pre>
     <h3 class="section-subtitle">1. vsql을 이용한 텍스트 파일 내보내기</h3>
     <p class="section-description">가장 보편적인 방법으로, <code>vsql</code>의 실행 결과를 파일로 리다이렉션하여 CSV나 TSV 형태의 텍스트 파일을 생성합니다.</p>
     
-    <div class="syntax-box">
+  <div class="syntax-box">
       <strong>기본 실행 구문:</strong>
       <pre><code>vsql -U username -w password -At -F ',' -c "SELECT * FROM public.sales;" -o sales_backup.csv</code></pre>
     </div>
