@@ -45,6 +45,7 @@ article[id] {
 
 .site-content {
   width: 100%;
+  min-width: 0;
   margin: 0;
   padding: 0;
 }
@@ -1046,14 +1047,14 @@ h1 {
 
 .tab-btn {
   padding: 10px 20px;
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--accent);
   background-color: var(--surface);
   cursor: pointer;
   border-radius: 6px;
   font-size: 1rem;
   font-weight: 600;
   text-decoration: none;
-  color: var(--sub);
+  color: var(--accent);
   transition: 0.2s;
 }
 
