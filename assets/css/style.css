@@ -1072,7 +1072,7 @@ h1 {
 }
 
 .lifecycle-page-wrapper .table-responsive {
-  width: 550px;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
 }
