@@ -12,9 +12,9 @@ layout: default
 <div class="content-section content-section-centered" style="max-width: 1080px;">
   <script src="https://giscus.app/client.js"
           data-repo="JIN0326/vertica_blog"
-          data-repo-id="R_kgDOSDEuRA"
+          data-repo-id="R_kgDOSaFhfw"
           data-category="Q&A"
-          data-category-id="DIC_kwDOSDEuRM4C68a-"
+          data-category-id="DIC_kwDOSaFhf84C88L7"
           data-mapping="pathname"
           data-strict="0"
           data-reactions-enabled="1"

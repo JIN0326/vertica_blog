@@ -110,6 +110,11 @@ permalink: /
       <a href="{{ '/02administration#privilege' | relative_url }}">이동 →</a>
     </article>
     <article class="card">
+      <h3>Locks</h3>
+      <p>동시성 제어를 위한 잠금(Lock) 메커니즘과 모니터링 방법을 알아봅니다.</p>
+      <a href="{{ '/02administration#locks' | relative_url }}">이동 →</a>
+    </article>
+    <article class="card">
       <h3>Backup & Restore</h3>
       <p>vbr을 이용한 데이터 백업/복구 방법을 다룹니다.</p>
       <a href="{{ '/02administration#backup-restore' | relative_url }}">이동 →</a>

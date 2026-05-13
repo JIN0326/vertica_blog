@@ -64,6 +64,7 @@ Vertica 분석 플랫폼에 대한 기술 정보와 사용법을 공유하기 �
 * **Profile**: 보안 정책 및 패스워드 제약 조건 설정
 * **Resource Pool**: 메모리 및 동시성 제어를 통한 워크로드 관리
 * **Privilege**: 객체 접근 권한 및 스키마 권한 상속 체계
+* **Locks**: 동시성 제어를 위한 잠금(Lock) 메커니즘과 모니터링 방법
 * **Backup & Restore**: vbr 도구를 이용한 스냅샷 백업 및 복구 프로세스
 * **Cluster Operation & Diagnostics**: DB 기동/중지, 장애 조치, 진단 파일 생성 등 핵심 클러스터 운영 가이드
 

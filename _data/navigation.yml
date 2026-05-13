@@ -29,6 +29,8 @@
       url: /02administration#resource-pool
     - title: Privilege
       url: /02administration#privilege
+    - title: Locks
+      url: /02administration#locks
     - title: Backup & Restore
       url: /02administration#backup-restore
     - title: Cluster Operation
