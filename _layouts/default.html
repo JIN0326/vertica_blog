@@ -16,7 +16,20 @@
 
         <main class="site-content">
           {{ content }}
-        </main>
+
+          {% if site.comments.provider == "utterances" %}
+          <div class="comments-wrapper" style="margin-top: 4rem; padding-top: 2rem; border-top: 1px dashed var(--border-color);">
+            <h3 style="margin-bottom: 1.5rem; font-size: 1.4rem; color: var(--text);">Comments</h3>
+            <script src="https://utteranc.es/client.js"
+                    repo="{{ site.comments.utterances.repository }}"
+                    issue-term="{{ site.comments.utterances.issue_term }}"
+                    theme="{{ site.comments.utterances.theme }}"
+                    crossorigin="anonymous"
+                    async>
+            </script>
+          </div>
+          {% endif %}
+          </main>
       </div>
 
       {% include footer.html %}
