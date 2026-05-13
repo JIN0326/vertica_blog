@@ -2,7 +2,6 @@
 title: Vertica CoreTech
 layout: default
 ---
-
 <div class="page-hero">
   <span class="chip">Core Tech</span>
   <h1>Vertica Core Tech</h1>
