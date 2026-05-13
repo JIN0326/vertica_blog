@@ -1072,17 +1072,17 @@ h1 {
 }
 
 .lifecycle-page-wrapper .table-responsive {
-  width: 100%;
+  width: 900px;
   margin-left: auto;
   margin-right: auto;
 }
 
 .lifecycle-table {
-  width: 100%;
   border-collapse: collapse;
   text-align: center;
   white-space: nowrap;
   font-size: 0.875rem;
+  margin: 0 auto;
 }
 
 .lifecycle-table th,
