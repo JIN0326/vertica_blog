@@ -270,7 +270,7 @@ h1 {
 }
 
 #search-results li {
-  padding: 12px 4px;
+  padding: 0;
   border-bottom: 1px solid var(--border-color);
 }
 #search-results li:last-child {
@@ -279,12 +279,34 @@ h1 {
 
 #search-results a {
   text-decoration: none;
-  color: var(--text);
-  font-weight: 600;
   display: block;
+  padding: 12px 4px;
+  border-radius: 6px;
+  transition: background-color 0.2s;
 }
 #search-results a:hover {
-  color: var(--accent);
+  background-color: rgba(45, 105, 255, 0.04);
+}
+
+.search-result-title {
+  font-weight: 600;
+  display: block;
+  color: var(--text);
+}
+
+.search-result-snippet {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin: 6px 0 0;
+  line-height: 1.5;
+}
+
+.search-result-snippet mark {
+  background-color: rgba(45, 105, 255, 0.2);
+  color: var(--accent-dark);
+  font-weight: 600;
+  padding: 1px 2px;
+  border-radius: 3px;
 }
 
 .architecture-grid {

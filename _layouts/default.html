@@ -39,16 +39,21 @@
         const searchInput = document.getElementById('search-input');
         const searchResults = document.getElementById('search-results');
         let searchData = [];
-        let isDataLoaded = false;
+        let dataPromise = null;
 
         function loadSearchData() {
-          if (isDataLoaded) return;
-          fetch('{{ "/search.json" | relative_url }}')
-            .then(response => response.json())
-            .then(data => {
-              searchData = data;
-              isDataLoaded = true;
-            });
+          if (!dataPromise) {
+            dataPromise = fetch('{{ "/search.json" | relative_url }}')
+              .then(response => {
+                if (!response.ok) throw new Error('Search data not found.');
+                return response.json();
+              })
+              .then(data => {
+                searchData = data;
+                return data;
+              }).catch(error => console.error("Error loading search data:", error));
+          }
+          return dataPromise;
         }
 
         function openSearch() {
@@ -65,20 +70,43 @@
           searchResults.innerHTML = '';
         }
 
-        function performSearch() {
-          const query = searchInput.value.toLowerCase();
+        async function performSearch() {
+          await loadSearchData();
+
+          const query = searchInput.value.toLowerCase().trim();
           searchResults.innerHTML = '';
           if (query.length < 2) return;
 
           const results = searchData.filter(item =>
             item.title.toLowerCase().includes(query) ||
-            item.content.toLowerCase().includes(query)
+            (item.content && item.content.toLowerCase().includes(query))
           );
 
           if (results.length > 0) {
             results.slice(0, 10).forEach(result => { // Show top 10 results
               const li = document.createElement('li');
-              li.innerHTML = `<a href="${result.url}">${result.title}</a>`;
+
+              let snippet = '';
+              const content = result.content;
+              if (content) {
+                const queryIndex = content.toLowerCase().indexOf(query);
+                if (queryIndex > -1) {
+                  const startIndex = Math.max(0, queryIndex - 40);
+                  const endIndex = Math.min(content.length, queryIndex + query.length + 80);
+                  snippet = content.substring(startIndex, endIndex);
+                  
+                  if (startIndex > 0) snippet = '...' + snippet;
+                  if (endIndex < content.length) snippet = snippet + '...';
+                  
+                  snippet = snippet.replace(new RegExp(query.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&'), 'gi'), (match) => `<mark>${match}</mark>`);
+                }
+              }
+
+              li.innerHTML = `
+                <a href="${result.url}">
+                  <span class="search-result-title">${result.title}</span>
+                  ${snippet ? `<p class="search-result-snippet">${snippet}</p>` : ''}
+                </a>`;
               searchResults.appendChild(li);
             });
           } else {
