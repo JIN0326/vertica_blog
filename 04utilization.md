@@ -267,6 +267,8 @@ table.append(pa.Table.from_pandas(df))</code></pre>
       </div>
     </div>
   </div>
+</div>
+
 <aside class="page-sidebar">
     <div class="sidebar-panel" style="padding-right: 1rem;">
       <h3>On this page</h3>
@@ -279,4 +281,3 @@ table.append(pa.Table.from_pandas(df))</code></pre>
       </ul>
     </div>
   </aside>
-</div>

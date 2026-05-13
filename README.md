@@ -82,7 +82,7 @@ Vertica 분석 플랫폼에 대한 기술 정보와 사용법을 공유하기 �
 * **Apache Polaris 연동**: 중앙 메타데이터 서비스 Polaris와 동적 연동
 * **PyIceberg & AWS Glue**: PyIceberg와 AWS Glue를 활용한 서버리스 데이터 운영
 
-### 🔒 Vertica Auth & Security (`05auth_security.md`)
+### 🔒 Vertica Auth&Security (`05auth_security.md`)
 * **Client Authentication**: Hash, LDAP, TLS, OAuth 등 다양한 클라이언트 인증 방식 설정 및 관리
 * **LDAP 인증**: Active Directory 또는 OpenLDAP 서버와 연동하여 통합 계정 인증 구현
 * **TLS 보안**: 서버-클라이언트 간 상호 인증(Mutual Mode)으로 통신 암호화 및 보안 강화
