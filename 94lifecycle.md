@@ -1,6 +1,7 @@
 ---
-title: Vertica Lifecycle
+title: Vertica 제품 수명주기 및 OS 호환성 - Vertica Blog
 layout: default
+description: "Vertica 제품 버전별 릴리즈 주기, 기술 지원 종료(EOS) 날짜, 그리고 지원되는 운영체제(OS) 호환성 정보를 안내합니다."
 ---
 
 <div class="page-hero">

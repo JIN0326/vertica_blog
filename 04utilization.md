@@ -1,6 +1,7 @@
-﻿---
-title: Vertica Utilization
+---
+title: Vertica 활용 - Python, Iceberg, Airflow 연동 - Vertica Blog
 layout: default
+description: "Vertica를 다양한 데이터 생태계와 연동하여 활용하는 방법을 알아봅니다. Python, Apache Airflow, Iceberg, Trino 등과의 연동 예제를 제공합니다."
 ---
 
 <div class="page-hero">
@@ -648,7 +649,7 @@ WHERE i.reading > 20.0;</code></pre>
     </dl>
   </div>
 </div>
-
+</div>
 <aside class="page-sidebar">
     <div class="sidebar-panel" style="padding-right: 1rem;">
       <h3>On this page</h3>

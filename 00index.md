@@ -1,7 +1,8 @@
 ---
-title: Vertica Blog Main
+title: Vertica 기술 블로그 - 초고속 분석 데이터베이스
 layout: default
 permalink: /
+description: "Vertica 분석 플랫폼에 대한 기술 정보와 사용법을 공유합니다. 아키텍처, 운영, 데이터 연동, 보안 등 다양한 주제를 다룹니다."
 ---
 
 <div class="hero-container">

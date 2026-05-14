@@ -1,6 +1,7 @@
 ---
-title: Vertica CoreTech
+title: Vertica 핵심 기술 - 데이터 적재, 쿼리 분석 - Vertica Blog
 layout: default
+description: "Vertica의 핵심 기술을 다룹니다. vsql 사용법, 데이터 적재(Copy), 내보내기(Export), 그리고 EXPLAIN을 통한 쿼리 실행 계획 분석 방법을 알아봅니다."
 ---
 <div class="page-hero">
   <span class="chip">Core Tech</span>

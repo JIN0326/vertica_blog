@@ -1,6 +1,7 @@
 ---
-title: Vertica Fundamentals
+title: Vertica 시작하기 - 학습 로드맵 - Vertica Blog
 layout: default
+description: "Vertica를 처음 시작하는 사용자를 위한 학습 로드맵입니다. DB 구성부터 기본 운영, 쿼리 튜닝까지 단계별 학습 가이드를 제공합니다."
 ---
 
 <div class="page-hero">

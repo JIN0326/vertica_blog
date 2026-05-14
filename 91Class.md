@@ -1,6 +1,7 @@
 ---
-title: Vertica Class
+title: Vertica 교육 과정 안내 및 신청 - Vertica Blog
 layout: default
+description: "Vertica 데이터베이스 전문가가 되기 위한 교육 과정을 안내합니다. 기본, 운영, 분석 최적화 등 다양한 교육 과정과 신청 방법을 확인하세요."
 ---
 
 <div class="page-hero">

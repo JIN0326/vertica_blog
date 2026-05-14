@@ -1,6 +1,7 @@
 ---
-title: Vertica Administration
+title: Vertica 운영 및 관리 가이드 - Vertica Blog
 layout: default
+description: "Vertica 데이터베이스 운영을 위한 관리 가이드입니다. 테이블, 스키마, 사용자 관리부터 백업/복구, 클러스터 운영, 리소스 풀 설정까지 다룹니다."
 ---
 <div class="page-hero">
   <span class="chip">Administration</span>

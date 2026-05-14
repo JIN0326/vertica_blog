@@ -1,6 +1,7 @@
 ---
-title: Vertica Auth&Security
+title: Vertica 보안 - LDAP, TLS, Okta 인증 설정 - Vertica Blog
 layout: default
+description: "Vertica 데이터베이스의 보안을 강화하는 방법을 알아봅니다. LDAP, TLS(상호인증), Okta(OAuth/OIDC) 등 다양한 클라이언트 인증 방식을 설정하고 관리합니다."
 ---
 
 <div class="page-hero">
