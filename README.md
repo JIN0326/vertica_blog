@@ -59,6 +59,7 @@ Vertica 분석 플랫폼에 대한 기술 정보와 사용법을 공유하기 �
 
 ### 🛠️ Vertica Administration (`02administration.md`)
 * **Table · Projection**: 논리 모델(Table)과 물리 저장소(Projection)의 분리 및 분산 정책
+* **Partition**: 대용량 테이블 관리 및 성능 최적화를 위한 파티셔닝
 * **Schema**: 시스템 기본 스키마 설명 및 생성/관리 방법
 * **User**: 사용자 생성, 관리 및 계정 잠금 해제 방법
 * **Profile**: 보안 정책 및 패스워드 제약 조건 설정
@@ -81,7 +82,8 @@ Vertica 분석 플랫폼에 대한 기술 정보와 사용법을 공유하기 �
 * **Apache Airflow 연동**: Airflow를 활용한 데이터 파이프라인 자동화 및 스케줄링
 * **Apache Iceberg 연동**: Spark 기반 Iceberg 테이블 생성 및 Vertica 연동 조회
 * **Apache Polaris 연동**: 중앙 메타데이터 서비스 Polaris와 동적 연동
-* **PyIceberg & AWS Glue**: PyIceberg와 AWS Glue를 활용한 서버리스 데이터 운영
+* **AWS Glue & PyIceberg**: PyIceberg와 AWS Glue를 활용한 서버리스 데이터 운영
+* **Trino & Iceberg 연동**: 분산 SQL 쿼리 엔진 Trino와 Iceberg를 활용한 데이터 레이크하우스 연동 아키텍처
 
 ### 🔒 Vertica Auth&Security (`05auth_security.md`)
 * **Client Authentication**: Hash, LDAP, TLS, OAuth 등 다양한 클라이언트 인증 방식 설정 및 관리

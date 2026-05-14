@@ -19,6 +19,8 @@
   sublinks:
     - title: Table · Projection
       url: /02administration#table-projection
+    - title: Partition
+      url: /02administration#partition
     - title: Schema
       url: /02administration#schema
     - title: User
@@ -63,8 +65,10 @@
       url: /04utilization#iceberg
     - title: Apache Polaris 연동
       url: /04utilization#polaris
-    - title: PyIceberg & AWS Glue 연동
-      url: /04utilization#pyiceberg
+    - title: AWS Glue & PyIceberg 연동
+      url: /04utilization#aws-glue-pyiceberg
+    - title: Trino & Iceberg 연동
+      url: /04utilization#trino-iceberg
 
 - title: Auth&Security
   url: /05auth_security

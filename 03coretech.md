@@ -1,4 +1,4 @@
-﻿---
+---
 title: Vertica CoreTech
 layout: default
 ---
@@ -29,7 +29,7 @@ layout: default
     <dl class="feature-dl">
       <dt class="feature-dt"><span class="feature-dt__icon">◆</span> 접속 옵션</dt>
       <dd class="feature-dd">
-        <strong>vsql DB명:</strong> 현재 OS 계정과 동일한 DB User로 접속합니다.<br>
+        <strong>vsql :</strong> 현재 OS 계정과 동일한 DB User로 접속합니다.<br>
         <strong>-h:</strong> 접속할 DB의 IP를 지정합니다. (미지정 시 Local 접속)<br>
         <strong>-d:</strong> 접속할 DB명을 지정합니다. (기본값: 현재 OS 계정)<br>
         <strong>-U:</strong> 접속할 DB User명을 지정합니다. (기본값: 현재 OS 계정)<br>
@@ -92,6 +92,24 @@ layout: default
         </dd>
       </dl>
     </div>
+
+  <div class="architecture-subsection">
+        <h3 class="section-subtitle">2. Grafana 대시보드</h3>
+        <p class="section-description">Grafana는 오픈소스 시각화 도구로, Vertica의 시스템 테이블 데이터를 활용하여 맞춤형 모니터링 대시보드를 구축할 수 있습니다.</p>
+        
+  <div class="image-box-styled">
+            <img src="{{ '/assets/images/monitoring_2.png' | relative_url }}" alt="Vertica Grafana Dashboard">
+        </div>
+
+  <dl class="feature-dl">
+            <dt class="feature-dt"><span class="feature-dt__icon">◆</span> 주요 활용 지표</dt>
+            <dd class="feature-dd">
+                <strong>실시간 성능 지표:</strong> CPU, 메모리, 디스크 I/O, 네트워크 등 핵심 시스템 리소스 사용량을 시각적으로 추적합니다.<br>
+                <strong>쿼리 및 세션 분석:</strong> 활성 쿼리 수, 리소스 풀별 점유율, 사용자 세션 등 상세한 워크로드 분석이 가능합니다.<br>
+                <strong>유연한 커스터마이징:</strong> Vertica의 다양한 시스템 테이블(v_monitor, v_internal)과 연동하여 필요한 모든 지표를 자유롭게 추가하고 시각화할 수 있습니다.
+            </dd>
+        </dl>
+    </div>
   </div>
   
 <hr style="margin: 3rem 0;">
@@ -111,6 +129,16 @@ layout: default
       <li><span class="feature-list__icon">🔹</span> <strong>드라이버 설정:</strong> 도구의 '드라이버 관리자' 메뉴에서 새 드라이버를 생성하고 다운로드한 <code>.jar</code> 파일을 추가합니다.</li>
       <li><span class="feature-list__icon">🔹</span> <strong>연결 생성:</strong> Host(IP), Port(기본 5433), Database, User, Password를 입력하여 접속합니다.</li>
     </ul>
+    <dl class="feature-dl" style="margin-top: 1.5rem;">
+        <dt class="feature-dt"><span class="feature-dt__icon">◆</span> 주요 드라이버 속성 (Driver Properties)</dt>
+        <dd class="feature-dd">
+            DBeaver의 <strong>'Edit Connection' > 'Driver properties'</strong> 탭에서 아래와 같은 고급 옵션을 설정하여 안정성과 성능을 향상시킬 수 있습니다.
+            <br><br>
+            <strong>AutoCommit:</strong> DBeaver는 기본적으로 Auto-commit 모드로 동작합니다. 대용량 DML 작업이나 트랜잭션 제어가 필요할 경우, 수동 커밋(Manual Commit) 모드로 전환하는 것이 권장됩니다.<br>
+            <strong>ConnectionLoadBalance:</strong> 값을 <code>true</code>로 설정하면, 접속 시 부하를 여러 노드로 분산시켜 단일 노드의 접속 병목을 방지합니다.<br>
+            <strong>BackupServerNode:</strong> 주 접속 노드에 장애가 발생했을 때 자동으로 접속을 시도할 대체 노드들의 IP 목록을 쉼표(,)로 구분하여 입력합니다. (예: <code>&lt;BACKUP_IP_1&gt;,&lt;BACKUP_IP_2&gt;</code>)
+        </dd>
+    </dl>
   </div>
 
   <div class="architecture-subsection">
@@ -131,13 +159,13 @@ myProp.put("password", "your_password");
 myProp.put("ConnectionLoadBalance", "true"); 
 
 // 장애 대비 대체 노드 리스트 지정 (고가용성 확보)
-myProp.put("BackupServerNode", "192.168.0.101,192.168.0.102"); 
+myProp.put("BackupServerNode", "&lt;BACKUP_IP_1&gt;,&lt;BACKUP_IP_2&gt;"); 
 
 // 2. 연결 생성
 Connection conn;
 try {
     conn = DriverManager.getConnection(
-        "jdbc:vertica://192.168.0.100:5433/mydatabase", myProp
+        "jdbc:vertica://&lt;DB_IP&gt;:5433/mydatabase", myProp
     );
     System.out.println("Connected Successfully!");
 } catch (SQLException e) {
@@ -167,14 +195,14 @@ try {
 Description = Vertica Database
 Driver      = /opt/vertica/lib64/libverticaodbc.so
 Database    = mydatabase
-Servername  = 192.168.0.100
+Servername  = &lt;DB_IP&gt;
 UID         = dbadmin
 PWD         = your_password
 Port        = 5433
 ConnSettings=
 ConnectionLoadBalance = true
 Locale      = en_US@collation=binary
-BackupServerNode = 192.168.0.101,192.168.0.102</code></pre>
+BackupServerNode = &lt;BACKUP_IP_1&gt;,&lt;BACKUP_IP_2&gt;</code></pre>
     </div>
 
   <div class="syntax-box">
@@ -199,33 +227,78 @@ LogPath=/tmp</code></pre>
 ## Copy (대용량 데이터 적재)
 
 <div class="architecture-section">
-  <p class="section-description"><code>Copy</code>문은 Vertica에서 대용량 데이터를 가장 빠르고 효율적으로 적재(Load)하기 위한 핵심 명령어입니다. 외부 파일이나 스트림으로부터 데이터를 읽어 테이블에 고속으로 삽입합니다.</p>
+  <p class="section-description"><code>COPY</code>문은 Vertica에서 대용량 데이터를 가장 빠르고 효율적으로 적재(Load)하기 위한 핵심 명령어입니다. 서버, 클라이언트, 또는 표준 입력(STDIN) 등 다양한 소스로부터 데이터를 읽어 테이블에 고속으로 삽입합니다.</p>
 
   <div class="architecture-subsection">
-    <h3 class="section-subtitle">Copy 기본 구문 및 옵션</h3>
+    <h3 class="section-subtitle">1. 서버 파일에서 적재 (COPY FROM)</h3>
+    <p class="section-description">가장 일반적인 방식으로, Vertica 클러스터의 노드에 위치한 파일에서 데이터를 적재합니다. 모든 노드에서 파일에 접근할 수 있어야 하며, 와일드카드(*)를 사용하여 여러 파일을 동시에 로드할 수 있습니다.</p>
     <div class="syntax-box">
       <strong>기본 구문:</strong>
       <pre><code>COPY schema.table (column_list)
-      FROM '/path/to/file.csv'
-      [옵션 지정];</code></pre>
+FROM '/path/on/server/file.csv'
+[옵션 지정];</code></pre>
     </div>
     <dl class="feature-dl">
       <dt class="feature-dt"><span class="feature-dt__icon">◆</span> 주요 로드 옵션</dt>
       <dd class="feature-dd">
-        <strong>DIRECT:</strong> WOS(메모리)를 거치지 않고 바로 ROS(디스크)에 물리적으로 데이터를 기록하여 대용량 적재 시 속도를 극대화합니다.<br>
         <strong>DELIMITER:</strong> 데이터의 구분자를 지정합니다. (예: <code>DELIMITER ','</code>)<br>
         <strong>ENCLOSED BY:</strong> 특정 기호로 감싸진 문자열 데이터를 처리합니다. (예: <code>ENCLOSED BY '"'</code>)<br>
-        <strong>SKIP:</strong> 파일의 시작 부분에서 건너뛸 행(Row)의 수를 지정합니다. (헤더 행을 무시할 경우 <code>SKIP 1</code>)
+        <strong>SKIP:</strong> 파일의 시작 부분에서 건너뛸 행(Row)의 수를 지정합니다. (헤더 행을 무시할 경우 <code>SKIP 1</code>)<br>
+        <strong>RECORD TERMINATOR:</strong> 레코드(행)의 끝을 나타내는 문자를 지정합니다. (기본값: <code>\n</code>)<br>
+        <strong>NO ESCAPE:</strong> 이스케이프 문자 처리를 비활성화하여 백슬래시(<code>\</code>)를 일반 문자로 취급합니다.<br>
+        <strong>NULL AS:</strong> 특정 문자열을 NULL 값으로 인식하도록 지정합니다. (예: <code>NULL AS 'N/A'</code>)
       </dd>
     </dl>
   </div>
 
   <div class="architecture-subsection">
-    <h3 class="section-subtitle">에러 처리 및 데이터 검증</h3>
+    <h3 class="section-subtitle">2. 클라이언트 파일에서 적재 (COPY LOCAL)</h3>
+    <p class="section-description"><code>vsql</code>과 같은 클라이언트가 실행 중인 로컬 머신의 파일에서 데이터를 적재합니다. 서버에 파일을 업로드하는 중간 과정 없이 로컬 데이터를 바로 테이블에 삽입할 수 있어 편리합니다.</p>
+    <div class="syntax-box">
+      <strong>기본 구문:</strong>
+      <pre><code>COPY schema.table
+FROM LOCAL '/path/on/client/data.csv'
+DELIMITER ',';</code></pre>
+    </div>
+    <ul class="feature-list">
+      <li><span class="feature-list__icon">💡</span> <strong>Tip:</strong> <span><code>LOCAL</code> 키워드를 사용하면 파일 경로는 서버가 아닌 클라이언트 머신을 기준으로 해석됩니다.</span></li>
+    </ul>
+  </div>
+
+  <div class="architecture-subsection">
+    <h3 class="section-subtitle">3. 표준 입력에서 적재 (COPY FROM STDIN)</h3>
+    <p class="section-description">다른 명령어의 출력 결과를 파이프(<code>|</code>)로 연결하여 파일 생성 없이 바로 Vertica 테이블로 적재할 때 사용됩니다. 쉘 스크립트 기반의 데이터 파이프라인에서 유용하게 활용됩니다.</p>
+    <div class="syntax-box">
+      <strong>파이프라인 연동 예시:</strong>
+      <pre><code># gzip으로 압축된 파일을 풀면서 바로 COPY
+gunzip -c /path/on/server/data.csv.gz | vsql -c "COPY schema.table FROM STDIN DELIMITER ','"</code></pre>
+    </div>
+  </div>
+
+  <div class="architecture-subsection">
+    <h3 class="section-subtitle">4. 다른 Vertica DB에서 적재 (COPY FROM VERTICA)</h3>
+    <p class="section-description"><code>COPY FROM VERTICA</code>는 다른 Vertica 데이터베이스에 있는 테이블로부터 대용량 데이터를 고속으로 복사하는 명령어입니다. 이 작업을 수행하려면, 먼저 <code>CONNECT TO VERTICA</code> 문을 사용하여 원본 데이터베이스에 연결해야 합니다. 단일/소량 데이터 처리에 사용되는 <code>INSERT</code> 문과 달리, <code>COPY</code>는 대규모 벌크 로드에 최적화되어 있습니다.</p>
+    <div class="syntax-box">
+      <strong>다른 DB에서 데이터 복사 예시:</strong>
+      <pre><code>-- 1. 원본 데이터베이스에 연결
+CONNECT TO VERTICA source_db USER dbadmin PASSWORD 'password' ON 'source_host', 5433;
+
+-- 2. 원본 DB의 'source_sales' 테이블에서 현재 DB의 'target_sales'로 데이터 복사
+COPY public.target_sales
+FROM VERTICA source_db.public.source_sales;
+
+-- 3. 연결 해제
+DISCONNECT source_db;</code></pre>
+    </div>
+  </div>
+
+
+  <div class="architecture-subsection">
+    <h3 class="section-subtitle">5. 에러 처리 및 데이터 검증</h3>
     <p class="section-description">데이터 적재 시 발생하는 포맷 오류나 제약조건 위반 데이터를 추적하고 안전하게 격리할 수 있습니다.</p>
     <div class="syntax-box">
       <strong>에러 처리 구문 예시:</strong>
-      <pre><code>COPY sales FROM '/data/sales_data.csv' DELIMITER ',' DIRECT
+      <pre><code>COPY sales FROM '/data/sales_data.csv' DELIMITER ','
       REJECTED DATA '/data/logs/sales_rejected.csv'
       EXCEPTIONS '/data/logs/sales_exceptions.log'
       ABORT ON ERROR;</code></pre>
@@ -250,7 +323,7 @@ LogPath=/tmp</code></pre>
     <h3 class="section-subtitle">1. vsql을 이용한 텍스트 파일 내보내기</h3>
     <p class="section-description">가장 보편적인 방법으로, <code>vsql</code>의 실행 결과를 파일로 리다이렉션하여 CSV나 TSV 형태의 텍스트 파일을 생성합니다.</p>
     
-  <div class="syntax-box">
+    <div class="syntax-box">
       <strong>기본 실행 구문:</strong>
       <pre><code>vsql -U username -w password -At -F ',' -c "SELECT * FROM public.sales;" -o sales_backup.csv</code></pre>
     </div>
@@ -266,28 +339,75 @@ LogPath=/tmp</code></pre>
   </div>
 
   <div class="architecture-subsection">
-    <h3 class="section-subtitle">2. EXPORT TO PARQUET (데이터 레이크 연동)</h3>
-    <p class="section-description">분석용 표준 포맷인 Parquet 형태로 데이터를 내보냅니다. S3나 HDFS 같은 외부 스토리지로 데이터를 백업할 때 매우 효율적입니다.</p>
+    <h3 class="section-subtitle">2. EXPORT TO DELIMITED (구분자 파일로 내보내기)</h3>
+    <p class="section-description">쿼리 결과를 CSV나 TSV와 같은 구분자 기반 텍스트 파일로 내보냅니다. 클러스터의 각 노드에 병렬로 파일이 생성되어 대용량 데이터 추출에 효과적입니다.</p>
     <div class="syntax-box">
-      <pre><code>EXPORT TO PARQUET(directory='s3://my-bucket/backup/sales/')
-AS SELECT * FROM public.sales;</code></pre>
+      <pre><code>EXPORT TO DELIMITED(
+    directory = '/data/export/sales/',
+    delimiter = '|',
+    null = 'NULL'
+) AS SELECT * FROM public.sales;</code></pre>
     </div>
-    <ul class="feature-list">
-      <li><span class="feature-list__icon">🔹</span> <strong>압축 효율:</strong> <span>Parquet의 컬럼 기반 압축을 통해 파일 크기를 최소화합니다.</span></li>
-      <li><span class="feature-list__icon">🔹</span> <strong>병렬 처리:</strong> <span>모든 노드가 동시에 파일을 생성하므로 대용량 데이터 추출 속도가 매우 빠릅니다.</span></li>
-    </ul>
+    <dl class="feature-dl">
+      <dt class="feature-dt"><span class="feature-dt__icon">◆</span> 주요 옵션 설명</dt>
+      <dd class="feature-dd">
+        <strong>directory:</strong> 파일이 저장될 서버 경로를 지정합니다. (필수)<br>
+        <strong>delimiter:</strong> 컬럼을 구분할 문자를 지정합니다.<br>
+        <strong>null:</strong> NULL 값을 표현할 문자열을 지정합니다.
+      </dd>
+    </dl>
   </div>
 
   <div class="architecture-subsection">
-    <h3 class="section-subtitle">3. EXPORT TO VERTICA (클러스터 간 복제)</h3>
+    <h3 class="section-subtitle">3. EXPORT TO PARQUET (데이터 레이크 연동)</h3>
+    <p class="section-description">분석용 표준 포맷인 Parquet 형태로 데이터를 내보냅니다. S3나 HDFS 같은 외부 스토리지로 데이터를 백업하거나 데이터 레이크와 연동할 때 매우 효율적입니다.</p>
+    <div class="syntax-box">
+      <pre><code>EXPORT TO PARQUET(
+    directory='s3://my-bucket/backup/sales/',
+    partition_by='sale_year, sale_month',
+    compression='snappy'
+) OVER (PARTITION BY sale_year, sale_month)
+AS SELECT 
+    EXTRACT(YEAR FROM sale_date) AS sale_year, 
+    EXTRACT(MONTH FROM sale_date) AS sale_month, 
+    * 
+FROM public.sales;</code></pre>
+    </div>
+    <dl class="feature-dl">
+      <dt class="feature-dt"><span class="feature-dt__icon">◆</span> 주요 옵션 설명</dt>
+      <dd class="feature-dd">
+        <strong>partition_by:</strong> 지정된 컬럼 값에 따라 하위 디렉터리를 생성하여 데이터를 파티셔닝합니다. (예: <code>/sale_year=2024/sale_month=7/</code>)<br>
+        <strong>compression:</strong> 압축 코덱(<code>snappy</code>, <code>gzip</code>)을 지정합니다.<br>
+        <strong>fileSizeMB:</strong> 개별 Parquet 파일의 최대 크기를 MB 단위로 지정합니다.
+      </dd>
+    </dl>
+  </div>
+
+  <div class="architecture-subsection">
+    <h3 class="section-subtitle">4. EXPORT TO ICEBERG (Iceberg 테이블로 내보내기)</h3>
+    <p class="section-description">데이터를 Apache Iceberg 테이블 포맷으로 내보냅니다. 데이터 레이크하우스 환경에서 트랜잭션과 스키마 변경을 효율적으로 관리할 수 있습니다.</p>
+    <div class="syntax-box">
+      <pre><code>EXPORT TO ICEBERG(
+    location='s3://my-iceberg-lake/warehouse/sales_iceberg',
+    format='parquet'
+)
+AS SELECT * FROM public.sales;</code></pre>
+    </div>
+  </div>
+
+  <div class="architecture-subsection">
+    <h3 class="section-subtitle">5. EXPORT TO VERTICA (클러스터 간 복제)</h3>
     <p class="section-description">네트워크를 통해 한 Vertica 클러스터에서 다른 클러스터로 직접 데이터를 전송합니다.</p>
     <div class="syntax-box">
-      <pre><code>-- 대상 DB에 접속 정보 설정 후 실행
+      <strong>다른 DB로 데이터 복제 예시:</strong>
+      <pre><code>-- 1. 대상 데이터베이스에 연결
 CONNECT TO VERTICA target_db USER dbadmin PASSWORD 'password' ON 'target_host', 5433;
 
+-- 2. 현재 DB의 'sales' 테이블 데이터를 대상 DB의 'sales' 테이블로 복제
 EXPORT TO VERTICA target_db.public.sales 
-FROM public.sales;
+AS SELECT * FROM public.sales;
 
+-- 3. 연결 해제
 DISCONNECT target_db;</code></pre>
     </div>
   </div>

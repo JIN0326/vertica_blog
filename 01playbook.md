@@ -1,11 +1,11 @@
-﻿---
+---
 title: Vertica Playbook
 layout: default
 ---
 <div class="page-hero">
   <span class="chip">Playbook</span>
   <h1>Vertica Playbook</h1>
-  <p>Vertica의 핵심 개념, 강점, 아키텍처, 운영 편의성 등 필수 정보를 한곳에 모아 정리했습니다. 아래 목차를 통해 원하는 섹션으로 바로 이동할 수 있습니다.</p>
+  <p>Vertica의 기본 개념과 강점, Pure-MPP 아키텍처, EonMode 등 핵심 기술과 더불어 MCP, Kafka와 같은 외부 시스템과의 연동 방법을 알아봅니다.</p>
 </div>
 
 <div class="page-layout">
@@ -200,7 +200,6 @@ Vertica는 온프레미스부터 퍼블릭/프라이빗 클라우드까지 고�
     
   <div class="comparison-grid">
     <div class="comparison-column">
-      <h4 class="comparison-column__title">Other Systems</h4>
       <div class="card card--other">
         <img src="{{ '/assets/images/architecture1.png' | relative_url }}" alt="아키텍처 비교: Other Systems">
         <ul>
@@ -213,7 +212,6 @@ Vertica는 온프레미스부터 퍼블릭/프라이빗 클라우드까지 고�
       </div>
     </div>
     <div class="comparison-column">
-      <h4 class="comparison-column__title comparison-column__title--vertica">VERTICA</h4>
       <div class="card card--vertica">
         <img src="{{ '/assets/images/architecture2.png' | relative_url }}" alt="아키텍처 비교: Vertica">
         <ul>
@@ -509,7 +507,7 @@ winget install OpenJS.Nodejs
   
   <div class="use-case-grid">
     <div class="card card--use-case">
-      <h4 class="use-case-card__title">서브클러스터(Subcluster) 기반 워크로드 격리</h4>
+      <h4 class="use-case-card__title">서브클러스터(Subcluster) 기반 <br> 워크로드 격리</h4>
       <p class="use-case-card__intro">
         전통적 방식에서는 운영 업무 SLA를 지키기 위해 분석 업무나 새로운 워크로드를 제약해야만 했습니다.
       </p>
@@ -521,7 +519,7 @@ winget install OpenJS.Nodejs
     </div>
 
   <div class="card card--use-case">
-      <h4 class="use-case-card__title">Revive를 통한 제로 다운타임 마이그레이션</h4>
+      <h4 class="use-case-card__title">Revive를 통한 제로 다운타임 <br> 마이그레이션</h4>
       <p class="use-case-card__intro">
         하드웨어 EOL(End of Life)이나 클라우드 전환 시 막대한 데이터 이관(Migration)에 대한 부담을 해소합니다.
       </p>

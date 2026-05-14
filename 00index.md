@@ -85,6 +85,11 @@ permalink: /
       <a href="{{ '/02administration#table-projection' | relative_url }}">이동 →</a>
     </article>
     <article class="card">
+      <h3>Partition</h3>
+      <p>대용량 테이블을 관리하고 쿼리 성능을 최적화하는 파티셔닝 기법을 알아봅니다.</p>
+      <a href="{{ '/02administration#partition' | relative_url }}">이동 →</a>
+    </article>
+    <article class="card">
       <h3>Schema</h3>
       <p>객체를 그룹화하는 Schema를 관리합니다.</p>
       <a href="{{ '/02administration#schema' | relative_url }}">이동 →</a>
@@ -187,9 +192,14 @@ permalink: /
       <a href="{{ '/04utilization#polaris' | relative_url }}">이동 →</a>
     </article>
     <article class="card">
-      <h3>PyIceberg & AWS Glue 연동</h3>
+      <h3>AWS Glue & PyIceberg 연동</h3>
       <p>Python 기반 PyIceberg와 AWS Glue를 활용하여 서버리스 데이터 운영을 구현합니다.</p>
-      <a href="{{ '/04utilization#pyiceberg' | relative_url }}">이동 →</a>
+      <a href="{{ '/04utilization#aws-glue-pyiceberg' | relative_url }}">이동 →</a>
+    </article>
+    <article class="card">
+      <h3>Trino & Iceberg 연동</h3>
+      <p>분산 SQL 쿼리 엔진 Trino와 Iceberg를 연동하여 데이터 레이크하우스를 구축하는 방법을 알아봅니다.</p>
+      <a href="{{ '/04utilization#trino-iceberg' | relative_url }}">이동 →</a>
     </article>
   </div>
 </section>
