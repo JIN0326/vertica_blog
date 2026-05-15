@@ -341,9 +341,7 @@ SELECT TRUNCATE_PARTITIONS('online_sales', 0, 9999);</code></pre>
   <div class="architecture-subsection">
     <h3 class="section-subtitle">5. 파티션과 세그먼테이션 비교 (Partitioning vs. Segmentation)</h3>
     <p class="section-description">파티셔닝과 세그먼테이션은 모두 대용량 데이터를 관리하는 기술이지만, 목적과 동작 방식에서 근본적인 차이가 있습니다. 두 기술을 함께 사용하면 쿼리 성능과 관리 효율성을 극대화할 수 있습니다.</p>
-    <div class="image-box-styled">
-      <img src="{{ '/assets/images/parti_segment.png' | relative_url }}" alt="Partitioning vs Segmentation">
-    </div>
+    <img src="{{ '/assets/images/parti_segment.png' | relative_url }}" alt="Partitioning vs Segmentation" style="width: 100%; max-width: 800px; margin: 1.5rem auto; display: block; border: 1px solid #e0e0e0; border-radius: 8px;">
     <table class="info-table">
       <thead>
         <tr>
