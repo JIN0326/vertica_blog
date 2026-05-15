@@ -230,6 +230,15 @@ with DAG("vertica_monitoring_1", default_args=default_args, schedule_interval=No
   <img src="{{ '/assets/images/util_iceberg.png' | relative_url }}" alt="Apache Iceberg">
 </div>
 <p class="section-description">Apache Iceberg는 대규모 분석 데이터를 위한 오픈 테이블 포맷으로, Vertica에서 이를 <strong>외부 테이블(External Table)</strong>로 조회하여 고속 분석을 수행할 수 있습니다.</p>
+
+<div class="architecture-subsection">
+    <h3 class="section-subtitle">아키텍처 및 구성 요소</h3>
+    <ul class="feature-list">
+      <li><span class="feature-list__icon">🔹</span> <strong>Apache Spark + Iceberg:</strong> <span>데이터 처리 및 Iceberg 테이블 생성을 담당하는 컴퓨팅 엔진입니다. 원본 데이터를 가공하여 스토리지에 적재합니다.</span></li>
+      <li><span class="feature-list__icon">🔹</span> <strong>Amazon S3 / MinIO:</strong> <span>Iceberg의 실제 데이터 파일(Parquet 등)과 메타데이터 파일(Avro 등)이 영구적으로 저장되는 오브젝트 스토리지입니다.</span></li>
+      <li><span class="feature-list__icon">🔹</span> <strong>Vertica:</strong> <span>오브젝트 스토리지에 저장된 Iceberg 테이블을 외부 테이블(External Table)로 직접 연결하여, 데이터를 이동시키지 않고도 고속 OLAP 분석 및 쿼리를 수행하는 분석 플랫폼입니다.</span></li>
+    </ul>
+</div>
     
 <div class="architecture-subsection">
       <h3 class="section-subtitle">1. Spark 기반 Iceberg 테이블 생성</h3>
@@ -342,11 +351,14 @@ SELECT * FROM user_ext1;
 ## Apache Polaris 연동
 
 <div class="architecture-section">
+    <div class="flow-diagram">
+      <img src="{{ '/assets/images/util_polaris.png' | relative_url }}" alt="Apache Polaris">
+    </div>
     <p class="section-description"><strong>Apache Polaris</strong>는 레이크하우스의 중앙 메타데이터 서비스 역할을 수행합니다. 테이블/뷰/네임스페이스를 추적하고, 메타데이터 위치를 유지하며, 역할 기반 접근 제어(RBAC)와 같은 엔터프라이즈급 거버넌스 기능을 제공합니다. Spark, Flink 등 다양한 컴퓨팅 엔진이 일관된 REST API를 통해 Polaris에 연결하여 데이터에 접근할 수 있습니다.</p>
 
   <div class="architecture-subsection">
-      <h3 class="section-subtitle">아키텍처 구성도</h3>
-      <p class="section-description">아래는 Spark, Polaris, MinIO, Vertica를 연동한 데이터 레이크하우스 아키텍처의 예시입니다.</p>
+      <h3 class="section-subtitle">아키텍처 및 구성 요소</h3>
+      <p class="section-description">Spark, Polaris, MinIO, Vertica를 연동한 데이터 레이크하우스 아키텍처의 예시입니다.</p>
       <ul class="feature-list">
         <li><span class="feature-list__icon">🔹</span> <strong>Spark Cluster:</strong> <span>데이터 처리 및 Iceberg 테이블 생성을 담당하는 컴퓨팅 엔진입니다.</span></li>
         <li><span class="feature-list__icon">🔹</span> <strong>Polaris Catalog:</strong> <span>Iceberg 테이블의 메타데이터를 관리하는 중앙 카탈로그 서버입니다.</span></li>
@@ -472,6 +484,9 @@ SELECT * FROM polaris_test;
 ## AWS Glue & PyIceberg 연동
 
 <div class="architecture-section">
+  <div class="flow-diagram">
+    <img src="{{ '/assets/images/util_pyiceberg.png' | relative_url }}" alt="PyIceberg and AWS Glue">
+  </div>
   <p class="section-description"><strong>PyIceberg</strong>는 JVM(Java Virtual Machine) 없이 순수 Python 환경에서 Iceberg 테이블을 제어할 수 있게 해주는 라이브러리입니다. 이를 <strong>AWS Glue Catalog</strong>와 연동하면, 서버리스 환경에서 Iceberg 테이블의 메타데이터를 중앙에서 관리하고, Vertica에서 이를 동적으로 조회하여 분석할 수 있습니다.</p>
 
   <div class="architecture-subsection">
