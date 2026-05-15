@@ -1,5 +1,5 @@
 ---
-title: Vertica 기술 블로그 - 초고속 분석 데이터베이스
+title: Vertica Blog
 layout: default
 permalink: /
 description: "Vertica 분석 플랫폼에 대한 기술 정보와 사용법을 공유합니다. 아키텍처, 운영, 데이터 연동, 보안 등 다양한 주제를 다룹니다."
@@ -7,7 +7,7 @@ description: "Vertica 분석 플랫폼에 대한 기술 정보와 사용법을 �
 
 <div class="hero-container">
   <div class="hero-content">
-    <span class="eyebrow">Analytics Database</span>
+    <span class="eyebrow">Analytics Database</span>    
     <h1>데이터의 한계를 넘어서, <br> Vertica로 실현하는 초고속 분석</h1>
     <p>Vertica는 대용량 분석에 특화된 MPP 및 컬럼 기반(Columnar) 아키텍처를 갖춘 SQL 데이터 웨어하우스입니다. <br>
     페타바이트 규모의 복잡한 데이터 워크로드를 처리하여 기업이 데이터를 관리하고 분석하는 방식을 혁신하도록 설계된 Analytics Database입니다.</p>
