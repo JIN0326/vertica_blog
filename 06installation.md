@@ -242,6 +242,10 @@ awsenablehttps = 0
 /opt/vertica/bin/admintools -t create_db \
     -s &lt;NODE1_HOSTNAME&gt;,&lt;NODE2_HOSTNAME&gt;,&lt;NODE3_HOSTNAME&gt; \
     -d &lt;DB_NAME&gt; \
+    --shard-count=&lt;SHARD_COUNT&gt \
+    -c /catalog \
+    -D /data \
+    --depot-path=/data \
     --communal-storage-location=s3://&lt;BUCKET_NAME&gt;/eondb \
     -x /home/vertica/auth_params.conf</code></pre>
     </div>
