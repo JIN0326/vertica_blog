@@ -434,6 +434,213 @@ vsql -p 35433 -c "SELECT name, address, clientport FROM vs_nodes;"</code></pre>
   </div>
 </div>
 
+<hr style="margin: 3rem 0;">
+<div id="vcluster" style="scroll-margin-top: 100px;"></div>
+
+## vcluster (REST API CLI)
+
+<div class="architecture-section">
+  <p class="section-description"><strong>vcluster</strong>는 Vertica 클러스터를 REST API로 관리하는 커맨드 라인 인터페이스(CLI) 도구입니다. 이 REST API는 각 노드에서 실행되는 <strong>Node Management Agent (NMA)</strong>와 <strong>Embedded HTTPS 서비스</strong>를 통해 제공됩니다.</p>
+
+  <div class="architecture-subsection">
+    <h3 class="section-subtitle">1. 사전 준비 (Prerequisites)</h3>
+    <p class="section-description">vcluster를 사용하기 전에, 클러스터를 구성할 모든 노드에서 Node Management Agent(NMA)를 시작해야 합니다.</p>
+    <div class="syntax-box">
+      <strong>[as vertica]</strong>
+      <pre><code># 모든 노드에서 NMA 에이전트 시작
+/opt/vertica/bin/manage_node_agent.sh start node_management_agent
+
+# HTTPS 인증서 존재 여부 확인
+ls -la /opt/vertica/config/https_certs/vertica_https.pem</code></pre>
+    </div>
+  </div>
+
+  <div class="architecture-subsection">
+    <h3 class="section-subtitle">2. 데이터베이스 관리</h3>
+    <p class="section-description"><code>vcluster</code>를 사용하여 데이터베이스를 생성, 시작, 중지, 삭제할 수 있습니다.</p>
+    <div class="syntax-box">
+      <strong>DB 생성 (Eon Mode):</strong>
+      <pre><code>vcluster create_db --db-name VDB --hosts v004,v005,v006 \
+--catalog-path=/catalog --data-path=/data \
+--depot-path=/data --shard-count=6 \
+--config-param awsauth=&lt;ACCESS_KEY&gt;:&lt;SECRET_KEY&gt;,awsenablehttps=0,awsregion=ap-northeast-2,awsendpoint=&lt;S3_ENDPOINT&gt; \
+--communal-storage-location=s3://vdb/eon-communal/</code></pre>
+      <strong>DB 상태 확인:</strong>
+      <pre><code># DB 상태 확인
+vcluster list_all_nodes -p ""
+
+# Node 정보 확인
+vcluster manage_config show</code></pre>
+      <strong>DB 시작/중지/삭제:</strong>
+      <pre><code># DB 시작 (최초 기동 시 config-param 필수)
+vcluster start_db -d VDB -p "" --config-param awsauth=&lt;ACCESS_KEY&gt;:&lt;SECRET_KEY&gt;,awsenablehttps=0,awsregion=ap-northeast-2,awsendpoint=&lt;S3_ENDPOINT&gt;
+
+# DB 중지
+vcluster stop_db -d VDB -p ""
+
+# DB 삭제
+vcluster drop_db -d VDB</code></pre>
+    </div>
+  </div>
+
+  <div class="architecture-subsection">
+    <h3 class="section-subtitle">3. 클러스터 및 노드 관리</h3>
+    <p class="section-description">클러스터에 노드나 서브클러스터를 추가/제거하고, 특정 노드/서브클러스터를 시작/중지할 수 있습니다.</p>
+    <div class="syntax-box">
+      <strong>노드 관리:</strong>
+      <pre><code># 노드 추가
+vcluster add_node -d VDB --new-hosts v004 -p ""
+
+# 노드 제거
+vcluster remove_node -d VDB --remove v004 -p ""</code></pre>
+      <strong>서브클러스터 관리:</strong>
+      <pre><code># 서브클러스터 추가
+vcluster add_subcluster -d VDB --new-hosts v004,v005,v006 --subcluster second_subcluster -p ""
+
+# 서브클러스터 제거
+vcluster remove_subcluster -d VDB --subcluster second_subcluster -p ""</code></pre>
+    </div>
+  </div>
+
+  <div class="architecture-subsection">
+    <h3 class="section-subtitle">4. 진단 및 복구</h3>
+    <p class="section-description"><code>scrutinize</code>로 진단 파일을 생성하거나, <code>revive_db</code>로 Communal Storage에서 데이터베이스를 복구할 수 있습니다.</p>
+    <div class="syntax-box">
+      <strong>Scrutinize 실행:</strong>
+      <pre><code>vcluster scrutinize -d VDB --db-user vertica -p ""</code></pre>
+      <strong>Revive DB 실행:</strong>
+      <pre><code># 기본 Revive
+vcluster revive_db -d VDB --communal-storage-location=s3://vdb/eon-communal/ --hosts v001,v002,v003 --config-param awsauth=&lt;ACCESS_KEY&gt;:&lt;SECRET_KEY&gt;,awsenablehttps=0,awsregion=ap-northeast-2,awsendpoint=&lt;S3_ENDPOINT&gt;
+
+# 특정 복원 지점(Restore Point)으로 Revive
+vcluster revive_db -d VDB --communal-storage-location=s3://vdb/eonmode/ \
+--hosts v001,v002,v003 --config-param awsauth=&lt;ACCESS_KEY&gt;:&lt;SECRET_KEY&gt;,awsenablehttps=0,awsregion=ap-northeast-2,awsendpoint=&lt;S3_ENDPOINT&gt; \
+--restore-point-archive vertica_restore --restore-point-index 1</code></pre>
+    </div>
+  </div>
+
+  <div class="architecture-subsection">
+    <h3 class="section-subtitle">5. 기타 유틸리티</h3>
+    <p class="section-description"><code>vcluster</code>는 IP 주소 변경(re-ip), 클러스터 간 복제(replication) 등 다양한 관리 기능을 제공합니다.</p>
+    <div class="syntax-box">
+      <strong>IP 변경 (re_ip):</strong>
+      <pre><code># 변경할 IP 매핑 정보를 JSON 파일로 생성
+cat re_ip.json
+[
+    {"from_address": "11.11.11.17", "to_address": "11.11.11.117"},
+    {"from_address": "11.11.11.18", "to_address": "11.11.11.118"}
+]
+
+# re_ip 실행
+vcluster re_ip --db-name VDB --re-ip-file /home/vertica/re_ip.json</code></pre>
+      <strong>복제 (Replication):</strong>
+      <pre><code># Target 클러스터에서 연결 정보 파일 생성
+vcluster create_connection start --target-conn /opt/vertica/config/target_vertica_conn.yaml -p ""
+
+# Source 클러스터에서 복제 시작
+vcluster replication start --target-conn /opt/vertica/config/target_vertica_conn.yaml -p ""</code></pre>
+    </div>
+  </div>
+</div>
+
+<hr style="margin: 3rem 0;">
+<div id="add-node" style="scroll-margin-top: 100px;"></div>
+
+## Add Node (Enterprise Mode)
+
+<div class="architecture-section">
+  <p class="section-description">Enterprise Mode 클러스터에 새로운 노드를 추가하는 과정입니다. 노드 추가는 DB가 온라인 상태일 때 수행할 수 있으며, 4개 이상의 노드를 구성하려면 유효한 라이선스가 필요합니다.</p>
+
+  <div class="architecture-subsection">
+    <h3 class="section-subtitle">1. 클러스터에 호스트 추가 (update_vertica)</h3>
+    <p class="section-description">기존 클러스터에 새로운 호스트를 물리적으로 추가하고 Vertica 소프트웨어를 설치합니다. 이 작업은 기존 클러스터 노드 중 하나에서 실행해야 합니다.</p>
+    <div class="syntax-box">
+      <strong>[as root]</strong>
+      <pre><code>/opt/vertica/sbin/update_vertica --add-hosts &lt;NEW_NODE_HOSTNAME&gt; \
+--rpm /path/to/vertica-&lt;VERSION&gt;.rpm \
+--dba-user vertica --dba-user-password '&lt;DBA_USER_PASSWORD&gt;'</code></pre>
+    </div>
+  </div>
+
+  <div class="architecture-subsection">
+    <h3 class="section-subtitle">2. 데이터베이스에 노드 추가 (db_add_node)</h3>
+    <p class="section-description">클러스터에 추가된 호스트를 실제 데이터베이스의 멤버로 포함시킵니다. 이 작업은 <code>admintools</code>를 통해 수행됩니다.</p>
+    <div class="syntax-box">
+      <strong>[as vertica]</strong>
+      <pre><code>admintools -t db_add_node -d &lt;DB_NAME&gt; -p '&lt;DB_PASSWORD&gt;' -s &lt;NEW_NODE_HOSTNAME&gt;</code></pre>
+    </div>
+  </div>
+
+  <div class="architecture-subsection">
+    <h3 class="section-subtitle">3. 데이터 리밸런싱 (Rebalancing)</h3>
+    <p class="section-description">새로운 노드가 추가된 후, 기존 데이터를 클러스터 전체에 재분배하여 데이터 균형을 맞춥니다. 이 작업은 시스템 부하가 적을 때 수행하는 것이 좋습니다.</p>
+    <div class="syntax-box">
+      <strong>[vsql]</strong>
+      <pre><code>SELECT START_REBALANCE_CLUSTER();</code></pre>
+    </div>
+  </div>
+</div>
+
+<hr style="margin: 3rem 0;">
+<div id="add-subcluster" style="scroll-margin-top: 100px;"></div>
+
+## Add Subcluster (Eon Mode)
+
+<div class="architecture-section">
+  <p class="section-description">Eon Mode에서는 워크로드 격리나 확장성 확보를 위해 새로운 서브클러스터를 추가하거나, 기존 서브클러스터에 노드를 추가할 수 있습니다.</p>
+
+  <div class="architecture-subsection">
+    <h3 class="section-subtitle">1. 새로운 서브클러스터 추가</h3>
+    <p class="section-description">완전히 독립된 컴퓨팅 리소스를 가진 새로운 서브클러스터를 추가합니다. 추가할 노드는 사전에 <code>update_vertica</code>를 통해 클러스터에 포함되어 있어야 합니다.</p>
+    <div class="syntax-box">
+      <strong>[as vertica]</strong>
+      <pre><code># 'sub_cluster'라는 이름의 Secondary 서브클러스터 추가
+admintools -t db_add_subcluster -d &lt;DB_NAME&gt; -p '&lt;DB_PASSWORD&gt;' -c sub_cluster -s &lt;NEW_NODE_HOSTNAME&gt; --is-secondary</code></pre>
+    </div>
+    <p class="section-description" style="margin-top: 1.5rem;">서브클러스터 추가 후, <code>REBALANCE_SHARDS</code>를 실행하여 샤드 구독을 최적화합니다. 아래는 서브클러스터 추가 후의 샤드 구독 상태 예시입니다.</p>
+    <img src="{{ '/assets/images/add_sub1.png' | relative_url }}" alt="서브클러스터 추가 후 샤드 상태" style="width: 100%; max-width: 800px; margin: 1.5rem auto; display: block; border: 1px solid #e0e0e0; border-radius: 8px;">
+    <ul class="feature-list" style="margin-top: 1rem;">
+      <li><span class="feature-list__icon">💡</span> <strong>에러 해결 팁:</strong> <span>서브클러스터 추가 시 에러가 발생하면, 추가하려는 노드가 Communal Storage(S3, MinIO 등)와 정상적으로 통신할 수 있는지 네트워크 및 방화벽 설정을 반드시 확인해야 합니다.</span></li>
+    </ul>
+  </div>
+
+  <div class="architecture-subsection">
+    <h3 class="section-subtitle">2. 기존 서브클러스터에 노드 추가</h3>
+    <p class="section-description">기존 서브클러스터의 컴퓨팅 파워를 보강하기 위해 새로운 노드를 추가합니다.</p>
+    <div class="syntax-box">
+      <strong>[as vertica]</strong>
+      <pre><code># 'default_subcluster'에 새로운 노드 추가
+admintools -t db_add_node -d &lt;DB_NAME&gt; -p '&lt;DB_PASSWORD&gt;' -s &lt;NEW_NODE_HOSTNAME&gt; --subcluster default_subcluster</code></pre>
+    </div>
+    <p class="section-description" style="margin-top: 1.5rem;">노드 추가 후, <code>REBALANCE_SHARDS</code>를 실행하여 해당 서브클러스터 내에서 샤드 구독을 재분배합니다. 아래는 노드 추가 후의 샤드 구독 상태 예시입니다.</p>
+    <img src="{{ '/assets/images/add_sub2.png' | relative_url }}" alt="노드 추가 후 샤드 상태" style="width: 100%; max-width: 800px; margin: 1.5rem auto; display: block; border: 1px solid #e0e0e0; border-radius: 8px;">
+  </div>
+
+  <div class="architecture-subsection">
+    <h3 class="section-subtitle">3. 노드 및 서브클러스터 제거</h3>
+    <div class="syntax-box">
+      <strong>[as vertica]</strong>
+      <pre><code># 서브클러스터 제거
+admintools -t db_remove_subcluster -c sub_cluster -d &lt;DB_NAME&gt;
+
+# 노드 제거
+admintools -t db_remove_node -d &lt;DB_NAME&gt; -s &lt;NODE_HOSTNAME_TO_REMOVE&gt;</code></pre>
+    </div>
+  </div>
+
+  <div class="architecture-subsection">
+    <h3 class="section-subtitle">4. 노드 구독 상태 확인</h3>
+    <p class="section-description">클러스터의 모든 노드가 각 샤드를 어떻게 구독하고 있는지 상세 정보를 확인합니다.</p>
+    <div class="syntax-box">
+      <strong>[vsql]</strong>
+      <pre><code>SELECT subcluster_name, n.node_name, shard_name, subscription_state, ns.is_primary 
+FROM v_catalog.nodes n 
+LEFT JOIN v_catalog.node_subscriptions ns ON (n.node_name = ns.node_name) 
+ORDER BY 1,2,3,5;</code></pre>
+    </div>
+  </div>
+</div>
+
 </div>
   <aside class="page-sidebar">
     <div class="sidebar-panel" style="padding-right: 1rem;">
@@ -443,6 +650,9 @@ vsql -p 35433 -c "SELECT name, address, clientport FROM vs_nodes;"</code></pre>
         <li><a href="#initial-setup">Vertica 초기설정</a></li>
         <li><a href="#change-port">Vertica 포트변경</a></li>
         <li><a href="#mc-install">MC 설치</a></li>
+        <li><a href="#vcluster">vcluster (REST API CLI)</a></li>
+        <li><a href="#add-node">Add Node (Enterprise)</a></li>
+        <li><a href="#add-subcluster">Add Subcluster (Eon)</a></li>
       </ul>
     </div>
   </aside>

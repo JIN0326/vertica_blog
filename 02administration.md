@@ -805,6 +805,115 @@ SELECT * FROM locks;</code></pre>
 </div>
 
 <hr style="margin: 3rem 0;">
+<div id="tuple-mover" style="scroll-margin-top: 100px;"></div>
+
+## Tuple Mover (Mergeout & Purge)
+
+<div class="architecture-section">
+  <p class="section-description"><strong>Tuple Mover</strong>는 Vertica의 핵심적인 백그라운드 프로세스로, 데이터베이스의 성능과 효율성을 유지하는 데 중요한 역할을 합니다. 주요 작업으로는 <strong>Mergeout</strong>과 <strong>Purge</strong>가 있습니다.</p>
+
+  <div class="architecture-subsection">
+    <h3 class="section-subtitle">1. Tuple Mover의 역할</h3>
+    <p class="section-description">Tuple Mover는 다음과 같은 자동화된 작업을 수행합니다.</p>
+    <ul class="feature-list">
+      <li><span class="feature-list__icon">🔹</span> <strong>Mergeout:</strong> <span>ROS에 있는 작은 데이터 컨테이너들을 병합하여 더 크고 효율적인 컨테이너로 만듭니다.</span></li>
+      <li><span class="feature-list__icon">🔹</span> <strong>Purge:</strong> <span><code>DELETE</code> 문에 의해 삭제 표시된 데이터를 디스크에서 영구적으로 제거하여 공간을 회수합니다.</span></li>
+    </ul>
+  </div>
+
+  <div class="architecture-subsection">
+    <h3 class="section-subtitle">2. Mergeout</h3>
+    <p class="section-description">Mergeout은 여러 개의 작은 ROS 컨테이너를 하나의 큰 컨테이너로 병합하는 작업입니다. 이 과정은 쿼리 성능을 향상시키고 데이터 압축률을 높이는 데 기여합니다.</p>
+    <dl class="feature-dl">
+      <dt class="feature-dt"><span class="feature-dt__icon">◆</span> Mergeout의 이점</dt>
+      <dd class="feature-dd">
+        <strong>쿼리 성능 향상:</strong> 쿼리 실행 시 스캔해야 할 파일(ROS 컨테이너)의 수가 줄어들어 I/O가 감소하고 응답 속도가 빨라집니다.<br>
+        <strong>압축 효율 증가:</strong> 데이터를 재정렬하고 다시 압축하여 디스크 공간 사용량을 줄입니다.
+      </dd>
+    </dl>
+    <div class="syntax-box">
+      <strong>수동 Mergeout 실행:</strong>
+      <pre><code>-- 특정 테이블에 대해 Mergeout 작업을 수동으로 트리거
+SELECT DO_TM_TASK('mergeout', 'public.sales');</code></pre>
+    </div>
+  </div>
+
+  <div class="architecture-subsection">
+    <h3 class="section-subtitle">3. Purge</h3>
+    <p class="section-description">Vertica에서 <code>DELETE</code> 문은 데이터를 즉시 물리적으로 삭제하지 않고, 삭제되었다는 표시(epoch)만 남깁니다. <strong>Purge</strong> 작업은 이렇게 삭제 표시된 데이터를 디스크에서 영구적으로 제거하여 실제 디스크 공간을 회수하는 역할을 합니다.</p>
+    <div class="syntax-box">
+      <strong>수동 Purge 실행:</strong>
+      <pre><code>-- 테이블에서 삭제된 데이터를 영구적으로 제거
+SELECT PURGE_TABLE('public.sales');
+
+-- 특정 파티션의 삭제된 데이터만 제거
+SELECT PURGE_PARTITION('public.sales', '2023-01-01');</code></pre>
+    </div>
+    <ul class="feature-list" style="margin-top: 1rem;">
+      <li><span class="feature-list__icon">💡</span> <strong>Tip:</strong> <span>대규모 <code>DELETE</code> 작업 후에는 디스크 공간을 즉시 회수하기 위해 수동으로 Purge 작업을 실행하는 것이 좋습니다.</span></li>
+    </ul>
+  </div>
+</div>
+
+<hr style="margin: 3rem 0;">
+<div id="statistics" style="scroll-margin-top: 100px;"></div>
+
+## Statistics (통계)
+
+<div class="architecture-section">
+  <p class="section-description">Vertica의 <strong>쿼리 옵티마이저</strong>는 가장 효율적인 쿼리 실행 계획을 수립하기 위해 테이블의 데이터 분포, 카디널리티, 중복 값 등의 <strong>통계(Statistics)</strong> 정보를 사용합니다. 정확한 통계 정보는 쿼리 성능에 직접적인 영향을 미치므로, 주기적인 관리가 매우 중요합니다.</p>
+
+  <div class="architecture-subsection">
+    <h3 class="section-subtitle">1. 통계 수집 (ANALYZE_STATISTICS)</h3>
+    <p class="section-description"><code>ANALYZE_STATISTICS</code> 함수를 사용하여 테이블 또는 특정 컬럼에 대한 통계를 수집합니다. 통계 정보가 없거나 오래된 경우, 옵티마이저는 비효율적인 실행 계획을 생성할 수 있습니다.</p>
+    <div class="syntax-box">
+      <strong>통계 수집 예시:</strong>
+      <pre><code>-- 'sales' 테이블의 모든 컬럼에 대한 통계 수집
+SELECT ANALYZE_STATISTICS('public.sales');
+
+-- 특정 컬럼에 대해서만 통계 수집
+SELECT ANALYZE_STATISTICS('public.sales', 'product_id, sale_date');</code></pre>
+    </div>
+    <ul class="feature-list" style="margin-top: 1rem;">
+      <li><span class="feature-list__icon">💡</span> <strong>언제 수집해야 하나요?</strong>
+        <ul>
+          <li>테이블 생성 및 초기 데이터 적재 후</li>
+          <li>대규모 데이터 변경(INSERT, UPDATE, DELETE) 작업 후</li>
+          <li>쿼리 성능이 예상보다 저하될 때</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="architecture-subsection">
+    <h3 class="section-subtitle">2. 통계 정보 관리</h3>
+    <p class="section-description">수집된 통계 정보는 시스템 테이블을 통해 확인하거나, 다른 환경으로 내보내고 가져올 수 있습니다.</p>
+    <div class="syntax-box">
+      <strong>통계 관리 함수 예시:</strong>
+      <pre><code>-- 통계 정보 삭제
+SELECT DROP_STATISTICS('public.sales');
+
+-- 통계 정보를 파일로 내보내기
+SELECT EXPORT_STATISTICS('/tmp/sales_stats.json', 'public.sales');
+
+-- 파일에서 통계 정보 가져오기
+SELECT IMPORT_STATISTICS('/tmp/sales_stats.json');</code></pre>
+    </div>
+    <p class="section-description" style="margin-top: 1.5rem;"><code>PROJECTION_COLUMNS</code> 시스템 테이블을 조회하여 각 컬럼의 통계 정보가 최신 상태인지(<code>statistics_up_to_date</code>) 확인할 수 있습니다.</p>
+    <div class="syntax-box">
+      <strong>통계 상태 확인 쿼리:</strong>
+      <pre><code>SELECT
+    projection_schema,
+    projection_name,
+    column_name,
+    statistics_up_to_date
+FROM v_catalog.projection_columns
+WHERE projection_schema = 'public' AND projection_name LIKE 'sales%';</code></pre>
+    </div>
+  </div>
+</div>
+
+<hr style="margin: 3rem 0;">
 <div id="backup-restore" style="scroll-margin-top: 100px;"></div>
 
 ## Backup & Restore
@@ -1156,6 +1265,8 @@ sudo systemctl stop vertica-consoled</code></pre>
       <li><a href="#resource-pool">Resource Pool</a></li>
       <li><a href="#privilege">Privilege</a></li>
       <li><a href="#locks">Locks</a></li>
+      <li><a href="#tuple-mover">Tuple Mover</a></li>
+      <li><a href="#statistics">Statistics</a></li>
       <li><a href="#backup-restore">Backup & Restore</a></li>
       <li><a href="#cluster-operation">Cluster Operation</a></li>
     </ul>

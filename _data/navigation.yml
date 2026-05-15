@@ -33,6 +33,10 @@
       url: /02administration#privilege
     - title: Locks
       url: /02administration#locks
+    - title: Tuple Mover
+      url: /02administration#tuple-mover
+    - title: Statistics (통계)
+      url: /02administration#statistics
     - title: Backup & Restore
       url: /02administration#backup-restore
     - title: Cluster Operation
@@ -45,6 +49,8 @@
       url: /03coretech#vsql
     - title: Monitoring
       url: /03coretech#monitoring
+    - title: Data Collector
+      url: /03coretech#data-collector
     - title: Clients
       url: /03coretech#clients
     - title: Copy (데이터 적재)
@@ -59,6 +65,8 @@
   sublinks:
     - title: Python 연동
       url: /04utilization#python
+    - title: Kafka 연동
+      url: /04utilization#kafka
     - title: Apache Airflow 연동
       url: /04utilization#airflow
     - title: Apache Iceberg 연동
@@ -93,3 +101,9 @@
       url: /06installation#change-port
     - title: MC 설치
       url: /06installation#mc-install
+    - title: vcluster (REST API CLI)
+      url: /06installation#vcluster
+    - title: Add Node (Enterprise)
+      url: /06installation#add-node
+    - title: Add Subcluster (Eon)
+      url: /06installation#add-subcluster

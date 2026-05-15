@@ -121,6 +121,16 @@ description: "Vertica 분석 플랫폼에 대한 기술 정보와 사용법을 �
       <a href="{{ '/02administration#locks' | relative_url }}">이동 →</a>
     </article>
     <article class="card">
+      <h3>Tuple Mover</h3>
+      <p>WOS의 데이터를 ROS로 이동시키고, 삭제된 데이터를 영구 제거하는 Tuple Mover의 동작을 알아봅니다.</p>
+      <a href="{{ '/02administration#tuple-mover' | relative_url }}">이동 →</a>
+    </article>
+    <article class="card">
+      <h3>Statistics (통계)</h3>
+      <p>쿼리 옵티마이저의 효율적인 실행 계획 수립을 위한 통계 정보 수집 및 관리 방법을 알아봅니다.</p>
+      <a href="{{ '/02administration#statistics' | relative_url }}">이동 →</a>
+    </article>
+    <article class="card">
       <h3>Backup & Restore</h3>
       <p>vbr을 이용한 데이터 백업/복구 방법을 다룹니다.</p>
       <a href="{{ '/02administration#backup-restore' | relative_url }}">이동 →</a>
@@ -145,6 +155,11 @@ description: "Vertica 분석 플랫폼에 대한 기술 정보와 사용법을 �
       <h3>Monitoring</h3>
       <p>Management Console(MC)과 Grafana를 활용한 데이터베이스 모니터링 방법을 알아봅니다.</p>
       <a href="{{ '/03coretech#monitoring' | relative_url }}">이동 →</a>
+    </article>
+    <article class="card">
+      <h3>Data Collector</h3>
+      <p>Vertica 시스템 메트릭 및 쿼리 통계를 수집하는 Data Collector의 역할과 보존 정책을 알아봅니다.</p>
+      <a href="{{ '/03coretech#data-collector' | relative_url }}">이동 →</a>
     </article>
     <article class="card">
       <h3>Clients</h3>
@@ -176,6 +191,11 @@ description: "Vertica 분석 플랫폼에 대한 기술 정보와 사용법을 �
       <h3>Python 연동</h3>
       <p>vertica-python 라이브러리를 사용하여 Python 환경에서 데이터를 처리하고 분석합니다.</p>
       <a href="{{ '/04utilization#python' | relative_url }}">이동 →</a>
+    </article>
+    <article class="card">
+      <h3>Kafka 연동</h3>
+      <p>Kafka 스트리밍 데이터를 Vertica로 직접 적재하고 실시간 분석 파이프라인을 구축합니다.</p>
+      <a href="{{ '/04utilization#kafka' | relative_url }}">이동 →</a>
     </article>
     <article class="card">
       <h3>Apache Airflow 연동</h3>
@@ -254,6 +274,21 @@ description: "Vertica 분석 플랫폼에 대한 기술 정보와 사용법을 �
       <h3>MC 설치</h3>
       <p>Vertica 클러스터 모니터링 및 관리를 위한 Management Console(MC) 설치 방법을 안내합니다.</p>
       <a href="{{ '/06installation#mc-install' | relative_url }}">이동 →</a>
+    </article>
+    <article class="card">
+      <h3>vcluster (REST API CLI)</h3>
+      <p>REST API를 통해 Vertica 클러스터를 관리하는 vcluster CLI의 사용법을 알아봅니다.</p>
+      <a href="{{ '/06installation#vcluster' | relative_url }}">이동 →</a>
+    </article>
+    <article class="card">
+      <h3>Add Node (Enterprise)</h3>
+      <p>Enterprise Mode 클러스터에 새로운 노드를 추가하고 데이터를 리밸런싱하는 방법을 알아봅니다.</p>
+      <a href="{{ '/06installation#add-node' | relative_url }}">이동 →</a>
+    </article>
+    <article class="card">
+      <h3>Add Subcluster (Eon)</h3>
+      <p>Eon Mode 클러스터에 새로운 서브클러스터 또는 노드를 추가하는 방법을 알아봅니다.</p>
+      <a href="{{ '/06installation#add-subcluster' | relative_url }}">이동 →</a>
     </article>
   </div>
 </section>
