@@ -20,7 +20,7 @@ description: "Vertica를 처음 시작하는 사용자를 위한 학습 로드�
           <li>– 3대 노드로 구성</li>
         </ul>
       </div>
-      <a href="{{ '/01playbook#architecture' | relative_url }}" class="button">학습하기</a>
+      <a href="{{ '/06installation#vertica-install' | relative_url }}" class="button">학습하기</a>
     </div>
     <!-- Card 2 -->
     <div class="fundamentals-card">
@@ -32,7 +32,7 @@ description: "Vertica를 처음 시작하는 사용자를 위한 학습 로드�
           <li>– resource pool 생성</li>
         </ul>
       </div>
-      <a href="{{ '/02administration' | relative_url }}" class="button">학습하기</a>
+      <a href="{{ '/06installation#initial-setup' | relative_url }}" class="button">학습하기</a>
     </div>
     <!-- Card 3 -->
     <div class="fundamentals-card">
@@ -83,7 +83,7 @@ description: "Vertica를 처음 시작하는 사용자를 위한 학습 로드�
           <li>– apikey 확인</li>
         </ul>
       </div>
-      <a href="{{ '/04utilization#monitoring' | relative_url }}" class="button">학습하기</a>
+      <a href="{{ '/06installation#mc-install' | relative_url }}" class="button">학습하기</a>
     </div>
     <!-- Card 8 -->
     <div class="fundamentals-card">

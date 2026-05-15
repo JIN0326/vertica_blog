@@ -1,4 +1,4 @@
-﻿# Vertica Blog
+﻿﻿# Vertica Blog
 
 Vertica 분석 플랫폼에 대한 기술 정보와 사용법을 공유하기 위한 Jekyll 기반의 기술 블로그입니다.
 
@@ -90,6 +90,11 @@ Vertica 분석 플랫폼에 대한 기술 정보와 사용법을 공유하기 �
 * **LDAP 인증**: Active Directory 또는 OpenLDAP 서버와 연동하여 통합 계정 인증 구현
 * **TLS 보안**: 서버-클라이언트 간 상호 인증(Mutual Mode)으로 통신 암호화 및 보안 강화
 * **Okta 연동**: Okta IdP를 활용하여 데이터베이스 및 MC에 대한 SSO(Single Sign-On) 구현
+
+### 🚀 Vertica Installation (`06installation.md`)
+* **Vertica 설치**: Vertica 데이터베이스 설치를 위한 사전 요구사항 및 설치 과정
+* **초기 설정**: `admintools`를 사용한 데이터베이스 클러스터 생성 및 초기 구성
+* **MC 설치**: Management Console 설치 및 데이터베이스 등록 방법
 
 ### 🔗 기타 서비스 페이지
 * **Class (`91Class.md`)**: Vertica 교육 과정 안내 및 신청 방법 (메일 문의)

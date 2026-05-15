@@ -81,3 +81,15 @@
       url: /05auth_security#tls
     - title: Okta 연동
       url: /05auth_security#okta
+
+- title: Installation
+  url: /06installation
+  sublinks:
+    - title: Vertica 설치
+      url: /06installation#vertica-install
+    - title: Vertica 초기설정
+      url: /06installation#initial-setup
+    - title: Vertica 포트변경
+      url: /06installation#change-port
+    - title: MC 설치
+      url: /06installation#mc-install

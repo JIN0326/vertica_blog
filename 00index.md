@@ -230,3 +230,30 @@ description: "Vertica 분석 플랫폼에 대한 기술 정보와 사용법을 �
     </article>
   </div>
 </section>
+
+
+<section id="installation" class="utilization-section">
+  <h2>Vertica Installation</h2>
+  <div class="cards">
+    <article class="card">
+      <h3>Vertica 설치</h3>
+      <p>Vertica 데이터베이스 설치를 위한 사전 요구사항 및 OS 설정, 설치 과정을 안내합니다.</p>
+      <a href="{{ '/06installation#vertica-install' | relative_url }}">이동 →</a>
+    </article>
+    <article class="card">
+      <h3>Vertica 초기설정</h3>
+      <p>데이터베이스 생성 후 권장되는 PK/UK 활성화, 로드 밸런싱, Export Address 등 초기 설정을 안내합니다.</p>
+      <a href="{{ '/06installation#initial-setup' | relative_url }}">이동 →</a>
+    </article>
+    <article class="card">
+      <h3>Vertica 포트 변경</h3>
+      <p>보안 및 서비스 충돌 방지를 위해 Vertica의 기본 포트를 변경하는 방법을 알아봅니다.</p>
+      <a href="{{ '/06installation#change-port' | relative_url }}">이동 →</a>
+    </article>
+    <article class="card">
+      <h3>MC 설치</h3>
+      <p>Vertica 클러스터 모니터링 및 관리를 위한 Management Console(MC) 설치 방법을 안내합니다.</p>
+      <a href="{{ '/06installation#mc-install' | relative_url }}">이동 →</a>
+    </article>
+  </div>
+</section>
