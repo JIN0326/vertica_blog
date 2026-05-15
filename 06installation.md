@@ -199,7 +199,11 @@ rpm -Uvh /home/vertica/vertica-&lt;VERSION&gt;.RHEL&lt;OS_VERSION&gt;.x86_64.rpm
     <div class="syntax-box">
       <strong>설치 스크립트 실행 예시:</strong>
       <pre><code># [as root]
-      /opt/vertica/sbin/install_vertica -s &lt;NODE1_HOSTNAME&gt;,&lt;NODE2_HOSTNAME&gt;,&lt;NODE3_HOSTNAME&gt; -u vertica -p '&lt;VERTICA_OS_USER_PASSWORD&gt;' -P '&lt;ROOT_PASSWORD&gt;' -T</code></pre>
+      /opt/vertica/sbin/install_vertica -s &lt;NODE1_HOSTNAME&gt;,&lt;NODE2_HOSTNAME&gt;,&lt;NODE3_HOSTNAME&gt; \
+      -u vertica \
+      -p '&lt;VERTICA_OS_USER_PASSWORD&gt;' \
+      -P '&lt;ROOT_PASSWORD&gt;' \
+      -T</code></pre>
     </div>
     <ul class="feature-list" style="margin-top: 1rem;">
       <li><span class="feature-list__icon">💡</span> <strong>`install_vertica` 주요 옵션:</strong>
@@ -207,6 +211,7 @@ rpm -Uvh /home/vertica/vertica-&lt;VERSION&gt;.RHEL&lt;OS_VERSION&gt;.x86_64.rpm
           <li><code>-s &lt;HOSTNAME_LIST&gt;</code>: 클러스터를 구성할 노드들의 호스트명 (쉼표 구분)</li>
           <li><code>-u &lt;OS_USER&gt;</code>: Vertica DB를 운영할 OS 사용자명 (예: `vertica`)</li>
           <li><code>-p '&lt;PASSWORD&gt;'</code>: `OS_USER` 계정의 비밀번호</li>
+          <li><code>-P '&lt;PASSWORD&gt;'</code>: `root` 계정의 비밀번호 (스크립트 실행 계정이 `root`가 아닐 경우)</li>
           <li><code>-T</code> 또는 <code>--point-to-point</code>: 모든 노드 간 직접 통신(Point-to-Point)을 사용하도록 Spread를 구성합니다. 노드가 동일 서브넷에 없거나 가상 환경일 때 권장됩니다.</li>
           <li><code>--failure-threshold NONE</code>: 설치 중 에러가 발생해도 중단하지 않음 (주의하여 사용)</li>
         </ul>
