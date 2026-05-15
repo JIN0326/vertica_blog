@@ -198,8 +198,8 @@ rpm -Uvh /home/vertica/vertica-&lt;VERSION&gt;.RHEL&lt;OS_VERSION&gt;.x86_64.rpm
     <p class="section-description">Vertica 설치 스크립트(<code>install_vertica</code>)를 실행하여 데이터베이스 소프트웨어를 설치합니다.</p>
     <div class="syntax-box">
       <strong>설치 스크립트 실행 예시:</strong>
-      <pre><code># [as root] Enterprise Mode 설치
-/opt/vertica/sbin/install_vertica -s &lt;NODE1_HOSTNAME&gt;,&lt;NODE2_HOSTNAME&gt;,&lt;NODE3_HOSTNAME&gt; -u vertica -p '&lt;VERTICA_OS_USER_PASSWORD&gt;' -P '&lt;ROOT_PASSWORD&gt;' -T</code></pre>
+      <pre><code># [as root]
+      /opt/vertica/sbin/install_vertica -s &lt;NODE1_HOSTNAME&gt;,&lt;NODE2_HOSTNAME&gt;,&lt;NODE3_HOSTNAME&gt; -u vertica -p '&lt;VERTICA_OS_USER_PASSWORD&gt;' -P '&lt;ROOT_PASSWORD&gt;' -T</code></pre>
     </div>
     <ul class="feature-list" style="margin-top: 1rem;">
       <li><span class="feature-list__icon">💡</span> <strong>`install_vertica` 주요 옵션:</strong>
@@ -242,7 +242,7 @@ awsenablehttps = 0
 /opt/vertica/bin/admintools -t create_db \
     -s &lt;NODE1_HOSTNAME&gt;,&lt;NODE2_HOSTNAME&gt;,&lt;NODE3_HOSTNAME&gt; \
     -d &lt;DB_NAME&gt; \
-    --shard-count=&lt;SHARD_COUNT&gt \
+    --shard-count=&lt;SHARD_COUNT&gt; \
     -c /catalog \
     -D /data \
     --depot-path=/data \
