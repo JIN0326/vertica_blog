@@ -597,8 +597,8 @@ vcluster replication start --target-conn /opt/vertica/config/target_vertica_conn
       <pre><code># 'sub_cluster'라는 이름의 Secondary 서브클러스터 추가
 admintools -t db_add_subcluster -d &lt;DB_NAME&gt; -p '&lt;DB_PASSWORD&gt;' -c sub_cluster -s &lt;NEW_NODE_HOSTNAME&gt; --is-secondary</code></pre>
     </div>
-    <p class="section-description" style="margin-top: 1.5rem;">서브클러스터 추가 후, <code>REBALANCE_SHARDS</code>를 실행하여 샤드 구독을 최적화합니다. 아래는 서브클러스터 추가 후의 샤드 구독 상태 예시입니다.</p>
-    <img src="{{ '/assets/images/add_sub1.png' | relative_url }}" alt="서브클러스터 추가 후 샤드 상태" style="width: 100%; max-width: 800px; margin: 1.5rem auto; display: block; border: 1px solid #e0e0e0; border-radius: 8px;">
+    <p class="section-description" style="margin-top: 1.5rem;">서브클러스터 추가 후, <code>REBALANCE_SHARDS</code>를 실행하여 샤드 구독을 최적화합니다. </p>
+    <img src="{{ '/assets/images/add_sub1.png' | relative_url }}" alt="서브클러스터 추가 후 샤드 상태" style="width: 100%; max-width: 600px; margin: 1.5rem auto; display: block; border: 1px solid #e0e0e0; border-radius: 8px;">
     <ul class="feature-list" style="margin-top: 1rem;">
       <li><span class="feature-list__icon">💡</span> <strong>에러 해결 팁:</strong> <span>서브클러스터 추가 시 에러가 발생하면, 추가하려는 노드가 Communal Storage(S3, MinIO 등)와 정상적으로 통신할 수 있는지 네트워크 및 방화벽 설정을 반드시 확인해야 합니다.</span></li>
     </ul>
@@ -612,8 +612,8 @@ admintools -t db_add_subcluster -d &lt;DB_NAME&gt; -p '&lt;DB_PASSWORD&gt;' -c s
       <pre><code># 'default_subcluster'에 새로운 노드 추가
 admintools -t db_add_node -d &lt;DB_NAME&gt; -p '&lt;DB_PASSWORD&gt;' -s &lt;NEW_NODE_HOSTNAME&gt; --subcluster default_subcluster</code></pre>
     </div>
-    <p class="section-description" style="margin-top: 1.5rem;">노드 추가 후, <code>REBALANCE_SHARDS</code>를 실행하여 해당 서브클러스터 내에서 샤드 구독을 재분배합니다. 아래는 노드 추가 후의 샤드 구독 상태 예시입니다.</p>
-    <img src="{{ '/assets/images/add_sub2.png' | relative_url }}" alt="노드 추가 후 샤드 상태" style="width: 100%; max-width: 800px; margin: 1.5rem auto; display: block; border: 1px solid #e0e0e0; border-radius: 8px;">
+    <p class="section-description" style="margin-top: 1.5rem;">노드 추가 후, <code>REBALANCE_SHARDS</code>를 실행하여 해당 서브클러스터 내에서 샤드 구독을 재분배합니다. </p>
+    <img src="{{ '/assets/images/add_sub2.png' | relative_url }}" alt="노드 추가 후 샤드 상태" style="width: 100%; max-width: 600px; margin: 1.5rem auto; display: block; border: 1px solid #e0e0e0; border-radius: 8px;">
   </div>
 
   <div class="architecture-subsection">

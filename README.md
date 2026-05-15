@@ -54,7 +54,7 @@ Vertica 분석 플랫폼에 대한 기술 정보와 사용법을 공유하기 �
 * **Vertica 포트폴리오**: 온프레미스, 클라우드, Eon Mode 등 다양한 배포 옵션
 * **Vertica 아키텍처**: Pure-MPP 아키텍처 및 타 시스템과의 상세 비교
 * **Vertica 연계**: Kafka, Spark, HDFS, Object Storage 통합 가이드
-* **Vertica MCP 연동**: LLM과 Vertica를 연동하여 자연어 기반 데이터 분석을 수행하는 방법
+* **Vertica MCP 연동**: LLM과 Vertica를 연동하여 자연어 기반 데이터 분석 수행
 * **Vertica EonMode**: 컴퓨팅/스토리지 분리 아키텍처의 이점 및 실전 Use Case
 
 ### 🛠️ Vertica Administration (`02administration.md`)
@@ -63,38 +63,46 @@ Vertica 분석 플랫폼에 대한 기술 정보와 사용법을 공유하기 �
 * **Schema**: 시스템 기본 스키마 설명 및 생성/관리 방법
 * **User**: 사용자 생성, 관리 및 계정 잠금 해제 방법
 * **Profile**: 보안 정책 및 패스워드 제약 조건 설정
-* **Resource Pool**: 메모리 및 동시성 제어를 통한 워크로드 관리
+* **Resource Pools**: 메모리 및 동시성 제어를 통한 워크로드 관리
 * **Privilege**: 객체 접근 권한 및 스키마 권한 상속 체계
 * **Locks**: 동시성 제어를 위한 잠금(Lock) 메커니즘과 모니터링 방법
-* **Backup & Restore**: vbr 도구를 이용한 스냅샷 백업 및 복구 프로세스
-* **Cluster Operation & Diagnostics**: DB 기동/중지, 장애 조치, 진단 파일 생성 등 핵심 클러스터 운영 가이드
+* **Tuple Mover**: Mergeout 및 Purge를 통한 데이터 최적화 및 공간 회수
+* **Statistics (통계)**: 쿼리 옵티마이저를 위한 통계 정보 수집 및 관리
+* **Backup & Restore**: vbr 유틸리티를 이용한 전체/객체/클라우드 백업 및 복구
+* **Cluster Operation**: DB 기동/중지, 장애 조치, 진단 파일 생성 등 핵심 클러스터 운영 가이드
 
 ### ⚙️ Vertica CoreTech (`03coretech.md`)
 * **vsql (CLI)**: CLI 접속 옵션 및 유용한 메타 커맨드(`\d`, `\timing`, `\x` 등)
 * **Monitoring**: Management Console(MC) 및 Grafana를 활용한 모니터링 방법
-* **Clients**: vsql(CLI) 및 DBeaver(GUI) 접속 가이드
+* **Data Collector**: 시스템 메트릭 및 쿼리 통계 수집, 보존 정책 설정
+* **Clients**: DBeaver(JDBC), ODBC 등 다양한 클라이언트 접속 및 HA 설정
 * **Copy (데이터 적재)**: 대용량 데이터 로딩 구문, 옵션 및 에러 데이터 처리
 * **Export (데이터 내보내기)**: vsql, EXPORT TO PARQUET/VERTICA 등 다양한 데이터 추출 방법
 * **EXPLAIN (쿼리 분석)**: 실행 계획 분석(EXPLAIN/PROFILE) 및 성능 최적화 포인트
 
 ### 🚀 Vertica Utilization (`04utilization.md`)
 * **Python 연동**: `vertica-python` 라이브러리를 사용한 데이터 처리 및 분석
+* **Kafka 연동**: Kafka 스트리밍 데이터를 Vertica로 직접 적재하고 실시간 분석
 * **Apache Airflow 연동**: Airflow를 활용한 데이터 파이프라인 자동화 및 스케줄링
 * **Apache Iceberg 연동**: Spark 기반 Iceberg 테이블 생성 및 Vertica 연동 조회
 * **Apache Polaris 연동**: 중앙 메타데이터 서비스 Polaris와 동적 연동
 * **AWS Glue & PyIceberg**: PyIceberg와 AWS Glue를 활용한 서버리스 데이터 운영
 * **Trino & Iceberg 연동**: 분산 SQL 쿼리 엔진 Trino와 Iceberg를 활용한 데이터 레이크하우스 연동 아키텍처
 
-### 🔒 Vertica Auth&Security (`05auth_security.md`)
-* **Client Authentication**: Hash, LDAP, TLS, OAuth 등 다양한 클라이언트 인증 방식 설정 및 관리
+### 🔒 Vertica Auth & Security (`05auth_security.md`)
+* **Client Auth**: Hash, LDAP, TLS, OAuth 등 다양한 클라이언트 인증 방식 설정 및 관리
 * **LDAP 인증**: Active Directory 또는 OpenLDAP 서버와 연동하여 통합 계정 인증 구현
 * **TLS 보안**: 서버-클라이언트 간 상호 인증(Mutual Mode)으로 통신 암호화 및 보안 강화
 * **Okta 연동**: Okta IdP를 활용하여 데이터베이스 및 MC에 대한 SSO(Single Sign-On) 구현
 
 ### 🚀 Vertica Installation (`06installation.md`)
 * **Vertica 설치**: Vertica 데이터베이스 설치를 위한 사전 요구사항 및 설치 과정
-* **초기 설정**: `admintools`를 사용한 데이터베이스 클러스터 생성 및 초기 구성
+* **Vertica 초기설정**: PK/UK 활성화, 로드 밸런싱, Export Address 등 권장 초기 설정
+* **Vertica 포트변경**: 보안 및 서비스 충돌 방지를 위한 기본 포트 변경 방법
 * **MC 설치**: Management Console 설치 및 데이터베이스 등록 방법
+* **vcluster (REST API CLI)**: REST API를 통해 Vertica 클러스터를 관리하는 vcluster CLI 사용법
+* **Add Node (Enterprise)**: Enterprise Mode 클러스터에 노드를 추가하고 리밸런싱하는 방법
+* **Add Subcluster (Eon)**: Eon Mode 클러스터에 서브클러스터 또는 노드를 추가하는 방법
 
 ### 🔗 기타 서비스 페이지
 * **Class (`91Class.md`)**: Vertica 교육 과정 안내 및 신청 방법 (메일 문의)
