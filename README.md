@@ -40,7 +40,6 @@ Vertica 분석 플랫폼에 대한 기술 정보와 사용법을 공유하기 �
 ├── 90fundamentals.md     # Vertica Fundamentals
 ├── 91Class.md            # 교육 신청
 ├── 92QnA.md              # Q&A
-├── 93Reference.md        # 고객사례
 ├── 94lifecycle.md        # 제품 수명주기
 ├── _config.yml           # Jekyll 설정 파일
 └── README.md             # 프로젝트 설명 파일
@@ -107,7 +106,6 @@ Vertica 분석 플랫폼에 대한 기술 정보와 사용법을 공유하기 �
 ### 🔗 기타 서비스 페이지
 * **Class (`91Class.md`)**: Vertica 교육 과정 안내 및 신청 방법 (메일 문의)
 * **QnA (`92QnA.md`)**: Giscus를 이용한 기술 문의 및 답변 게시판
-* **Reference (`93Reference.md`)**: 금융, 기업/공공, 의료 분야별 실제 고객 도입 사례
 * **Lifecycle (`94lifecycle.md`)**: 제품 릴리즈 주기, 지원 정책, OS 호환성 정보
 
 ## 🔗 외부 관련 링크
