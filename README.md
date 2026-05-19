@@ -1,4 +1,4 @@
-﻿﻿# Vertica Blog
+﻿﻿﻿﻿# Vertica Blog
 
 Vertica 분석 플랫폼에 대한 기술 정보와 사용법을 공유하기 위한 Jekyll 기반의 기술 블로그입니다.
 
@@ -82,6 +82,7 @@ Vertica 분석 플랫폼에 대한 기술 정보와 사용법을 공유하기 �
 ### 🚀 Vertica Utilization (`04utilization.md`)
 * **Python 연동**: `vertica-python` 라이브러리를 사용한 데이터 처리 및 분석
 * **Kafka 연동**: Kafka 스트리밍 데이터를 Vertica로 직접 적재하고 실시간 분석
+* **DBT 연동**: dbt(Data Build Tool)를 사용하여 Vertica의 데이터 변환 작업을 자동화하고 관리합니다.
 * **Apache Airflow 연동**: Airflow를 활용한 데이터 파이프라인 자동화 및 스케줄링
 * **Apache Iceberg 연동**: Spark 기반 Iceberg 테이블 생성 및 Vertica 연동 조회
 * **Apache Polaris 연동**: 중앙 메타데이터 서비스 Polaris와 동적 연동
@@ -109,6 +110,5 @@ Vertica 분석 플랫폼에 대한 기술 정보와 사용법을 공유하기 �
 * **Lifecycle (`94lifecycle.md`)**: 제품 릴리즈 주기, 지원 정책, OS 호환성 정보
 
 ## 🔗 외부 관련 링크
-
 - **Vertica Docs (공식 문서)**: https://docs.vertica.com/26.1.x/en/
 - **Vertica Partner**: http://www.gtgsc.com/gtg/sub/bigdata/vertica.php

@@ -67,6 +67,8 @@
       url: /04utilization#python
     - title: Kafka 연동
       url: /04utilization#kafka
+    - title: DBT 연동
+      url: /04utilization#dbt
     - title: Apache Airflow 연동
       url: /04utilization#airflow
     - title: Apache Iceberg 연동

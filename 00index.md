@@ -239,6 +239,11 @@ description: "Vertica 분석 플랫폼에 대한 기술 정보와 사용법을 �
       <a href="{{ '/04utilization#kafka' | relative_url }}">이동 →</a>
     </article>
     <article class="card">
+      <h3>DBT 연동</h3>
+      <p>dbt(Data Build Tool)를 사용하여 Vertica의 데이터 변환 작업을 자동화하고 관리합니다.</p>
+      <a href="{{ '/04utilization#dbt' | relative_url }}">이동 →</a>
+    </article>
+    <article class="card">
       <h3>Apache Airflow 연동</h3>
       <p>Airflow를 활용하여 Vertica의 데이터 파이프라인을 자동화하고 스케줄링하는 방법을 알아봅니다.</p>
       <a href="{{ '/04utilization#airflow' | relative_url }}">이동 →</a>
