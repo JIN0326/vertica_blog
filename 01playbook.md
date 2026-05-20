@@ -1,7 +1,7 @@
 ---
-title: Vertica Playbook - 핵심 개념과 아키텍처 - Vertica Blog
+title: Vertica(버티카) Playbook: 핵심 개념, 아키텍처, EonMode, MCP/Kafka 연동 - Vertica Blog
 layout: default
-description: "Vertica의 기본 개념, Columnar 및 MPP 아키텍처, EonMode 등 핵심 기술과 Kafka, Spark와의 연동 방법을 알아봅니다."
+description: "Vertica(버티카) Playbook: Vertica의 핵심 개념, 기술, 아키텍처를 소개합니다. Columnar, MPP, EonMode 아키텍처, MCP(LLM) 연동, Kafka, Spark, HDFS 연계 방법 및 Vertica 포트폴리오, Revive를 통한 마이그레이션 등 Vertica의 모든 것을 심층 분석합니다."
 ---
 <div class="page-hero">
   <span class="chip">Playbook</span>

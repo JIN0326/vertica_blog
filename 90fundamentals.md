@@ -1,7 +1,7 @@
 ---
-title: Vertica 시작하기 - 학습 로드맵 - Vertica Blog
+title: Vertica(버티카) 시작하기: 학습 로드맵 및 단계별 가이드 - Vertica Blog
 layout: default
-description: "Vertica를 처음 시작하는 사용자를 위한 학습 로드맵입니다. DB 구성부터 기본 운영, 쿼리 튜닝까지 단계별 학습 가이드를 제공합니다."
+description: "Vertica(버티카)를 처음 시작하는 사용자를 위한 학습 로드맵. Vertica DB 구성, 초기 설정, IP 및 권한 관리, 백업(vbr), 모니터링(MC), Eon Mode 구성, 노드 추가, 업그레이드, vsql, Copy, Explain 쿼리 튜닝까지 단계별 학습 가이드를 제공합니다."
 ---
 
 <div class="page-hero">

@@ -1,7 +1,7 @@
 ---
-title: Vertica Q&A - 기술 문의 - Vertica Blog
+title: Vertica(버티카) Q&A - 기술 문의 및 답변 - Vertica Blog
 layout: default
-description: "Vertica 사용 중 궁금한 점이 있으신가요? 기술적인 질문을 남기고 커뮤니티와 함께 답변을 찾아보세요."
+description: "Vertica(버티카) 사용 중 궁금한 점이 있으신가요? Vertica 기술 Q&A 게시판에서 아키텍처, 운영, 쿼리, 연동 등 기술적인 질문을 남기고 커뮤니티와 함께 답변을 찾아보세요."
 ---
 
 <div class="page-hero">

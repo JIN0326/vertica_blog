@@ -1,7 +1,7 @@
 ----
-title: Vertica 고객사례 - 금융, 제조, 의료 - Vertica Blog
+title: Vertica(버티카) 고객사례: 금융, 통신, 제조, 의료 분야 도입 사례 - Vertica Blog
 layout: default
-description: "금융, 통신, 제조, 의료 등 다양한 산업 분야의 리딩 기업들이 Vertica를 어떻게 활용하여 비즈니스를 혁신하고 있는지 실제 도입 사례를 확인하세요."
+description: "Vertica(버티카) 고객사례. 금융(차세대 DW, 마이데이터, AML), 통신/제조(BIDW, SCM), 의료(CDW) 등 다양한 산업 분야의 리딩 기업들이 Vertica를 어떻게 활용하여 비즈니스를 혁신하고 있는지 실제 도입 사례를 확인하세요."
 ----
 
 <div class="page-hero">

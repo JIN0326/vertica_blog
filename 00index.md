@@ -1,8 +1,8 @@
 ---
-title: Vertica Blog
+title: Vertica(버티카) 기술 블로그 - 고객사례, Playbook, 운영, 활용, 보안, 설치 가이드
 layout: default
 permalink: /
-description: "Vertica 분석 플랫폼에 대한 기술 정보와 사용법을 공유합니다. 아키텍처, 운영, 데이터 연동, 보안 등 다양한 주제를 다룹니다."
+description: "Vertica(버티카) 기술 블로그. Vertica 고객사례, Playbook, Administration, CoreTech, Utilization, Auth & Security, Installation 가이드를 제공합니다. Eon Mode, MPP 아키텍처, Python, Kafka, Airflow, Iceberg 연동, LDAP/TLS/Okta 보안, 백업 및 복구, 클러스터 운영 등 Vertica의 모든 것을 다룹니다."
 ---
 
 <div class="hero-container">
