@@ -196,17 +196,17 @@ dbt init my_hop_dbt</code></pre>
     <p class="section-description">dbt의 핵심 기능인 모델(SQL 파일)과 매크로를 사용하여 데이터 변환 로직을 정의합니다.</p>
     <div class="syntax-box">
       <strong>기본 테이블 모델 (models/order_summary.sql):</strong>
-      <pre><code>{{ config(materialized='table', schema='test') }}
+      <pre><code>{% raw %}{{ config(materialized='table', schema='test') }}
 
 SELECT 
     customer_id,
     COUNT(order_id) as total_orders,
     SUM(amount) as total_spent
 FROM public.orders
-GROUP BY 1</code></pre>
+GROUP BY 1{% endraw %}</code></pre>
       <strong>증분 모델 (Incremental Model):</strong>
       <p class="section-description" style="margin-top: 0.5rem; margin-bottom: 1rem;">마지막 실행 이후 추가된 데이터만 처리하여 변환 작업의 효율성을 높입니다.</p>
-      <pre><code>{{ config(
+      <pre><code>{% raw %}{{ config(
     materialized='incremental',
     unique_key='customer_id'
 ) }}
@@ -222,7 +222,7 @@ FROM {{ source('raw_vertica', 'orders') }}
   WHERE order_date >= (select max(order_date) from {{ this }})
 {% endif %}
 
-GROUP BY 1</code></pre>
+GROUP BY 1{% endraw %}</code></pre>
     </div>
   </div>
 
