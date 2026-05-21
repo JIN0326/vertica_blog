@@ -747,7 +747,7 @@ ORDER BY 1, 2, 3;</code></pre>
 </div>
 
 <hr style="margin: 3rem 0;">
-<div id="backup-restore" style="scroll-margin-top: 100px;"></div>
+<div id="locks" style="scroll-margin-top: 100px;"></div>
 
 ## Locks
 
@@ -1153,7 +1153,6 @@ ORDER BY vbr.start_time DESC;</code></pre>
     </div>
   </div>
 </div>
-
 
 <hr style="margin: 3rem 0;">
 <div id="cluster-operation" style="scroll-margin-top: 100px;"></div>
