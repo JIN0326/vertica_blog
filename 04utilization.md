@@ -725,6 +725,9 @@ SELECT * FROM ext_iceberg_test;
 ## Trino & Iceberg 연동
 
 <div class="architecture-section">
+<div class="flow-diagram">
+      <img src="{{ '/assets/images/util_trino.png' | relative_url }}" alt="Apache Polaris">
+    </div>
   <p class="section-description"><strong>Trino(구 PrestoSQL)</strong>는 데이터가 S3, MySQL, Vertica 등 어디에 있든 이동시키지 않고 즉시 SQL로 조회할 수 있게 해주는 분산 SQL 쿼리 엔진입니다. Trino와 <strong>Apache Iceberg</strong>를 연동하면, 서로 다른 저장소에 있는 데이터를 하나의 SQL로 조인하는 강력한 <strong>연합 쿼리(Federated Query)</strong> 데이터 레이크하우스를 구축할 수 있습니다.</p>
 
   <div class="architecture-subsection">

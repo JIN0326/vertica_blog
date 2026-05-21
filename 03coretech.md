@@ -299,7 +299,7 @@ LogPath=/tmp</code></pre>
     </div>
 
   <ul class="feature-list">
-      <li style="word-break: keep-all;"><span class="feature-list__icon">🔹</span>환경 변수 등록: ODBC 드라이버가 vertica.ini 파일을 인식하도록 .profile 또는 .bash_profile에 export VERTICAINI=/etc/vertica.ini 환경 변수를 추가해야 합니다.</li>
+      <li style="word-break: keep-all;"><span class="feature-list__icon">🔹</span>환경 변수 등록 : ODBC 드라이버가 vertica.ini 파일을 인식하도록 (.profile) 또는 (.bash_profile)에 "export VERTICAINI=/etc/vertica.ini" 환경 변수를 추가해야 합니다.</li>
     </ul>
   </div>
 </div>
