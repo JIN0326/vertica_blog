@@ -1189,7 +1189,7 @@ ORDER BY vbr.start_time DESC;</code></pre>
     <h3 class="section-subtitle">3. 장애 발생 시 클러스터/노드 재기동</h3>
     
   <h4 class="section-subtitle">3-1. 장애 진단 프로세스</h4>
-  <p class="section-description">장애 발생 시점부터 복구 완료까지의 주요 단계를 시각적으로 확인합니다.<p>
+  <p class="section-description">장애 발생 시점부터 복구 완료까지의 주요 단계를 시각적으로 확인합니다.</p>
 
   <div class="process-grid">
     <div class="process-step">
@@ -1257,6 +1257,7 @@ ps -ef | grep spread</code></pre>
 sudo systemctl start vertica-consoled
 sudo systemctl stop vertica-consoled</code></pre>
     </div>
+  </div>
   </div>
   </div>
 
