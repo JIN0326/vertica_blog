@@ -349,6 +349,7 @@ Vertica는 온프레미스부터 퍼블릭/프라이빗 클라우드까지 고�
 <div class="architecture-section">
   <p class="section-description">
     전통적인 LLM은 학습 데이터에 의존적이며 외부 시스템과의 통합에 한계가 있었습니다. 실제 비즈니스 환경에서 자율적으로 작동하는 AI Agent를 구축하기 위해, Vertica는 <strong>MCP(Model Context Protocol)</strong>를 활용한 혁신적인 데이터 연계를 지원합니다.
+    Vertica 26.1 버전부터는 자체적으로 MCP 서버를 지원하여 외부 도구 없이도 LLM과 직접 연동할 수 있습니다.
   </p>
 
   <div class="feature-box">

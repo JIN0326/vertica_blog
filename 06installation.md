@@ -475,6 +475,9 @@ vcluster manage_config show</code></pre>
       <pre><code># DB 시작 (최초 기동 시 config-param 필수)
 vcluster start_db -d VDB -p "" --config-param awsauth=&lt;ACCESS_KEY&gt;:&lt;SECRET_KEY&gt;,awsenablehttps=0,awsregion=ap-northeast-2,awsendpoint=&lt;S3_ENDPOINT&gt;
 
+# 최초 수행 이후로는 아래 명령어로 수행 가능
+vcluster start_db -d VDB -p ""
+
 # DB 중지
 vcluster stop_db -d VDB -p ""
 

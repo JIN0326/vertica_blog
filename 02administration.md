@@ -276,7 +276,7 @@ PARTITION BY EXTRACT(YEAR FROM order_date);</code></pre>
       <div class="syntax-box">
         <strong>기존 테이블에 파티션 적용 예시:</strong>
         <pre><code>-- 'online_sales' 테이블을 'order_date'의 연도별로 파티셔닝
-ALTER TABLE online_sales PARTITION BY EXTRACT(YEAR FROM order_date);</code></pre>
+ALTER TABLE online_sales PARTITION BY EXTRACT(YEAR FROM order_date) REORAGNIZE;</code></pre>
       </div>
     </div>
   </div>
@@ -331,10 +331,7 @@ GROUP BY CALENDAR_HIERARCHY_DAY(sale_timestamp, 2, 2);</code></pre>
 SELECT GET_PARTITION_KEYS('online_sales');
 
 -- 특정 파티션 삭제 (2022년 데이터)
-SELECT DROP_PARTITIONS('online_sales', 2022, 2022);
-
--- 테이블의 모든 파티션 삭제
-SELECT TRUNCATE_PARTITIONS('online_sales', 0, 9999);</code></pre>
+SELECT DROP_PARTITIONS('online_sales', 2022, 2022);</code></pre>
     </div>
   </div>
 
@@ -886,7 +883,20 @@ SELECT ANALYZE_STATISTICS('public.sales', 'product_id, sale_date');</code></pre>
   </div>
 
   <div class="architecture-subsection">
-    <h3 class="section-subtitle">2. 통계 정보 관리</h3>
+    <h3 class="section-subtitle">2. 파티션 통계 수집 (ANALYZE_STATISTICS_PARTITION)</h3>
+    <p class="section-description">대용량 파티션 테이블의 경우 전체 테이블에 대한 통계를 수집하는 것은 많은 시간과 리소스를 소모할 수 있습니다. <code>ANALYZE_STATISTICS_PARTITION</code> 함수를 사용하면 특정 파티션 또는 파티션 범위에 대해서만 통계를 효율적으로 수집할 수 있습니다. 이는 새로운 데이터가 최신 파티션에만 추가되는 시계열 데이터에 특히 유용합니다. 더 자세한 정보는 <a href="https://docs.vertica.com/26.1.x/en/sql-reference/functions/performance-analysis-functions/statistics-management-functions/analyze-statistics-partition/" target="_blank">공식 문서</a>에서 확인할 수 있습니다.</p>
+    <div class="syntax-box">
+      <strong>파티션 통계 수집 예시:</strong>
+      <pre><code>-- 'sales' 테이블의 2024년 7월 파티션에 대한 통계만 수집
+SELECT ANALYZE_STATISTICS_PARTITION('public.sales', '2024-07-01', '2024-07-31');
+
+-- 특정 파티션의 특정 컬럼에 대한 통계 수집
+SELECT ANALYZE_STATISTICS_PARTITION('public.sales', '2024-07-01', '2024-07-31', 'product_id');</code></pre>
+    </div>
+  </div>
+
+  <div class="architecture-subsection">
+    <h3 class="section-subtitle">3. 통계 정보 관리</h3>
     <p class="section-description">수집된 통계 정보는 시스템 테이블을 통해 확인하거나, 다른 환경으로 내보내고 가져올 수 있습니다.</p>
     <div class="syntax-box">
       <strong>통계 관리 함수 예시:</strong>

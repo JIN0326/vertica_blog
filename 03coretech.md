@@ -124,7 +124,7 @@ description: "Vertica(버티카) 핵심 기술 가이드. vsql(CLI) 사용법, M
 
   <div class="architecture-subsection">
     <h3 class="section-subtitle">1. 역할 및 개요</h3>
-    <p class="section-description">Data Collector는 백그라운드에서 지속적으로 데이터를 수집하며, 수집된 정보는 주로 <code>v_monitor</code> 스키마의 시스템 테이블에 저장됩니다.</p>
+    <p class="section-description">Data Collector는 백그라운드에서 지속적으로 데이터를 수집하며, 수집된 정보는 주로 <code>v_monitor</code> 스키마의 시스템 뷰들의 참조 테이블로 제공됩니다.</p>
     <ul class="feature-list">
       <li><span class="feature-list__icon">🔹</span> <strong>시스템 메트릭:</strong> <span>CPU, 메모리, 디스크 I/O, 네트워크 사용량 등 하드웨어 리소스 정보를 수집합니다.</span></li>
       <li><span class="feature-list__icon">🔹</span> <strong>쿼리 통계:</strong> <span>실행된 쿼리의 시작/종료 시간, 사용자, 소요 시간, 사용 리소스 등 상세 정보를 기록합니다.</span></li>
@@ -132,12 +132,9 @@ description: "Vertica(버티카) 핵심 기술 가이드. vsql(CLI) 사용법, M
       <li><span class="feature-list__icon">🔹</span> <strong>자동화된 수집:</strong> <span>별도의 설정 없이 Vertica 설치 시 자동으로 활성화되어 데이터를 수집합니다.</span></li>
     </ul>
     <div class="syntax-box">
-      <strong>Data Collector 관련 시스템 테이블 조회 예시:</strong>
-      <pre><code>-- 최근 실행된 쿼리 요청 정보 조회
-SELECT * FROM v_monitor.query_requests ORDER BY start_timestamp DESC LIMIT 10;
-
--- 리소스 풀 상태 정보 조회
-SELECT * FROM v_monitor.resource_pool_status LIMIT 10;</code></pre>
+      <strong>v_monitor 뷰가 참조하는 DC 테이블 확인 예시:</strong>
+      <pre><code>-- 'query_requests' 뷰의 정의를 확인하여 어떤 DC 테이블을 참조하는지 조회
+select * from vs_system_views where view_name='query_requests';</code></pre>
     </div>
   </div>
 
@@ -523,12 +520,16 @@ PROFILE [SELECT / UPDATE / DELETE 쿼리];</code></pre>
   <div class="architecture-subsection">
     <h3 class="section-subtitle">실행 계획 분석 포인트</h3>
     <p class="section-description">EXPLAIN 결과를 읽을 때는 트리 구조의 <strong>안쪽(가장 들여쓰기가 많이 된 하위 노드)부터 바깥쪽으로, 아래에서 위로</strong> 해석합니다.</p>
-    <ul class="feature-list">
-      <li><span class="feature-list__icon">🔹</span> <strong>Cost (비용):</strong> <span>옵티마이저가 해당 연산에 필요하다고 추정하는 자원의 양입니다. 튜닝 전후의 쿼리 효율성을 비교하는 상대적인 지표로 활용됩니다.</span></li>
-      <li><span class="feature-list__icon">🔹</span> <strong>Rows (예상 건수):</strong> <span>해당 단계에서 출력될 것으로 예상되는 데이터의 행 수입니다. (통계 정보가 최신화되지 않았다면 실제 건수와 크게 차이 날 수 있습니다.)</span></li>
-      <li><span class="feature-list__icon">🔹</span> <strong>Access Path:</strong> <span>데이터를 읽는 방식입니다. Storage Access(물리 디스크 접근) 단계에서 조건절(Filter)이 효율적으로 푸시다운(Push-down) 되었는지 확인합니다.</span></li>
-      <li><span class="feature-list__icon">🔹</span> <strong>Join Type:</strong> <span>Hash Join, Merge Join 등 조인 방식이 적절한지 파악합니다. 특히 대용량 조인 시 메모리가 부족해 디스크를 사용하는 현상(Spill to disk)이 발생할 우려가 있는지 체크합니다.</span></li>
-    </ul>
+    <dl class="feature-dl">
+      <dt class="feature-dt"><span class="feature-dt__icon">🔹</span> <strong>Cost (비용)</strong></dt>
+      <dd class="feature-dd">옵티마이저가 해당 연산에 필요하다고 추정하는 자원의 양입니다. 튜닝 전후의 쿼리 효율성을 비교하는 상대적인 지표로 활용됩니다.</dd>
+      <dt class="feature-dt"><span class="feature-dt__icon">🔹</span> <strong>Rows (예상 건수)</strong></dt>
+      <dd class="feature-dd">해당 단계에서 출력될 것으로 예상되는 데이터의 행 수입니다. (통계 정보가 최신화되지 않았다면 실제 건수와 크게 차이 날 수 있습니다.)</dd>
+      <dt class="feature-dt"><span class="feature-dt__icon">🔹</span> <strong>Access Path</strong></dt>
+      <dd class="feature-dd">데이터를 읽는 방식입니다. Storage Access(물리 디스크 접근) 단계에서 조건절(Filter)이 효율적으로 푸시다운(Push-down) 되었는지 확인합니다.</dd>
+      <dt class="feature-dt"><span class="feature-dt__icon">🔹</span> <strong>Join Type</strong></dt>
+      <dd class="feature-dd">Hash Join, Merge Join 등 조인 방식이 적절한지 파악합니다. 특히 대용량 조인 시 메모리가 부족해 디스크를 사용하는 현상(Spill to disk)이 발생할 우려가 있는지 체크합니다.</dd>
+    </dl>
     <div class="syntax-box">
       <strong>실행 계획 출력 예시:</strong>
       <pre><code>EXPLAIN SELECT * FROM sales s JOIN product p ON s.product_id = p.product_id;
