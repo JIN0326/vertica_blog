@@ -1179,7 +1179,7 @@ ORDER BY vbr.start_time DESC;</code></pre>
   <div class="architecture-subsection">
     <h3 class="section-subtitle">3. 장애 발생 시 클러스터/노드 재기동</h3>
     
-    <h4 class="section-subtitle">가. 장애 진단 프로세스</h4>
+    <h4 class="section-subtitle">3-1. 장애 진단 프로세스</h4>
     <p class="section-description">장애 발생 시점부터 복구 완료까지의 주요 단계를 시각적으로 확인합니다.</p>
 
     <div class="process-grid">
@@ -1205,7 +1205,7 @@ ORDER BY vbr.start_time DESC;</code></pre>
       </div>
     </div>
 
-    <h4 class="section-subtitle">나. 장애 조치 Check List</h4>
+    <h4 class="section-subtitle">3-2. 장애 조치 Check List</h4>
     <p class="section-description">재기동 전에 따라 아래 항목을 반드시 점검하여 잔류 프로세스를 정리합니다.</p>
     <ul class="feature-list">
       <li>
@@ -1220,13 +1220,13 @@ ps -ef | grep spread</code></pre>
       </li>
     </ul>
 
-    <h4 class="section-subtitle">다. 노드 재기동 실행</h4>
+    <h4 class="section-subtitle">3-3. 노드 재기동 실행</h4>
     <div class="syntax-box">
       <strong>재기동 Command:</strong>
       <pre><code>admintools -t restart_node -d DBNM -p 'password' --hosts [Down_Node_IP]</code></pre>
     </div>
 
-    <h4 class="section-subtitle">라. 기동 모니터링</h4>
+    <h4 class="section-subtitle">3-4. 기동 모니터링</h4>
     <div class="syntax-box">
       <strong>로그 확인:</strong>
       <pre><code>tail -f /catalog/DBNM/v_dbnm_node00XX_catalog/startup.log</code></pre>
