@@ -1239,6 +1239,7 @@ ps -ef | grep spread</code></pre>
     <strong>로그 확인:</strong>
     <pre><code>tail -f /catalog/DBNM/v_dbnm_node00XX_catalog/startup.log</code></pre>
   </div>
+  </div>
 
   <div class="architecture-subsection">
     <h3 class="section-subtitle">4. 장애 분석 파일 생성 (Scrutinize)</h3>
@@ -1256,7 +1257,6 @@ ps -ef | grep spread</code></pre>
 sudo systemctl start vertica-consoled
 sudo systemctl stop vertica-consoled</code></pre>
     </div>
-  </div>
   </div>
   </div>
 

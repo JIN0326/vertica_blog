@@ -334,11 +334,11 @@ SELECT node_name, node_address, export_address FROM nodes;
 
   <div class="architecture-subsection">
     <h3 class="section-subtitle">1. DB 생성 시 포트 변경</h3>
-    <p class="section-description">데이터베이스를 생성하기 전에 <code>admintools.conf</code> 파일에서 기본 포트를 변경할 수 있습니다.</p>
+    <p class="section-description"> <code>admintools.conf</code> 파일에서 기본 포트를 변경할 수 있습니다.</p>
     <div class="syntax-box">
       <pre><code># 1. /opt/vertica/config/admintools.conf 파일 수정
-# [Database] 섹션의 port 파라미터 변경
-port = 35433
+# [Configuration] 섹션의 last_port 파라미터 변경
+last_port = 35433
 
 # 2. DB 생성 실행
 /opt/vertica/bin/admintools -t create_db ...</code></pre>
