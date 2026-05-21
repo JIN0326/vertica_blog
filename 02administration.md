@@ -1213,11 +1213,11 @@ ORDER BY vbr.start_time DESC;</code></pre>
       </li>
       <li>
         <span class="feature-list__icon">🔹</span> <strong>프로세스 생존 확인:</strong> <span>비정상 종료 시 남은 <code>vertica</code>, <code>spread</code> 프로세스를 확인하고 <code>kill -9</code>로 종료</span>
-        <div class="syntax-box">
+      </li>
+       <div class="syntax-box">
           <pre><code>ps -ef | grep vertica
 ps -ef | grep spread</code></pre>
         </div>
-      </li>
     </ul>
 
     <h4 class="section-subtitle">3-3. 노드 재기동 실행</h4>
