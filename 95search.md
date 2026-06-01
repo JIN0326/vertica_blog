@@ -32,13 +32,14 @@ permalink: /search/
       const options = {
         includeScore: true,
         shouldSort: true,
-        threshold: 0.4,
+        threshold: 0.3,
         minMatchCharLength: 2,
         keys: [
           { name: 'title', weight: 0.7 },
+          { name: 'keywords', weight: 0.6 },
           { name: 'tags', weight: 0.5 },
           { name: 'category', weight: 0.4 },
-          { name: 'content', weight: 0.2 }
+          { name: 'content', weight: 0.3 }
         ]
       };
       fuse = new Fuse(searchData, options);

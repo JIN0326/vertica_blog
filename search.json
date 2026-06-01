@@ -11,6 +11,7 @@ layout: null
     "url": {{ item.url | relative_url | jsonify }},
     "category": {{ item.categories | join: ", " | jsonify }},
     "tags": {{ item.tags | join: ", " | jsonify }},
+    "keywords": {{ item.keywords | jsonify }},
     "content": {{ item.description | append: ' ' | append: item.content | strip_html | strip_newlines | escape | jsonify }}
   }{% unless forloop.last %},{% endunless %}
   {% endfor %}

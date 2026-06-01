@@ -2,6 +2,7 @@
 title: Vertica(버티카) 설치: DB/MC 설치, 초기설정, 포트변경, 노드추가 - Vertica Blog
 layout: default
 description: "Vertica(버티카) 설치 및 초기 설정 가이드. Vertica 데이터베이스와 Management Console(MC) 설치, 클러스터 구성, 포트 변경, vcluster(REST API CLI) 사용법, Enterprise/Eon Mode에서 노드(Node) 및 서브클러스터(Subcluster) 추가 방법까지 단계별로 안내합니다."
+keywords: "install, setup, port, mc, management console, vcluster, rest api, add node, add subcluster, eon mode, enterprise mode, revive, re-ip, rpm"
 ---
 
 <div class="page-hero">

@@ -2,6 +2,7 @@
 title: Vertica(버티카) 운영: 테이블, 파티션, 사용자, 백업, 클러스터 관리 - Vertica Blog
 layout: default
 description: "Vertica(버티카) 운영 및 관리 가이드. Table, Projection, Partition, Schema, User, Profile, Resource Pool, Privilege, Locks, Tuple Mover, Statistics, Backup & Restore(vbr), Cluster Operation 등 Vertica 데이터베이스의 전반적인 관리 방법을 다룹니다."
+keywords: "table, projection, partition, schema, user, profile, resource pool, privilege, locks, tuple mover, mergeout, purge, statistics, backup, restore, vbr, cluster operation, ctas, like"
 ---
 <div class="page-hero">
   <span class="chip">Administration</span>

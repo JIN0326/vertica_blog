@@ -2,6 +2,7 @@
 title: Vertica(버티카) 활용: Python, Kafka, dbt, Airflow, Iceberg, Trino 연동 - Vertica Blog
 layout: default
 description: "Vertica(버티카) 활용 가이드. Python(vertica-python, verticapy), Kafka, dbt, Apache Airflow, Apache Iceberg, Apache Polaris, AWS Glue, PyIceberg, Trino 등 다양한 데이터 생태계와 Vertica를 연동하여 데이터 파이프라인을 구축하고 활용하는 방법을 알아봅니다."
+keywords: "python, vertica-python, verticapy, kafka, dbt, airflow, apache iceberg, apache polaris, aws glue, pyiceberg, trino, federated query"
 ---
 
 <div class="page-hero">

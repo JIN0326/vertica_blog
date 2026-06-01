@@ -2,6 +2,7 @@
 title: Vertica(버티카) 핵심 기술: vsql, 모니터링, Copy, Export, Explain - Vertica Blog
 layout: default
 description: "Vertica(버티카) 핵심 기술 가이드. vsql(CLI) 사용법, MC/Grafana 모니터링, Data Collector, DBeaver/JDBC/ODBC 클라이언트 연동, 대용량 데이터 적재(Copy) 및 내보내기(Export to Parquet/Iceberg), 그리고 EXPLAIN/PROFILE을 통한 쿼리 분석 및 튜닝 방법을 알아봅니다."
+keywords: "vsql, cli, monitoring, management console, mc, grafana, data collector, jdbc, odbc, dbeaver, copy, export, parquet, iceberg, explain, profile"
 ---
 <div class="page-hero">
   <span class="chip">Core Tech</span>
