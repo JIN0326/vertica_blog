@@ -1,4 +1,4 @@
-﻿﻿﻿﻿# Vertica Blog
+﻿﻿﻿﻿﻿﻿# Vertica Blog
 
 Vertica 분석 플랫폼에 대한 기술 정보와 사용법을 공유하기 위한 Jekyll 기반의 기술 블로그입니다.
 
@@ -41,6 +41,7 @@ Vertica 분석 플랫폼에 대한 기술 정보와 사용법을 공유하기 �
 ├── 91Class.md            # 교육 신청
 ├── 92QnA.md              # Q&A
 ├── 94lifecycle.md        # 제품 수명주기
+├── 95search.md           # Vertica Blog 검색
 ├── _config.yml           # Jekyll 설정 파일
 └── README.md             # 프로젝트 설명 파일
 ```
@@ -108,6 +109,7 @@ Vertica 분석 플랫폼에 대한 기술 정보와 사용법을 공유하기 �
 * **Class (`91Class.md`)**: Vertica 교육 과정 안내 및 신청 방법 (메일 문의)
 * **QnA (`92QnA.md`)**: Giscus를 이용한 기술 문의 및 답변 게시판
 * **Lifecycle (`94lifecycle.md`)**: 제품 릴리즈 주기, 지원 정책, OS 호환성 정보
+* **Search (`95search.md`)**: 블로그 내 콘텐츠를 검색하는 페이지
 
 ## 🔗 외부 관련 링크
 - **Vertica Docs (공식 문서)**: https://docs.vertica.com/26.1.x/en/
