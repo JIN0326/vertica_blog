@@ -71,14 +71,14 @@ GRANT AUTHENTICATION v_oauth TO "user@example.com";</code></pre>
           <strong>Sync mode:</strong> <code>Import</code>로 설정하여 Okta의 사용자 정보를 MC로 가져옵니다.
         </dd>
       </dl>
-      <img src="/assets/images/okta1.png" alt="Okta OIDC Provider 설정 1" style="width: 100%; max-width: 800px; margin: 1.5rem auto; display: block; border: 1px solid #e0e0e0; border-radius: 8px;">
-      <img src="/assets/images/okta2.png" alt="Okta OIDC Provider 설정 2" style="width: 100%; max-width: 800px; margin: 1.5rem auto; display: block; border: 1px solid #e0e0e0; border-radius: 8px;">
+      <img src="/vertica_blog/assets/images/okta1.png" alt="Okta OIDC Provider 설정 1" style="width: 100%; max-width: 800px; margin: 1.5rem auto; display: block; border: 1px solid #e0e0e0; border-radius: 8px;">
+      <img src="/vertica_blog/assets/images/okta2.png" alt="Okta OIDC Provider 설정 2" style="width: 100%; max-width: 800px; margin: 1.5rem auto; display: block; border: 1px solid #e0e0e0; border-radius: 8px;">
     </div>
 
     <div class="step-section">
       <h4 class="step-title">2단계: MC Attribute Mappers 설정</h4>
       <p class="section-description">Okta에서 전달받은 사용자 정보(Claim)를 MC의 사용자 속성(Attribute)에 매핑하여 사용자 정보를 동기화합니다.</p>
-      <img src="/assets/images/okta3.png" alt="Okta Attribute Mappers 설정" style="width: 100%; max-width: 800px; margin: 1.5rem auto; display: block; border: 1px solid #e0e0e0; border-radius: 8px;">
+      <img src="/vertica_blog/assets/images/okta3.png" alt="Okta Attribute Mappers 설정" style="width: 100%; max-width: 800px; margin: 1.5rem auto; display: block; border: 1px solid #e0e0e0; border-radius: 8px;">
       <table class="info-table">
         <thead>
           <tr>
@@ -120,7 +120,7 @@ GRANT AUTHENTICATION v_oauth TO "user@example.com";</code></pre>
     <div class="step-section">
       <h4 class="step-title">3단계: Okta SSO 로그인</h4>
       <p class="section-description">모든 설정이 완료되면, MC 로그인 화면에 'Log in with Okta' 버튼이 나타나며, 이를 통해 Okta 계정으로 SSO 로그인을 수행할 수 있습니다.</p>
-      <img src="/assets/images/okta4.png" alt="Vertica MC Okta 로그인 화면" style="width: 100%; max-width: 800px; margin: 1.5rem auto; display: block; border: 1px solid #e0e0e0; border-radius: 8px;">
+      <img src="/vertica_blog/assets/images/okta4.png" alt="Vertica MC Okta 로그인 화면" style="width: 100%; max-width: 800px; margin: 1.5rem auto; display: block; border: 1px solid #e0e0e0; border-radius: 8px;">
     </div>
   </div>
 </div>
