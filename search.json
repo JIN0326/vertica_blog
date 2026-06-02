@@ -1,18 +1,45 @@
 ---
 layout: null
 ---
-{% assign search_pages = site.pages | where_exp: "item", "item.title != nil" | where_exp: "item", "item.name != 'search.json'" | where_exp: "item", "item.name != '404.html'" | where_exp: "item", "item.name != '95search.md'" %}
+{% assign search_pages = site.pages | where_exp: "item", "item.title != nil" | where_exp: "item", "item.name != 'search.json'" | where_exp: "item", "item.name != '404.html'" | where_exp: "item", "item.name != '905search.md'" %}
 {% assign search_posts = site.posts %}
 {% assign all_search_items = search_pages | concat: search_posts %}
 [
   {% for item in all_search_items %}
+  {%- assign is_sub_page = false -%}
+  {%- assign path_parts = item.path | split: '/' -%}
+  
+  {%- if path_parts.size > 1 and item.name contains '_' -%}
+    {%- assign is_sub_page = true -%}
+  {%- endif -%}
+
+  {%- if is_sub_page -%}
+    {%- assign dir_name = path_parts[0] -%}
+    {%- assign parent_page_name = dir_name | append: '.md' -%}
+    {%- assign parent_page = site.pages | where: "name", parent_page_name | first -%}
+    
+    {%- if parent_page -%}
+      {%- assign anchor = "" -%}
+      {%- assign content_parts = item.content | split: 'id="' -%}
+      {%- if content_parts.size > 1 -%}{%- assign anchor = content_parts[1] | split: '"' | first -%}{%- endif -%}
+      {%- if anchor != "" -%}
+        {%- assign item_url = parent_page.url | append: '#' | append: anchor -%}
+      {%- else -%}
+        {%- assign item_url = parent_page.url -%}
+      {%- endif -%}
+    {%- else -%}
+      {%- assign item_url = item.url -%}
+    {%- endif -%}
+  {%- else -%}
+    {%- assign item_url = item.url -%}
+  {%- endif -%}
   {
     "title": {{ item.title | escape | jsonify }},
-    "url": {{ item.url | relative_url | jsonify }},
+    "url": {{ item_url | remove_first: site.baseurl | jsonify }},
     "category": {{ item.categories | join: ", " | jsonify }},
     "tags": {{ item.tags | join: ", " | jsonify }},
     "keywords": {{ item.keywords | jsonify }},
-    "content": {{ item.description | append: ' ' | append: item.content | strip_html | strip_newlines | escape | jsonify }}
+    "content": {{ item.title | append: ' ' | append: item.keywords | append: ' ' | append: item.description | append: ' ' | append: item.content | strip_html | strip_newlines | escape | jsonify }}
   }{% unless forloop.last %},{% endunless %}
   {% endfor %}
 ]

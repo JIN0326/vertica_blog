@@ -1,6 +1,6 @@
-﻿﻿﻿﻿﻿﻿# Vertica Blog
+﻿# Vertica Blog
 
-Vertica 분석 플랫폼에 대한 기술 정보와 사용법을 공유하기 위한 Jekyll 기반의 기술 블로그입니다.
+Vertica 분석 플랫폼에 대한 기술 정보와 사용법을 공유하기 위한 기술 블로그입니다.
 
 > Repository: [https://github.com/JIN0326/vertica_blog/](https://github.com/JIN0326/vertica_blog/)
 
@@ -12,6 +12,8 @@ Vertica 분석 플랫폼에 대한 기술 정보와 사용법을 공유하기 �
 - **Vertica Administration**: 테이블, 스키마, 사용자 관리 등 운영 가이드
 - **Vertica CoreTech**: 데이터 적재, 쿼리 튜닝 등 핵심 기술
 - **Vertica Utilization**: 클라이언트 접속, 모니터링, Python 연동 등 활용법
+- **Vertica Auth & Security**: LDAP, TLS, Okta 등 보안 및 인증 설정
+- **Vertica Installation**: Vertica 및 MC 설치, 노드/클러스터 추가 등
 - **기타 서비스**: 교육 신청, Q&A, 고객사례 등
 
 ## 📂 프로젝트 구조
@@ -21,43 +23,96 @@ Vertica 분석 플랫폼에 대한 기술 정보와 사용법을 공유하기 �
 ```text
 .
 ├── _data/
-│   └── navigation.yml    # 네비게이션 설정
-├── _layouts/
-│   └── default.html      # 기본 레이아웃
-├── _includes/
-│   ├── header.html       # 헤더
-│   ├── footer.html       # 푸터
-│   └── sidebar.html      # 사이드바
-├── assets/
-│   ├── css/style.css     # 스타일시트
-│   └── images/           # 이미지
-├── 00index.md            # 메인 페이지
-├── 01playbook.md         # Vertica Playbook
-├── 02administration.md   # Vertica Administration
-├── 03coretech.md         # Vertica CoreTech
-├── 04utilization.md      # Vertica Utilization
-├── 05auth_security.md    # Vertica Auth & Security
-├── 90fundamentals.md     # Vertica Fundamentals
-├── 91Class.md            # 교육 신청
-├── 92QnA.md              # Q&A
-├── 94lifecycle.md        # 제품 수명주기
-├── 95search.md           # Vertica Blog 검색
-├── _config.yml           # Jekyll 설정 파일
-└── README.md             # 프로젝트 설명 파일
+│   └── navigation.yml                  # 네비게이션 설정
+├── _layouts/               
+│   └── default.html                    # 기본 레이아웃
+├── _includes/              
+│   ├── header.html                     # 헤더
+│   ├── footer.html                     # 푸터
+│   └── sidebar.html                    # 사이드바
+├── assets/             
+│   ├── css/style.css                   # 스타일시트
+│   └── images/                         # 이미지
+├── 000index.md                         # 메인 페이지
+├── 100playbook/                        # Vertica Playbook
+│   └── 100playbook.md                  
+│   └── 101_what-is-vertica.md
+│   └── 102_technology.md
+│   └── 103_portfolio.md
+│   └── 104_architecture.md
+│   └── 105_embracing.md
+│   └── 106_mcp-integration.md
+│   └── 107_eonmode.md
+├── 200administration/                  # Vertica Administration
+│   └── 200administration.md            
+│   └── 201_table-projection.md
+│   └── 202_partition.md
+│   └── 203_schema.md
+│   └── 204_user.md
+│   └── 205_profile.md
+│   └── 206_resource-pool.md
+│   └── 207_privilege.md
+│   └── 208_locks.md
+│   └── 209_tuple-mover.md
+│   └── 210_statistics.md
+│   └── 211_backup-restore.md
+│   └── 212_cluster-operation.md
+├── 300coretech/                        # Vertica CoreTech
+│   └── 300coretech.md                  
+│   └── 301_vsql.md
+│   └── 302_monitoring.md
+│   └── 303_data-collector.md
+│   └── 304_clients.md
+│   └── 305_copy.md
+│   └── 306_export.md
+│   └── 307_explain.md
+├── 400utilization/                     # Vertica Utilization
+│   └── 400utilization.md               
+│   └── 401_python.md
+│   └── 402_kafka.md
+│   └── 403_dbt.md
+│   └── 404_airflow.md
+│   └── 405_iceberg.md
+│   └── 406_polaris.md
+│   └── 407_aws-glue-pyiceberg.md
+│   └── 408_trino-iceberg.md
+├── 500auth_security/                   # Vertica Auth & Security
+│   └── 500auth_security.md             
+│   └── 501_auth-overview.md
+│   └── 502_ldap.md
+│   └── 503_tls.md
+│   └── 504_okta.md
+├── 600installation/                    # Vertica Installation
+│   └── 600installation.md              
+│   └── 601_vertica-install.md
+│   └── 602_initial-setup.md
+│   └── 603_change-port.md
+│   └── 604_mc-install.md
+│   └── 605_vcluster.md
+│   └── 606_add-node.md
+│   └── 607_add-subcluster.md
+├── 900etc/
+│   ├── 901Class.md                     # 교육 신청
+│   ├── 902QnA.md                       # Q&A
+│   ├── 903Reference.md                 # 고객사례
+│   ├── 904lifecycle.md                 # 제품 수명주기
+│   └── 905search.md                    # Vertica Blog 검색
+├── _config.yml                         # Jekyll 설정 파일
+└── README.md                           # 프로젝트 설명 파일
 ```
 
 ## 📑 상세 콘텐츠 목차
 
-### 📘 Vertica Playbook (`01playbook.md`)
+### 📘 Vertica Playbook (`100playbook`)
 * **Vertica란 무엇인가**: SQL 데이터 웨어하우스, 분석 및 ML, 쿼리 엔진 특징
 * **Vertica 핵심 기술**: Native Columnar, 압축, Projections, 분산 쿼리 엔진, MCP 연동, MPP Scale-out 등 6가지 핵심 요소
 * **Vertica 포트폴리오**: 온프레미스, 클라우드, Eon Mode 등 다양한 배포 옵션
 * **Vertica 아키텍처**: Pure-MPP 아키텍처 및 타 시스템과의 상세 비교
 * **Vertica 연계**: Kafka, Spark, HDFS, Object Storage 통합 가이드
 * **Vertica MCP 연동**: LLM과 Vertica를 연동하여 자연어 기반 데이터 분석 수행
-* **Vertica EonMode**: 컴퓨팅/스토리지 분리 아키텍처의 이점 및 실전 Use Case
+* **Vertica EonMode**: 컴퓨팅/스토리지 분리 아키텍처의 이점 및 실전 Use Case 
 
-### 🛠️ Vertica Administration (`02administration.md`)
+### 🛠️ Vertica Administration (`200administration`)
 * **Table · Projection**: 논리 모델(Table)과 물리 저장소(Projection)의 분리 및 분산 정책
 * **Partition**: 대용량 테이블 관리 및 성능 최적화를 위한 파티셔닝
 * **Schema**: 시스템 기본 스키마 설명 및 생성/관리 방법
@@ -71,7 +126,7 @@ Vertica 분석 플랫폼에 대한 기술 정보와 사용법을 공유하기 �
 * **Backup & Restore**: vbr 유틸리티를 이용한 전체/객체/클라우드 백업 및 복구
 * **Cluster Operation**: DB 기동/중지, 장애 조치, 진단 파일 생성 등 핵심 클러스터 운영 가이드
 
-### ⚙️ Vertica CoreTech (`03coretech.md`)
+### ⚙️ Vertica CoreTech (`300coretech`)
 * **vsql (CLI)**: CLI 접속 옵션 및 유용한 메타 커맨드(`\d`, `\timing`, `\x` 등)
 * **Monitoring**: Management Console(MC) 및 Grafana를 활용한 모니터링 방법
 * **Data Collector**: 시스템 메트릭 및 쿼리 통계 수집, 보존 정책 설정
@@ -80,7 +135,7 @@ Vertica 분석 플랫폼에 대한 기술 정보와 사용법을 공유하기 �
 * **Export (데이터 내보내기)**: vsql, EXPORT TO PARQUET/VERTICA 등 다양한 데이터 추출 방법
 * **EXPLAIN (쿼리 분석)**: 실행 계획 분석(EXPLAIN/PROFILE) 및 성능 최적화 포인트
 
-### 🚀 Vertica Utilization (`04utilization.md`)
+### 🚀 Vertica Utilization (`400utilization`)
 * **Python 연동**: `vertica-python` 라이브러리를 사용한 데이터 처리 및 분석
 * **Kafka 연동**: Kafka 스트리밍 데이터를 Vertica로 직접 적재하고 실시간 분석
 * **DBT 연동**: dbt(Data Build Tool)를 사용하여 Vertica의 데이터 변환 작업을 자동화하고 관리합니다.
@@ -90,13 +145,13 @@ Vertica 분석 플랫폼에 대한 기술 정보와 사용법을 공유하기 �
 * **AWS Glue & PyIceberg**: PyIceberg와 AWS Glue를 활용한 서버리스 데이터 운영
 * **Trino & Iceberg 연동**: 분산 SQL 쿼리 엔진 Trino와 Iceberg를 활용한 데이터 레이크하우스 연동 아키텍처
 
-### 🔒 Vertica Auth & Security (`05auth_security.md`)
+### 🔒 Vertica Auth & Security (`500auth_security`)
 * **Client Auth**: Hash, LDAP, TLS, OAuth 등 다양한 클라이언트 인증 방식 설정 및 관리
 * **LDAP 인증**: Active Directory 또는 OpenLDAP 서버와 연동하여 통합 계정 인증 구현
 * **TLS 보안**: 서버-클라이언트 간 상호 인증(Mutual Mode)으로 통신 암호화 및 보안 강화
 * **Okta 연동**: Okta IdP를 활용하여 데이터베이스 및 MC에 대한 SSO(Single Sign-On) 구현
 
-### 🚀 Vertica Installation (`06installation.md`)
+### 🚀 Vertica Installation (`600installation`)
 * **Vertica 설치**: Vertica 데이터베이스 설치를 위한 사전 요구사항 및 설치 과정
 * **Vertica 초기설정**: PK/UK 활성화, 로드 밸런싱, Export Address 등 권장 초기 설정
 * **Vertica 포트변경**: 보안 및 서비스 충돌 방지를 위한 기본 포트 변경 방법
@@ -105,11 +160,12 @@ Vertica 분석 플랫폼에 대한 기술 정보와 사용법을 공유하기 �
 * **Add Node (Enterprise)**: Enterprise Mode 클러스터에 노드를 추가하고 리밸런싱하는 방법
 * **Add Subcluster (Eon)**: Eon Mode 클러스터에 서브클러스터 또는 노드를 추가하는 방법
 
-### 🔗 기타 서비스 페이지
-* **Class (`91Class.md`)**: Vertica 교육 과정 안내 및 신청 방법 (메일 문의)
-* **QnA (`92QnA.md`)**: Giscus를 이용한 기술 문의 및 답변 게시판
-* **Lifecycle (`94lifecycle.md`)**: 제품 릴리즈 주기, 지원 정책, OS 호환성 정보
-* **Search (`95search.md`)**: 블로그 내 콘텐츠를 검색하는 페이지
+### 🔗 기타 서비스 페이지 (`900etc`)
+* **Class**: Vertica 교육 과정 안내 및 신청 방법 (메일 문의)
+* **QnA**: Giscus를 이용한 기술 문의 및 답변 게시판
+* **Reference**: 금융, 통신, 제조, 의료 등 다양한 산업 분야의 Vertica 도입 사례 소개
+* **Lifecycle**: 제품 릴리즈 주기, 지원 정책, OS 호환성 정보
+* **Search**: 블로그 내 콘텐츠를 검색하는 페이지
 
 ## 🔗 외부 관련 링크
 - **Vertica Docs (공식 문서)**: https://docs.vertica.com/26.1.x/en/

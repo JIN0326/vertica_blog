@@ -1,111 +1,113 @@
 - title: Playbook
-  url: /01playbook
+  url: /100playbook/100playbook
   sublinks:
     - title: Vertica란 무엇인가
-      url: /01playbook#what-is-vertica
+      url: /100playbook/100playbook#what-is-vertica
     - title: Vertica 핵심 기술
-      url: /01playbook#technology
+      url: /100playbook/100playbook#technology
     - title: Vertica 포트폴리오
-      url: /01playbook#portfolio
+      url: /100playbook/100playbook#portfolio
     - title: Vertica 아키텍처
-      url: /01playbook#architecture
+      url: /100playbook/100playbook#architecture
     - title: Vertica 연계
-      url: /01playbook#embracing
+      url: /100playbook/100playbook#embracing
+    - title: Vertica MCP 연동
+      url: /100playbook/100playbook#mcp-integration
     - title: Vertica EonMode
-      url: /01playbook#eonmode
-
+      url: /100playbook/100playbook#eonmode
+ 
 - title: Administration
-  url: /02administration
+  url: /200administration/200administration
   sublinks:
     - title: Table · Projection
-      url: /02administration#table-projection
+      url: /200administration/200administration#table-projection
     - title: Partition
-      url: /02administration#partition
+      url: /200administration/200administration#partition
     - title: Schema
-      url: /02administration#schema
+      url: /200administration/200administration#schema
     - title: User
-      url: /02administration#user
+      url: /200administration/200administration#user
     - title: Profile
-      url: /02administration#profile
+      url: /200administration/200administration#profile
     - title: Resource Pools
-      url: /02administration#resource-pool
+      url: /200administration/200administration#resource-pool
     - title: Privilege
-      url: /02administration#privilege
+      url: /200administration/200administration#privilege
     - title: Locks
-      url: /02administration#locks
+      url: /200administration/200administration#locks
     - title: Tuple Mover
-      url: /02administration#tuple-mover
+      url: /200administration/200administration#tuple-mover
     - title: Statistics (통계)
-      url: /02administration#statistics
+      url: /200administration/200administration#statistics
     - title: Backup & Restore
-      url: /02administration#backup-restore
+      url: /200administration/200administration#backup-restore
     - title: Cluster Operation
-      url: /02administration#cluster-operation
+      url: /200administration/200administration#cluster-operation
 
 - title: CoreTech
-  url: /03coretech
+  url: /300coretech/300coretech
   sublinks:
     - title: vsql (CLI)
-      url: /03coretech#vsql
+      url: /300coretech/300coretech#vsql
     - title: Monitoring
-      url: /03coretech#monitoring
+      url: /300coretech/300coretech#monitoring
     - title: Data Collector
-      url: /03coretech#data-collector
+      url: /300coretech/300coretech#data-collector
     - title: Clients
-      url: /03coretech#clients
+      url: /300coretech/300coretech#clients
     - title: Copy (데이터 적재)
-      url: /03coretech#copy
+      url: /300coretech/300coretech#copy
     - title: Export (데이터 내보내기)
-      url: /03coretech#export
+      url: /300coretech/300coretech#export
     - title: Explain (쿼리 분석)
-      url: /03coretech#explain
+      url: /300coretech/300coretech#explain
 
 - title: Utilization
-  url: /04utilization
+  url: /400utilization/400utilization
   sublinks:
     - title: Python 연동
-      url: /04utilization#python
+      url: /400utilization/400utilization#python
     - title: Kafka 연동
-      url: /04utilization#kafka
+      url: /400utilization/400utilization#kafka
     - title: DBT 연동
-      url: /04utilization#dbt
+      url: /400utilization/400utilization#dbt
     - title: Apache Airflow 연동
-      url: /04utilization#airflow
+      url: /400utilization/400utilization#airflow
     - title: Apache Iceberg 연동
-      url: /04utilization#iceberg
+      url: /400utilization/400utilization#iceberg
     - title: Apache Polaris 연동
-      url: /04utilization#polaris
+      url: /400utilization/400utilization#polaris
     - title: AWS Glue & PyIceberg 연동
-      url: /04utilization#aws-glue-pyiceberg
+      url: /400utilization/400utilization#aws-glue-pyiceberg
     - title: Trino & Iceberg 연동
-      url: /04utilization#trino-iceberg
+      url: /400utilization/400utilization#trino-iceberg
 
 - title: Auth&Security
-  url: /05auth_security
+  url: /500auth_security/500auth_security
   sublinks:
     - title: Client Auth
-      url: /05auth_security#auth-overview
+      url: /500auth_security/500auth_security#auth-overview
     - title: LDAP 인증
-      url: /05auth_security#ldap
+      url: /500auth_security/500auth_security#ldap
     - title: TLS 보안
-      url: /05auth_security#tls
+      url: /500auth_security/500auth_security#tls
     - title: Okta 연동
-      url: /05auth_security#okta
+      url: /500auth_security/500auth_security#okta
 
 - title: Installation
-  url: /06installation
+  url: /600installation/600installation
   sublinks:
     - title: Vertica 설치
-      url: /06installation#vertica-install
+      url: /600installation/600installation#vertica-install
     - title: Vertica 초기설정
-      url: /06installation#initial-setup
+      url: /600installation/600installation#initial-setup
     - title: Vertica 포트변경
-      url: /06installation#change-port
+      url: /600installation/600installation#change-port
     - title: MC 설치
-      url: /06installation#mc-install
+      url: /600installation/600installation#mc-install
     - title: vcluster (REST API CLI)
-      url: /06installation#vcluster
+      url: /600installation/600installation#vcluster
     - title: Add Node (Enterprise)
-      url: /06installation#add-node
+      url: /600installation/600installation#add-node
     - title: Add Subcluster (Eon)
-      url: /06installation#add-subcluster
+      url: /600installation/600installation#add-subcluster
