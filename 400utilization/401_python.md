@@ -3,10 +3,14 @@ title: "Vertica Python 연동: vertica-python 및 verticapy 활용 - Vertica Blo
 layout: default
 description: "Vertica와 Python 연동 방법을 알아봅니다. vertica-python 드라이버를 사용한 기본 연결 및 데이터 조회, verticapy를 활용한 인데이터베이스 분석 방법을 설명합니다."
 keywords: "vertica, python, vertica-python, verticapy, sqlalchemy, pandas, vdataframe"
+canonical_url: "https://jin0326.github.io/vertica_blog/400utilization/400utilization#python"
 ---
 
-<div id="python" style="scroll-margin-top: 100px;"></div>
+<div id="python" style="scroll-margin-top: 100px;" itemscope itemtype="https://schema.org/TechArticle">
+<meta itemprop="headline" content="{{ page.title | remove: ' - Vertica Blog' }}">
+<meta itemprop="url" content="{{ page.canonical_url }}">
 
+<div itemprop="articleBody">
 ## Python 연동
 
 <div class="architecture-section">
@@ -65,3 +69,5 @@ vp.close_connect("my_vertica_conn")</code></pre>
       </div>
     </div>
   </div>
+</div>
+</div>

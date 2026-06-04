@@ -3,10 +3,14 @@ title: "Vertica, Trino, Iceberg 연동: 연합 쿼리(Federated Query) - Vertica
 layout: default
 description: "Trino, Iceberg, Vertica를 연동하여 데이터 이동 없이 분산된 데이터를 통합 분석하는 연합 쿼리(Federated Query) 아키텍처 구축 방법을 알아봅니다."
 keywords: "vertica, trino, prestosql, iceberg, federated query, hive metastore"
+canonical_url: "https://jin0326.github.io/vertica_blog/400utilization/400utilization#trino-iceberg"
 ---
 
-<div id="trino-iceberg" style="scroll-margin-top: 100px;"></div>
+<div id="trino-iceberg" style="scroll-margin-top: 100px;" itemscope itemtype="https://schema.org/TechArticle">
+<meta itemprop="headline" content="{{ page.title | remove: ' - Vertica Blog' }}">
+<meta itemprop="url" content="{{ page.canonical_url }}">
 
+<div itemprop="articleBody">
 ## Trino & Iceberg 연동
 
 <div class="architecture-section">
@@ -127,4 +131,6 @@ WHERE i.reading > 20.0;</code></pre>
       </dd>
     </dl>
   </div>
+</div>
+</div>
 </div>

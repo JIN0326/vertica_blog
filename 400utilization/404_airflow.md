@@ -3,10 +3,14 @@ title: "Vertica Apache Airflow 연동: 데이터 파이프라인 자동화 - Ver
 layout: default
 description: "Apache Airflow를 사용하여 Vertica 데이터 파이프라인을 자동화하고 스케줄링하는 방법을 알아봅니다. Vertica Provider 설정 및 모니터링 DAG 작성 예제를 제공합니다."
 keywords: "vertica, airflow, apache airflow, data pipeline, etl, scheduling, dag, verticahook"
+canonical_url: "https://jin0326.github.io/vertica_blog/400utilization/400utilization#airflow"
 ---
 
-<div id="airflow" style="scroll-margin-top: 100px;"></div>
+<div id="airflow" style="scroll-margin-top: 100px;" itemscope itemtype="https://schema.org/TechArticle">
+<meta itemprop="headline" content="{{ page.title | remove: ' - Vertica Blog' }}">
+<meta itemprop="url" content="{{ page.canonical_url }}">
 
+<div itemprop="articleBody">
 ## Apache Airflow 연동
 
 <div class="architecture-section">
@@ -82,3 +86,5 @@ with DAG("vertica_monitoring_1", default_args=default_args, schedule_interval=No
   </div>
     </div>
   </div>
+</div>
+</div>

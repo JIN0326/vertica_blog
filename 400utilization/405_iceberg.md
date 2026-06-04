@@ -3,11 +3,15 @@ title: "Vertica Apache Iceberg 연동: 데이터 레이크하우스 구축 - Ver
 layout: default
 description: "Vertica와 Apache Iceberg를 연동하여 데이터 레이크하우스를 구축하는 방법을 알아봅니다. Spark를 이용한 테이블 생성 및 Vertica 외부 테이블 조회를 설명합니다."
 keywords: "vertica, apache iceberg, data lakehouse, spark, external table, stored by iceberg, minio, s3"
+canonical_url: "https://jin0326.github.io/vertica_blog/400utilization/400utilization#iceberg"
 ---
 
-<div id="iceberg" style="scroll-margin-top: 100px;"></div>
+<div id="iceberg" style="scroll-margin-top: 100px;" itemscope itemtype="https://schema.org/TechArticle">
+<meta itemprop="headline" content="{{ page.title | remove: ' - Vertica Blog' }}">
+<meta itemprop="url" content="{{ page.canonical_url }}">
 
-## Apache Iceberg 연동 
+<div itemprop="articleBody">
+## Apache Iceberg 연동
 <div class="architecture-section">
 <div class="flow-diagram">
   <img src="/vertica_blog/assets/images/util_iceberg.png" alt="Apache Iceberg">
@@ -126,3 +130,5 @@ SELECT * FROM user_ext1;
       </div>
     </div>
   </div>
+</div>
+</div>

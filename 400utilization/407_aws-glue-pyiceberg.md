@@ -3,10 +3,14 @@ title: "Vertica, AWS Glue, PyIceberg 연동: 서버리스 데이터 운영 - Ver
 layout: default
 description: "PyIceberg와 AWS Glue Catalog를 연동하여 서버리스 환경에서 Iceberg 테이블을 관리하고, Vertica에서 동적으로 조회하여 분석하는 방법을 알아봅니다."
 keywords: "vertica, pyiceberg, aws glue, glue catalog, serverless, s3, iam"
+canonical_url: "https://jin0326.github.io/vertica_blog/400utilization/400utilization#aws-glue-pyiceberg"
 ---
 
-<div id="aws-glue-pyiceberg" style="scroll-margin-top: 100px;"></div>
+<div id="aws-glue-pyiceberg" style="scroll-margin-top: 100px;" itemscope itemtype="https://schema.org/TechArticle">
+<meta itemprop="headline" content="{{ page.title | remove: ' - Vertica Blog' }}">
+<meta itemprop="url" content="{{ page.canonical_url }}">
 
+<div itemprop="articleBody">
 ## AWS Glue & PyIceberg 연동
 
 <div class="architecture-section">
@@ -132,4 +136,6 @@ SELECT * FROM ext_iceberg_test;
       <li><span class="feature-list__icon">💡</span> <strong>자동 메타데이터 동기화:</strong> <span><code>GLUE_DB</code>와 <code>GLUE_TABLE</code> 옵션을 사용하면, Iceberg 테이블의 스키마가 변경되거나 데이터가 추가되어도 Vertica에서 별도의 DDL 수정 없이 최신 상태를 자동으로 읽어올 수 있습니다.</span></li>
     </ul>
   </div>
+</div>
+</div>
 </div>

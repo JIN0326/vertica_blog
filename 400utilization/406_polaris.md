@@ -3,10 +3,14 @@ title: "Vertica Apache Polaris 연동: 중앙 메타데이터 관리 - Vertica B
 layout: default
 description: "Vertica와 중앙 메타데이터 서비스인 Apache Polaris를 연동하는 방법을 알아봅니다. Polaris 서버 구성, Spark 연동, Vertica에서의 동적 메타데이터 조회를 설명합니다."
 keywords: "vertica, apache polaris, iceberg, metadata catalog, rest catalog, spark"
+canonical_url: "https://jin0326.github.io/vertica_blog/400utilization/400utilization#polaris"
 ---
 
-<div id="polaris" style="scroll-margin-top: 100px;"></div>
+<div id="polaris" style="scroll-margin-top: 100px;" itemscope itemtype="https://schema.org/TechArticle">
+<meta itemprop="headline" content="{{ page.title | remove: ' - Vertica Blog' }}">
+<meta itemprop="url" content="{{ page.canonical_url }}">
 
+<div itemprop="articleBody">
 ## Apache Polaris 연동
 
 <div class="architecture-section">
@@ -135,3 +139,5 @@ SELECT * FROM polaris_test;
       </div>
     </div>
   </div>
+</div>
+</div>

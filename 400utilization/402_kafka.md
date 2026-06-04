@@ -3,10 +3,14 @@ title: "Vertica Kafka 연동: 실시간 데이터 적재 및 분석 - Vertica Bl
 layout: default
 description: "Vertica의 KafkaSource를 사용하여 Apache Kafka 스트리밍 데이터를 실시간으로 적재하고 분석하는 방법을 알아봅니다. 토픽 관리부터 COPY 명령어 사용까지 설명합니다."
 keywords: "vertica, kafka, kafkasource, streaming, real-time analytics, copy"
+canonical_url: "https://jin0326.github.io/vertica_blog/400utilization/400utilization#kafka"
 ---
 
-<div id="kafka" style="scroll-margin-top: 100px;"></div>
+<div id="kafka" style="scroll-margin-top: 100px;" itemscope itemtype="https://schema.org/TechArticle">
+<meta itemprop="headline" content="{{ page.title | remove: ' - Vertica Blog' }}">
+<meta itemprop="url" content="{{ page.canonical_url }}">
 
+<div itemprop="articleBody">
 ## Kafka 연동
 
 <div class="architecture-section">
@@ -67,4 +71,6 @@ FROM (SELECT KafkaOffsets() OVER()) AS stats
 ORDER BY kpartition;</code></pre>
     </div>
   </div>
+</div>
+</div>
 </div>
