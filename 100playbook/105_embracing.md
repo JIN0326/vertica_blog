@@ -3,10 +3,14 @@ title: "Vertica 연계: Kafka, Spark, HDFS, Object Storage 통합 가이드 - Ve
 layout: default
 description: "Vertica와 다양한 데이터 생태계의 연동 방법을 알아봅니다. Kafka, Spark, HDFS, Object Storage 등과 유기적으로 연계하여 데이터 파이프라인을 구축하는 방법을 소개합니다."
 keywords: "vertica, kafka, spark, hdfs, object storage, integration, data pipeline"
+canonical_url: "https://jin0326.github.io/vertica_blog/100playbook/100playbook#embracing"
 ---
 
-<div id="embracing" style="scroll-margin-top: 100px;"></div>
+<div id="embracing" style="scroll-margin-top: 100px;" itemscope itemtype="https://schema.org/TechArticle">
+<meta itemprop="headline" content="{{ page.title | remove: ' - Vertica Blog' }}">
+<meta itemprop="url" content="{{ page.canonical_url }}">
 
+<div itemprop="articleBody">
 ## Vertica 연계
 
 <div class="integration-section">
@@ -88,4 +92,6 @@ keywords: "vertica, kafka, spark, hdfs, object storage, integration, data pipeli
       </div>
     </article>
   </div>
+</div>
+</div>
 </div>

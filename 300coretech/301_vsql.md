@@ -3,10 +3,14 @@ title: "Vertica vsql (CLI): 접속, 메타 커맨드, 실행 옵션 가이드 - 
 layout: default
 description: "Vertica의 강력한 CLI 유틸리티인 vsql 사용법을 알아봅니다. 데이터베이스 접속, 쿼리 실행 옵션, 그리고 \d, \timing, \x 등 유용한 메타 커맨드를 설명합니다."
 keywords: "vertica, vsql, cli, command line, meta-command, vsql options"
+canonical_url: "https://jin0326.github.io/vertica_blog/300coretech/300coretech#vsql"
 ---
 
-<div id="vsql" style="scroll-margin-top: 100px;"></div>
+<div id="vsql" style="scroll-margin-top: 100px;" itemscope itemtype="https://schema.org/TechArticle">
+<meta itemprop="headline" content="{{ page.title | remove: ' - Vertica Blog' }}">
+<meta itemprop="url" content="{{ page.canonical_url }}">
 
+<div itemprop="articleBody">
 ## vsql (CLI)
 
 <div class="architecture-section">
@@ -59,4 +63,6 @@ keywords: "vertica, vsql, cli, command line, meta-command, vsql options"
       <li><span class="feature-list__icon">🔹</span> <strong>\o [file]:</strong> <span>이후 실행되는 쿼리의 결과를 화면이 아닌 지정한 파일로 저장합니다.</span></li>
     </ul>
   </div>
+</div>
+</div>
 </div>

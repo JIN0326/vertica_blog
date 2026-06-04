@@ -3,10 +3,14 @@ title: "Vertica Privilege & Role: 권한 관리, 상속, 위임 - Vertica Blog"
 layout: default
 description: "Vertica의 권한(Privilege) 및 역할(Role) 관리 방법을 알아봅니다. 스키마 권한 상속, Role 기반 권한 부여, 그리고 WITH GRANT OPTION을 사용한 권한 위임 방법을 설명합니다."
 keywords: "vertica, privilege, role, grant, revoke, schema inheritance, with grant option"
+canonical_url: "https://jin0326.github.io/vertica_blog/200administration/200administration#privilege"
 ---
 
-<div id="privilege" style="scroll-margin-top: 100px;"></div>
+<div id="privilege" style="scroll-margin-top: 100px;" itemscope itemtype="https://schema.org/TechArticle">
+<meta itemprop="headline" content="{{ page.title | remove: ' - Vertica Blog' }}">
+<meta itemprop="url" content="{{ page.canonical_url }}">
 
+<div itemprop="articleBody">
 ## Privilege
 <div class="architecture-section">
   <p class="section-description"><strong>Privilege(권한)</strong>는 사용자가 SCHEMA, TABLE, RESOURCE POOL 등의 객체에 접근하고 조작할 수 있는 권리를 의미합니다. Vertica에서는 <strong>Role(역할)</strong> 기반의 권한 관리와 <strong>스키마 권한 상속(Schema Inheritance)</strong>을 적극 활용하여 복잡한 권한 체계를 효율적으로 관리할 수 있습니다.</p>
@@ -164,4 +168,6 @@ LEFT OUTER JOIN (
 ORDER BY 1, 2, 3;</code></pre>
     </div>
   </div>
+</div>
+</div>
 </div>

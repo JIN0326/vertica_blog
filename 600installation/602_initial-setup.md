@@ -3,10 +3,14 @@ title: "Vertica 초기설정: DB 생성 후 권장 설정 가이드 - Vertica Bl
 layout: default
 description: "Vertica 데이터베이스 생성 후 권장되는 초기 설정 방법을 알아봅니다. PK/UK 제약조건 활성화, 클라이언트 연결 로드 밸런싱, DBeaver 설정, Export Address 설정 등을 다룹니다."
 keywords: "vertica, initial setup, configuration, primary key, unique key, load balancing, roundrobin, dbeaver, export address, post-installation"
+canonical_url: "https://jin0326.github.io/vertica_blog/600installation/600installation#initial-setup"
 ---
 
-<div id="initial-setup" style="scroll-margin-top: 100px;"></div>
+<div id="initial-setup" style="scroll-margin-top: 100px;" itemscope itemtype="https://schema.org/TechArticle">
+<meta itemprop="headline" content="{{ page.title | remove: ' - Vertica Blog' }}">
+<meta itemprop="url" content="{{ page.canonical_url }}">
 
+<div itemprop="articleBody">
 ## 초기 설정
 <div class="architecture-section">
   <p class="section-description">데이터베이스 생성 후, 안정적인 운영과 성능 최적화를 위해 몇 가지 초기 설정을 수행하는 것이 좋습니다.</p>
@@ -70,4 +74,6 @@ SELECT node_name, node_address, export_address FROM nodes;
 </code></pre>
     </div>
   </div>
+</div>
+</div>
 </div>

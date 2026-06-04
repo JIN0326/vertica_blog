@@ -3,10 +3,14 @@ title: "Vertica Copy: 대용량 데이터 고속 적재 및 에러 처리 - Vert
 layout: default
 description: "Vertica의 대용량 데이터 고속 적재 명령어인 COPY의 사용법을 알아봅니다. 서버/클라이언트 파일, STDIN, 다른 Vertica DB로부터 데이터를 적재하는 방법과 REJECTED DATA, EXCEPTIONS를 활용한 에러 처리 기법을 다룹니다."
 keywords: "vertica, copy, bulk load, data loading, copy from, copy local, copy from stdin, copy from vertica, rejected data, exceptions, delimiter"
+canonical_url: "https://jin0326.github.io/vertica_blog/300coretech/300coretech#copy"
 ---
 
-<div id="copy" style="scroll-margin-top: 100px;"></div>
+<div id="copy" style="scroll-margin-top: 100px;" itemscope itemtype="https://schema.org/TechArticle">
+<meta itemprop="headline" content="{{ page.title | remove: ' - Vertica Blog' }}">
+<meta itemprop="url" content="{{ page.canonical_url }}">
 
+<div itemprop="articleBody">
 ## Copy (대용량 데이터 적재)
 
 <div class="architecture-section">
@@ -92,4 +96,6 @@ DISCONNECT source_db;</code></pre>
       <li><span class="feature-list__icon">🔹</span> <strong>ABORT ON ERROR:</strong> <span>단 1건의 에러라도 발생하면 전체 Copy 작업을 즉시 중단하고 롤백(Rollback)시켜 데이터 정합성을 보호합니다.</span></li>
     </ul>
   </div>
+</div>
+</div>
 </div>

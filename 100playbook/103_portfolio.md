@@ -3,10 +3,14 @@ title: "Vertica 포트폴리오: 온프레미스, 클라우드, Eon Mode 배포 
 layout: default
 description: "온프레미스부터 퍼블릭/프라이빗 클라우드까지, 고객의 환경에 최적화된 Vertica의 다양한 배포 옵션(Enterprise, Eon Mode, BYOL)을 소개합니다."
 keywords: "vertica portfolio, on-premise, cloud, eon mode, byol, aws, azure, gcp, kubernetes"
+canonical_url: "https://jin0326.github.io/vertica_blog/100playbook/100playbook#portfolio"
 ---
 
-<div id="portfolio" style="scroll-margin-top: 100px;"></div>
+<div id="portfolio" style="scroll-margin-top: 100px;" itemscope itemtype="https://schema.org/TechArticle">
+<meta itemprop="headline" content="{{ page.title | remove: ' - Vertica Blog' }}">
+<meta itemprop="url" content="{{ page.canonical_url }}">
 
+<div itemprop="articleBody">
 ## Vertica 포트폴리오
 
 Vertica는 온프레미스부터 퍼블릭/프라이빗 클라우드까지 고객의 환경에 최적화된 다양한 배포 옵션을 제공합니다.
@@ -69,4 +73,6 @@ Vertica는 온프레미스부터 퍼블릭/프라이빗 클라우드까지 고�
     </ul>
   </div>
 
+</div>
+</div>
 </div>

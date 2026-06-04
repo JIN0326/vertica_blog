@@ -3,10 +3,14 @@ title: "Vertica Vcluster: REST API CLI를 이용한 클러스터 관리 - Vertic
 layout: default
 description: "Vertica 클러스터를 REST API로 관리하는 커맨드 라인 인터페이스(CLI) 도구인 vcluster의 사용법을 알아봅니다. DB 생성, 시작/중지, 노드/서브클러스터 관리, 복구(revive) 등 다양한 명령어를 다룹니다."
 keywords: "vertica, vcluster, rest api, cli, nma, create_db, start_db, add_node, add_subcluster, revive_db, eon mode, scrutinize, re-ip"
+canonical_url: "https://jin0326.github.io/vertica_blog/600installation/600installation#vcluster"
 ---
 
-<div id="vcluster" style="scroll-margin-top: 100px;"></div>
+<div id="vcluster" style="scroll-margin-top: 100px;" itemscope itemtype="https://schema.org/TechArticle">
+<meta itemprop="headline" content="{{ page.title | remove: ' - Vertica Blog' }}">
+<meta itemprop="url" content="{{ page.canonical_url }}">
 
+<div itemprop="articleBody">
 ## vcluster (REST API CLI)
 
 <div class="architecture-section">
@@ -114,4 +118,6 @@ vcluster create_connection start --target-conn /opt/vertica/config/target_vertic
 vcluster replication start --target-conn /opt/vertica/config/target_vertica_conn.yaml -p ""</code></pre>
     </div>
   </div>
+</div>
+</div>
 </div>

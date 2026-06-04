@@ -3,10 +3,14 @@ title: "Vertica Statistics: 쿼리 옵티마이저를 위한 통계 관리 - Ver
 layout: default
 description: "Vertica 쿼리 옵티마이저의 성능을 좌우하는 통계(Statistics) 정보 관리 방법을 알아봅니다. ANALYZE_STATISTICS를 이용한 통계 수집, 내보내기, 가져오기 방법을 설명합니다."
 keywords: "vertica, statistics, analyze_statistics, query optimizer, execution plan, export_statistics"
+canonical_url: "https://jin0326.github.io/vertica_blog/200administration/200administration#statistics"
 ---
 
-<div id="statistics" style="scroll-margin-top: 100px;"></div>
+<div id="statistics" style="scroll-margin-top: 100px;" itemscope itemtype="https://schema.org/TechArticle">
+<meta itemprop="headline" content="{{ page.title | remove: ' - Vertica Blog' }}">
+<meta itemprop="url" content="{{ page.canonical_url }}">
 
+<div itemprop="articleBody">
 ## Statistics (통계)
 
 <div class="architecture-section">
@@ -73,4 +77,6 @@ FROM v_catalog.projection_columns
 WHERE projection_schema = 'public' AND projection_name LIKE 'sales%';</code></pre>
     </div>
   </div>
+</div>
+</div>
 </div>

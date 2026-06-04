@@ -3,10 +3,14 @@ title: "Vertica MC Install: Management Console 설치 및 DB 등록 - Vertica Bl
 layout: default
 description: "Vertica 클러스터를 모니터링하고 관리하기 위한 웹 기반 도구인 Management Console(MC)의 설치 과정과 데이터베이스 등록 방법을 안내합니다."
 keywords: "vertica, management console, mc, install, setup, monitoring, rpm, verticad, 5450"
+canonical_url: "https://jin0326.github.io/vertica_blog/600installation/600installation#mc-install"
 ---
 
-<div id="mc-install" style="scroll-margin-top: 100px;"></div>
+<div id="mc-install" style="scroll-margin-top: 100px;" itemscope itemtype="https://schema.org/TechArticle">
+<meta itemprop="headline" content="{{ page.title | remove: ' - Vertica Blog' }}">
+<meta itemprop="url" content="{{ page.canonical_url }}">
 
+<div itemprop="articleBody">
 ## Management Console (MC) 설치
 
 <div class="architecture-section">
@@ -70,4 +74,6 @@ keywords: "vertica, management console, mc, install, setup, monitoring, rpm, ver
     <h3 class="section-subtitle">3. 데이터베이스 등록</h3>
     <p class="section-description">MC에 처음 접속한 후, 모니터링하고 관리할 Vertica 데이터베이스를 등록해야 합니다. MC의 'Import an existing Vertica database' 메뉴를 통해 데이터베이스 호스트, DB명, 사용자 정보 등을 입력하여 등록을 완료합니다.</p>
   </div>
+</div>
+</div>
 </div>

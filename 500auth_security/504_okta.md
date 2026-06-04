@@ -3,10 +3,14 @@ title: "Vertica Okta 연동: OAuth/OIDC 기반 SSO 구현 - Vertica Blog"
 layout: default
 description: "Okta를 IdP로 사용하여 Vertica 데이터베이스(OAuth 2.0) 및 Management Console(MC, OpenID Connect)에 대한 SSO(Single Sign-On)를 구현하는 방법을 알아봅니다."
 keywords: "vertica, okta, sso, single sign-on, oauth, oidc, openid connect, idp, management console, mc"
+canonical_url: "https://jin0326.github.io/vertica_blog/500auth_security/500auth_security#okta"
 ---
 
-<div id="okta" style="scroll-margin-top: 100px;"></div>
+<div id="okta" style="scroll-margin-top: 100px;" itemscope itemtype="https://schema.org/TechArticle">
+<meta itemprop="headline" content="{{ page.title | remove: ' - Vertica Blog' }}">
+<meta itemprop="url" content="{{ page.canonical_url }}">
 
+<div itemprop="articleBody">
 ## Okta 연동
 
 <div class="architecture-section">
@@ -123,4 +127,6 @@ GRANT AUTHENTICATION v_oauth TO "user@example.com";</code></pre>
       <img src="/vertica_blog/assets/images/okta4.png" alt="Vertica MC Okta 로그인 화면" style="width: 100%; max-width: 800px; margin: 1.5rem auto; display: block; border: 1px solid #e0e0e0; border-radius: 8px;">
     </div>
   </div>
+</div>
+</div>
 </div>

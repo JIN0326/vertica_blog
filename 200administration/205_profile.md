@@ -3,10 +3,14 @@ title: "Vertica Profile: 패스워드 정책 및 보안 프로파일 관리 - Ve
 layout: default
 description: "Vertica의 Profile(프로파일)을 사용하여 사용자의 보안 및 패스워드 정책을 관리하는 방법을 알아봅니다. 패스워드 유효 기간, 최소 길이, 로그인 실패 횟수 등을 설정합니다."
 keywords: "vertica, profile, create profile, password policy, security, failed_login_attempts, password_life_time"
+canonical_url: "https://jin0326.github.io/vertica_blog/200administration/200administration#profile"
 ---
 
-<div id="profile" style="scroll-margin-top: 100px;"></div>
+<div id="profile" style="scroll-margin-top: 100px;" itemscope itemtype="https://schema.org/TechArticle">
+<meta itemprop="headline" content="{{ page.title | remove: ' - Vertica Blog' }}">
+<meta itemprop="url" content="{{ page.canonical_url }}">
 
+<div itemprop="articleBody">
 ## Profile
 
 <div class="architecture-section">
@@ -33,4 +37,6 @@ CREATE PROFILE strict_profile LIMIT
 -- 기존 사용자에게 새 프로파일 적용
 ALTER USER analyst PROFILE strict_profile;</code></pre>
   </div>
+</div>
+</div>
 </div>

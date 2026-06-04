@@ -3,10 +3,14 @@ title: "Vertica Schema: 스키마 생성, 관리, 권한 상속 - Vertica Blog"
 layout: default
 description: "Vertica의 Schema(스키마) 관리 방법을 알아봅니다. 기본 스키마의 종류, 스키마 생성 및 수정, 그리고 DEFAULT INCLUDE PRIVILEGES를 통한 권한 상속 방법을 설명합니다."
 keywords: "vertica, schema, create schema, alter schema, drop schema, public, v_catalog, schema inheritance"
+canonical_url: "https://jin0326.github.io/vertica_blog/200administration/200administration#schema"
 ---
 
-<div id="schema" style="scroll-margin-top: 100px;"></div>
+<div id="schema" style="scroll-margin-top: 100px;" itemscope itemtype="https://schema.org/TechArticle">
+<meta itemprop="headline" content="{{ page.title | remove: ' - Vertica Blog' }}">
+<meta itemprop="url" content="{{ page.canonical_url }}">
 
+<div itemprop="articleBody">
 ## Schema
 
 <div class="architecture-section">
@@ -91,4 +95,6 @@ ALTER SCHEMA sales_biz OWNER TO dbadmin;</code></pre>
       </dd>
     </dl>
   </div>
+</div>
+</div>
 </div>

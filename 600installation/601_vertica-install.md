@@ -3,10 +3,14 @@ title: "Vertica Install: DB 설치 및 클러스터 구성 - Vertica Blog"
 layout: default
 description: "Vertica 데이터베이스 설치를 위한 사전 요구사항, OS 설정, 필수 패키지 설치, RPM 설치, install_vertica 스크립트 실행, 데이터베이스 생성까지의 과정을 상세히 안내합니다."
 keywords: "vertica, install, setup, prerequisites, os settings, rpm, install_vertica, create database, enterprise mode, eon mode, cluster, centos, redhat"
+canonical_url: "https://jin0326.github.io/vertica_blog/600installation/600installation#vertica-install"
 ---
 
-<div id="vertica-install" style="scroll-margin-top: 100px;"></div>
+<div id="vertica-install" style="scroll-margin-top: 100px;" itemscope itemtype="https://schema.org/TechArticle">
+<meta itemprop="headline" content="{{ page.title | remove: ' - Vertica Blog' }}">
+<meta itemprop="url" content="{{ page.canonical_url }}">
 
+<div itemprop="articleBody">
 ## Vertica 설치
 
 <div class="architecture-section">
@@ -247,4 +251,6 @@ awsenablehttps = 0
     -x /home/vertica/auth_params.conf</code></pre>
     </div>
   </div>
+</div>
+</div>
 </div>

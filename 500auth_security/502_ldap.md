@@ -3,11 +3,15 @@ title: "Vertica LDAP: OpenLDAP/AD 연동 및 인증 설정 - Vertica Blog"
 layout: default
 description: "Vertica와 OpenLDAP 또는 Active Directory(AD)를 연동하여 사용자 인증을 설정하는 방법을 알아봅니다. LDAP Bind 및 Search and Bind 방식, Docker를 이용한 실습 과정을 포함합니다."
 keywords: "vertica, ldap, openldap, active directory, ad, authentication, ldap bind, search and bind, docker"
+canonical_url: "https://jin0326.github.io/vertica_blog/500auth_security/500auth_security#ldap"
 ---
 
-<div id="ldap" style="scroll-margin-top: 100px;"></div>
+<div id="ldap" style="scroll-margin-top: 100px;" itemscope itemtype="https://schema.org/TechArticle">
+<meta itemprop="headline" content="{{ page.title | remove: ' - Vertica Blog' }}">
+<meta itemprop="url" content="{{ page.canonical_url }}">
 
-## LDAP 인증 
+<div itemprop="articleBody">
+## LDAP 인증
 <div class="architecture-section">
   <p class="section-description">Vertica는 사내 통합 계정 관리를 위해 OpenLDAP 또는 Active Directory(AD) 서버와 연동하여 사용자 인증을 수행할 수 있습니다. 주로 <strong>LDAP Bind (단순 바인드)</strong>와 <strong>LDAP Search and Bind (검색 및 바인드)</strong> 두 가지 방식을 지원합니다.</p>
 
@@ -180,4 +184,6 @@ ORDER BY method_priority;</code></pre>
       </div>
     </div>
   </div>
+</div>
+</div>
 </div>

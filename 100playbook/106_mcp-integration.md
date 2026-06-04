@@ -3,10 +3,14 @@ title: "Vertica MCP 연동: LLM을 활용한 자연어 데이터 분석 - Vertic
 layout: default
 description: "Vertica와 LLM(Claude 등)을 연동하여 자연어 기반 데이터 분석을 수행하는 방법을 알아봅니다. MCP(Model Context Protocol)를 활용한 AI Agent 구축 및 구성 예시를 제공합니다."
 keywords: "vertica, mcp, model context protocol, llm, claude, ai agent, natural language query"
+canonical_url: "https://jin0326.github.io/vertica_blog/100playbook/100playbook#mcp-integration"
 ---
 
-<div id="mcp-integration" style="scroll-margin-top: 100px;"></div>
+<div id="mcp-integration" style="scroll-margin-top: 100px;" itemscope itemtype="https://schema.org/TechArticle">
+<meta itemprop="headline" content="{{ page.title | remove: ' - Vertica Blog' }}">
+<meta itemprop="url" content="{{ page.canonical_url }}">
 
+<div itemprop="articleBody">
 ## Vertica MCP 연동
 
 <div class="architecture-section">
@@ -97,4 +101,6 @@ winget install OpenJS.Nodejs
   <p class="section-description">
     설정이 완료되면 LLM(Claude Desktop)에서 제공되는 다양한 Tool(예: <code>Get schema tables</code>, <code>Run query safely</code>)을 사용하여 자연어로 직접 Vertica DB의 테이블 구조를 파악하고, 조건에 맞는 복잡한 쿼리를 실행하여 결과 데이터를 추출할 수 있습니다.
   </p>
+</div>
+</div>
 </div>

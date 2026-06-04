@@ -3,10 +3,14 @@ title: "Vertica Client Authentication: 인증 방식 개요 - Vertica Blog"
 layout: default
 description: "Vertica가 지원하는 다양한 클라이언트 인증 방식(Hash, LDAP, TLS, OAuth)과 인증 우선순위 로직을 알아봅니다."
 keywords: "vertica, client authentication, hash, ldap, tls, oauth, authentication method, priority"
+canonical_url: "https://jin0326.github.io/vertica_blog/500auth_security/500auth_security#auth-overview"
 ---
 
-<div id="auth-overview" style="scroll-margin-top: 100px;"></div>
+<div id="auth-overview" style="scroll-margin-top: 100px;" itemscope itemtype="https://schema.org/TechArticle">
+<meta itemprop="headline" content="{{ page.title | remove: ' - Vertica Blog' }}">
+<meta itemprop="url" content="{{ page.canonical_url }}">
 
+<div itemprop="articleBody">
 ## Client Authentication
 
 <div class="architecture-section">
@@ -30,4 +34,6 @@ keywords: "vertica, client authentication, hash, ldap, tls, oauth, authenticatio
       </ol>
     </div>
   </div>
+</div>
+</div>
 </div>

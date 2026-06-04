@@ -3,10 +3,14 @@ title: "Vertica EonMode: 컴퓨팅/스토리지 분리 아키텍처 심층 분�
 layout: default
 description: "Vertica Eon Mode의 컴퓨팅/스토리지(C/S) 분리 아키텍처를 심층 분석합니다. 확장성, 비용 효율성, 고가용성 등 3대 핵심 이점과 워크로드 격리, 제로 다운타임 마이그레이션 등 실전 Use Case를 알아봅니다."
 keywords: "vertica, eon mode, c/s separation, cloud, object storage, scalability, availability, workload isolation, revive"
+canonical_url: "https://jin0326.github.io/vertica_blog/100playbook/100playbook#eonmode"
 ---
 
-<div id="eonmode" style="scroll-margin-top: 100px;"></div>
+<div id="eonmode" style="scroll-margin-top: 100px;" itemscope itemtype="https://schema.org/TechArticle">
+<meta itemprop="headline" content="{{ page.title | remove: ' - Vertica Blog' }}">
+<meta itemprop="url" content="{{ page.canonical_url }}">
 
+<div itemprop="articleBody">
 ## Vertica EonMode
 
 <div class="eonmode-section architecture-section">
@@ -100,4 +104,6 @@ keywords: "vertica, eon mode, c/s separation, cloud, object storage, scalability
     </div>
   </div>
 
+</div>
+</div>
 </div>

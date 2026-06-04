@@ -3,10 +3,14 @@ title: "Vertica Locks: 잠금 메커니즘과 동시성 제어 - Vertica Blog"
 layout: default
 description: "Vertica의 동시성 제어를 위한 잠금(Lock) 메커니즘을 알아봅니다. I, S, U, X, O 잠금 모드의 종류와 호환성, 그리고 LOCKS 시스템 테이블을 통한 모니터링 방법을 설명합니다."
 keywords: "vertica, locks, concurrency control, deadlock, lock modes, share lock, exclusive lock, update lock"
+canonical_url: "https://jin0326.github.io/vertica_blog/200administration/200administration#locks"
 ---
 
-<div id="locks" style="scroll-margin-top: 100px;"></div>
+<div id="locks" style="scroll-margin-top: 100px;" itemscope itemtype="https://schema.org/TechArticle">
+<meta itemprop="headline" content="{{ page.title | remove: ' - Vertica Blog' }}">
+<meta itemprop="url" content="{{ page.canonical_url }}">
 
+<div itemprop="articleBody">
 ## Locks
 
 <div class="architecture-section">
@@ -57,4 +61,6 @@ SELECT * FROM locks;</code></pre>
       <li><span class="feature-list__icon">💡</span> <strong>Tip:</strong> <span>장시간 실행되는 쿼리나 DML 작업으로 인해 다른 세션들이 잠금 대기(Lock Wait) 상태에 빠지는 경우가 많습니다. <code>v_monitor.locks</code>와 <code>v_monitor.sessions</code>를 조인하여 잠금을 보유한 세션의 상세 정보를 파악하고 문제를 해결할 수 있습니다.</span></li>
     </ul>
   </div>
+</div>
+</div>
 </div>

@@ -3,10 +3,14 @@ title: "Vertica Backup & Restore: vbr을 이용한 백업 및 복구 - Vertica B
 layout: default
 description: "Vertica의 vbr 유틸리티를 사용한 백업 및 복구 방법을 알아봅니다. 전체 백업, 객체 단위 백업, 하드링크 백업, 클라우드 백업 등 다양한 시나리오를 설명합니다."
 keywords: "vertica, backup, restore, vbr, full backup, object-level backup, hard-link, cloud backup, eon mode"
+canonical_url: "https://jin0326.github.io/vertica_blog/200administration/200administration#backup-restore"
 ---
 
-<div id="backup-restore" style="scroll-margin-top: 100px;"></div>
+<div id="backup-restore" style="scroll-margin-top: 100px;" itemscope itemtype="https://schema.org/TechArticle">
+<meta itemprop="headline" content="{{ page.title | remove: ' - Vertica Blog' }}">
+<meta itemprop="url" content="{{ page.canonical_url }}">
 
+<div itemprop="articleBody">
 ## Backup & Restore
 <div class="architecture-section">
   <p class="section-description">Vertica는 <code>vbr</code> 유틸리티를 통해 다양한 백업 및 복구 시나리오를 지원합니다. 백업 방식은 크게 전체 DB를 백업하는 <strong>Full Backup</strong>과 특정 객체만 백업하는 <strong>Object-Level Backup</strong>으로 나뉩니다. 모든 설정은 <code>.ini</code> 구성 파일을 통해 관리되며, 다양한 예제 파일이 <code>/opt/vertica/share/vbr/example_configs</code> 경로에 제공됩니다.</p>
@@ -233,4 +237,6 @@ WHERE 1=1
 ORDER BY vbr.start_time DESC;</code></pre>
     </div>
   </div>
+</div>
+</div>
 </div>

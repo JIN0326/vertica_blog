@@ -3,10 +3,14 @@ title: "Vertica Export: Parquet/Iceberg/CSV 데이터 내보내기 - Vertica Blo
 layout: default
 description: "Vertica의 데이터를 외부로 내보내는 다양한 방법을 알아봅니다. vsql을 이용한 텍스트 파일 추출, EXPORT TO DELIMITED, 그리고 데이터 레이크 연동을 위한 EXPORT TO PARQUET/ICEBERG, 클러스터 간 복제를 위한 EXPORT TO VERTICA 사용법을 다룹니다."
 keywords: "vertica, export, data export, vsql, export to delimited, export to parquet, export to iceberg, export to vertica, data lake, s3, hdfs"
+canonical_url: "https://jin0326.github.io/vertica_blog/300coretech/300coretech#export"
 ---
 
-<div id="export" style="scroll-margin-top: 100px;"></div>
+<div id="export" style="scroll-margin-top: 100px;" itemscope itemtype="https://schema.org/TechArticle">
+<meta itemprop="headline" content="{{ page.title | remove: ' - Vertica Blog' }}">
+<meta itemprop="url" content="{{ page.canonical_url }}">
 
+<div itemprop="articleBody">
 ## Export (데이터 내보내기)
 
 <div class="architecture-section">
@@ -104,4 +108,6 @@ AS SELECT * FROM public.sales;
 DISCONNECT target_db;</code></pre>
     </div>
   </div>
+</div>
+</div>
 </div>

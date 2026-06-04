@@ -3,10 +3,14 @@ title: "Vertica Cluster Operation: 클러스터 운영 및 장애 조치 - Verti
 layout: default
 description: "Vertica 클러스터의 안정적인 운영을 위한 기동/중지, 노드 장애 시 조치 절차, 그리고 진단 파일 생성(Scrutinize) 등 핵심 운영 가이드를 제공합니다."
 keywords: "vertica, cluster operation, admintools, start_db, stop_db, restart_node, scrutinize, management console"
+canonical_url: "https://jin0326.github.io/vertica_blog/200administration/200administration#cluster-operation"
 ---
 
-<div id="cluster-operation" style="scroll-margin-top: 100px;"></div>
+<div id="cluster-operation" style="scroll-margin-top: 100px;" itemscope itemtype="https://schema.org/TechArticle">
+<meta itemprop="headline" content="{{ page.title | remove: ' - Vertica Blog' }}">
+<meta itemprop="url" content="{{ page.canonical_url }}">
 
+<div itemprop="articleBody">
 ## Cluster Operation & Diagnostics
 
 <div class="architecture-section">
@@ -108,4 +112,6 @@ sudo systemctl start vertica-consoled
 sudo systemctl stop vertica-consoled</code></pre>
     </div>
   </div>
+</div>
+</div>
 </div>

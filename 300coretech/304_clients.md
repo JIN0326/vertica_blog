@@ -3,10 +3,14 @@ title: "Vertica Clients: DBeaver, JDBC, ODBC 연결 및 HA 설정 - Vertica Blog
 layout: default
 description: "Vertica에 접속하기 위한 다양한 클라이언트(DBeaver, JDBC, ODBC) 설정 방법을 알아봅니다. 안정적인 운영을 위한 로드 밸런싱(Load Balancing)과 고가용성(HA)을 위한 대체 노드(Backup Server Node) 설정 방법을 포함합니다."
 keywords: "vertica, clients, jdbc, odbc, dbeaver, datagrip, connection, ha, high availability, load balancing, backupservernode, dsn"
+canonical_url: "https://jin0326.github.io/vertica_blog/300coretech/300coretech#clients"
 ---
 
-<div id="clients" style="scroll-margin-top: 100px;"></div>
+<div id="clients" style="scroll-margin-top: 100px;" itemscope itemtype="https://schema.org/TechArticle">
+<meta itemprop="headline" content="{{ page.title | remove: ' - Vertica Blog' }}">
+<meta itemprop="url" content="{{ page.canonical_url }}">
 
+<div itemprop="articleBody">
 ## Clients
 
 <div class="architecture-section">
@@ -110,4 +114,6 @@ LogPath=/tmp</code></pre>
       <li style="word-break: keep-all;"><span class="feature-list__icon">🔹</span>환경 변수 등록 : ODBC 드라이버가 vertica.ini 파일을 인식하도록 (.profile) 또는 (.bash_profile)에 "export VERTICAINI=/etc/vertica.ini" 환경 변수를 추가해야 합니다.</li>
     </ul>
   </div>
+</div>
+</div>
 </div>

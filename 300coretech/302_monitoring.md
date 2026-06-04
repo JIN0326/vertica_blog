@@ -3,10 +3,14 @@ title: "Vertica Monitoring: MC 및 Grafana를 활용한 모니터링 - Vertica B
 layout: default
 description: "Vertica 데이터베이스 모니터링 방법을 알아봅니다. Management Console(MC)의 실시간 현황 확인과 Grafana를 활용한 맞춤형 대시보드 구축 방법을 설명합니다."
 keywords: "vertica, monitoring, management console, mc, grafana, dashboard, v_monitor"
+canonical_url: "https://jin0326.github.io/vertica_blog/300coretech/300coretech#monitoring"
 ---
 
-<div id="monitoring" style="scroll-margin-top: 100px;"></div>
+<div id="monitoring" style="scroll-margin-top: 100px;" itemscope itemtype="https://schema.org/TechArticle">
+<meta itemprop="headline" content="{{ page.title | remove: ' - Vertica Blog' }}">
+<meta itemprop="url" content="{{ page.canonical_url }}">
 
+<div itemprop="articleBody">
 ## Monitoring
 
 <div class="architecture-section">
@@ -47,3 +51,5 @@ keywords: "vertica, monitoring, management console, mc, grafana, dashboard, v_mo
         </dl>
     </div>
   </div>
+</div>
+</div>

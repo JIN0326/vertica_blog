@@ -3,10 +3,14 @@ title: "Vertica Data Collector: 시스템 메트릭 수집 및 보존 정책 - V
 layout: default
 description: "Vertica의 Data Collector(DC) 역할과 데이터 보존 정책 설정 방법을 알아봅니다. 시스템 메트릭, 쿼리 통계 등 운영 데이터를 효율적으로 관리하는 방법을 설명합니다."
 keywords: "vertica, data collector, dc, retention policy, get_data_collector_policy, set_data_collector_policy"
+canonical_url: "https://jin0326.github.io/vertica_blog/300coretech/300coretech#data-collector"
 ---
 
-<div id="data-collector" style="scroll-margin-top: 100px;"></div>
+<div id="data-collector" style="scroll-margin-top: 100px;" itemscope itemtype="https://schema.org/TechArticle">
+<meta itemprop="headline" content="{{ page.title | remove: ' - Vertica Blog' }}">
+<meta itemprop="url" content="{{ page.canonical_url }}">
 
+<div itemprop="articleBody">
 ## Data Collector
 
 <div class="architecture-section">
@@ -80,4 +84,6 @@ LIMIT 1 OVER(PARTITION BY x.table_name ORDER BY kb_per_day DESC);</code></pre>
       </dd>
     </dl>
   </div>
+</div>
+</div>
 </div>

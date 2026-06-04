@@ -3,10 +3,14 @@ title: "Vertica 핵심 기술: Columnar, 압축, Projections, 분산 쿼리 엔�
 layout: default
 description: "Vertica의 6가지 핵심 기술 요소인 Native Columnar Storage, 데이터 압축, Projections, 분산 쿼리 엔진, MCP 연동, MPP Scale-out에 대해 알아봅니다."
 keywords: "columnar storage, data compression, projections, distributed query engine, mcp, mpp scale-out"
+canonical_url: "https://jin0326.github.io/vertica_blog/100playbook/100playbook#technology"
 ---
 
-<div id="technology" style="scroll-margin-top: 100px; margin-top: 60px;"></div>
+<div id="technology" style="scroll-margin-top: 100px; margin-top: 60px;" itemscope itemtype="https://schema.org/TechArticle">
+<meta itemprop="headline" content="{{ page.title | remove: ' - Vertica Blog' }}">
+<meta itemprop="url" content="{{ page.canonical_url }}">
 
+<div itemprop="articleBody">
 ## Vertica 핵심 기술
 
 Vertica는 다음 6가지 기술 요소를 중심으로 고성능 분석을 지원합니다.
@@ -59,4 +63,6 @@ Vertica는 다음 6가지 기술 요소를 중심으로 고성능 분석을 지�
       <li>Name node와 같은 Single point of failure를 제거한 순수 MPP 아키텍처입니다.(Massively Parallel Processing)</li>
     </ul>
   </article>
+</div>
+</div>
 </div>

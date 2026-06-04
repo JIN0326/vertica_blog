@@ -3,10 +3,14 @@ title: "Vertica 포트 변경: 기본 DB 포트(5433) 변경 방법 - Vertica Bl
 layout: default
 description: "보안 정책이나 다른 서비스와의 충돌을 피하기 위해 Vertica의 기본 데이터베이스 포트(5433)를 변경하는 방법을 알아봅니다. DB 생성 시점과 생성 후 변경 방법을 모두 다룹니다."
 keywords: "vertica, port, change port, 5433, admintools.conf, alter node, security, database port"
+canonical_url: "https://jin0326.github.io/vertica_blog/600installation/600installation#change-port"
 ---
 
-<div id="change-port" style="scroll-margin-top: 100px;"></div>
+<div id="change-port" style="scroll-margin-top: 100px;" itemscope itemtype="https://schema.org/TechArticle">
+<meta itemprop="headline" content="{{ page.title | remove: ' - Vertica Blog' }}">
+<meta itemprop="url" content="{{ page.canonical_url }}">
 
+<div itemprop="articleBody">
 ## Vertica 포트 변경
 <div class="architecture-section">
   <p class="section-description">보안 정책이나 다른 서비스와의 충돌을 피하기 위해 Vertica의 기본 포트를 변경할 수 있습니다.</p>
@@ -43,4 +47,6 @@ admintools -t start_db -d &lt;DB_NAME&gt; -i
 vsql -p 35433 -c "SELECT name, address, clientport FROM vs_nodes;"</code></pre>
     </div>
   </div>
+</div>
+</div>
 </div>

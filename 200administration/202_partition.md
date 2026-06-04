@@ -3,10 +3,14 @@ title: "Vertica Partition: 파티션 프루닝, 계층적 파티셔닝 - Vertica
 layout: default
 description: "Vertica의 파티셔닝 기능을 알아봅니다. 파티션 프루닝을 통한 쿼리 성능 향상, 데이터 관리 용이성, 그리고 CALENDAR_HIERARCHY_DAY를 이용한 계층적 파티셔닝 방법을 설명합니다."
 keywords: "vertica, partition, partitioning, partition pruning, hierarchical partitioning, calendar_hierarchy_day, drop_partitions"
+canonical_url: "https://jin0326.github.io/vertica_blog/200administration/200administration#partition"
 ---
 
-<div id="partition" style="scroll-margin-top: 100px;"></div>
+<div id="partition" style="scroll-margin-top: 100px;" itemscope itemtype="https://schema.org/TechArticle">
+<meta itemprop="headline" content="{{ page.title | remove: ' - Vertica Blog' }}">
+<meta itemprop="url" content="{{ page.canonical_url }}">
 
+<div itemprop="articleBody">
 ## Partition
 
 <div class="architecture-section">
@@ -145,4 +149,6 @@ SELECT DROP_PARTITIONS('online_sales', 2022, 2022);</code></pre>
       </tbody>
     </table>
   </div>
+</div>
+</div>
 </div>

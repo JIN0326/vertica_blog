@@ -3,10 +3,14 @@ title: "Vertica Table & Projection: 논리/물리 모델, 분산 정책 - Vertic
 layout: default
 description: "Vertica의 핵심 객체인 Table(논리 모델)과 Projection(물리 저장)의 개념을 알아봅니다. CTAS, LIKE를 이용한 테이블 생성과 Segmentation, Replication 등 데이터 분산 정책을 설명합니다."
 keywords: "vertica, table, projection, ctas, like, segmentation, replication, buddy projection, columnar"
+canonical_url: "https://jin0326.github.io/vertica_blog/200administration/200administration#table-projection"
 ---
 
-<div id="table-projection" style="scroll-margin-top: 100px;"></div>
+<div id="table-projection" style="scroll-margin-top: 100px;" itemscope itemtype="https://schema.org/TechArticle">
+<meta itemprop="headline" content="{{ page.title | remove: ' - Vertica Blog' }}">
+<meta itemprop="url" content="{{ page.canonical_url }}">
 
+<div itemprop="articleBody">
 ## Table · Projection
 
 <div class="architecture-section">
@@ -221,4 +225,6 @@ SEGMENTED BY HASH(sale_id) ALL NODES; -- 분산키 정의</code></pre>
       </div>
     </div>
   </div>
+</div>
+</div>
 </div>

@@ -3,10 +3,14 @@ title: "Vertica Explain: 쿼리 실행 계획 분석 및 성능 튜닝 - Vertica
 layout: default
 description: "Vertica의 EXPLAIN 및 PROFILE 명령어를 사용하여 쿼리 실행 계획을 분석하고 성능 병목을 찾는 방법을 알아봅니다. Cost, Rows, Access Path, Join Type 등 실행 계획의 핵심 요소를 해석하는 방법을 설명합니다."
 keywords: "vertica, explain, profile, query tuning, performance, optimization, execution plan, optimizer, cost, access path, join"
+canonical_url: "https://jin0326.github.io/vertica_blog/300coretech/300coretech#explain"
 ---
 
-<div id="explain" style="scroll-margin-top: 100px;"></div>
+<div id="explain" style="scroll-margin-top: 100px;" itemscope itemtype="https://schema.org/TechArticle">
+<meta itemprop="headline" content="{{ page.title | remove: ' - Vertica Blog' }}">
+<meta itemprop="url" content="{{ page.canonical_url }}">
 
+<div itemprop="articleBody">
 ## Explain (쿼리 분석)
 
 <div class="architecture-section">
@@ -55,4 +59,6 @@ Access Path:
  | |      Projection: public.product_b0</code></pre>
     </div>
   </div>
+</div>
+</div>
 </div>

@@ -3,10 +3,14 @@ title: "Vertica Add Subcluster: Eon Mode 서브클러스터 및 노드 추가 - 
 layout: default
 description: "Vertica Eon Mode에서 워크로드 격리 및 확장을 위해 새로운 서브클러스터를 추가하거나, 기존 서브클러스터에 노드를 추가하는 방법을 알아봅니다."
 keywords: "vertica, add subcluster, add node, eon mode, scale out, workload isolation, db_add_subcluster, db_add_node, rebalance_shards, secondary subcluster"
+canonical_url: "https://jin0326.github.io/vertica_blog/600installation/600installation#add-subcluster"
 ---
 
-<div id="add-subcluster" style="scroll-margin-top: 100px;"></div>
+<div id="add-subcluster" style="scroll-margin-top: 100px;" itemscope itemtype="https://schema.org/TechArticle">
+<meta itemprop="headline" content="{{ page.title | remove: ' - Vertica Blog' }}">
+<meta itemprop="url" content="{{ page.canonical_url }}">
 
+<div itemprop="articleBody">
 ## Add Subcluster (Eon Mode)
 
 <div class="architecture-section">
@@ -62,4 +66,6 @@ LEFT JOIN v_catalog.node_subscriptions ns ON (n.node_name = ns.node_name)
 ORDER BY 1,2,3,5;</code></pre>
     </div>
   </div>
+</div>
+</div>
 </div>

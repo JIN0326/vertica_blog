@@ -3,10 +3,14 @@ title: "Vertica 아키텍처: Pure-MPP, Native Columnar 구조 심층 분석 - V
 layout: default
 description: "Vertica의 단순하고 효율적인 아키텍처를 알아봅니다. 별도의 마스터 노드가 없는 Pure-MPP 구조와 I/O를 획기적으로 줄이는 Native Columnar 저장 방식의 강점을 분석합니다."
 keywords: "vertica architecture, pure-mpp, mpp, native columnar, columnar"
+canonical_url: "https://jin0326.github.io/vertica_blog/100playbook/100playbook#architecture"
 ---
 
-<div id="architecture" style="scroll-margin-top: 100px;"></div>
+<div id="architecture" style="scroll-margin-top: 100px;" itemscope itemtype="https://schema.org/TechArticle">
+<meta itemprop="headline" content="{{ page.title | remove: ' - Vertica Blog' }}">
+<meta itemprop="url" content="{{ page.canonical_url }}">
 
+<div itemprop="articleBody">
 ## Vertica 아키텍처
 
 <div class="architecture-section">
@@ -75,4 +79,6 @@ keywords: "vertica architecture, pure-mpp, mpp, native columnar, columnar"
       </ul>
     </div>
   </div>
+</div>
+</div>
 </div>

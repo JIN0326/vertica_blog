@@ -3,10 +3,14 @@ title: "Vertica User: 사용자 생성, 관리, 계정 잠금 해제 - Vertica B
 layout: default
 description: "Vertica 데이터베이스 사용자(User) 관리 방법을 알아봅니다. 사용자 생성, 패스워드 및 리소스 풀 할당, 그리고 암호 오류로 잠긴 계정을 해제하는 방법을 설명합니다."
 keywords: "vertica, user, create user, alter user, drop user, account unlock, resource pool, profile"
+canonical_url: "https://jin0326.github.io/vertica_blog/200administration/200administration#user"
 ---
 
-<div id="user" style="scroll-margin-top: 100px;"></div>
+<div id="user" style="scroll-margin-top: 100px;" itemscope itemtype="https://schema.org/TechArticle">
+<meta itemprop="headline" content="{{ page.title | remove: ' - Vertica Blog' }}">
+<meta itemprop="url" content="{{ page.canonical_url }}">
 
+<div itemprop="articleBody">
 ## User
 
 <div class="architecture-section">
@@ -47,4 +51,6 @@ ALTER USER analyst ACCOUNT UNLOCK;</code></pre>
       <li><span class="feature-list__icon">🔹</span> <strong>사용자 조회:</strong> <span><code>SELECT * FROM USERS;</code> 쿼리를 통해 전체 데이터베이스 사용자 정보를 확인할 수 있습니다.</span></li>
     </ul>
   </div>
+</div>
+</div>
 </div>

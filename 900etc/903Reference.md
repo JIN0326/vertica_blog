@@ -2,9 +2,13 @@
 title: "Vertica(버티카) 고객사례: 금융, 통신, 제조, 의료 분야 도입 사례 - Vertica Blog"
 layout: default
 description: "Vertica(버티카) 고객사례. 금융(차세대 DW, 마이데이터, AML), 통신/제조(BIDW, SCM), 의료(CDW) 등 다양한 산업 분야의 리딩 기업들이 Vertica를 어떻게 활용하여 비즈니스를 혁신하고 있는지 실제 도입 사례를 확인하세요."
+canonical_url: "https://jin0326.github.io/vertica_blog/#reference"
 ---
 
-<section id="reference" class="administration-section">
+<section id="reference" class="administration-section" itemscope itemtype="https://schema.org/TechArticle">
+<meta itemprop="headline" content="{{ page.title | remove: ' - Vertica Blog' }}">
+<meta itemprop="url" content="{{ page.canonical_url }}">
+<div itemprop="articleBody">
   <h2>Vertica 고객사례</h2>
   <div class="portfolio-container" style="max-width: 1080px; margin: 0 auto;">
       <div class="portfolio-row">
@@ -43,4 +47,5 @@ description: "Vertica(버티카) 고객사례. 금융(차세대 DW, 마이데이
     <img src="/vertica_blog/assets/images/ref_hosp.png" alt="의료 분야 고객사례" style="border-radius: 8px;">
   </div>
  </div>
+</div>
 </section>

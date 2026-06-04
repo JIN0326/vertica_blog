@@ -3,10 +3,14 @@ title: "Vertica Resource Pool: 리소스 풀을 이용한 워크로드 관리 - 
 layout: default
 description: "Vertica의 Resource Pool(리소스 풀)을 사용하여 워크로드를 관리하는 방법을 알아봅니다. 메모리, 동시성, 쿼리 실행 시간 등을 제어하여 시스템 자원을 효율적으로 배분합니다."
 keywords: "vertica, resource pool, workload management, memorysize, maxconcurrency, plannedconcurrency, runtimecap"
+canonical_url: "https://jin0326.github.io/vertica_blog/200administration/200administration#resource-pool"
 ---
 
-<div id="resource-pool" style="scroll-margin-top: 100px;"></div>
+<div id="resource-pool" style="scroll-margin-top: 100px;" itemscope itemtype="https://schema.org/TechArticle">
+<meta itemprop="headline" content="{{ page.title | remove: ' - Vertica Blog' }}">
+<meta itemprop="url" content="{{ page.canonical_url }}">
 
+<div itemprop="articleBody">
 ## Resource Pool
 
 <div class="architecture-section">
@@ -48,4 +52,6 @@ GRANT USAGE ON RESOURCE POOL batch_pool TO batch_user;
 -- 3. 사용자에게 기본 리소스 풀 할당 (ALTER USER)
 ALTER USER batch_user RESOURCE POOL batch_pool;</code></pre>
   </div>
+</div>
+</div>
 </div>

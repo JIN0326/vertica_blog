@@ -3,10 +3,14 @@ title: "Vertica Tuple Mover: Mergeout과 Purge를 통한 최적화 - Vertica Blo
 layout: default
 description: "Vertica의 백그라운드 프로세스인 Tuple Mover의 역할을 알아봅니다. Mergeout을 통한 데이터 컨테이너 병합과 Purge를 통한 삭제 데이터 공간 회수 방법을 설명합니다."
 keywords: "vertica, tuple mover, mergeout, purge, ros, wos, do_tm_task, purge_table"
+canonical_url: "https://jin0326.github.io/vertica_blog/200administration/200administration#tuple-mover"
 ---
 
-<div id="tuple-mover" style="scroll-margin-top: 100px;"></div>
+<div id="tuple-mover" style="scroll-margin-top: 100px;" itemscope itemtype="https://schema.org/TechArticle">
+<meta itemprop="headline" content="{{ page.title | remove: ' - Vertica Blog' }}">
+<meta itemprop="url" content="{{ page.canonical_url }}">
 
+<div itemprop="articleBody">
 ## Tuple Mover (Mergeout & Purge)
 
 <div class="architecture-section">
@@ -53,4 +57,6 @@ SELECT PURGE_PARTITION('public.sales', '2023-01-01');</code></pre>
       <li><span class="feature-list__icon">💡</span> <strong>Tip:</strong> <span>대규모 <code>DELETE</code> 작업 후에는 디스크 공간을 즉시 회수하기 위해 수동으로 Purge 작업을 실행하는 것이 좋습니다.</span></li>
     </ul>
   </div>
+</div>
+</div>
 </div>
