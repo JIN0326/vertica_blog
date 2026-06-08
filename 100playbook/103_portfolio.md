@@ -10,7 +10,7 @@ canonical_url: "https://jin0326.github.io/vertica_blog/100playbook/100playbook#p
 <meta itemprop="headline" content="{{ page.title | remove: ' - Vertica Blog' }}">
 <meta itemprop="url" content="{{ page.canonical_url }}">
 
-<div itemprop="articleBody">
+<div itemprop="articleBody" markdown="1">
 ## Vertica 포트폴리오
 
 Vertica는 온프레미스부터 퍼블릭/프라이빗 클라우드까지 고객의 환경에 최적화된 다양한 배포 옵션을 제공합니다.

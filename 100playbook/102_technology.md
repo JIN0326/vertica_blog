@@ -10,7 +10,7 @@ canonical_url: "https://jin0326.github.io/vertica_blog/100playbook/100playbook#t
 <meta itemprop="headline" content="{{ page.title | remove: ' - Vertica Blog' }}">
 <meta itemprop="url" content="{{ page.canonical_url }}">
 
-<div itemprop="articleBody">
+<div itemprop="articleBody" markdown="1">
 ## Vertica 핵심 기술
 
 Vertica는 다음 6가지 기술 요소를 중심으로 고성능 분석을 지원합니다.

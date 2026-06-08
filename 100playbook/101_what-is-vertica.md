@@ -10,7 +10,7 @@ canonical_url: "https://jin0326.github.io/vertica_blog/100playbook/100playbook#w
 <meta itemprop="headline" content="{{ page.title | remove: ' - Vertica Blog' }}">
 <meta itemprop="url" content="{{ page.canonical_url }}">
 
-<div itemprop="articleBody">
+<div itemprop="articleBody" markdown="1">
 ## Vertica란 무엇인가
 
 Vertica는 데이터 수집부터 분석, 시각화에 이르는 전 과정을 통합한 <strong>현대적인 데이터 레이크하우스(Data Lakehouse)</strong> 아키텍처를 제공합니다.
