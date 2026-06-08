@@ -10,7 +10,7 @@ canonical_url: "https://jin0326.github.io/vertica_blog/500auth_security/500auth_
 <meta itemprop="headline" content="{{ page.title | remove: ' - Vertica Blog' }}">
 <meta itemprop="url" content="{{ page.canonical_url }}">
 
-<div itemprop="articleBody">
+<div itemprop="articleBody" markdown="1">
 ## LDAP 인증
 <div class="architecture-section">
   <p class="section-description">Vertica는 사내 통합 계정 관리를 위해 OpenLDAP 또는 Active Directory(AD) 서버와 연동하여 사용자 인증을 수행할 수 있습니다. 주로 <strong>LDAP Bind (단순 바인드)</strong>와 <strong>LDAP Search and Bind (검색 및 바인드)</strong> 두 가지 방식을 지원합니다.</p>

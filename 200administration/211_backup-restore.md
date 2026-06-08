@@ -10,7 +10,7 @@ canonical_url: "https://jin0326.github.io/vertica_blog/200administration/200admi
 <meta itemprop="headline" content="{{ page.title | remove: ' - Vertica Blog' }}">
 <meta itemprop="url" content="{{ page.canonical_url }}">
 
-<div itemprop="articleBody">
+<div itemprop="articleBody" markdown="1">
 ## Backup & Restore
 <div class="architecture-section">
   <p class="section-description">Vertica는 <code>vbr</code> 유틸리티를 통해 다양한 백업 및 복구 시나리오를 지원합니다. 백업 방식은 크게 전체 DB를 백업하는 <strong>Full Backup</strong>과 특정 객체만 백업하는 <strong>Object-Level Backup</strong>으로 나뉩니다. 모든 설정은 <code>.ini</code> 구성 파일을 통해 관리되며, 다양한 예제 파일이 <code>/opt/vertica/share/vbr/example_configs</code> 경로에 제공됩니다.</p>

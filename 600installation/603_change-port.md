@@ -10,7 +10,7 @@ canonical_url: "https://jin0326.github.io/vertica_blog/600installation/600instal
 <meta itemprop="headline" content="{{ page.title | remove: ' - Vertica Blog' }}">
 <meta itemprop="url" content="{{ page.canonical_url }}">
 
-<div itemprop="articleBody">
+<div itemprop="articleBody" markdown="1">
 ## Vertica 포트 변경
 <div class="architecture-section">
   <p class="section-description">보안 정책이나 다른 서비스와의 충돌을 피하기 위해 Vertica의 기본 포트를 변경할 수 있습니다.</p>

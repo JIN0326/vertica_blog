@@ -10,7 +10,7 @@ canonical_url: "https://jin0326.github.io/vertica_blog/600installation/600instal
 <meta itemprop="headline" content="{{ page.title | remove: ' - Vertica Blog' }}">
 <meta itemprop="url" content="{{ page.canonical_url }}">
 
-<div itemprop="articleBody">
+<div itemprop="articleBody" markdown="1">
 ## vcluster (REST API CLI)
 
 <div class="architecture-section">

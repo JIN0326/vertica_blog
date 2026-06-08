@@ -10,7 +10,7 @@ canonical_url: "https://jin0326.github.io/vertica_blog/600installation/600instal
 <meta itemprop="headline" content="{{ page.title | remove: ' - Vertica Blog' }}">
 <meta itemprop="url" content="{{ page.canonical_url }}">
 
-<div itemprop="articleBody">
+<div itemprop="articleBody" markdown="1">
 ## 초기 설정
 <div class="architecture-section">
   <p class="section-description">데이터베이스 생성 후, 안정적인 운영과 성능 최적화를 위해 몇 가지 초기 설정을 수행하는 것이 좋습니다.</p>

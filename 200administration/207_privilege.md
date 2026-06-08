@@ -10,7 +10,7 @@ canonical_url: "https://jin0326.github.io/vertica_blog/200administration/200admi
 <meta itemprop="headline" content="{{ page.title | remove: ' - Vertica Blog' }}">
 <meta itemprop="url" content="{{ page.canonical_url }}">
 
-<div itemprop="articleBody">
+<div itemprop="articleBody" markdown="1">
 ## Privilege
 <div class="architecture-section">
   <p class="section-description"><strong>Privilege(권한)</strong>는 사용자가 SCHEMA, TABLE, RESOURCE POOL 등의 객체에 접근하고 조작할 수 있는 권리를 의미합니다. Vertica에서는 <strong>Role(역할)</strong> 기반의 권한 관리와 <strong>스키마 권한 상속(Schema Inheritance)</strong>을 적극 활용하여 복잡한 권한 체계를 효율적으로 관리할 수 있습니다.</p>

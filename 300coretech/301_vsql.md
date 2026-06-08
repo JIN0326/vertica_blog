@@ -10,7 +10,7 @@ canonical_url: "https://jin0326.github.io/vertica_blog/300coretech/300coretech#v
 <meta itemprop="headline" content="{{ page.title | remove: ' - Vertica Blog' }}">
 <meta itemprop="url" content="{{ page.canonical_url }}">
 
-<div itemprop="articleBody">
+<div itemprop="articleBody" markdown="1">
 ## vsql (CLI)
 
 <div class="architecture-section">
