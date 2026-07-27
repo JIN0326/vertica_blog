@@ -78,19 +78,18 @@ SELECT * FROM temp_sales;</code></pre>
       <div class="syntax-box">
         <strong>외부 테이블 생성 및 사용 예시:</strong>
         <pre><code>-- 외부 파일의 구조를 기반으로 외부 테이블 자동 생성
-CREATE EXTERNAL TABLE ext_logs (
-    log_timestamp TIMESTAMP,
-    ip_address VARCHAR,
-    message VARCHAR
-) AS COPY FROM 's3://my-log-bucket/logs/2024/07/log-*.gz'
-PARSER FDELIMITEDPARSER(delimiter=',', record_terminator='\n')
-GZIP;
+CREATE EXTERNAL TABLE records (
+  id int, 
+  name varchar(50), 
+  created date, 
+  region varchar(50)
+) AS COPY FROM 's3://datalake/sales/*/*/*'
+PARTITION COLUMNS created, region;
 
 -- 외부 테이블 조회
-SELECT ip_address, count(*) 
-FROM ext_logs 
-WHERE message LIKE '%ERROR%'
-GROUP BY 1;</code></pre>
+SELECT *
+FROM records 
+;</code></pre>
       </div>
     </div>
   </div>
@@ -128,8 +127,8 @@ GROUP BY 1, 2;</code></pre>
         <pre><code>-- 'sales' 테이블과 동일한 구조를 가진 'sales_archive' 테이블 생성
 CREATE TABLE sales_archive LIKE sales;
 
--- 특정 컬럼의 속성만 복사 (예: 기본값, 제약조건)
-CREATE TABLE sales_archive_light LIKE sales INCLUDING COLUMN DEFAULTS;</code></pre>
+-- PROJECTION 속성 복사
+CREATE TABLE sales_archive_light LIKE sales INCLUDING PROJECTIONS;</code></pre>
       </div>
        <dl class="feature-dl" style="margin-top: 1rem;">
         <dt class="feature-dt"><span class="feature-dt__icon">◆</span> 주요 복제 옵션</dt>

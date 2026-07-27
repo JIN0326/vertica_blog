@@ -67,14 +67,24 @@ SELECT IMPORT_STATISTICS('/tmp/sales_stats.json');</code></pre>
     </div>
     <p class="section-description" style="margin-top: 1.5rem;"><code>PROJECTION_COLUMNS</code> 시스템 테이블을 조회하여 각 컬럼의 통계 정보가 최신 상태인지(<code>statistics_up_to_date</code>) 확인할 수 있습니다.</p>
     <div class="syntax-box">
-      <strong>통계 상태 확인 쿼리:</strong>
-      <pre><code>SELECT
+      <strong>통계 상태 확인 쿼리_프로젝션:</strong>
+      <pre><code>SELECT distinct
     projection_schema,
+    anchor_table_name
     projection_name,
-    column_name,
-    statistics_up_to_date
+    has_statistics
+FROM v_catalog.projections
+WHERE projection_schema = 'public' AND anchor_table_name ILIKE 'sales%';</code></pre>
+<strong>통계 상태 확인 쿼리_컬럼:</strong>
+      <pre><code>SELECT distinct
+    table_schema,
+    table_name
+    projection_name,
+    table_column_name,
+    statistics_updated_timestamp
 FROM v_catalog.projection_columns
-WHERE projection_schema = 'public' AND projection_name LIKE 'sales%';</code></pre>
+WHERE table_schema = 'public' AND table_name ILIKE 'sales%';</code></pre>
+
     </div>
   </div>
 </div>

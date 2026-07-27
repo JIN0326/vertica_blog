@@ -54,7 +54,7 @@ PARTITION BY EXTRACT(YEAR FROM order_date);</code></pre>
       <div class="syntax-box">
         <strong>기존 테이블에 파티션 적용 예시:</strong>
         <pre><code>-- 'online_sales' 테이블을 'order_date'의 연도별로 파티셔닝
-ALTER TABLE online_sales PARTITION BY EXTRACT(YEAR FROM order_date) REORAGNIZE;</code></pre>
+ALTER TABLE online_sales PARTITION BY EXTRACT(YEAR FROM order_date) REORGANIZE;</code></pre>
       </div>
     </div>
   </div>
@@ -92,7 +92,7 @@ END);</code></pre>
     amount DECIMAL(18,2)
 )
 PARTITION BY sale_timestamp
-GROUP BY CALENDAR_HIERARCHY_DAY(sale_timestamp, 2, 2);</code></pre>
+GROUP BY CALENDAR_HIERARCHY_DAY(sale_timestamp::DATE, 2, 2);</code></pre>
       </div>
       <ul class="feature-list" style="margin-top: 1rem;">
         <li><span class="feature-list__icon">💡</span> <strong>Tip:</strong> <span><code>CALENDAR_HIERARCHY_DAY(date, N, M)</code>는 날짜 계층(연, 분기, 월, 일 등)에서 상위 N개와 하위 M개 레벨을 제외하고 그룹화하여 효율적인 계층 파티션을 생성합니다.</span></li>
@@ -106,7 +106,7 @@ GROUP BY CALENDAR_HIERARCHY_DAY(sale_timestamp, 2, 2);</code></pre>
     <div class="syntax-box">
       <strong>파티션 관리 예시:</strong>
       <pre><code>-- 테이블의 파티션 키 목록 확인
-SELECT GET_PARTITION_KEYS('online_sales');
+SELECT DUMP_TABLE_PARTITION_KEYS('online_sales');
 
 -- 특정 파티션 삭제 (2022년 데이터)
 SELECT DROP_PARTITIONS('online_sales', 2022, 2022);</code></pre>

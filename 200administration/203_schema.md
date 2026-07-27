@@ -58,20 +58,15 @@ CREATE SCHEMA staging AUTHORIZATION user_admin;</code></pre>
     <div class="syntax-box">
       <strong>주요 수정 구문:</strong>
       <pre><code>-- 스키마 이름 변경
-ALTER SCHEMA schema RENAME TO new_schema_name;
+ALTER SCHEMA analytics RENAME TO new_analytics;
 
 -- 스키마 소유자 변경
-ALTER SCHEMA schema OWNER TO username;
+ALTER SCHEMA new_analytics OWNER TO user_imsi;
 
 -- 권한 상속 설정 변경
 ALTER SCHEMA schema DEFAULT {INCLUDE | EXCLUDE} SCHEMA PRIVILEGES;</code></pre>
     </div>
-    <p class="example-label">예시</p>
-    <pre><code>-- 스키마 이름 변경
-ALTER SCHEMA old_biz RENAME TO sales_biz;
-
--- 소유자를 dbadmin으로 변경
-ALTER SCHEMA sales_biz OWNER TO dbadmin;</code></pre>
+    
   </div>
 
   <div class="architecture-subsection">

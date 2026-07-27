@@ -42,7 +42,7 @@ canonical_url: "https://jin0326.github.io/vertica_blog/300coretech/300coretech#e
       <pre><code>EXPORT TO DELIMITED(
     directory = '/data/export/sales/',
     delimiter = '|',
-    null = 'NULL'
+    nullAs = 'NULL'
 ) AS SELECT * FROM public.sales;</code></pre>
     </div>
     <dl class="feature-dl">
@@ -84,11 +84,9 @@ FROM public.sales;</code></pre>
     <h3 class="section-subtitle">4. EXPORT TO ICEBERG (Iceberg 테이블로 내보내기)</h3>
     <p class="section-description">데이터를 Apache Iceberg 테이블 포맷으로 내보냅니다. 데이터 레이크하우스 환경에서 트랜잭션과 스키마 변경을 효율적으로 관리할 수 있습니다.</p>
     <div class="syntax-box">
-      <pre><code>EXPORT TO ICEBERG(
-    location='s3://my-iceberg-lake/warehouse/sales_iceberg',
-    format='parquet'
-)
-AS SELECT * FROM public.sales;</code></pre>
+      <pre><code> EXPORT TO PARQUET (icebergcatalog='filesystem', directory='s3://iceberg-storage/warehouse/mydb/sales_iceberg') as select * from sales;
+
+]$ </code></pre>
     </div>
   </div>
 

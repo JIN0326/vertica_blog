@@ -87,18 +87,25 @@ vsql -U u2 -c "SELECT * FROM sc2.t1;"</code></pre>
       <p class="section-description">사용자 `u2`가 `u1`이 생성한 뷰 `v_t`를 조회하려고 합니다. `v_t`는 `sc4.t1` 테이블을 참조합니다. `u2`는 뷰에 대한 `SELECT` 권한은 있지만, 기반 테이블 `sc4.t1`에 대한 권한이 없어 조회가 실패합니다.</p>
       <div class="syntax-box">
         <pre><code>-- 1. u1에게 sc4.t1 테이블 조회 권한 부여 (위임 권한 없음)
+CREATE SCHEMA sc4;
+CREATE TABLE sc4.t1(a int);
+GRANT USAGE, SELECT, CREATE ON SCHEMA PUBLIC TO u1;
+GRANT USAGE, SELECT, CREATE ON SCHEMA sc4 TO u1;
 GRANT SELECT ON TABLE sc4.t1 TO u1;
+GRANT SELECT ON SCHEMA PUBLIC TO u2;
+
 
 -- 2. u1이 sc4.t1을 참조하는 뷰 생성
 --- (u1은 뷰의 소유자이므로, 다른 사용자에게 이 뷰에 대한 권한을 부여할 수 있음)
-vsql -U u1 -c "CREATE VIEW sc4.v_t AS SELECT * FROM sc4.t1;"
+vsql -U u1 -c "CREATE VIEW v_t AS SELECT * FROM sc4.t1;"
+vsql -U u1 -c "SELECT * FROM v_t;"
 
--- 3. u1이 u2에게 뷰 조회 권한 부여
-vsql -U u1 -c "GRANT SELECT ON VIEW sc4.v_t TO u2;"
+-- 3. DBA가 u2에게 뷰 조회 권한 부여
+GRANT SELECT ON TABLE v_t TO u2;
 
 -- 4. u2가 뷰 조회 시도 -> 실패
 --- 이유: u2는 뷰의 기반 테이블인 sc4.t1에 대한 SELECT 권한이 없음
-vsql -U u2 -c "SELECT * FROM sc4.v_t;"</code></pre>
+vsql -U u2 -c "SELECT * FROM v_t;"</code></pre>
       </div>
     </div>
 
@@ -113,8 +120,8 @@ GRANT SELECT ON TABLE sc4.t1 TO u1 WITH GRANT OPTION;
 vsql -U u1 -c "GRANT SELECT ON TABLE sc4.t1 TO u2;"
 
 -- 3. u2가 뷰 조회 시도 -> 성공
---- 이유: u2는 이제 뷰(sc4.v_t)와 기반 테이블(sc4.t1) 모두에 대한 SELECT 권한을 가짐
-vsql -U u2 -c "SELECT * FROM sc4.v_t;"</code></pre>
+--- 이유: u2는 이제 뷰(v_t)와 기반 테이블(sc4.t1) 모두에 대한 SELECT 권한을 가짐
+vsql -U u2 -c "SELECT * FROM v_t;"</code></pre>
       </div>
     </div>
   </div>

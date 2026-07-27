@@ -55,10 +55,10 @@ chmod 600 /home/vertica/Backups/.pwd.txt
 vbr -t init -c backup_restore_full_local.ini
 
 # 3. 백업 실행
-vbr -t backup -c backup_restore_full_local.ini
+vbr -t backup -c backup_restore_full_local.ini --debug 3
 
 # 4. 복구 실행 (DB 중단 후)
-vbr -t restore -c backup_restore_full_local.ini
+vbr -t restore -c backup_restore_full_local.ini --debug 3
 
 # 5. 특정 시점(Archive)으로 복구
 # 먼저 백업 리스트 확인
@@ -101,13 +101,13 @@ dbPromptForPassword = False</code></pre>
       <h4 class="step-title">실행 절차</h4>
       <div class="syntax-box">
         <pre><code># 백업 실행
-vbr -t backup -c backup_restore_object_local.ini
+vbr -t backup -c backup_restore_object_local.ini --debug 3
 
 # 복구 실행 (DB 기동 중)
 # 모든 객체 복구
-vbr -t restore -c backup_restore_object_local.ini
+vbr -t restore -c backup_restore_object_local.ini --debug 3
 # 특정 객체만 복구
-vbr -t restore -c backup_restore_object_local.ini --restore-objects=public.sales</code></pre>
+vbr -t restore -c backup_restore_object_local.ini --restore-objects=public.sales --debug 3</code></pre>
       </div>
     </div>
   </div>
@@ -142,10 +142,10 @@ passwordFile = /home/vertica/Backups/.pwd.txt</code></pre>
       <h4 class="step-title">실행 절차</h4>
       <div class="syntax-box">
         <pre><code># 백업 실행
-vbr -t backup -c backup_restore_full_hardlink.ini
+vbr -t backup -c backup_restore_full_hardlink.ini --debug 3
 
 # 복구 실행 (DB 중단 후)
-vbr -t restore -c backup_restore_full_hardlink.ini</code></pre>
+vbr -t restore -c backup_restore_full_hardlink.ini --debug 3</code></pre>
       </div>
     </div>
   </div>
@@ -201,10 +201,10 @@ dbPromptForPassword = False</code></pre>
 vbr -t init -c backup_restore_cloud_storage.ini
 
 # 백업 실행
-vbr -t backup -c backup_restore_cloud_storage.ini
+vbr -t backup -c backup_restore_cloud_storage.ini --debug 3
 
 # 복구 실행
-vbr -t restore -c backup_restore_cloud_storage.ini</code></pre>
+vbr -t restore -c backup_restore_cloud_storage.ini --debug 3</code></pre>
       </div>
     </div>
   </div>

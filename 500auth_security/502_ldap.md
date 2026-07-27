@@ -176,7 +176,7 @@ WHERE AUTH_NAME = 'ldap_auth'
 ORDER BY auth_parameter_name;
 
 -- 사용자에게 할당된 인증 방식 조회
-SELECT user_name, auth_name, is_auth_enabled, auth_method
+SELECT user_name, uca.auth_name, is_auth_enabled, auth_method
 FROM USER_CLIENT_AUTH uca
 JOIN CLIENT_AUTH ca ON uca.auth_oid = ca.auth_oid
 WHERE user_name = 'test_user'
